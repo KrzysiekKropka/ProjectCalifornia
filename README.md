@@ -5,3 +5,5 @@ Ustawiłem aby ignorowało foldery Library, Logs, Temp i UserSettings, więc za 
 Te foldery są niepotrzebne na Githubie, zajmują około 1100 MB i generują się automatycznie.
 
 Możliwe, że nic się nie pokaże, gdyż załaduje się pusta scena. W takim razie, odpalcie Scenes/SampleScene.unity poprzez File -> Open Scene.
+
+![image](https://user-images.githubusercontent.com/91200856/205708362-ba0f285b-b580-4630-a5d7-156c18c2843b.png)
