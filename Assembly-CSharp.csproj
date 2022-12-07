@@ -58,18 +58,18 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Postac\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Reused\QuizManager.cs" />
+    <Compile Include="Assets\Scripts\Kamera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Reused\AnswerScript.cs" />
     <Compile Include="Assets\Scripts\Reused\LevelMove_Ref.cs" />
     <Compile Include="Assets\Scripts\Postac\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\Reused\KeyDisplay.cs" />
     <Compile Include="Assets\Scripts\Reused\QuestionAndAnswers.cs" />
     <Compile Include="Assets\Scripts\Reused\RuchKamery.cs" />
-    <Compile Include="Assets\Scripts\Reused\HeartSystem.cs" />
-    <Compile Include="Assets\Scripts\Reused\GoodAnswers.cs" />
-    <Compile Include="Assets\Scripts\Kamera\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\Postac\TestingGarbage.cs" />
     <Compile Include="Assets\Scripts\Postac\Shooting.cs" />
+    <Compile Include="Assets\Scripts\Reused\HeartSystem.cs" />
     <Compile Include="Assets\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Postac\TestingGarbage.cs" />
+    <Compile Include="Assets\Scripts\Reused\GoodAnswers.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
