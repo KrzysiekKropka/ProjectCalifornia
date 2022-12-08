@@ -44,8 +44,6 @@ GameObject:
   - component: {fileID: 415657006011368949}
   - component: {fileID: 415657006011368948}
   - component: {fileID: 415657006011368715}
-  - component: {fileID: 415657006011368714}
-  - component: {fileID: 415657006011368713}
   - component: {fileID: 415657006011368712}
   m_Layer: 0
   m_Name: "Posta\u0107"
@@ -139,9 +137,9 @@ Rigidbody2D:
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &415657006011368948
 BoxCollider2D:
@@ -156,7 +154,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.015244769}
+  m_Offset: {x: 0, y: -0.029851813}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -167,7 +165,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13918221, y: 0.12951046}
+  m_Size: {x: 0.13972154, y: 0.13023037}
   m_EdgeRadius: 0
 --- !u!114 &415657006011368715
 MonoBehaviour:
@@ -176,43 +174,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415657006011368944}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 747eedd34bcfc5248905dbf67fb4e9b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
   rb: {fileID: 415657006011368949}
-  player: {fileID: 415657006011368950}
---- !u!114 &415657006011368714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415657006011368944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4db120b73eee6ff448e7e0cd277a7308, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  rb: {fileID: 415657006011368949}
---- !u!114 &415657006011368713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415657006011368944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf45ed5ddeec7a49918cae5cdb2593b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  rb: {fileID: 415657006011368949}
-  player: {fileID: 0}
 --- !u!114 &415657006011368712
 MonoBehaviour:
   m_ObjectHideFlags: 0

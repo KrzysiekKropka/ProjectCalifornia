@@ -12,7 +12,7 @@ public class CameraFollow : MonoBehaviour
 
     public Transform player;
 
-    void FixedUpdate()
+    void Update()
     {
         Vector3 targetPosition = player.position + offset;
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
