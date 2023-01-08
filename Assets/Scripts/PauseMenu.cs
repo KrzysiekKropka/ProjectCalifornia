@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// KK: TODO: Komentarze moga byc w przyszlosci potrzebne. 
+/// </summary>
+
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
@@ -12,8 +16,6 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
     }
-
-    
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -28,21 +30,18 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
-
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
     }
-
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
-
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
