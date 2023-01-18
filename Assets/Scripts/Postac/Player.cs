@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed = 5f;
+    public int health = 100;
 
     public Rigidbody2D rb;
     public GameObject pausePrefab;
