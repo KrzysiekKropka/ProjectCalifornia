@@ -1,11 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     public float speed = 5f;
-    public int health = 100;
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    public HealthBar healthBar;
 
     public Rigidbody2D rb;
     public GameObject pausePrefab;
@@ -13,10 +16,12 @@ public class Player : MonoBehaviour
     Vector2 moveDirection;
     Vector2 mousePosition;
 
-    // KK: Dodaje prefab z canvasem i pauza do levela w kt�rym jest gracz.
+    // KK: Dodaje prefab z canvasem i pauzę do levela w którym jest gracz.
     private void Start()
     {
         GameObject pause = Instantiate(pausePrefab);
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     //KK: Prosto z poradnika Brackeys (RIP).
@@ -27,7 +32,13 @@ public class Player : MonoBehaviour
 
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(20);
+        }
     }
+
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
@@ -35,5 +46,12 @@ public class Player : MonoBehaviour
         Vector2 aimDirection = mousePosition - rb.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 87f;
         rb.rotation = aimAngle;
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        healthBar.SetHealth(currentHealth);
     }
 }
