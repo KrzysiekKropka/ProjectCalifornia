@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+
+        //KK: Wciskamy spację, zabiera 20 HP od nas.
         if(Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(20);
@@ -48,6 +50,9 @@ public class Player : MonoBehaviour
         rb.rotation = aimAngle;
     }
 
+
+    //KK: Kiedy dostajemy od czegoś wpierdol, usuwa damage od obecnego zdrowia gracza i ustawia wartość filla w healthBarze na obecne HP gracza.
+    //Tutaj zrób skrypt na game over.
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
