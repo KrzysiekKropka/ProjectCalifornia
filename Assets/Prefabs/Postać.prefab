@@ -182,6 +182,7 @@ MonoBehaviour:
   speed: 7.5
   maxHealth: 100
   currentHealth: 0
+  experiencePoints: 0
   healthBar: {fileID: 0}
   rb: {fileID: 415657006011368949}
   pausePrefab: {fileID: 7449026929469589033, guid: 51eb7272ab2e02543bb53dec9bda5df7, type: 3}
@@ -199,4 +200,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 415657005409445192}
   bulletPrefab: {fileID: 2444222622796115849, guid: 1916dc42e3d5ca4478c8cb6d81251b9f, type: 3}
-  bulletForce: 15
+  bulletForce: 25
