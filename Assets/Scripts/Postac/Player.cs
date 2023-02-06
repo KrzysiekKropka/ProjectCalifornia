@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices;
 
 public class Player : MonoBehaviour
 {
+    [DllImport("user32.dll")] static extern bool SetCursorPos(int X, int Y);
+
     public float speed = 5f;
     public int maxHealth = 100;
     public int currentHealth;
+    public int experiencePoints;
 
     public HealthBar healthBar;
 
@@ -22,7 +26,9 @@ public class Player : MonoBehaviour
     {
         GameObject pause = Instantiate(pausePrefab);
         currentHealth = maxHealth;
+        experiencePoints = PlayerPrefs.GetInt("experiencePoints");
         healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetExperiencePoints(experiencePoints);
     }
 
     //KK: Prosto z poradnika Brackeys (RIP).
@@ -38,7 +44,17 @@ public class Player : MonoBehaviour
         //KK: Wciskamy spację, zabiera 20 HP od nas.
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            TakeDamage(20);
+            TakeDamage(15);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            GetXP(15);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            PlayerPrefs.DeleteKey("experiencePoints");
         }
     }
 
@@ -57,11 +73,20 @@ public class Player : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
-        healthBar.SetHealth(currentHealth);
-        if(currentHealth == 0)
+        if (currentHealth <= 0)
         {
             SceneManager.LoadScene("GameOver");
         }
+        else
+        {
+            healthBar.SetHealth(currentHealth);
+        }
+    }
+
+    void GetXP(int XP)
+    {
+        experiencePoints += XP;
+        healthBar.SetExperiencePoints(experiencePoints);
+        PlayerPrefs.SetInt("experiencePoints", experiencePoints);
     }
 }

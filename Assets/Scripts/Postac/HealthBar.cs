@@ -9,7 +9,8 @@ public class HealthBar : MonoBehaviour
 
     public Slider slider;
     public TMP_Text healthText;
-    
+    public TMP_Text experiencePointsText;
+
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;
@@ -21,5 +22,10 @@ public class HealthBar : MonoBehaviour
     {
         slider.value = health;
         healthText.text = health.ToString();
+    }
+
+    public void SetExperiencePoints(int experiencePoints)
+    {
+        experiencePointsText.text = "XP: " + experiencePoints.ToString();
     }
 }
