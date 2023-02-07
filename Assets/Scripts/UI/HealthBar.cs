@@ -26,6 +26,6 @@ public class HealthBar : MonoBehaviour
 
     public void SetExperiencePoints(int experiencePoints)
     {
-        experiencePointsText.text = "XP: " + experiencePoints.ToString();
+        experiencePointsText.text = "XP: " + experiencePoints;
     }
 }

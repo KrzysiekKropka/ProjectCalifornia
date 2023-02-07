@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
-    public void PlayGame()
+    public void PlayGame(int level)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Lvl"+level);
     }
     public void ExitGame()
     {
