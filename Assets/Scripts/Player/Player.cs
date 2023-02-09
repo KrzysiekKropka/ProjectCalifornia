@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public int experiencePoints;
+    public int money;
 
     public HealthBar healthBar;
 
@@ -27,8 +28,10 @@ public class Player : MonoBehaviour
         GameObject pause = Instantiate(pausePrefab);
         currentHealth = maxHealth;
         experiencePoints = PlayerPrefs.GetInt("experiencePoints");
+        money = PlayerPrefs.GetInt("money");
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetExperiencePoints(experiencePoints);
+        healthBar.SetMoney(money);
         PlayerPrefs.SetInt("money", 10000);
     }
 
@@ -51,6 +54,11 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             GetXP(15);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GetMoney(1000);
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -89,5 +97,12 @@ public class Player : MonoBehaviour
         experiencePoints += XP;
         healthBar.SetExperiencePoints(experiencePoints);
         PlayerPrefs.SetInt("experiencePoints", experiencePoints);
+    }
+
+    void GetMoney(int gotMoney)
+    {
+        money += gotMoney;
+        healthBar.SetMoney(money);
+        PlayerPrefs.SetInt("money", money);
     }
 }

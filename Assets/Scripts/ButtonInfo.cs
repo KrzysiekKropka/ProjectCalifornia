@@ -14,6 +14,13 @@ public class ButtonInfo : MonoBehaviour
     void Update()
     {
         priceText.text = ShopManager.GetComponent<ShopManager>().shopItems[2,itemID].ToString() + "$";
-        quantityText.text = ShopManager.GetComponent<ShopManager>().shopItems[3, itemID].ToString() + "X";
+        if (ShopManager.GetComponent<ShopManager>().shopItems[3, itemID] >= 1)
+        {
+            quantityText.text = "OWNED!";
+        }
+        else
+        {
+            quantityText.text = "BUY NOW!";
+        }
     }
 }

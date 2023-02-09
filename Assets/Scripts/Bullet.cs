@@ -10,7 +10,6 @@ public class Bullet : MonoBehaviour
     {
         ///GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
         ///Destroy(effect, 5f);
-        ///
         var enemy = collision.collider.GetComponent<AIBrain>();
         if (enemy)
         {

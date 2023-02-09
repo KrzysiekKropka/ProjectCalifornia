@@ -36,15 +36,26 @@ public class ShopManager : MonoBehaviour
         shopItems[3, 4] = PlayerPrefs.GetInt("itemQuantity" + 4);
     }
 
+    public void ResetQuantity()
+    {
+        shopItems[3, 1] = 0;
+        shopItems[3, 2] = 0;
+        shopItems[3, 3] = 0;
+        shopItems[3, 4] = 0;
+        PlayerPrefs.SetInt("itemQuantity" + 1, 0);
+        PlayerPrefs.SetInt("itemQuantity" + 2, 0);
+        PlayerPrefs.SetInt("itemQuantity" + 3, 0);
+        PlayerPrefs.SetInt("itemQuantity" + 4, 0);
+    }
+
     public void BuyItem()
     {
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
-        if (money >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().itemID])
+        if ((money >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().itemID]) && (shopItems[3, ButtonRef.GetComponent<ButtonInfo>().itemID]==0))
         {
             money -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().itemID];
             shopItems[3, ButtonRef.GetComponent<ButtonInfo>().itemID]++;
             moneyText.text = "Money: " + money + "$";
-            ButtonRef.GetComponent<ButtonInfo>().quantityText.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().itemID].ToString();
             PlayerPrefs.SetInt("itemQuantity" + ButtonRef.GetComponent<ButtonInfo>().itemID, shopItems[3, ButtonRef.GetComponent<ButtonInfo>().itemID]);
             PlayerPrefs.SetInt("money", money);
         }
