@@ -32,7 +32,6 @@ public class Player : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetExperiencePoints(experiencePoints);
         healthBar.SetMoney(money);
-        PlayerPrefs.SetInt("money", 10000);
     }
 
     //KK: Prosto z poradnika Brackeys (RIP).

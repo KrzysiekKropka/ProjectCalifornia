@@ -8,7 +8,7 @@ public class AIBrain : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
-    public HealthBar healthBar;
+    public EnemyHealthBar healthBar;
 
     void Start()
     {
@@ -27,13 +27,10 @@ public class AIBrain : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
-        }
-        else
-        {
-            healthBar.SetHealth(currentHealth);
+            Destroy(transform.parent.gameObject);
         }
     }
 }

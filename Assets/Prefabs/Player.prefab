@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415657005409445193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0407, y: 0.0964, z: 0}
+  m_LocalPosition: {x: 0.045, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -184,6 +184,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   experiencePoints: 0
+  money: 0
   healthBar: {fileID: 2936219501362031632}
   rb: {fileID: 415657006011368949}
   pausePrefab: {fileID: 7449026929469589033, guid: 51eb7272ab2e02543bb53dec9bda5df7, type: 3}
@@ -209,6 +210,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 415657006011368950}
     m_Modifications:
+    - target: {fileID: 1924307710778989169, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -215
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914018480551059760, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 215
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027062, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027063, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027063, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027063, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027063, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027063, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027063, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027063, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8986998325532272133, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -296,6 +337,14 @@ PrefabInstance:
     - target: {fileID: 8986998325532272153, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998325532272155, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998325532272155, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8986998326100138021, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
       propertyPath: m_AnchorMax.x
