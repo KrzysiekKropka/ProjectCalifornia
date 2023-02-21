@@ -17,6 +17,7 @@ public class ShopManager : MonoBehaviour
     {
         money = PlayerPrefs.GetInt("money");
         moneyText.text = "Money: " + money + "$";
+
         //KK: ustawianie ID przedmiotom w sklepie
         shopItems[1, 1] = 1;
         shopItems[1, 2] = 2;
@@ -51,12 +52,12 @@ public class ShopManager : MonoBehaviour
     public void BuyItem()
     {
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
-        if ((money >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().itemID]) && (shopItems[3, ButtonRef.GetComponent<ButtonInfo>().itemID]==0))
+        if ((money >= shopItems[2, ButtonRef.GetComponent<ShopButtonInfo>().itemID]) && (shopItems[3, ButtonRef.GetComponent<ShopButtonInfo>().itemID]==0))
         {
-            money -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().itemID];
-            shopItems[3, ButtonRef.GetComponent<ButtonInfo>().itemID]++;
+            money -= shopItems[2, ButtonRef.GetComponent<ShopButtonInfo>().itemID];
+            shopItems[3, ButtonRef.GetComponent<ShopButtonInfo>().itemID]++;
             moneyText.text = "Money: " + money + "$";
-            PlayerPrefs.SetInt("itemQuantity" + ButtonRef.GetComponent<ButtonInfo>().itemID, shopItems[3, ButtonRef.GetComponent<ButtonInfo>().itemID]);
+            PlayerPrefs.SetInt("itemQuantity" + ButtonRef.GetComponent<ShopButtonInfo>().itemID, shopItems[3, ButtonRef.GetComponent<ShopButtonInfo>().itemID]);
             PlayerPrefs.SetInt("money", money);
         }
     }

@@ -1,0 +1,59 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using TMPro;
+
+public class InventoryManager : MonoBehaviour
+{
+    public GameObject ShopManager;
+
+    public TMP_Text equippedText;
+    public string equippedWeaponName;
+    public int equippedWeaponID;
+
+    void Start()
+    {
+        equippedWeaponID = PlayerPrefs.GetInt("weaponEquipped");
+    }
+
+    public void EquipItem()
+    {
+        GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
+
+        if (ShopManager.GetComponent<ShopManager>().shopItems[3, ButtonRef.GetComponent<InventoryButtonInfo>().itemID] >= 1)
+        {
+            equippedWeaponID = ButtonRef.GetComponent<InventoryButtonInfo>().itemID;
+            PlayerPrefs.SetInt("weaponEquipped", equippedWeaponID);
+            AssignNames();
+        }
+        else
+        {
+            equippedText.text = "You don't own this weapon!";
+        }
+    }
+
+    public void AssignNames()
+    {
+        switch (equippedWeaponID)
+        {
+            case 1:
+                equippedWeaponName = "Deagle";
+                break;
+            case 2:
+                equippedWeaponName = "MP5";
+                break;
+            case 3:
+                equippedWeaponName = "Shotgun";
+                break;
+            case 4:
+                equippedWeaponName = "AK-47";
+                break;
+            default:
+                equippedText.text = "You don't have any weapon equipped!";
+                return;
+        }
+        equippedText.text = "Equipped " + equippedWeaponName + "!";
+    }
+}

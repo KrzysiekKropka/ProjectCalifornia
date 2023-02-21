@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ButtonInfo : MonoBehaviour
+public class ShopButtonInfo : MonoBehaviour
 {
     public int itemID;
     public TMP_Text priceText;

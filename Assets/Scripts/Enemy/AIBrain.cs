@@ -33,7 +33,6 @@ public class AIBrain : MonoBehaviour
             currentHealth -= damage;
             currentTime = Time.time;
         }
-
         healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {

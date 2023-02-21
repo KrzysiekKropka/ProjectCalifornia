@@ -6,8 +6,6 @@ using System.Runtime.InteropServices;
 
 public class Player : MonoBehaviour
 {
-    [DllImport("user32.dll")] static extern bool SetCursorPos(int X, int Y);
-
     public float speed = 5f;
     public int maxHealth = 100;
     public int currentHealth;
@@ -97,16 +95,18 @@ public class Player : MonoBehaviour
         }
     }
 
-    void GetXP(int XP)
+    public void GetXP(int XP)
     {
         experiencePoints += XP;
+        if (experiencePoints < 0) experiencePoints = 0;
         healthBar.SetExperiencePoints(experiencePoints);
         PlayerPrefs.SetInt("experiencePoints", experiencePoints);
     }
 
-    void GetMoney(int gotMoney)
+    public void GetMoney(int gotMoney)
     {
         money += gotMoney;
+        if (money < 0) money = 0;
         healthBar.SetMoney(money);
         PlayerPrefs.SetInt("money", money);
     }
