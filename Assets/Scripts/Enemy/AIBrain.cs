@@ -10,6 +10,8 @@ public class AIBrain : MonoBehaviour
 
     public EnemyHealthBar healthBar;
 
+    float currentTime;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -26,7 +28,12 @@ public class AIBrain : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        if (Time.time - currentTime > .1F)
+        {
+            currentHealth -= damage;
+            currentTime = Time.time;
+        }
+
         healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {

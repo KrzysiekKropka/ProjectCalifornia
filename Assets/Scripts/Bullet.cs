@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
         {
             enemy.TakeDamage(20);
             GameObject effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
-            Destroy(effect, 2f);
+            Destroy(effect, 1f);
         }
         else
         {

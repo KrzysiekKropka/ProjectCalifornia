@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject pausePrefab;
 
+    float currentTime;
+
     Vector2 moveDirection;
     Vector2 mousePosition;
 
@@ -80,7 +82,11 @@ public class Player : MonoBehaviour
     //Tutaj zrób skrypt na game over.
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        if (Time.time - currentTime > .1F)
+        {
+            currentHealth -= damage;
+            currentTime = Time.time;
+        }
         if (currentHealth <= 0)
         {
             SceneManager.LoadScene("GameOver");
