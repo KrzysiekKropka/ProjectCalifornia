@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 public class Player : MonoBehaviour
 {
-    float speed = 10f;
+    float speed = 8f;
     int maxHealth = 100;
     int currentHealth;
     int experiencePoints;
