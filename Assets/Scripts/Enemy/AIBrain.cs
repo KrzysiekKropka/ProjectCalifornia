@@ -23,14 +23,14 @@ public class AIBrain : MonoBehaviour
     {
         if (Time.time - currentTime > .01f)
         {
-            currentHealth -= damage;
             currentTime = Time.time;
+            currentHealth -= damage;
+            if (currentHealth <= 0)
+            {
+                Destroy(transform.parent.gameObject);
+                Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
+            }
         }
         healthBar.SetHealth(currentHealth);
-        if (currentHealth <= 0)
-        {
-            GameObject effect = Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
-            Destroy(transform.parent.gameObject);
-        }
     }
 }

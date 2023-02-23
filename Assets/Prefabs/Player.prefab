@@ -185,13 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747eedd34bcfc5248905dbf67fb4e9b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7.5
-  maxHealth: 100
-  currentHealth: 0
-  experiencePoints: 0
-  money: 0
-  equippedWeaponID: 0
-  equippedWeaponName: 
   healthBar: {fileID: 2936219501362031632}
   bullet: {fileID: -2431859589515135847, guid: 1916dc42e3d5ca4478c8cb6d81251b9f, type: 3}
   rb: {fileID: 415657006011368949}
@@ -209,10 +202,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 415657005409445192}
   bulletPrefab: {fileID: 2444222622796115849, guid: 1916dc42e3d5ca4478c8cb6d81251b9f, type: 3}
-  equippedWeaponID: 0
-  weaponDamage: 0
-  weaponDelay: 0
-  bulletForce: 25
 --- !u!61 &732044391078240023
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -430,14 +419,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 415657006011368950}
     m_Modifications:
-    - target: {fileID: 1924307710778989169, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -215
-      objectReference: {fileID: 0}
-    - target: {fileID: 7914018480551059760, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 215
-      objectReference: {fileID: 0}
     - target: {fileID: 8986998324899027062, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
       propertyPath: m_Interactable
       value: 0
@@ -557,14 +538,6 @@ PrefabInstance:
     - target: {fileID: 8986998325532272153, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 8986998325532272155, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
-      propertyPath: m_ScreenMatchMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8986998325532272155, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8986998326100138021, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
       propertyPath: m_AnchorMax.x
