@@ -11,11 +11,13 @@ public class Player : MonoBehaviour
     public int currentHealth;
     public int experiencePoints;
     public int money;
+    public int equippedWeaponID;
+    public string equippedWeaponName;
 
     public HealthBar healthBar;
+    public Bullet bullet;
 
     public Rigidbody2D rb;
-    public GameObject pausePrefab;
 
     float currentTime;
 
@@ -25,13 +27,16 @@ public class Player : MonoBehaviour
     // KK: Dodaje prefab z canvasem i pauzę do levela w którym jest gracz.
     private void Start()
     {
-        GameObject pause = Instantiate(pausePrefab);
+        //GameObject pause = Instantiate(pausePrefab);
         currentHealth = maxHealth;
         experiencePoints = PlayerPrefs.GetInt("experiencePoints");
         money = PlayerPrefs.GetInt("money");
+        equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
+        equippedWeaponName = PlayerPrefs.GetString("equippedWeaponName");
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetExperiencePoints(experiencePoints);
         healthBar.SetMoney(money);
+        healthBar.SetWeapon(equippedWeaponName);
     }
 
     //KK: Prosto z poradnika Brackeys (RIP).
@@ -42,7 +47,6 @@ public class Player : MonoBehaviour
 
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
 
         //KK: Wciskamy spację, zabiera 20 HP od nas.
         if(Input.GetKeyDown(KeyCode.Space))
@@ -71,7 +75,7 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
 
         Vector2 aimDirection = mousePosition - rb.position;
-        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 87f;
+        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 84f;
         rb.rotation = aimAngle;
     }
 
@@ -80,7 +84,7 @@ public class Player : MonoBehaviour
     //Tutaj zrób skrypt na game over.
     public void TakeDamage(int damage)
     {
-        if (Time.time - currentTime > .1F)
+        if (Time.time - currentTime > .01f)
         {
             currentHealth -= damage;
             currentTime = Time.time;

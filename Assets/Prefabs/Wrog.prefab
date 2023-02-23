@@ -148,6 +148,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 415900557111064623}
+  bloodPoolEffect: {fileID: 5524518565218896284, guid: b8c46913c893ec24794099e0a77ec6fb, type: 3}
 --- !u!61 &5517176037097627899
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -198,7 +199,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.06, y: 0.08}
+  m_Size: {x: 0.06, y: 0.1}
   m_EdgeRadius: 0
 --- !u!61 &1780057353846310882
 BoxCollider2D:
@@ -276,7 +277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6616441681885582288}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.045, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0.046, y: 0.125, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

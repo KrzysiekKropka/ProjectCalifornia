@@ -9,6 +9,7 @@ public class AIBrain : MonoBehaviour
     public int currentHealth;
 
     public EnemyHealthBar healthBar;
+    public GameObject bloodPoolEffect;
 
     float currentTime;
 
@@ -28,7 +29,7 @@ public class AIBrain : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (Time.time - currentTime > .1F)
+        if (Time.time - currentTime > .01f)
         {
             currentHealth -= damage;
             currentTime = Time.time;
@@ -36,6 +37,7 @@ public class AIBrain : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0)
         {
+            GameObject effect = Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
             Destroy(transform.parent.gameObject);
         }
     }

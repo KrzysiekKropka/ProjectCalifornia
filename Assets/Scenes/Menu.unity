@@ -6785,8 +6785,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShopManager: {fileID: 679993649}
   equippedText: {fileID: 1711707339}
-  equippedWeaponName: 
   equippedWeaponID: 0
+  equippedWeaponName: 
 --- !u!1 &1770125919
 GameObject:
   m_ObjectHideFlags: 0

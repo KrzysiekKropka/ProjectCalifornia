@@ -7,29 +7,29 @@ public class Bullet : MonoBehaviour
     public GameObject genericEffect;
     public GameObject bloodEffect;
     GameObject effect;
+    public int bulletDamage;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Destroy(gameObject);
         var enemy = collision.collider.GetComponent<AIBrain>();
         var player = collision.collider.GetComponent<Player>();
 
         if (enemy)
         {
-            enemy.TakeDamage(20);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
+            enemy.TakeDamage(bulletDamage);
         }
         else if (player)
         {
-            player.TakeDamage(20);
-            player.GetXP(-15);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
+            player.TakeDamage(bulletDamage);
+            player.GetXP(-15);
         }
         else
         {
-            ///effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
+            effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
         }
-
         Destroy(effect, 1f);
-        Destroy(gameObject);
     }
 }

@@ -10,12 +10,14 @@ public class InventoryManager : MonoBehaviour
     public GameObject ShopManager;
 
     public TMP_Text equippedText;
-    public string equippedWeaponName;
     public int equippedWeaponID;
+    public string equippedWeaponName;
 
     void Start()
     {
-        equippedWeaponID = PlayerPrefs.GetInt("weaponEquipped");
+        equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
+        equippedWeaponName = PlayerPrefs.GetString("equippedWeaponName");
+        AssignNames();
     }
 
     public void EquipItem()
@@ -25,7 +27,7 @@ public class InventoryManager : MonoBehaviour
         if (ShopManager.GetComponent<ShopManager>().shopItems[3, ButtonRef.GetComponent<InventoryButtonInfo>().itemID] >= 1)
         {
             equippedWeaponID = ButtonRef.GetComponent<InventoryButtonInfo>().itemID;
-            PlayerPrefs.SetInt("weaponEquipped", equippedWeaponID);
+            PlayerPrefs.SetInt("equippedWeaponID", equippedWeaponID);
             AssignNames();
         }
         else
@@ -51,9 +53,10 @@ public class InventoryManager : MonoBehaviour
                 equippedWeaponName = "AK-47";
                 break;
             default:
-                equippedText.text = "You don't have any weapon equipped!";
-                return;
+                equippedWeaponName = "Pistol";
+                break;
         }
+        PlayerPrefs.SetString("equippedWeaponName", equippedWeaponName);
         equippedText.text = "Equipped " + equippedWeaponName + "!";
     }
 }

@@ -10,6 +10,12 @@ public class HealthBar : MonoBehaviour
     public TMP_Text healthText;
     public TMP_Text experiencePointsText;
     public TMP_Text moneyText;
+    public TMP_Text weaponText;
+
+    public void ActiveMode(bool active)
+    {
+        gameObject.SetActive(active);
+    }
 
     public void SetMaxHealth(int health)
     {
@@ -34,5 +40,10 @@ public class HealthBar : MonoBehaviour
     public void SetMoney(int money)
     {
         moneyText.text = "Money: " + money + "$";
+    }
+
+    public void SetWeapon(string weaponName)
+    {
+        weaponText.text = "Equipped " + weaponName + "!";
     }
 }
