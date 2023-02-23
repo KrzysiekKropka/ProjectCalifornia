@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class AIBrain : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
+    int maxHealth = 100;
+    int currentHealth;
 
     public EnemyHealthBar healthBar;
     public GameObject bloodPoolEffect;

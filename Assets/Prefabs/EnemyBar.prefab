@@ -280,6 +280,7 @@ MonoBehaviour:
   healthText: {fileID: 860084100766872380}
   experiencePointsText: {fileID: 0}
   moneyText: {fileID: 0}
+  weaponText: {fileID: 0}
 --- !u!1 &8986998325532272153
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +364,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8986998325532272152
 MonoBehaviour:
   m_ObjectHideFlags: 0

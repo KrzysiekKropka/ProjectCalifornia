@@ -6,13 +6,13 @@ using System.Runtime.InteropServices;
 
 public class Player : MonoBehaviour
 {
-    public float speed = 5f;
-    public int maxHealth = 100;
-    public int currentHealth;
-    public int experiencePoints;
-    public int money;
-    public int equippedWeaponID;
-    public string equippedWeaponName;
+    float speed = 5f;
+    int maxHealth = 100;
+    int currentHealth;
+    int experiencePoints;
+    int money;
+    int equippedWeaponID;
+    string equippedWeaponName;
 
     public HealthBar healthBar;
     public Bullet bullet;
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     Vector2 mousePosition;
 
     // KK: Dodaje prefab z canvasem i pauzę do levela w którym jest gracz.
-    private void Start()
+    void Start()
     {
         //GameObject pause = Instantiate(pausePrefab);
         currentHealth = maxHealth;
@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
     }
 
     //KK: Prosto z poradnika Brackeys (RIP).
-    private void Update()
+    void Update()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
 

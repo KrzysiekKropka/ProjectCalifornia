@@ -37,7 +37,7 @@ public class ShopManager : MonoBehaviour
         shopItems[3, 4] = PlayerPrefs.GetInt("itemQuantity" + 4);
     }
 
-    public void ResetQuantity()
+    void ResetQuantity()
     {
         shopItems[3, 1] = 0;
         shopItems[3, 2] = 0;

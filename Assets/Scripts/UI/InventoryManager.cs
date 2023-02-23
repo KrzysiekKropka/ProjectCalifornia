@@ -10,8 +10,8 @@ public class InventoryManager : MonoBehaviour
     public GameObject ShopManager;
 
     public TMP_Text equippedText;
-    public int equippedWeaponID;
-    public string equippedWeaponName;
+    int equippedWeaponID;
+    string equippedWeaponName;
 
     void Start()
     {

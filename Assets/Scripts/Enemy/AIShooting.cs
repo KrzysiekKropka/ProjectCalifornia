@@ -7,7 +7,7 @@ public class AIShooting : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
-    public float bulletForce = 1f;
+    float bulletForce = 30f;
 
     void Update()
     {
@@ -16,6 +16,7 @@ public class AIShooting : MonoBehaviour
             /// TODO
         }
     }
+
     void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //KK: Spawnuje nabój z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni

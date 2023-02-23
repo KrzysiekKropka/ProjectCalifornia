@@ -7,11 +7,11 @@ public class Shooting : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
-    public int equippedWeaponID;
-    public int weaponDamage;
-    public float weaponDelay;
-    public float bulletForce = 10f;
-    bool canShoot = true;
+    int equippedWeaponID;
+    int weaponDamage;
+    float weaponDelay;
+    float bulletForce = 30f;
+    float currentTime;
 
     void Start()
     {
@@ -32,7 +32,7 @@ public class Shooting : MonoBehaviour
                 weaponDamage = 35;
                 break;
             case 4:
-                weaponDelay = 0.125f;
+                weaponDelay = 0.133f;
                 weaponDamage = 15;
                 break;
             default:
@@ -42,32 +42,24 @@ public class Shooting : MonoBehaviour
         }
     }
 
-
     void Update()
     {
         if(!PauseMenu.isPaused && Input.GetMouseButton(0))
         {
-            if(canShoot)
-            {
-                Shoot();
-            }
+            Shoot();
         }
     }
 
     void Shoot()
     {
-        canShoot = false;
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //KK: Spawnuje nabój z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni
-        bullet.GetComponent<Bullet>().bulletDamage = weaponDamage;
-        Destroy(bullet, 10); //KK: Usuwa obiekt po 10 sekundach jesli nie zostanie usuniety przez cos innego
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-        StartCoroutine(ShootDelay());
-    }
-
-    IEnumerator ShootDelay()
-    {
-        yield return new WaitForSeconds(weaponDelay);
-        canShoot = true;
+        if (Time.time - currentTime > weaponDelay)
+        {
+            currentTime = Time.time;
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //KK: Spawnuje nabój z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni
+            bullet.GetComponent<Bullet>().bulletDamage = weaponDamage;
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+            Destroy(bullet, 10); //KK: Usuwa obiekt po 10 sekundach jesli nie zostanie usuniety przez cos innego
+        }
     }
 }
