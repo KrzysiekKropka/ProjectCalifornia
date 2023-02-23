@@ -19,14 +19,6 @@ public class AIBrain : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(10);
-        }
-    }
-
     public void TakeDamage(int damage)
     {
         if (Time.time - currentTime > .01f)

@@ -48,12 +48,6 @@ public class Player : MonoBehaviour
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        //KK: Wciskamy spację, zabiera 20 HP od nas.
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(15);
-        }
-
         if (Input.GetKeyDown(KeyCode.E))
         {
             GetXP(15);
@@ -64,9 +58,9 @@ public class Player : MonoBehaviour
             GetMoney(1000);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.T))
         {
-            PlayerPrefs.DeleteKey("experiencePoints");
+            TakeDamage(10);
         }
     }
 
