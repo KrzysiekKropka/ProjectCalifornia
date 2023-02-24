@@ -10,6 +10,7 @@ public class HealthBar : MonoBehaviour
     public TMP_Text healthText;
     public TMP_Text experiencePointsText;
     public TMP_Text moneyText;
+    public TMP_Text killsText;
     public TMP_Text weaponText;
 
     public void ActiveMode(bool active)
@@ -32,6 +33,11 @@ public class HealthBar : MonoBehaviour
 
     //KK: te funkcje sa uzywane w Player.cs
 
+    public void SetKills (int kills)
+    {
+        killsText.text = "Kills: " + kills;
+    }
+
     public void SetExperiencePoints(int experiencePoints)
     {
         experiencePointsText.text = "XP: " + experiencePoints;
@@ -42,7 +48,7 @@ public class HealthBar : MonoBehaviour
         moneyText.text = "Money: " + money + "$";
     }
 
-    public void SetWeapon(string weaponName)
+    public void SetWeaponName(string weaponName)
     {
         weaponText.text = "Equipped " + weaponName + "!";
     }

@@ -10,8 +10,10 @@ public class AIBrain : MonoBehaviour
 
     public EnemyHealthBar healthBar;
     public GameObject bloodPoolEffect;
-
     float currentTime;
+
+    public int dropXP;
+    public int dropMoney;
 
     void Start()
     {
@@ -27,10 +29,16 @@ public class AIBrain : MonoBehaviour
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
+                var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+                if (player)
+                {
+                    player.SetXP(dropXP);
+                    player.AddKill();
+                }
                 Destroy(transform.parent.gameObject);
                 Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
             }
+            healthBar.SetHealth(currentHealth);
         }
-        healthBar.SetHealth(currentHealth);
     }
 }

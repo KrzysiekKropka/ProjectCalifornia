@@ -7,11 +7,13 @@ using System.Runtime.InteropServices;
 public class Player : MonoBehaviour
 {
     float speed = 8f;
+    float aimAngle;
     int maxHealth = 100;
     int currentHealth;
+    int equippedWeaponID;
+    int kills = 0; 
     int experiencePoints;
     int money;
-    int equippedWeaponID;
     string equippedWeaponName;
 
     public HealthBar healthBar;
@@ -23,11 +25,10 @@ public class Player : MonoBehaviour
 
     Vector2 moveDirection;
     Vector2 mousePosition;
+    Vector2 aimDirection;
 
-    // KK: Dodaje prefab z canvasem i pauzę do levela w którym jest gracz.
     void Start()
     {
-        //GameObject pause = Instantiate(pausePrefab);
         currentHealth = maxHealth;
         experiencePoints = PlayerPrefs.GetInt("experiencePoints");
         money = PlayerPrefs.GetInt("money");
@@ -36,7 +37,8 @@ public class Player : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetExperiencePoints(experiencePoints);
         healthBar.SetMoney(money);
-        healthBar.SetWeapon(equippedWeaponName);
+        healthBar.SetWeaponName(equippedWeaponName);
+        healthBar.SetKills(kills);
     }
 
     //KK: Prosto z poradnika Brackeys (RIP).
@@ -47,15 +49,17 @@ public class Player : MonoBehaviour
 
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        aimDirection = mousePosition - rb.position;
+        aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 84f;
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            GetXP(15);
+            SetXP(15);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            GetMoney(1000);
+            SetMoney(1000);
         }
 
         if (Input.GetKeyDown(KeyCode.T))
@@ -67,9 +71,6 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
-
-        Vector2 aimDirection = mousePosition - rb.position;
-        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 84f;
         rb.rotation = aimAngle;
     }
 
@@ -93,7 +94,13 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void GetXP(int XP)
+    public void AddKill()
+    {
+        kills++;
+        healthBar.SetKills(kills);
+    }
+
+    public void SetXP(int XP)
     {
         experiencePoints += XP;
         if (experiencePoints < 0) experiencePoints = 0;
@@ -101,7 +108,7 @@ public class Player : MonoBehaviour
         PlayerPrefs.SetInt("experiencePoints", experiencePoints);
     }
 
-    public void GetMoney(int gotMoney)
+    public void SetMoney(int gotMoney)
     {
         money += gotMoney;
         if (money < 0) money = 0;

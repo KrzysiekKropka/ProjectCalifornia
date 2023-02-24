@@ -11,10 +11,7 @@ public class AIShooting : MonoBehaviour
 
     void Update()
     {
-        if(!PauseMenu.isPaused)
-        {
-            /// TODO
-        }
+        /// TODO
     }
 
     void Shoot()

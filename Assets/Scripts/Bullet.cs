@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
         {
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
             player.TakeDamage(bulletDamage);
-            player.GetXP(-15);
+            player.SetXP(-15);
         }
         else
         {

@@ -132,7 +132,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 0}
   bulletPrefab: {fileID: 0}
-  bulletForce: 1
 --- !u!114 &5891919148703806736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f79158cef05af46b1e8fd6454cb2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
+  dropXP: 15
+  dropMoney: 0
   healthBar: {fileID: 415900557111064623}
   bloodPoolEffect: {fileID: 5524518565218896284, guid: b8c46913c893ec24794099e0a77ec6fb, type: 3}
 --- !u!61 &5517176037097627899

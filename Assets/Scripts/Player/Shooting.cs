@@ -20,7 +20,7 @@ public class Shooting : MonoBehaviour
         switch (equippedWeaponID)
         {
             case 1:
-                weaponDelay = 0.5f;
+                weaponDelay = 0.75f;
                 weaponDamage = 25;
                 break;
             case 2:
@@ -36,15 +36,15 @@ public class Shooting : MonoBehaviour
                 weaponDamage = 15;
                 break;
             default:
-                weaponDelay = 0.35f;
+                weaponDelay = 0.5f;
                 weaponDamage = 10;
                 break;
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if(!PauseMenu.isPaused && Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0))
         {
             Shoot();
         }
