@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Runtime.InteropServices;
 
 public class Player : MonoBehaviour
 {
@@ -18,6 +17,7 @@ public class Player : MonoBehaviour
 
     public HealthBar healthBar;
     public Bullet bullet;
+    public NextLevelScreen nextLevelScreen;
 
     public Rigidbody2D rb;
 

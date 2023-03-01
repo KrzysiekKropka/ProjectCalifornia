@@ -526,8 +526,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4510540369324890360}
-        m_TargetAssemblyTypeName: SettingsInstantiate, Assembly-CSharp
+      - m_Target: {fileID: 7449026929469589026}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: InstantiateSettings
         m_Mode: 1
         m_Arguments:
@@ -946,7 +946,6 @@ GameObject:
   - component: {fileID: 7449026929469589031}
   - component: {fileID: 7449026929469589030}
   - component: {fileID: 7449026929469589026}
-  - component: {fileID: 4510540369324890360}
   m_Layer: 5
   m_Name: Pauza
   m_TagString: Untagged
@@ -1050,18 +1049,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 7449026929169845563}
   healthBar: {fileID: 0}
---- !u!114 &4510540369324890360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7449026929469589033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ad039e06173b53488317941e46fdc50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   settingsPrefab: {fileID: 6651287304483298214, guid: ff13a437240001d4b8a9097097794745, type: 3}
 --- !u!1 &8224026911577515672
 GameObject:

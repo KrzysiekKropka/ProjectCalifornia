@@ -10,8 +10,10 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public static bool isPaused;
     public GameObject healthBar;
+    bool isPaused;
+    public GameObject settingsPrefab;
+    public GameObject settings;
 
     void Start()
     {
@@ -19,7 +21,7 @@ public class PauseMenu : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && !NextLevelScreen.isActive)
         {
             if(isPaused)
             {
@@ -42,6 +44,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         healthBar.SetActive(true);
+        if (settings != null) Destroy(settings);
         Time.timeScale = 1f;
         isPaused = false;
     }
@@ -49,5 +52,10 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
+    }
+    public void InstantiateSettings()
+    {
+        settings = Instantiate(settingsPrefab);
+        settings.SetActive(true);
     }
 }
