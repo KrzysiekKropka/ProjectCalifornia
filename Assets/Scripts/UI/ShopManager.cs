@@ -47,6 +47,7 @@ public class ShopManager : MonoBehaviour
         PlayerPrefs.SetInt("itemQuantity" + 2, 0);
         PlayerPrefs.SetInt("itemQuantity" + 3, 0);
         PlayerPrefs.SetInt("itemQuantity" + 4, 0);
+        PlayerPrefs.DeleteKey("equippedWeaponID");
     }
 
     public void BuyItem()

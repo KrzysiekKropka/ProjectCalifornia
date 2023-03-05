@@ -51,14 +51,14 @@ public class Shooting : MonoBehaviour
                 weaponDamage = 20; 
                 maxAmmo = 30;
                 reserveAmmo = 120;
-                reloadTime = 3.5f;
+                reloadTime = 3f;
                 break;
             default:
                 weaponDelay = 0.5f;
                 weaponDamage = 10;
                 maxAmmo = 17;
                 reserveAmmo = 85;
-                reloadTime = 1.5f;
+                reloadTime = 2f;
                 break;
         }
 
