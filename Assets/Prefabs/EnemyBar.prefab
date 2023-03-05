@@ -260,7 +260,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8986998324899027063}
   - component: {fileID: 8986998324899027062}
-  - component: {fileID: 1277302638223231182}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -340,20 +339,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1277302638223231182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8986998324899027060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb2a82bf88bd55b42b7ad116875f0908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 8986998324899027062}
-  healthText: {fileID: 860084100766872380}
 --- !u!1 &8986998325532272153
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,6 +351,7 @@ GameObject:
   - component: {fileID: 8986998325532272154}
   - component: {fileID: 8986998325532272155}
   - component: {fileID: 8986998325532272152}
+  - component: {fileID: 4977359976892253303}
   m_Layer: 5
   m_Name: EnemyBar
   m_TagString: Untagged
@@ -455,6 +441,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4977359976892253303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8986998325532272153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2a82bf88bd55b42b7ad116875f0908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 8986998324899027062}
+  healthText: {fileID: 860084100766872380}
 --- !u!1 &8986998326061554526
 GameObject:
   m_ObjectHideFlags: 0

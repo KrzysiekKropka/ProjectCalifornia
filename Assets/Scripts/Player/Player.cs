@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    float speed = 8f;
+    float speed = 7.5f;
     float aimAngle;
     int maxHealth = 100;
     int currentHealth;
@@ -15,8 +15,9 @@ public class Player : MonoBehaviour
     int money;
     string equippedWeaponName;
 
+    SpriteRenderer spriteRenderer;
+
     public HealthBar healthBar;
-    public Bullet bullet;
     public NextLevelScreen nextLevelScreen;
 
     public Rigidbody2D rb;
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
         healthBar.SetMoney(money);
         healthBar.SetWeaponName(equippedWeaponName);
         healthBar.SetKills(kills);
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     //KK: Prosto z poradnika Brackeys (RIP).
@@ -52,12 +54,12 @@ public class Player : MonoBehaviour
         aimDirection = mousePosition - rb.position;
         aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 84f;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             SetXP(15);
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             SetMoney(1000);
         }
@@ -73,7 +75,6 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
         rb.rotation = aimAngle;
     }
-
 
     //KK: Kiedy dostajemy od czegoś wpierdol, usuwa damage od obecnego zdrowia gracza i ustawia wartość filla w healthBarze na obecne HP gracza.
     //Tutaj zrób skrypt na game over.

@@ -12,6 +12,7 @@ public class HealthBar : MonoBehaviour
     public TMP_Text moneyText;
     public TMP_Text killsText;
     public TMP_Text weaponText;
+    public TMP_Text ammoText;
 
     public void ActiveMode(bool active)
     {
@@ -51,5 +52,10 @@ public class HealthBar : MonoBehaviour
     public void SetWeaponName(string weaponName)
     {
         weaponText.text = "Equipped " + weaponName + "!";
+    }
+
+    public void SetAmmo(int currentAmmo, int reserveAmmo)
+    {
+        ammoText.text = currentAmmo + "/" + reserveAmmo;
     }
 }

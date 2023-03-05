@@ -13,12 +13,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject healthBar;
     bool isPaused;
     public GameObject settingsPrefab;
-    public GameObject settings;
+    GameObject settings;
 
     void Start()
     {
         ResumeGame();
     }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape) && !NextLevelScreen.isActive)

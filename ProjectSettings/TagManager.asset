@@ -39,11 +39,20 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Tilemap
+    uniqueID: 1195939383
+    locked: 0
+  - name: Gore
+    uniqueID: 2257259095
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Particles
     uniqueID: 4057153617
+    locked: 0
+  - name: Decoration
+    uniqueID: 127047947
     locked: 0
   - name: UI
     uniqueID: 3397181279
