@@ -6,6 +6,7 @@ public class Shooting : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public GameObject shootPrefab;
     public HealthBar healthBar;
 
     bool isReloading = false;
@@ -22,53 +23,47 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
-
         switch (equippedWeaponID)
         {
             case 1:
                 weaponDelay = 0.75f;
-                weaponDamage = 25;
+                weaponDamage = 35;
                 maxAmmo = 7;
-                reserveAmmo = 35;
                 reloadTime = 2f;
                 break;
             case 2:
                 weaponDelay = 0.1f;
                 weaponDamage = 10;
                 maxAmmo = 50;
-                reserveAmmo = 150;
                 reloadTime = 3f;
                 break;
             case 3:
                 weaponDelay = 1f;
                 weaponDamage = 35;
                 maxAmmo = 5;
-                reserveAmmo = 20;
                 reloadTime = 5f;
                 break;
             case 4:
                 weaponDelay = 0.133f;
                 weaponDamage = 20; 
                 maxAmmo = 30;
-                reserveAmmo = 120;
                 reloadTime = 3f;
                 break;
             default:
                 weaponDelay = 0.5f;
                 weaponDamage = 10;
                 maxAmmo = 17;
-                reserveAmmo = 85;
                 reloadTime = 2f;
                 break;
         }
-
+        reserveAmmo = maxAmmo * 4;
         currentAmmo = maxAmmo;
         healthBar.SetAmmo(currentAmmo, reserveAmmo);
     }
 
     void FixedUpdate()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && isReloading == false)
         {
             Shoot();
         }
@@ -89,6 +84,7 @@ public class Shooting : MonoBehaviour
             currentAmmo--;
             healthBar.SetAmmo(currentAmmo, reserveAmmo);
             currentTime = Time.time;
+            GameObject shootEffect = Instantiate(shootPrefab, firePoint.position, firePoint.rotation);
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //KK: Spawnuje naboj z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni
             bullet.GetComponent<PlayerBullet>().bulletDamage = weaponDamage;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
