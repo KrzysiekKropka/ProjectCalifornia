@@ -7,11 +7,17 @@ public class AIShooting : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
-    float bulletForce = 30f;
+    float bulletForce = 25f;
+    float timer;
 
-    void Update()
+    void FixedUpdate()
     {
-        /// TODO
+        timer += Time.deltaTime;
+        if (timer > 2)
+        {
+            Shoot();
+            timer = 0;
+        }
     }
 
     void Shoot()

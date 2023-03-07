@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8626262316694283724}
   - component: {fileID: 1780057353846310882}
   - component: {fileID: 7354157980776025633}
+  - component: {fileID: 8324491963002387412}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -91,7 +92,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &5396836631145147819
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 7100006923973303438}
-  bulletPrefab: {fileID: 2444222622796115849, guid: 1916dc42e3d5ca4478c8cb6d81251b9f, type: 3}
+  bulletPrefab: {fileID: 2444222622796115849, guid: 837e24f4f1069974faf4d95a401ee981, type: 3}
 --- !u!114 &5891919148703806736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 1375506471089789977}
   bloodPoolEffect: {fileID: 5524518565218896284, guid: b8c46913c893ec24794099e0a77ec6fb, type: 3}
+  rb: {fileID: 8324491963002387412}
   dropXP: 15
   dropMoney: 0
 --- !u!61 &5517176037097627899
@@ -252,6 +254,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.04}
   m_EdgeRadius: 0
+--- !u!50 &8324491963002387412
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5001969082769403738}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 2
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &6616441681885582288
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2546401352739831611}
   m_Layer: 0
-  m_Name: Wrog
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

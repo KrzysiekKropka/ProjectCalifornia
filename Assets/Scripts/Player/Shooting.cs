@@ -90,6 +90,7 @@ public class Shooting : MonoBehaviour
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
             Destroy(bullet, 10); //KK: Usuwa obiekt po 10 sekundach jesli nie zostanie usuniety przez cos innego
+            Destroy(shootEffect, 1);
         }
     }
 

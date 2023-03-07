@@ -10,15 +10,32 @@ public class AIBrain : MonoBehaviour
 
     public EnemyHealthBar healthBar;
     public GameObject bloodPoolEffect;
+    public Rigidbody2D rb;
+    private GameObject player;
     float currentTime;
+    float aimAngle;
 
     public int dropXP;
     public int dropMoney;
+
+    Vector3 aimDirection;
 
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    void Update()
+    {
+        aimDirection = player.transform.position - transform.position;
+        aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 87f;
+    }
+
+    void FixedUpdate()
+    {
+        rb.rotation = aimAngle;
     }
 
     public void TakeDamage(int damage)
