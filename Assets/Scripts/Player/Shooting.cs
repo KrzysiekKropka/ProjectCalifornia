@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public Transform firePoint;
-    public GameObject bulletPrefab;
-    public GameObject shootPrefab;
-    public HealthBar healthBar;
+    [SerializeField] Transform firePoint;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject shootPrefab;
+    [SerializeField] HealthBar healthBar;
 
     bool isReloading = false;
     float weaponDelay;

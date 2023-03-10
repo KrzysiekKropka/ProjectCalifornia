@@ -7,9 +7,10 @@ using TMPro;
 
 public class NextLevelScreen : MonoBehaviour
 {
+    [SerializeField] TMP_Text nextLevelCountdownText;
+    [SerializeField] Slider slider;
+
     public static bool isActive = false;
-    public TMP_Text nextLevelCountdownText;
-    public Slider slider;
     int currCountdownValue;
 
     public void StartCountdown(int seconds)

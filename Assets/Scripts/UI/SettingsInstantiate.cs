@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SettingsInstantiate : MonoBehaviour
 {
-    public GameObject settingsPrefab;
-    GameObject settings;
+    [SerializeField] GameObject settingsPrefab;
+
+    private GameObject settings;
 
     public void InstantiateSettings()
     {

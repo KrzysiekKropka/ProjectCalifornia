@@ -9,11 +9,12 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenu;
-    public GameObject healthBar;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject healthBar;
+    [SerializeField] GameObject settingsPrefab;
+
     bool isPaused;
-    public GameObject settingsPrefab;
-    GameObject settings;
+    private GameObject settings;
 
     void Start()
     {

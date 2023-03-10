@@ -6,13 +6,13 @@ using TMPro;
 
 public class HealthBar : MonoBehaviour
 {
-    public Slider slider;
-    public TMP_Text healthText;
-    public TMP_Text experiencePointsText;
-    public TMP_Text moneyText;
-    public TMP_Text killsText;
-    public TMP_Text weaponText;
-    public TMP_Text ammoText;
+    [SerializeField] Slider slider;
+    [SerializeField] TMP_Text healthText;
+    [SerializeField] TMP_Text experiencePointsText;
+    [SerializeField] TMP_Text moneyText;
+    [SerializeField] TMP_Text killsText;
+    [SerializeField] TMP_Text weaponText;
+    [SerializeField] TMP_Text ammoText;
 
     public void ActiveMode(bool active)
     {

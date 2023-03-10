@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class AIShooting : MonoBehaviour
 {
-    public Transform firePoint;
-    public GameObject bulletPrefab;
+    [SerializeField] Transform firePoint;
+    [SerializeField] GameObject bulletPrefab;
+    private GameObject player;
 
     float bulletForce = 25f;
+    float distance;
     float timer;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     void FixedUpdate()
     {
+        distance = Vector2.Distance(transform.position, player.transform.position);
         timer += Time.deltaTime;
-        if (timer > 2)
+        if (timer > 2 && distance < 10)
         {
             Shoot();
             timer = 0;

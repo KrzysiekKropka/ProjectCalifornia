@@ -6,10 +6,11 @@ using TMPro;
 
 public class ShopButtonInfo : MonoBehaviour
 {
+    [SerializeField] TMP_Text priceText;
+    [SerializeField] TMP_Text quantityText;
+    [SerializeField] GameObject ShopManager;
+
     public int itemID;
-    public TMP_Text priceText;
-    public TMP_Text quantityText;
-    public GameObject ShopManager;
 
     void Update()
     {

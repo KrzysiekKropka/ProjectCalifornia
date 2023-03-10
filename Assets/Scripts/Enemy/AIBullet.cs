@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class EnemyBulletScript : MonoBehaviour
+public class AIBullet : MonoBehaviour
 {
-    public GameObject genericEffect;
-    public GameObject bloodEffect;
-    GameObject effect;
+    [SerializeField] GameObject genericEffect;
+    [SerializeField] GameObject bloodEffect;
+    private GameObject effect;
+
     public int bulletDamage;
     float startTime;
 

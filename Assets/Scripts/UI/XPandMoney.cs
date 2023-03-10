@@ -6,8 +6,8 @@ using TMPro;
 
 public class XPandMoney : MonoBehaviour
 {
-    public TMP_Text moneyText;
-    public TMP_Text experiencePointsText;
+    [SerializeField] TMP_Text moneyText;
+    [SerializeField] TMP_Text experiencePointsText;
 
     int experiencePoints;
     int money;

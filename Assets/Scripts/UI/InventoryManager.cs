@@ -7,9 +7,9 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
-    public GameObject ShopManager;
+    [SerializeField] GameObject ShopManager;
+    [SerializeField] TMP_Text equippedText;
 
-    public TMP_Text equippedText;
     int equippedWeaponID;
     string equippedWeaponName;
 

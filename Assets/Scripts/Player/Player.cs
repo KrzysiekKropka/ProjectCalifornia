@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] HealthBar healthBar;
+    [SerializeField] NextLevelScreen nextLevelScreen;
+    [SerializeField] Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
+
     float speed = 7.5f;
     float aimAngle;
     float currentTime;
@@ -16,16 +21,9 @@ public class Player : MonoBehaviour
     int money;
     string equippedWeaponName;
 
-    SpriteRenderer spriteRenderer;
-
-    public HealthBar healthBar;
-    public NextLevelScreen nextLevelScreen;
-
-    public Rigidbody2D rb;
-
-    Vector2 moveDirection;
-    Vector2 mousePosition;
-    Vector2 aimDirection;
+    private Vector2 moveDirection;
+    private Vector2 mousePosition;
+    private Vector2 aimDirection;
 
     void Start()
     {

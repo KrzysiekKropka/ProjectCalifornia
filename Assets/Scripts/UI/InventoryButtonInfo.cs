@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class InventoryButtonInfo : MonoBehaviour
 {
+    [SerializeField] GameObject ShopManager;
     public int itemID;
-    public GameObject ShopManager;
 }

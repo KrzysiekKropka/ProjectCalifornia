@@ -5,11 +5,11 @@ using TMPro;
 
 public class TextEffect : MonoBehaviour
 {
-    TMP_Text textMesh;
-    Mesh mesh;
-    Vector3[] vertices;
+    [SerializeField] Gradient rainbow;
 
-    public Gradient rainbow;
+    private TMP_Text textMesh;
+    private Mesh mesh;
+    Vector3[] vertices;
 
     void Start()
     {

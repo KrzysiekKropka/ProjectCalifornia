@@ -9,9 +9,10 @@ public class ShopManager : MonoBehaviour
 {
     //KK: Poradnik na to: https://www.youtube.com/watch?v=Oie-G5xuQNA
 
+    [SerializeField] TMP_Text moneyText;
+
     public int[,] shopItems = new int[5, 5];
     int money;
-    public TMP_Text moneyText;
 
     void Start()
     {

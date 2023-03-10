@@ -5,9 +5,10 @@ using UnityEngine.Tilemaps;
 
 public class PlayerBullet : MonoBehaviour
 {
-    public GameObject genericEffect;
-    public GameObject bloodEffect;
-    GameObject effect;
+    [SerializeField] GameObject genericEffect;
+    [SerializeField] GameObject bloodEffect;
+    private GameObject effect;
+
     public int bulletDamage;
     float startTime;
 
@@ -21,7 +22,7 @@ public class PlayerBullet : MonoBehaviour
         var enemy = collision.collider.GetComponent<AIBrain>();
         var player = collision.collider.GetComponent<Player>();
         var tilemap = collision.collider.GetComponent<TilemapCollider2D>();
-        var bullet = collision.collider.GetComponent<EnemyBulletScript>();
+        var bullet = collision.collider.GetComponent<AIBullet>();
 
         if (enemy)
         {

@@ -6,8 +6,8 @@ using TMPro;
 
 public class EnemyHealthBar : MonoBehaviour
 {
-    public Slider slider;
-    public TMP_Text healthText;
+    [SerializeField] Slider slider;
+    [SerializeField] TMP_Text healthText;
 
     public void SetMaxHealth(int health)
     {

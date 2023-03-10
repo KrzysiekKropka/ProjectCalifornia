@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
-    public GameObject bullet;
-    public Transform bulletPos;
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform bulletPos;
 
-    private float timer;
+    float timer;
     private GameObject player;
 
     void Start()

@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class AIBrain : MonoBehaviour
 {
+    [SerializeField] EnemyHealthBar healthBar;
+    [SerializeField] GameObject bloodPoolEffect;
+    [SerializeField] Rigidbody2D rb;
+    private GameObject player;
+
+    bool readyToShoot = false;
     int maxHealth = 100;
     int currentHealth;
-
-    public EnemyHealthBar healthBar;
-    public GameObject bloodPoolEffect;
-    public Rigidbody2D rb;
-    private GameObject player;
-    float currentTime;
-    float aimAngle;
-
     public int dropXP;
     public int dropMoney;
+    float currentTime;
+    float aimAngle;
 
     Vector3 aimDirection;
 
