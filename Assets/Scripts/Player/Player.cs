@@ -7,10 +7,11 @@ public class Player : MonoBehaviour
 {
     float speed = 7.5f;
     float aimAngle;
+    float currentTime;
     int maxHealth = 100;
     int currentHealth;
     int equippedWeaponID;
-    int kills = 0; 
+    int kills = 0;
     int experiencePoints;
     int money;
     string equippedWeaponName;
@@ -21,8 +22,6 @@ public class Player : MonoBehaviour
     public NextLevelScreen nextLevelScreen;
 
     public Rigidbody2D rb;
-
-    float currentTime;
 
     Vector2 moveDirection;
     Vector2 mousePosition;

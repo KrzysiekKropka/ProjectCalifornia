@@ -19,7 +19,7 @@ public class EnemyBulletScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var player = collision.collider.GetComponent<Player>();
-        var enemy = collision.collider.GetComponent<Player>();
+        var enemy = collision.collider.GetComponent<AIBrain>();
         var tilemap = collision.collider.GetComponent<TilemapCollider2D>();
         var bullet = collision.collider.GetComponent<PlayerBullet>();
 

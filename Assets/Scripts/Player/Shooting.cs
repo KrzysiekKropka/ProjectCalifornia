@@ -10,15 +10,15 @@ public class Shooting : MonoBehaviour
     public HealthBar healthBar;
 
     bool isReloading = false;
-    int equippedWeaponID;
-    int weaponDamage;
-    int currentAmmo;
-    int maxAmmo;
-    int reserveAmmo;
     float weaponDelay;
     float reloadTime;
     float bulletForce = 30f;
     float currentTime;
+    int equippedWeaponID;
+    int weaponDamage; 
+    int currentAmmo; 
+    int maxAmmo; 
+    int reserveAmmo;
 
     void Start()
     {
