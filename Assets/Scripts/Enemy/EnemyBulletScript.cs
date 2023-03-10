@@ -37,6 +37,7 @@ public class EnemyBulletScript : MonoBehaviour
         else if (bullet)
         {
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
+            bulletDamage /= 2;
         }
         else if (enemy && Time.time - startTime > 0.01f)
         {

@@ -37,6 +37,7 @@ public class PlayerBullet : MonoBehaviour
         else if (bullet)
         {
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
+            bulletDamage /= 2;
         }
         else if (player && Time.time - startTime > 0.01f)
         {
