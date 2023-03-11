@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         aimDirection = mousePosition - rb.position;
-        aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 84f;
+        aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
