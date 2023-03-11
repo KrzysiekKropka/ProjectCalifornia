@@ -50,7 +50,7 @@ public class Shooting : MonoBehaviour
                 reloadTime = 3f;
                 break;
             default:
-                weaponDelay = 0.5f;
+                weaponDelay = 0.375f;
                 weaponDamage = 10;
                 maxAmmo = 17;
                 reloadTime = 2f;
@@ -59,6 +59,7 @@ public class Shooting : MonoBehaviour
         reserveAmmo = maxAmmo * 4;
         currentAmmo = maxAmmo;
         healthBar.SetAmmo(currentAmmo, reserveAmmo);
+        healthBar.SetWeaponIcon(equippedWeaponID);
     }
 
     void FixedUpdate()
@@ -86,7 +87,7 @@ public class Shooting : MonoBehaviour
             currentTime = Time.time;
             GameObject shootEffect = Instantiate(shootPrefab, firePoint.position, firePoint.rotation);
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //KK: Spawnuje naboj z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni
-            bullet.GetComponent<PlayerBullet>().bulletDamage = weaponDamage;
+            bullet.GetComponent<Bullet>().bulletDamage = weaponDamage;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
             Destroy(bullet, 10); //KK: Usuwa obiekt po 10 sekundach jesli nie zostanie usuniety przez cos innego

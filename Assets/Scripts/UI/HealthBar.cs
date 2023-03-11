@@ -7,12 +7,17 @@ using TMPro;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] Slider slider;
+    [SerializeField] Image weaponIcon;
     [SerializeField] TMP_Text healthText;
     [SerializeField] TMP_Text experiencePointsText;
     [SerializeField] TMP_Text moneyText;
     [SerializeField] TMP_Text killsText;
-    [SerializeField] TMP_Text weaponText;
     [SerializeField] TMP_Text ammoText;
+    [SerializeField] Sprite Deagle;
+    [SerializeField] Sprite MP5;
+    [SerializeField] Sprite Shotgun;
+    [SerializeField] Sprite AK47;
+
 
     public void ActiveMode(bool active)
     {
@@ -41,21 +46,37 @@ public class HealthBar : MonoBehaviour
 
     public void SetExperiencePoints(int experiencePoints)
     {
-        experiencePointsText.text = "XP: " + experiencePoints;
+        experiencePointsText.text = experiencePoints + "<sprite=0>";
     }
 
     public void SetMoney(int money)
     {
-        moneyText.text = "Money: " + money + "$";
-    }
-
-    public void SetWeaponName(string weaponName)
-    {
-        weaponText.text = "Equipped " + weaponName + "!";
+        moneyText.text = "<sprite=0>" + money + "$";
     }
 
     public void SetAmmo(int currentAmmo, int reserveAmmo)
     {
         ammoText.text = currentAmmo + "/" + reserveAmmo;
+    }
+
+    public void SetWeaponIcon(int equippedWeaponID)
+    {
+        switch (equippedWeaponID) 
+        { 
+            case 1:
+                weaponIcon.sprite = Deagle;
+                break;
+            case 2:
+                weaponIcon.sprite = MP5;
+                break;
+            case 3:
+                weaponIcon.sprite = Shotgun;
+                break;
+            case 4:
+                weaponIcon.sprite = AK47;
+                break;
+            default:
+                break;
+        }
     }
 }

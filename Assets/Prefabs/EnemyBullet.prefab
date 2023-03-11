@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4662244854943281473}
   - component: {fileID: 28375783223591688}
   - component: {fileID: 4022969851184816916}
-  - component: {fileID: 4327580781757276701}
+  - component: {fileID: 8419504066649429160}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: Untagged
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.02}
   m_EdgeRadius: 0
---- !u!114 &4327580781757276701
+--- !u!114 &8419504066649429160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,4 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   genericEffect: {fileID: 5524518565218896284, guid: b21e9c2b6b03490428c038824a8b6a42, type: 3}
   bloodEffect: {fileID: 5524518565218896284, guid: 32637808a7ecc14489e42803b1d3fec5, type: 3}
-  bulletDamage: 25
+  bulletDamage: 10

@@ -35,7 +35,6 @@ public class Player : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetExperiencePoints(experiencePoints);
         healthBar.SetMoney(money);
-        healthBar.SetWeaponName(equippedWeaponName);
         healthBar.SetKills(kills);
         spriteRenderer = GetComponent<SpriteRenderer>();
     }

@@ -21,7 +21,7 @@ public class AIShooting : MonoBehaviour
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
         timer += Time.deltaTime;
-        if (timer > 2 && distance < 10)
+        if (timer > 2 && distance < 15f)
         {
             Shoot();
             timer = 0;
