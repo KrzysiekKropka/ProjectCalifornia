@@ -15,7 +15,7 @@ PlayerSettings:
   companyName: SCI
   productName: Project California
   defaultCursor: {fileID: 2800000, guid: 73d4a51222216eb418d2928ee4bd0d3c, type: 3}
-  cursorHotspot: {x: 15.5, y: 15.5}
+  cursorHotspot: {x: 16, y: 16}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
