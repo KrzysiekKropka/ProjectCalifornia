@@ -40,22 +40,18 @@ public class AIBrain : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (Time.time - currentTime > .01f)
+        currentHealth -= damage;
+        if (currentHealth <= 0)
         {
-            currentTime = Time.time;
-            currentHealth -= damage;
-            if (currentHealth <= 0)
+            var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            if (player)
             {
-                var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-                if (player)
-                {
-                    player.SetXP(dropXP);
-                    player.AddKill();
-                }
-                Destroy(transform.parent.gameObject);
-                Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
+                player.SetXP(dropXP);
+                player.AddKill();
             }
-            healthBar.SetHealth(currentHealth);
+            Destroy(transform.parent.gameObject);
+            Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
         }
+        healthBar.SetHealth(currentHealth);
     }
 }

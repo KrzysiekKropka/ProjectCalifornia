@@ -17,7 +17,7 @@ public class ShopManager : MonoBehaviour
     void Start()
     {
         money = PlayerPrefs.GetInt("money");
-        moneyText.text = "Money: " + money + "$";
+        if (moneyText != null) moneyText.text = "Money: " + money + "$";
 
         //KK: ustawianie ID przedmiotom w sklepie
         shopItems[1, 1] = 1;

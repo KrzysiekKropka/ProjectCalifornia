@@ -9,12 +9,14 @@ public class InventoryManager : MonoBehaviour
 {
     [SerializeField] GameObject ShopManager;
     [SerializeField] TMP_Text equippedText;
+    private GameObject player;
 
     int equippedWeaponID;
     string equippedWeaponName;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
         equippedWeaponName = PlayerPrefs.GetString("equippedWeaponName");
         AssignNames();
@@ -28,6 +30,10 @@ public class InventoryManager : MonoBehaviour
         {
             equippedWeaponID = ButtonRef.GetComponent<InventoryButtonInfo>().itemID;
             PlayerPrefs.SetInt("equippedWeaponID", equippedWeaponID);
+            if (player!= null)
+            {
+                player.GetComponent<Shooting>().AssignWeapon(equippedWeaponID);
+            }
             AssignNames();
         }
         else

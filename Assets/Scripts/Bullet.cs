@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] GameObject bloodEffect;
     private GameObject effect;
 
+    bool enteredEnemy = false;
     int originalBulletDamage;
     public int bulletDamage;
     float startTime;
@@ -42,8 +43,9 @@ public class Bullet : MonoBehaviour
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
             bulletDamage = originalBulletDamage / 2;
         }
-        else if (enemy)
+        else if (enemy && enteredEnemy == false)
         {
+            enteredEnemy = true;
             Destroy(gameObject);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
             enemy.TakeDamage(bulletDamage);

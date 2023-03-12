@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SettingsDestroy : MonoBehaviour
+public class DestroyItself : MonoBehaviour
 {
-    public void DestroyItself()
+    public void Destroy()
     {
         Destroy(gameObject);
     }

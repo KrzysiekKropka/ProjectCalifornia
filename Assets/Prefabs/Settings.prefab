@@ -2473,8 +2473,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4091086257090872413}
-        m_TargetAssemblyTypeName: SettingsDestroy, Assembly-CSharp
-        m_MethodName: DestroyItself
+        m_TargetAssemblyTypeName: DestroyItself, Assembly-CSharp
+        m_MethodName: Destroy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
