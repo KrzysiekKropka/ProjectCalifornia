@@ -60,7 +60,6 @@ public class Shooting : MonoBehaviour
 
     public void AssignWeapon(int weaponID)
     {
-        StartCoroutine(Reload(equippedWeaponID));
         if (equippedBefore[weaponID] == false)
         {
             reserveAmmo[weaponID] = maxAmmo[weaponID] * 3;
@@ -74,7 +73,7 @@ public class Shooting : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetMouseButton(0) && isReloading[equippedWeaponID] == false)
+        if (Input.GetMouseButton(0))
         {
             Shoot();
         }
@@ -90,7 +89,7 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-        if (Time.time - currentTime > weaponDelay[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0)
+        if (Time.time - currentTime > weaponDelay[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && Player.inInventory == false && isReloading[equippedWeaponID] == false)
         {
             currentTime = Time.time;
             currentAmmo[equippedWeaponID]--;

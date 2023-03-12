@@ -11,12 +11,12 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject healthBar;
-    [SerializeField] GameObject settingsPrefab; 
-    [SerializeField] GameObject inventoryPrefab;
+    [SerializeField] GameObject settingsPrefab;
+    [SerializeField] GameObject inventory;
+    [SerializeField] GameObject inventoryMenu;
 
-    bool isPaused;
+    public static bool isPaused;
     private GameObject settings;
-    private GameObject inventory;
 
     void Start()
     {
@@ -41,6 +41,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         healthBar.SetActive(false);
+        inventory.GetComponent<InventoryMenu>().HideDuringGameplay();
         Time.timeScale = 0f;
         isPaused = true;
     }
@@ -48,8 +49,8 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         healthBar.SetActive(true);
+        inventoryMenu.SetActive(false);
         if (settings != null) Destroy(settings);
-        else if (inventory != null) Destroy(inventory);
         Time.timeScale = 1f;
         isPaused = false;
     }
@@ -62,10 +63,5 @@ public class PauseMenu : MonoBehaviour
     {
         settings = Instantiate(settingsPrefab);
         settings.SetActive(true);
-    }
-    public void InstantiateInventory()
-    {
-        inventory = Instantiate(inventoryPrefab);
-        inventory.SetActive(true);
     }
 }

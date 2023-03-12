@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
     [SerializeField] HealthBar healthBar;
     [SerializeField] NextLevelScreen nextLevelScreen;
     [SerializeField] Rigidbody2D rb;
+
     private SpriteRenderer spriteRenderer;
+    public static bool inInventory = false;
 
     float speed = 7.5f;
     float aimAngle;
@@ -55,12 +57,17 @@ public class Player : MonoBehaviour
             SetXP(15);
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             SetMoney(1000);
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            TakeDamage(10);
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
         {
             TakeDamage(10);
         }
@@ -69,7 +76,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
-        rb.rotation = aimAngle;
+        if (inInventory == false) rb.rotation = aimAngle;
     }
 
     //KK: Kiedy dostajemy od czegoś wpierdol, usuwa damage od obecnego zdrowia gracza i ustawia wartość filla w healthBarze na obecne HP gracza.

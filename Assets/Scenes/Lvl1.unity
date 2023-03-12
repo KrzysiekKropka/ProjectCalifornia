@@ -1111,6 +1111,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8801399120683548198, guid: 0a1956ef0a29e9b4f988a9ba49d38b42, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8801399120683548199, guid: 0a1956ef0a29e9b4f988a9ba49d38b42, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5136569109430987066, guid: 0a1956ef0a29e9b4f988a9ba49d38b42, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0a1956ef0a29e9b4f988a9ba49d38b42, type: 3}
