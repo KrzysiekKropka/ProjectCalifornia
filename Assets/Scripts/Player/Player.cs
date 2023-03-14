@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     [SerializeField] NextLevelScreen nextLevelScreen;
     [SerializeField] Rigidbody2D rb;
 
-    private SpriteRenderer spriteRenderer;
     public static bool inInventory = false;
 
     float speed = 7.5f;
@@ -38,7 +37,6 @@ public class Player : MonoBehaviour
         healthBar.SetExperiencePoints(experiencePoints);
         healthBar.SetMoney(money);
         healthBar.SetKills(kills);
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     //KK: Prosto z poradnika Brackeys (RIP).

@@ -13,6 +13,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] TMP_Text moneyText;
     [SerializeField] TMP_Text killsText;
     [SerializeField] TMP_Text ammoText;
+    [SerializeField] TMP_Text reloadingText;
     [SerializeField] Sprite Deagle;
     [SerializeField] Sprite MP5;
     [SerializeField] Sprite Shotgun;
@@ -78,5 +79,11 @@ public class HealthBar : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void SetReloading(bool isReloading)
+    {
+        if (isReloading) reloadingText.text = "Reloading...";
+        else reloadingText.text = "";
     }
 }

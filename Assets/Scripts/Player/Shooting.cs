@@ -5,34 +5,38 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     [SerializeField] Transform firePoint, firePointShotgun1, firePointShotgun2;
-    [SerializeField] GameObject ShopManager;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] GameObject shootPrefab;
     [SerializeField] HealthBar healthBar;
-    bool[] isReloading = new bool[5];
+    [SerializeField] Sprite PlayerPistol, PlayerRifle;
+    private SpriteRenderer spriteRenderer;
+
+    public ScreenShake screenShake;
+
+    public bool[] isReloading = new bool[5];
     bool[] equippedBefore = new bool[5];
     string[] weaponName = new string[5];
     float bulletForce = 30f;
     float currentTime;
     float[] weaponDelay = new float[5];
     float[] reloadTime = new float[5];
-    int equippedWeaponID;
+    public int equippedWeaponID;
     int[] weaponDamage = new int[5];
-    int[] currentAmmo = new int[5];
-    int[] reserveAmmo = new int[5];
+    public int[] currentAmmo = new int[5];
+    public int[] reserveAmmo = new int[5];
     int[] maxAmmo = new int[5];
 
     void Start()
     {
         weaponName[0] = "Pistol";
         weaponDamage[0] = 10;
-        weaponDelay[0] = 0.375f;
+        weaponDelay[0] = 0.25f;
         reloadTime[0] = 2f;
         maxAmmo[0] = 17;
 
         weaponName[1] = "Deagle";
         weaponDamage[1] = 30;
-        weaponDelay[1] = 0.75f;
+        weaponDelay[1] = 0.5f;
         reloadTime[1] = 2f;
         maxAmmo[1] = 7;
 
@@ -44,7 +48,7 @@ public class Shooting : MonoBehaviour
 
         weaponName[3] = "Shotgun";
         weaponDamage[3] = 20;
-        weaponDelay[3] = 1f;
+        weaponDelay[3] = 0.8f;
         reloadTime[3] = 4f;
         maxAmmo[3] = 5;
 
@@ -54,21 +58,40 @@ public class Shooting : MonoBehaviour
         reloadTime[4] = 3f;
         maxAmmo[4] = 30;
 
+        screenShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        for(int i = 0; i < 5; i++)
+        {
+            reserveAmmo[i] = maxAmmo[i] * 3;
+            currentAmmo[i] = maxAmmo[i];
+        }
+
         equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
         AssignWeapon(equippedWeaponID);
     }
 
     public void AssignWeapon(int weaponID)
     {
-        if (equippedBefore[weaponID] == false)
-        {
-            reserveAmmo[weaponID] = maxAmmo[weaponID] * 3;
-            currentAmmo[weaponID] = maxAmmo[weaponID];
-            equippedBefore[weaponID] = true;
-        }
         healthBar.SetWeaponIcon(weaponID);
         healthBar.SetAmmo(currentAmmo[weaponID], reserveAmmo[weaponID]);
         equippedWeaponID = weaponID;
+        healthBar.SetReloading(false);
+
+        if (weaponID < 2)
+        {
+            spriteRenderer.sprite = PlayerPistol;
+        }
+        else
+        {
+            spriteRenderer.sprite = PlayerRifle;
+        }
+
+        if (isReloading[weaponID])
+        {
+            healthBar.SetReloading(true);
+        }
     }
 
     void FixedUpdate()
@@ -91,6 +114,7 @@ public class Shooting : MonoBehaviour
     {
         if (Time.time - currentTime > weaponDelay[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && Player.inInventory == false && isReloading[equippedWeaponID] == false)
         {
+            screenShake.CamShake();
             currentTime = Time.time;
             currentAmmo[equippedWeaponID]--;
             healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
@@ -123,6 +147,7 @@ public class Shooting : MonoBehaviour
         if (currentAmmo[weaponID] != maxAmmo[weaponID] && reserveAmmo[weaponID] > 0 && isReloading[weaponID] == false)
         {
             isReloading[weaponID] = true;
+            healthBar.SetReloading(true);
             yield return new WaitForSeconds(reloadTime[weaponID]);
             if ((currentAmmo[weaponID] + reserveAmmo[weaponID]) > maxAmmo[weaponID])
             {
@@ -136,6 +161,7 @@ public class Shooting : MonoBehaviour
                 reserveAmmo[weaponID] = 0;
             }
             isReloading[weaponID] = false;
+            if(equippedWeaponID == weaponID)healthBar.SetReloading(false);
             healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
         }
     }

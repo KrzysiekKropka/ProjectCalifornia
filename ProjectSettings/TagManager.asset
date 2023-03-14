@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Event
   - ShopManager
+  - ScreenShake
   layers:
   - Default
   - TransparentFX

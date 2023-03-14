@@ -4,17 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ShopButtonInfo : MonoBehaviour
+public class InventoryButtonInfoMenu : MonoBehaviour
 {
-    [SerializeField] TMP_Text priceText;
-    [SerializeField] TMP_Text quantityText;
     [SerializeField] GameObject ShopManager;
-
+    [SerializeField] TMP_Text infoText;
+    public Button button;
     public int itemID;
 
     void Start()
     {
-        priceText.text = ShopManager.GetComponent<ShopManager>().shopItems[2,itemID].ToString() + "$";
+        button = gameObject.GetComponent<Button>();
         AssignOwnership();
     }
 
@@ -22,11 +21,12 @@ public class ShopButtonInfo : MonoBehaviour
     {
         if (ShopManager.GetComponent<ShopManager>().shopItems[3, itemID] >= 1)
         {
-            quantityText.text = "OWNED!";
+            button.interactable = true;
+            //infoText.text = "OWNED!";
         }
         else
         {
-            quantityText.text = "BUY NOW!";
+            button.interactable = false;
         }
     }
 }

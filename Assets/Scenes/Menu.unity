@@ -1981,6 +1981,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 405571812}
+        m_TargetAssemblyTypeName: ShopButtonInfo, Assembly-CSharp
+        m_MethodName: AssignOwnership
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &405571810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2680,6 +2692,18 @@ MonoBehaviour:
       - m_Target: {fileID: 679993651}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: BuyItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 547505639}
+        m_TargetAssemblyTypeName: ShopButtonInfo, Assembly-CSharp
+        m_MethodName: AssignOwnership
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4429,6 +4453,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShopManager: {fileID: 679993649}
+  player: {fileID: 0}
+  infoText: {fileID: 0}
+  reloadText: {fileID: 0}
   itemID: 4
 --- !u!1 &1199674795
 GameObject:
@@ -4806,6 +4833,18 @@ MonoBehaviour:
       - m_Target: {fileID: 679993651}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: BuyItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1331864603}
+        m_TargetAssemblyTypeName: ShopButtonInfo, Assembly-CSharp
+        m_MethodName: AssignOwnership
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5568,6 +5607,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShopManager: {fileID: 679993649}
+  player: {fileID: 0}
+  infoText: {fileID: 0}
+  reloadText: {fileID: 0}
   itemID: 2
 --- !u!1 &1444965568
 GameObject:
@@ -5718,6 +5760,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShopManager: {fileID: 679993649}
+  player: {fileID: 0}
+  infoText: {fileID: 0}
+  reloadText: {fileID: 0}
   itemID: 3
 --- !u!1 &1445779187
 GameObject:
@@ -5960,6 +6005,18 @@ MonoBehaviour:
       - m_Target: {fileID: 679993651}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
         m_MethodName: BuyItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1484719386}
+        m_TargetAssemblyTypeName: ShopButtonInfo, Assembly-CSharp
+        m_MethodName: AssignOwnership
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8885,4 +8942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShopManager: {fileID: 679993649}
+  player: {fileID: 0}
+  infoText: {fileID: 0}
+  reloadText: {fileID: 0}
   itemID: 1
