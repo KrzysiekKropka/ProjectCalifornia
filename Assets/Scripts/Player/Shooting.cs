@@ -31,31 +31,31 @@ public class Shooting : MonoBehaviour
         weaponName[0] = "Pistol";
         weaponDamage[0] = 10;
         weaponDelay[0] = 0.25f;
-        reloadTime[0] = 2f;
+        reloadTime[0] = 2.5f;
         maxAmmo[0] = 17;
 
         weaponName[1] = "Deagle";
         weaponDamage[1] = 30;
         weaponDelay[1] = 0.5f;
-        reloadTime[1] = 2f;
+        reloadTime[1] = 2.5f;
         maxAmmo[1] = 7;
 
         weaponName[2] = "MP5";
         weaponDamage[2] = 10;
         weaponDelay[2] = 0.1f;
-        reloadTime[2] = 3f; 
+        reloadTime[2] = 3.5f; 
         maxAmmo[2] = 50;
 
         weaponName[3] = "Shotgun";
         weaponDamage[3] = 20;
         weaponDelay[3] = 0.8f;
-        reloadTime[3] = 4f;
-        maxAmmo[3] = 5;
+        reloadTime[3] = 5f;
+        maxAmmo[3] = 6;
 
         weaponName[4] = "AK-47";
         weaponDamage[4] = 20;
         weaponDelay[4] = 0.133f;
-        reloadTime[4] = 3f;
+        reloadTime[4] = 3.5f;
         maxAmmo[4] = 30;
 
         screenShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>();
@@ -139,6 +139,7 @@ public class Shooting : MonoBehaviour
                 rb2.AddForce(firePointShotgun2.up * bulletForce, ForceMode2D.Impulse);
                 Destroy(bullet2, 10);
             }
+            if (currentAmmo[equippedWeaponID] == 0) StartCoroutine(Reload(equippedWeaponID));
         }
     }
 

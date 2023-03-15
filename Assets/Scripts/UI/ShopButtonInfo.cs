@@ -6,7 +6,6 @@ using TMPro;
 
 public class ShopButtonInfo : MonoBehaviour
 {
-    [SerializeField] TMP_Text priceText;
     [SerializeField] TMP_Text quantityText;
     [SerializeField] GameObject ShopManager;
 
@@ -14,7 +13,6 @@ public class ShopButtonInfo : MonoBehaviour
 
     void Start()
     {
-        priceText.text = ShopManager.GetComponent<ShopManager>().shopItems[2,itemID].ToString() + "$";
         AssignOwnership();
     }
 
@@ -26,7 +24,7 @@ public class ShopButtonInfo : MonoBehaviour
         }
         else
         {
-            quantityText.text = "BUY NOW!";
+            quantityText.text = "BUY NOW! \n(" + ShopManager.GetComponent<ShopManager>().shopItems[2, itemID].ToString() + "$)";
         }
     }
 }

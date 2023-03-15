@@ -10,14 +10,21 @@ public class ShopManager : MonoBehaviour
     //KK: Poradnik na to: https://www.youtube.com/watch?v=Oie-G5xuQNA
 
     [SerializeField] TMP_Text moneyText;
+    [SerializeField] TMP_Text xpText;
 
     public int[,] shopItems = new int[5, 5];
     int money;
+    int xp;
 
     void Start()
     {
         money = PlayerPrefs.GetInt("money");
-        if (moneyText != null) moneyText.text = "Money: " + money + "$";
+        xp = PlayerPrefs.GetInt("experiencePoints");
+        if (moneyText != null || xpText != null)
+        {
+            moneyText.text = "<sprite=0>" + money + "$";
+            xpText.text = xp + "<sprite=0>";
+        }
 
         //KK: ustawianie ID przedmiotom w sklepie
         shopItems[1, 1] = 1;
@@ -58,9 +65,16 @@ public class ShopManager : MonoBehaviour
         {
             money -= shopItems[2, ButtonRef.GetComponent<ShopButtonInfo>().itemID];
             shopItems[3, ButtonRef.GetComponent<ShopButtonInfo>().itemID]++;
-            moneyText.text = "Money: " + money + "$";
+            moneyText.text = "<sprite=0>" + money + "$";
             PlayerPrefs.SetInt("itemQuantity" + ButtonRef.GetComponent<ShopButtonInfo>().itemID, shopItems[3, ButtonRef.GetComponent<ShopButtonInfo>().itemID]);
             PlayerPrefs.SetInt("money", money);
         }
+    }
+
+    public void BuySkill()
+    {
+        //kod na kupowanie skillu
+
+        GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
     }
 }

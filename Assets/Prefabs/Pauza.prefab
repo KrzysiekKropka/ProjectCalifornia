@@ -1147,7 +1147,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.8
+  m_MatchWidthOrHeight: 0.75
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1185,7 +1185,8 @@ MonoBehaviour:
   pauseMenu: {fileID: 7449026929169845563}
   healthBar: {fileID: 0}
   settingsPrefab: {fileID: 6651287304483298214, guid: ff13a437240001d4b8a9097097794745, type: 3}
-  inventoryPrefab: {fileID: 2103629072946906952, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
+  inventory: {fileID: 0}
+  inventoryMenu: {fileID: 0}
 --- !u!1 &7852195005932145142
 GameObject:
   m_ObjectHideFlags: 0
