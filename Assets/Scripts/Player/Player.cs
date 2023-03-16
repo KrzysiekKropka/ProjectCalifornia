@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
     //Tutaj zrób skrypt na game over.
     public void TakeDamage(int damage)
     {
-        if (Time.time - currentTime > .001f)
+        if (Time.time - currentTime > .01f)
         {
             currentHealth -= damage;
             currentTime = Time.time;

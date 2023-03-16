@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class AIBrain : MonoBehaviour
 {
     [SerializeField] EnemyHealthBar healthBar;
     [SerializeField] GameObject bloodPoolEffect;
+    [SerializeField] GameObject damagePopupPrefab;
     [SerializeField] Rigidbody2D rb;
     private GameObject player;
+    private GameObject damagePopup;
 
     bool readyToShoot = false;
     int maxHealth = 100;
     int currentHealth;
     public int dropXP;
     public int dropMoney;
+    int summedDamage;
     float currentTime;
     float aimAngle;
 
@@ -41,6 +45,24 @@ public class AIBrain : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+
+        //KK:Blagam nie dotykaj tego kodu ponizej, jest on tak kurwa niestabilny ze lekka zmiana kompletnie rozpierdoli dzialanie licznika. To jest niesamowite ze to w ogole dziala.
+        if (Time.time - currentTime > 0.5f)
+        {
+            summedDamage = 0;
+        }
+
+        summedDamage += damage;
+
+        if (Time.time - currentTime > 0.05f)
+        {
+            damagePopup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
+            damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
+        }
+        else
+        {
+            damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
+        }
         if (currentHealth <= 0)
         {
             var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -50,8 +72,13 @@ public class AIBrain : MonoBehaviour
                 player.AddKill();
             }
             Destroy(transform.parent.gameObject);
-            Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
+            if (Time.time - currentTime > .01f)
+            {
+                Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
+                currentTime = Time.time;
+            }
         }
         healthBar.SetHealth(currentHealth);
+        currentTime = Time.time;
     }
 }

@@ -14,6 +14,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] TMP_Text killsText;
     [SerializeField] TMP_Text ammoText;
     [SerializeField] TMP_Text reloadingText;
+    [SerializeField] Sprite Pistol;
     [SerializeField] Sprite Deagle;
     [SerializeField] Sprite MP5;
     [SerializeField] Sprite Shotgun;
@@ -64,6 +65,9 @@ public class HealthBar : MonoBehaviour
     {
         switch (equippedWeaponID) 
         { 
+            case 0:
+                weaponIcon.sprite = Pistol;
+                break;
             case 1:
                 weaponIcon.sprite = Deagle;
                 break;

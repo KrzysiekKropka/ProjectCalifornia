@@ -35,7 +35,7 @@ public class Shooting : MonoBehaviour
         maxAmmo[0] = 17;
 
         weaponName[1] = "Deagle";
-        weaponDamage[1] = 30;
+        weaponDamage[1] = 35;
         weaponDelay[1] = 0.5f;
         reloadTime[1] = 2.5f;
         maxAmmo[1] = 7;
@@ -49,11 +49,11 @@ public class Shooting : MonoBehaviour
         weaponName[3] = "Shotgun";
         weaponDamage[3] = 20;
         weaponDelay[3] = 0.8f;
-        reloadTime[3] = 5f;
+        reloadTime[3] = 4f;
         maxAmmo[3] = 6;
 
         weaponName[4] = "AK-47";
-        weaponDamage[4] = 20;
+        weaponDamage[4] = 25;
         weaponDelay[4] = 0.133f;
         reloadTime[4] = 3.5f;
         maxAmmo[4] = 30;
@@ -114,12 +114,13 @@ public class Shooting : MonoBehaviour
     {
         if (Time.time - currentTime > weaponDelay[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && Player.inInventory == false && isReloading[equippedWeaponID] == false)
         {
+            int damage = Random.Range(weaponDamage[equippedWeaponID] - 5, weaponDamage[equippedWeaponID] + 3);
             screenShake.CamShake();
             currentTime = Time.time;
             currentAmmo[equippedWeaponID]--;
             healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //KK: Spawnuje naboj z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni
-            bullet.GetComponent<Bullet>().bulletDamage = weaponDamage[equippedWeaponID];
+            bullet.GetComponent<Bullet>().bulletDamage = damage;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
             GameObject shootEffect = Instantiate(shootPrefab, firePoint.position, firePoint.rotation);
@@ -128,13 +129,13 @@ public class Shooting : MonoBehaviour
             if (equippedWeaponID == 3) //shotgun
             {
                 GameObject bullet1 = Instantiate(bulletPrefab, firePointShotgun1.position, firePointShotgun1.rotation);
-                bullet1.GetComponent<Bullet>().bulletDamage = weaponDamage[equippedWeaponID];
+                bullet1.GetComponent<Bullet>().bulletDamage = damage;
                 Rigidbody2D rb1 = bullet1.GetComponent<Rigidbody2D>();
                 rb1.AddForce(firePointShotgun1.up * bulletForce, ForceMode2D.Impulse);
                 Destroy(bullet1, 10);
 
                 GameObject bullet2 = Instantiate(bulletPrefab, firePointShotgun2.position, firePointShotgun2.rotation);
-                bullet2.GetComponent<Bullet>().bulletDamage = weaponDamage[equippedWeaponID];
+                bullet2.GetComponent<Bullet>().bulletDamage = damage;
                 Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
                 rb2.AddForce(firePointShotgun2.up * bulletForce, ForceMode2D.Impulse);
                 Destroy(bullet2, 10);
