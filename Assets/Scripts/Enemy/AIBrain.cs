@@ -54,7 +54,7 @@ public class AIBrain : MonoBehaviour
 
         summedDamage += damage;
 
-        if (Time.time - currentTime > 0.05f)
+        if (Time.time - currentTime > 0.1f)
         {
             damagePopup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
             damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
