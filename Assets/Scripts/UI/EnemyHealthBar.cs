@@ -6,8 +6,12 @@ using TMPro;
 
 public class EnemyHealthBar : MonoBehaviour
 {
+    [SerializeField] Transform enemy;
     [SerializeField] Slider slider;
     [SerializeField] TMP_Text healthText;
+    [SerializeField] GameObject healthBar;
+
+    Vector3 offset = new Vector3(0f, 1f, 0f);
 
     public void SetMaxHealth(int health)
     {
@@ -18,8 +22,14 @@ public class EnemyHealthBar : MonoBehaviour
 
     public void SetHealth(int health)
     {
-        if (health < 100) gameObject.SetActive(true);
+        if (health < 100) healthBar.SetActive(true);
         slider.value = health;
         healthText.text = health.ToString();
+    }
+
+    void LateUpdate()
+    {
+        Vector3 targetPosition = enemy.position + offset;
+        transform.position = targetPosition;
     }
 }

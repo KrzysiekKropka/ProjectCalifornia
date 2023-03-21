@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] HealthBar healthBar;
     [SerializeField] NextLevelScreen nextLevelScreen;
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] GameObject damagePopupPrefab;
+    private GameObject damagePopup;
 
     public static bool inInventory = false;
 
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour
     int kills = 0;
     int experiencePoints;
     int money;
+    int summedDamage;
     string equippedWeaponName;
 
     private Vector2 moveDirection;
@@ -81,11 +84,24 @@ public class Player : MonoBehaviour
     //Tutaj zrób skrypt na game over.
     public void TakeDamage(int damage)
     {
-        if (Time.time - currentTime > .01f)
+        currentHealth -= damage;
+        if (Time.time - currentTime > 0.5f)
         {
-            currentHealth -= damage;
-            currentTime = Time.time;
+            summedDamage = 0;
         }
+
+        summedDamage += damage;
+
+        if (Time.time - currentTime > 0.1f)
+        {
+            damagePopup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
+            damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
+        }
+        else
+        {
+            //damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
+        }
+
         if (currentHealth <= 0)
         {
             SceneManager.LoadScene("GameOver");

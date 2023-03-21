@@ -13,6 +13,9 @@ public class ShopManager : MonoBehaviour
     [SerializeField] TMP_Text xpText;
 
     public int[,] shopItems = new int[5, 5];
+    public int[,] shopSkills = new int[5, 5];
+    public int[,] shopMaps = new int[5, 5];
+
     int money;
     int xp;
 
@@ -32,17 +35,53 @@ public class ShopManager : MonoBehaviour
         shopItems[1, 3] = 3;
         shopItems[1, 4] = 4;
 
+        //KK: ustawianie ID skillom w sklepie
+        shopSkills[1, 1] = 1;
+        shopSkills[1, 2] = 2;
+        shopSkills[1, 3] = 3;
+        shopSkills[1, 4] = 4;
+
+        //KK: ustawianie ID mapom w sklepie
+        shopMaps[1, 1] = 2;
+        shopMaps[1, 2] = 3;
+        shopMaps[1, 3] = 4;
+        shopMaps[1, 4] = 5;
+
         //KK: ustawianie ceny przedmiotom w sklepie
-        shopItems[2, 1] = 1000;
-        shopItems[2, 2] = 2000;
-        shopItems[2, 3] = 3000;
-        shopItems[2, 4] = 4000;
+        shopItems[2, 1] = 1500;
+        shopItems[2, 2] = 3000;
+        shopItems[2, 3] = 4500;
+        shopItems[2, 4] = 6000;
+
+        //KK: ustawianie ceny skillom w sklepie
+        shopSkills[2, 1] = 150;
+        shopSkills[2, 2] = 300;
+        shopSkills[2, 3] = 450;
+        shopSkills[2, 4] = 600;
+
+        //KK: ustawianie ceny mapom w sklepie
+        shopMaps[2, 1] = 300;
+        shopMaps[2, 2] = 600;
+        shopMaps[2, 3] = 900;
+        shopMaps[2, 4] = 1200;
 
         //KK: ustawianie ilosci przedmiotom w sklepie
         shopItems[3, 1] = PlayerPrefs.GetInt("itemQuantity" + 1);
         shopItems[3, 2] = PlayerPrefs.GetInt("itemQuantity" + 2);
         shopItems[3, 3] = PlayerPrefs.GetInt("itemQuantity" + 3);
         shopItems[3, 4] = PlayerPrefs.GetInt("itemQuantity" + 4);
+
+        //KK: ustawianie ilosci skillom w sklepie
+        shopSkills[3, 1] = PlayerPrefs.GetInt("skillQuantity" + 1);
+        shopSkills[3, 2] = PlayerPrefs.GetInt("skillQuantity" + 2);
+        shopSkills[3, 3] = PlayerPrefs.GetInt("skillQuantity" + 3);
+        shopSkills[3, 4] = PlayerPrefs.GetInt("skillQuantity" + 4);
+
+        //KK: ustawianie ilosci mapom w sklepie
+        shopMaps[3, 1] = PlayerPrefs.GetInt("mapQuantity" + 1);
+        shopMaps[3, 2] = PlayerPrefs.GetInt("mapQuantity" + 2);
+        shopMaps[3, 3] = PlayerPrefs.GetInt("mapQuantity" + 3);
+        shopMaps[3, 4] = PlayerPrefs.GetInt("mapQuantity" + 4);
     }
 
     void ResetQuantity()
@@ -61,12 +100,12 @@ public class ShopManager : MonoBehaviour
     public void BuyItem()
     {
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
-        if ((money >= shopItems[2, ButtonRef.GetComponent<ShopButtonInfo>().itemID]) && (shopItems[3, ButtonRef.GetComponent<ShopButtonInfo>().itemID]==0))
+        if ((money >= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]) && (shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]==0))
         {
-            money -= shopItems[2, ButtonRef.GetComponent<ShopButtonInfo>().itemID];
-            shopItems[3, ButtonRef.GetComponent<ShopButtonInfo>().itemID]++;
+            money -= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID];
+            shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]++;
             moneyText.text = "<sprite=0>" + money + "$";
-            PlayerPrefs.SetInt("itemQuantity" + ButtonRef.GetComponent<ShopButtonInfo>().itemID, shopItems[3, ButtonRef.GetComponent<ShopButtonInfo>().itemID]);
+            PlayerPrefs.SetInt("itemQuantity" + ButtonRef.GetComponent<ShopItemButtonInfo>().itemID, shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]);
             PlayerPrefs.SetInt("money", money);
         }
     }
@@ -74,7 +113,16 @@ public class ShopManager : MonoBehaviour
     public void BuySkill()
     {
         //kod na kupowanie skillu
-
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
+        xp -= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID];
+        shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]++;
+        xpText.text = xp + "<sprite=0>";
+        PlayerPrefs.SetInt("skillQuantity" + ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID, shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]);
+        PlayerPrefs.SetInt("xp", xp);
+    }
+
+    public void BuyMap()
+    {
+        //kod na kupowanie mapy
     }
 }

@@ -19,7 +19,7 @@ public class AIBrain : MonoBehaviour
     public int dropXP;
     public int dropMoney;
     int summedDamage;
-    float currentTime;
+    float currentTime, currentTimeBloodPool;
     float aimAngle;
 
     Vector3 aimDirection;
@@ -34,7 +34,7 @@ public class AIBrain : MonoBehaviour
     void Update()
     {
         aimDirection = player.transform.position - transform.position;
-        aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 87f;
+        aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
     }
 
     void FixedUpdate()
@@ -45,7 +45,6 @@ public class AIBrain : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
         //KK:Blagam nie dotykaj tego kodu ponizej, jest on tak kurwa niestabilny ze lekka zmiana kompletnie rozpierdoli dzialanie licznika. To jest niesamowite ze to w ogole dziala.
         if (Time.time - currentTime > 0.5f)
         {
@@ -72,10 +71,10 @@ public class AIBrain : MonoBehaviour
                 player.AddKill();
             }
             Destroy(transform.parent.gameObject);
-            if (Time.time - currentTime > .01f)
+            if (Time.time - currentTimeBloodPool > .01f)
             {
                 Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
-                currentTime = Time.time;
+                currentTimeBloodPool = Time.time;
             }
         }
         healthBar.SetHealth(currentHealth);
