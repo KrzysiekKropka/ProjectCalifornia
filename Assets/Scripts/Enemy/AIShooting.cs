@@ -6,6 +6,7 @@ public class AIShooting : MonoBehaviour
 {
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject shootPrefab;
     private GameObject player;
 
     float bulletForce = 25f;
@@ -34,5 +35,6 @@ public class AIShooting : MonoBehaviour
         Destroy(bullet, 10); //KK: Usuwa obiekt po 10 sekundach jesli nie zostanie usuniety przez cos innego
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        GameObject shootEffect = Instantiate(shootPrefab, firePoint.position, firePoint.rotation);
     }
 }

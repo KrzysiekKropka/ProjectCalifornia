@@ -41,7 +41,7 @@ public class Shooting : MonoBehaviour
         weaponDelay[1] = 0.5f;
         reloadTime[1] = 2.5f;
         maxAmmo[1] = 7;
-        bulletSpread[1] = 3.5f;
+        bulletSpread[1] = 2.5f;
 
         weaponName[2] = "MP5";
         weaponDamage[2] = 10;
@@ -62,7 +62,7 @@ public class Shooting : MonoBehaviour
         weaponDelay[4] = 0.133f;
         reloadTime[4] = 3.5f;
         maxAmmo[4] = 30;
-        bulletSpread[4] = 5f;
+        bulletSpread[4] = 4f;
 
         screenShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>();
 

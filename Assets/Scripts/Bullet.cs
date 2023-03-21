@@ -10,14 +10,12 @@ public class Bullet : MonoBehaviour
     private GameObject effect;
 
     bool enteredEnemy = false;
-    int originalBulletDamage;
     public int bulletDamage;
     float startTime;
 
     void Start()
     {
         startTime = Time.time;
-        originalBulletDamage = bulletDamage;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,7 +39,7 @@ public class Bullet : MonoBehaviour
         else if (bullet)
         {
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
-            bulletDamage = originalBulletDamage / 2;
+            bulletDamage /= 2;
         }
         else if (enemy && enteredEnemy == false)
         {
