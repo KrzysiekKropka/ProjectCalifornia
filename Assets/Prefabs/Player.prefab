@@ -300,6 +300,7 @@ MonoBehaviour:
   nextLevelScreen: {fileID: 1763164974387467106}
   rb: {fileID: 928417037708580564}
   damagePopupPrefab: {fileID: 4262376480512933044, guid: 770715aeadb58bf4d85976cac77fec9b, type: 3}
+  manHurtClip: {fileID: 8300000, guid: 1ca823397e1eb2542aa72f99318dba34, type: 3}
 --- !u!58 &5549066903250612929
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -315,7 +316,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.045, y: -0.01}
   serializedVersion: 2
-  m_Radius: 0.06
+  m_Radius: 0.07
 --- !u!1 &5946685706920472485
 GameObject:
   m_ObjectHideFlags: 0

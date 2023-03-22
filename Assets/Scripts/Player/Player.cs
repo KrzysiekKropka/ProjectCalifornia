@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] NextLevelScreen nextLevelScreen;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject damagePopupPrefab;
+    [SerializeField] AudioClip manHurtClip;
     private GameObject damagePopup;
 
     public static bool inInventory = false;
@@ -84,6 +85,7 @@ public class Player : MonoBehaviour
     //Tutaj zrób skrypt na game over.
     public void TakeDamage(int damage)
     {
+        AudioSource.PlayClipAtPoint(manHurtClip, transform.position, 0.2f);
         currentHealth -= damage;
         if (Time.time - currentTime > 0.75f)
         {

@@ -42,10 +42,10 @@ public class ShopManager : MonoBehaviour
         shopSkills[1, 4] = 4;
 
         //KK: ustawianie ID mapom w sklepie
-        shopMaps[1, 1] = 2;
-        shopMaps[1, 2] = 3;
-        shopMaps[1, 3] = 4;
-        shopMaps[1, 4] = 5;
+        shopMaps[1, 1] = 1;
+        shopMaps[1, 2] = 2;
+        shopMaps[1, 3] = 3;
+        shopMaps[1, 4] = 4;
 
         //KK: ustawianie ceny przedmiotom w sklepie
         shopItems[2, 1] = 1500;
@@ -78,6 +78,7 @@ public class ShopManager : MonoBehaviour
         shopSkills[3, 4] = PlayerPrefs.GetInt("skillQuantity" + 4);
 
         //KK: ustawianie ilosci mapom w sklepie
+        shopMaps[3, 0] = 1;
         shopMaps[3, 1] = PlayerPrefs.GetInt("mapQuantity" + 1);
         shopMaps[3, 2] = PlayerPrefs.GetInt("mapQuantity" + 2);
         shopMaps[3, 3] = PlayerPrefs.GetInt("mapQuantity" + 3);
@@ -94,13 +95,21 @@ public class ShopManager : MonoBehaviour
         PlayerPrefs.SetInt("itemQuantity" + 2, 0);
         PlayerPrefs.SetInt("itemQuantity" + 3, 0);
         PlayerPrefs.SetInt("itemQuantity" + 4, 0);
+        PlayerPrefs.SetInt("skillQuantity" + 1, 0);
+        PlayerPrefs.SetInt("skillQuantity" + 2, 0);
+        PlayerPrefs.SetInt("skillQuantity" + 3, 0);
+        PlayerPrefs.SetInt("skillQuantity" + 4, 0);
+        PlayerPrefs.SetInt("mapQuantity" + 1, 0);
+        PlayerPrefs.SetInt("mapQuantity" + 2, 0);
+        PlayerPrefs.SetInt("mapQuantity" + 3, 0);
+        PlayerPrefs.SetInt("mapQuantity" + 4, 0);
         PlayerPrefs.DeleteKey("equippedWeaponID");
     }
 
     public void BuyItem()
     {
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
-        if ((money >= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]) && (shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]==0))
+        if ((money >= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]) && (shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] < 1))
         {
             money -= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID];
             shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]++;
@@ -114,15 +123,13 @@ public class ShopManager : MonoBehaviour
     {
         //kod na kupowanie skillu
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
-        xp -= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID];
-        shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]++;
-        xpText.text = xp + "<sprite=0>";
-        PlayerPrefs.SetInt("skillQuantity" + ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID, shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]);
-        PlayerPrefs.SetInt("xp", xp);
-    }
-
-    public void BuyMap()
-    {
-        //kod na kupowanie mapy
+        if ((xp >= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]) && (shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] < 1))
+        {
+            xp -= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID];
+            shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]++;
+            xpText.text = xp + "<sprite=0>";
+            PlayerPrefs.SetInt("skillQuantity" + ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID, shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]);
+            PlayerPrefs.SetInt("experiencePoints", xp);
+        }
     }
 }

@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] GameObject genericEffect;
     [SerializeField] GameObject bloodEffect;
+    [SerializeField] AudioSource audioData;
+    [SerializeField] AudioClip ricochetClip, bulletHitClip, bodyHitClip;
     private GameObject effect;
 
     bool enteredEnemy = false;
@@ -27,22 +29,26 @@ public class Bullet : MonoBehaviour
 
         if (player && Time.time - startTime > 0.01f)
         {
+            AudioSource.PlayClipAtPoint(bodyHitClip, transform.position, 0.75f);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
             player.TakeDamage(bulletDamage);
             Destroy(gameObject);
         }
         else if (tilemap)
         {
+            AudioSource.PlayClipAtPoint(ricochetClip, transform.position, 0.25f);
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (bullet)
         {
+            AudioSource.PlayClipAtPoint(bulletHitClip, transform.position, 0.25f);
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
             bulletDamage /= 2;
         }
         else if (enemy && enteredEnemy == false)
         {
+            AudioSource.PlayClipAtPoint(bodyHitClip, transform.position, 0.75f);
             enteredEnemy = true;
             Destroy(gameObject);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);

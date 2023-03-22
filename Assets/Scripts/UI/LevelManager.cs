@@ -1,18 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] GameObject ShopManager;
+    [SerializeField] TMP_Text xpText;
+
+    int xp;
+
     void Start()
     {
-        
+        xp = PlayerPrefs.GetInt("experiencePoints");
+        xpText.text = xp + "<sprite=0>";
     }
 
-    // Update is called once per frame
-    void Update()
+    public void BuyMap()
     {
-        
+        GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
+        if (ShopManager.GetComponent<ShopManager>().shopMaps[3, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID] < 1)
+        {
+            xp -= ShopManager.GetComponent<ShopManager>().shopMaps[2, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID];
+            ShopManager.GetComponent<ShopManager>().shopMaps[3, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID]++;
+            xpText.text = xp + "<sprite=0>";
+            PlayerPrefs.SetInt("mapQuantity" + ButtonRef.GetComponent<ShopMapButtonInfo>().itemID, ShopManager.GetComponent<ShopManager>().shopMaps[3, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID]);
+            PlayerPrefs.SetInt("experiencePoints", xp);
+        }
+        else
+        {
+            SceneManager.LoadScene("Lvl" + ButtonRef.GetComponent<ShopMapButtonInfo>().itemID);
+        }
     }
 }

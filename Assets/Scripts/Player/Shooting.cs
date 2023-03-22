@@ -16,7 +16,7 @@ public class Shooting : MonoBehaviour
     public bool[] isReloading = new bool[5];
     bool[] equippedBefore = new bool[5];
     string[] weaponName = new string[5];
-    float bulletForce = 30f;
+    float bulletForce = 35f;
     float currentTime;
     float[] bulletSpread = new float[5];
     float[] weaponDelay = new float[5];
@@ -34,35 +34,35 @@ public class Shooting : MonoBehaviour
         weaponDelay[0] = 0.25f;
         reloadTime[0] = 2.5f;
         maxAmmo[0] = 17;
-        bulletSpread[0] = 5f;
+        bulletSpread[0] = 1f;
 
         weaponName[1] = "Deagle";
         weaponDamage[1] = 35;
         weaponDelay[1] = 0.5f;
         reloadTime[1] = 2.5f;
         maxAmmo[1] = 7;
-        bulletSpread[1] = 2.5f;
+        bulletSpread[1] = 0f;
 
         weaponName[2] = "MP5";
         weaponDamage[2] = 10;
         weaponDelay[2] = 0.1f;
         reloadTime[2] = 3.5f; 
         maxAmmo[2] = 50;
-        bulletSpread[2] = 7.5f;
+        bulletSpread[2] = 4f;
 
         weaponName[3] = "Shotgun";
         weaponDamage[3] = 20;
         weaponDelay[3] = 0.8f;
         reloadTime[3] = 4f;
         maxAmmo[3] = 6;
-        bulletSpread[3] = 5f;
+        bulletSpread[3] = 3f;
 
         weaponName[4] = "AK-47";
         weaponDamage[4] = 20;
         weaponDelay[4] = 0.133f;
         reloadTime[4] = 3.5f;
         maxAmmo[4] = 30;
-        bulletSpread[4] = 4f;
+        bulletSpread[4] = 2f;
 
         screenShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>();
 
