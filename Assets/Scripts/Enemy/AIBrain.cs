@@ -46,7 +46,7 @@ public class AIBrain : MonoBehaviour
     {
         currentHealth -= damage;
         //KK:Blagam nie dotykaj tego kodu ponizej, jest on tak kurwa niestabilny ze lekka zmiana kompletnie rozpierdoli dzialanie licznika. To jest niesamowite ze to w ogole dziala.
-        if (Time.time - currentTime > 0.5f)
+        if (Time.time - currentTime > 0.75f)
         {
             summedDamage = 0;
         }

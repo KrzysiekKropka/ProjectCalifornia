@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        if (Time.time - currentTime > 0.5f)
+        if (Time.time - currentTime > 0.75f)
         {
             summedDamage = 0;
         }
@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            //damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
+            damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
         }
 
         if (currentHealth <= 0)
