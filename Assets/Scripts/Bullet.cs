@@ -12,11 +12,17 @@ public class Bullet : MonoBehaviour
     private GameObject effect;
 
     bool enteredEnemy = false;
+    public string weaponName;
     public int bulletDamage;
     float startTime;
 
     void Start()
     {
+        //AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/" + weaponName + "Shoot");
+        //AudioSource.PlayClipAtPoint(weaponShootClip, transform.position, 1f);
+        int randomInt = Random.Range(1, 17);
+        AudioClip passByClip = (AudioClip)Resources.Load("Audio/PassBy" + randomInt);
+        AudioSource.PlayClipAtPoint(passByClip, transform.position, 1f);
         startTime = Time.time;
     }
 
@@ -29,26 +35,32 @@ public class Bullet : MonoBehaviour
 
         if (player && Time.time - startTime > 0.01f)
         {
-            AudioSource.PlayClipAtPoint(bodyHitClip, transform.position, 0.25f);
+            int randomInt = Random.Range(1, 5);
+            bodyHitClip = (AudioClip)Resources.Load("Audio/HitBody" + randomInt);
+            AudioSource.PlayClipAtPoint(bodyHitClip, transform.position, 1f);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
             player.TakeDamage(bulletDamage);
             Destroy(gameObject);
         }
         else if (tilemap)
         {
-            AudioSource.PlayClipAtPoint(ricochetClip, transform.position, 0.25f);
+            int randomInt = Random.Range(1, 5);
+            ricochetClip = (AudioClip)Resources.Load("Audio/HitMetal" + randomInt);
+            AudioSource.PlayClipAtPoint(ricochetClip, transform.position, 1f);
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else if (bullet)
         {
-            AudioSource.PlayClipAtPoint(bulletHitClip, transform.position, 0.25f);
+            AudioSource.PlayClipAtPoint(bulletHitClip, transform.position, 0.5f);
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
             bulletDamage /= 2;
         }
         else if (enemy && enteredEnemy == false)
         {
-            AudioSource.PlayClipAtPoint(bodyHitClip, transform.position, 0.25f);
+            int randomInt = Random.Range(1, 5);
+            bodyHitClip = (AudioClip)Resources.Load("Audio/HitBody"+randomInt);
+            AudioSource.PlayClipAtPoint(bodyHitClip, transform.position, 1f);
             enteredEnemy = true;
             Destroy(gameObject);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);

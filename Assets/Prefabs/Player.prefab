@@ -477,6 +477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyText: {fileID: 0}
   xpText: {fileID: 0}
+  moneyClip: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &7684548835070399293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,22 +1062,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 5941050457226436469}
-    - target: {fileID: 2103629073776151090, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2103629073776151090, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3350738858975152404}
-    - target: {fileID: 2103629073776151090, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 2103629073776151090, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 3053624774763237129, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -150,6 +150,6 @@ MonoBehaviour:
   bloodEffect: {fileID: 5524518565218896284, guid: 32637808a7ecc14489e42803b1d3fec5, type: 3}
   audioData: {fileID: 0}
   ricochetClip: {fileID: 8300000, guid: 6859d39b21f4999499af79f13843e1de, type: 3}
-  bulletHitClip: {fileID: 8300000, guid: b362e3c6d5462e340aac7b2c5be45166, type: 3}
+  bulletHitClip: {fileID: 8300000, guid: 6859d39b21f4999499af79f13843e1de, type: 3}
   bodyHitClip: {fileID: 8300000, guid: db0f6cb380b67664093b4cffa5e9b09f, type: 3}
   bulletDamage: 0

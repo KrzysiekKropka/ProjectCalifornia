@@ -45,7 +45,7 @@ public class Shooting : MonoBehaviour
 
         weaponName[2] = "MP5";
         weaponDamage[2] = 10;
-        weaponDelay[2] = 0.095f;
+        weaponDelay[2] = 0.09f;
         reloadTime[2] = 5f; 
         maxAmmo[2] = 50;
         bulletSpread[2] = 5f;
@@ -59,7 +59,7 @@ public class Shooting : MonoBehaviour
 
         weaponName[4] = "AK-47";
         weaponDamage[4] = 20;
-        weaponDelay[4] = 0.125f;
+        weaponDelay[4] = 0.18f;
         reloadTime[4] = 5f;
         maxAmmo[4] = 30;
         bulletSpread[4] = 2.5f;
@@ -129,6 +129,7 @@ public class Shooting : MonoBehaviour
             healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(firePoint.rotation.eulerAngles + spread)); //KK: Spawnuje naboj z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni
             bullet.GetComponent<Bullet>().bulletDamage = damage;
+            bullet.GetComponent<Bullet>().weaponName = weaponName[equippedWeaponID];
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(bullet.transform.up * bulletForce, ForceMode2D.Impulse);
             GameObject shootEffect = Instantiate(shootPrefab, firePoint.position, firePoint.rotation);

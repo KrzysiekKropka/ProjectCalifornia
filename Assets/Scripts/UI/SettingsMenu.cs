@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class SettingsMenu : MonoBehaviour
 {
+    [SerializeField] AudioClip buttonClickClip;
+    [SerializeField] AudioSource audioSource;
+
     public void DestroyItself()
     {
-        Destroy(gameObject);
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        Destroy(gameObject,1f);
+    }
+
+    public void ButtonClickSound()
+    {
+        audioSource.clip = buttonClickClip;
+        audioSource.Play();
     }
 }

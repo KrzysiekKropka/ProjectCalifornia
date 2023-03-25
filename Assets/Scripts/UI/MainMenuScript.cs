@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MainMenuScript : MonoBehaviour
 {
     [SerializeField] GameObject settingsPrefab;
+    [SerializeField] AudioClip buttonClickClip;
+    [SerializeField] AudioSource audioSource;
 
     private GameObject settings;
 
@@ -23,5 +25,11 @@ public class MainMenuScript : MonoBehaviour
     {
         settings = Instantiate(settingsPrefab);
         settings.SetActive(true);
+    }
+
+    public void ButtonClickSound()
+    {
+        audioSource.clip = buttonClickClip;
+        audioSource.Play();
     }
 }

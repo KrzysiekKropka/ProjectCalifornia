@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] GameObject ShopManager;
     [SerializeField] TMP_Text xpText;
+    [SerializeField] AudioClip moneyClip;
+    [SerializeField] AudioSource audioSource;
 
     int xp;
 
@@ -29,6 +31,8 @@ public class LevelManager : MonoBehaviour
             xpText.text = xp + "<sprite=0>";
             PlayerPrefs.SetInt("mapQuantity" + ButtonRef.GetComponent<ShopMapButtonInfo>().itemID, ShopManager.GetComponent<ShopManager>().shopMaps[3, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID]);
             PlayerPrefs.SetInt("experiencePoints", xp);
+            audioSource.clip = moneyClip;
+            audioSource.Play();
         }
         else
         {

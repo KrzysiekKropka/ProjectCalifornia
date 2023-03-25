@@ -7,6 +7,8 @@ public class InventoryMenu : MonoBehaviour
 {
     [SerializeField] GameObject inventoryMenu;
     [SerializeField] GameObject hideable;
+    [SerializeField] AudioClip buttonClickClip;
+    [SerializeField] AudioSource audioSource;
 
     void Start()
     {
@@ -42,5 +44,11 @@ public class InventoryMenu : MonoBehaviour
         hideable.SetActive(true);
         Time.timeScale = 1f;
         Player.inInventory = false;
+    }
+
+    public void ButtonClickSound()
+    {
+        audioSource.clip = buttonClickClip;
+        audioSource.Play();
     }
 }

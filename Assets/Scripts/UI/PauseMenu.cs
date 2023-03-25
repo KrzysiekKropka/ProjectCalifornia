@@ -14,6 +14,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject settingsPrefab;
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject inventoryMenu;
+    [SerializeField] AudioClip buttonClickClip;
+    [SerializeField] AudioSource audioSource;
 
     public static bool isPaused;
     private GameObject settings;
@@ -37,6 +39,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
+
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
@@ -45,6 +48,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
     }
+
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
@@ -54,14 +58,22 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
     }
+
     public void GoToMainMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }
+
     public void InstantiateSettings()
     {
         settings = Instantiate(settingsPrefab);
         settings.SetActive(true);
+    }
+
+    public void ButtonClickSound()
+    {
+        audioSource.clip = buttonClickClip;
+        audioSource.Play();
     }
 }

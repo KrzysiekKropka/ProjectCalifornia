@@ -17,10 +17,10 @@ public class AIBrain : MonoBehaviour
     private GameObject damagePopup;
     private AIPath ai;
 
-    [SerializeField] float speed = 4f;
+    [SerializeField] float speed = 4f; 
+    [SerializeField] int maxHealth = 100;
     bool readyToShoot = false;
     bool seenPlayer = true;
-    int maxHealth = 100;
     int currentHealth;
     public int dropXP;
     public int dropMoney;

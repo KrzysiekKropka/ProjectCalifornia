@@ -683,30 +683,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      vehicles1: 1176608897
       vehicles10: -865516643
-      vehicles11: -899200316
-      vehicles12: 189066851
-      vehicles13: 997113351
-      vehicles14: -1992461815
-      vehicles15: -1011037692
-      vehicles16: 1266466435
-      vehicles17: 2101007795
-      vehicles18: -141229399
-      vehicles19: 513874344
-      vehicles2: 907670037
-      vehicles20: -242419948
       vehicles3: 355827587
-      vehicles4: 1113737542
+      vehicles17: 2101007795
       vehicles5: -1643446290
-      vehicles6: -850994717
-      vehicles7: -161850486
-      vehicles8: 795639998
+      vehicles_22: 916769685
       vehicles9: 503679731
+      vehicles6: -850994717
+      vehicles18: -141229399
+      vehicles16: 1266466435
+      vehicles8: 795639998
+      vehicles19: 513874344
+      vehicles11: -899200316
+      vehicles2: 907670037
+      vehicles4: 1113737542
+      vehicles20: -242419948
+      vehicles_21: -1289220435
+      vehicles1: 1176608897
+      vehicles15: -1011037692
+      vehicles14: -1992461815
+      vehicles7: -161850486
       vehicles_19: 1050292088
       vehicles_20: -778177941
-      vehicles_21: -1289220435
-      vehicles_22: 916769685
+      vehicles12: 189066851
+      vehicles13: 997113351
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

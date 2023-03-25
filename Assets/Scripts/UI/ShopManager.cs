@@ -11,6 +11,8 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] TMP_Text moneyText;
     [SerializeField] TMP_Text xpText;
+    [SerializeField] AudioClip moneyClip;
+    [SerializeField] AudioSource audioSource;
 
     public int[,] shopItems = new int[5, 5];
     public int[,] shopSkills = new int[5, 5];
@@ -116,6 +118,8 @@ public class ShopManager : MonoBehaviour
             moneyText.text = "<sprite=0>" + money + "$";
             PlayerPrefs.SetInt("itemQuantity" + ButtonRef.GetComponent<ShopItemButtonInfo>().itemID, shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]);
             PlayerPrefs.SetInt("money", money);
+            audioSource.clip = moneyClip;
+            audioSource.Play();
         }
     }
 
@@ -130,6 +134,8 @@ public class ShopManager : MonoBehaviour
             xpText.text = xp + "<sprite=0>";
             PlayerPrefs.SetInt("skillQuantity" + ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID, shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]);
             PlayerPrefs.SetInt("experiencePoints", xp);
+            audioSource.clip = moneyClip;
+            audioSource.Play();
         }
     }
 }

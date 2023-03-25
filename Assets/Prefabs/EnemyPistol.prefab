@@ -107,8 +107,9 @@ MonoBehaviour:
   firePoint: {fileID: 7100006923973303438}
   bulletPrefab: {fileID: 2444222622796115849, guid: 1916dc42e3d5ca4478c8cb6d81251b9f, type: 3}
   shootPrefab: {fileID: 5524518565218896284, guid: 5fd2e0e416d3d3b4ea42ece57ca39556, type: 3}
-  weaponDamage: 10
-  weaponDelay: 2
+  equippedWeaponID: 0
+  currentAmmo: 0000000000000000000000000000000000000000
+  reserveAmmo: 0000000000000000000000000000000000000000
 --- !u!114 &5891919148703806736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +128,7 @@ MonoBehaviour:
   damagePopupPrefab: {fileID: 4262376480512933044, guid: 770715aeadb58bf4d85976cac77fec9b, type: 3}
   rb: {fileID: 8324491963002387412}
   speed: 4
+  maxHealth: 50
   dropXP: 15
   dropMoney: 0
 --- !u!50 &8324491963002387412
@@ -291,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2546401352739831611}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyPistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
