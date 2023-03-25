@@ -10,8 +10,8 @@ public class AIShooting : MonoBehaviour
     private GameObject player;
 
     [SerializeField] int weaponDamage = 10;
-    [SerializeField] int weaponDelay = 2;
-    float bulletForce = 35f;
+    [SerializeField] float weaponDelay = 2f;
+    float bulletForce = 25f;
     float distance;
     float timer;
 
@@ -35,9 +35,10 @@ public class AIShooting : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //KK: Spawnuje nabój z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni
         bullet.GetComponent<Bullet>().bulletDamage = weaponDamage;
-        Destroy(bullet, 10); //KK: Usuwa obiekt po 10 sekundach jesli nie zostanie usuniety przez cos innego
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(bullet.transform.up * bulletForce, ForceMode2D.Impulse);
         GameObject shootEffect = Instantiate(shootPrefab, firePoint.position, firePoint.rotation);
+        Destroy(bullet, 10);
+        Destroy(shootEffect, 1);
     }
 }

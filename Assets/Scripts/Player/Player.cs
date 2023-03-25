@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     public static bool inInventory = false;
 
-    float speed = 7.5f;
+    float speed = 6f;
     float aimAngle;
     float currentTime;
     int maxHealth = 100;

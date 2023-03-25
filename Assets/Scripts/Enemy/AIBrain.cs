@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Pathfinding;
 
 public class AIBrain : MonoBehaviour
 {
-    [SerializeField] EnemyHealthBar healthBar;
+    [SerializeField] GameObject healthBar;
     [SerializeField] GameObject bloodPoolEffect;
+    [SerializeField] GameObject deadBody;
     [SerializeField] GameObject damagePopupPrefab;
     [SerializeField] Rigidbody2D rb;
+
     private GameObject player;
     private GameObject damagePopup;
+    private AIPath ai;
 
+    [SerializeField] float speed = 4f;
     bool readyToShoot = false;
+    bool seenPlayer = true;
     int maxHealth = 100;
     int currentHealth;
     public int dropXP;
@@ -26,9 +32,12 @@ public class AIBrain : MonoBehaviour
 
     void Start()
     {
+        deadBody.SetActive(false);
+        ai = GetComponent<AIPath>();
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar.GetComponent<EnemyHealthBar>().SetMaxHealth(maxHealth);
         player = GameObject.FindGameObjectWithTag("Player");
+        ai.maxSpeed = speed;
     }
 
     void Update()
@@ -40,6 +49,11 @@ public class AIBrain : MonoBehaviour
     void FixedUpdate()
     {
         rb.rotation = aimAngle;
+    }
+
+    void LateUpdate()
+    {
+        if (seenPlayer) ai.destination = player.transform.position;
     }
 
     public void TakeDamage(int damage)
@@ -70,14 +84,16 @@ public class AIBrain : MonoBehaviour
                 player.SetXP(dropXP);
                 player.AddKill();
             }
-            Destroy(transform.parent.gameObject);
+            deadBody.SetActive(true);
+            Destroy(gameObject);
+            Destroy(healthBar);
             if (Time.time - currentTimeBloodPool > .01f)
             {
                 Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
                 currentTimeBloodPool = Time.time;
             }
         }
-        healthBar.SetHealth(currentHealth);
+        healthBar.GetComponent<EnemyHealthBar>().SetHealth(currentHealth);
         currentTime = Time.time;
     }
 }

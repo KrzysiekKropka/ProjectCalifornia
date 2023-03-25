@@ -48,6 +48,9 @@ TagManager:
   - name: Gore
     uniqueID: 2257259095
     locked: 0
+  - name: Bodies
+    uniqueID: 3139949327
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

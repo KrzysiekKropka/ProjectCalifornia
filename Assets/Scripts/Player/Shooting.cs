@@ -16,7 +16,7 @@ public class Shooting : MonoBehaviour
     public bool[] isReloading = new bool[5];
     bool[] equippedBefore = new bool[5];
     string[] weaponName = new string[5];
-    float bulletForce = 35f;
+    float bulletForce = 25f;
     float currentTime;
     float[] bulletSpread = new float[5];
     float[] weaponDelay = new float[5];
@@ -37,7 +37,7 @@ public class Shooting : MonoBehaviour
         bulletSpread[0] = 1f;
 
         weaponName[1] = "Deagle";
-        weaponDamage[1] = 35;
+        weaponDamage[1] = 30;
         weaponDelay[1] = 0.5f;
         reloadTime[1] = 2.5f;
         maxAmmo[1] = 7;
@@ -45,10 +45,10 @@ public class Shooting : MonoBehaviour
 
         weaponName[2] = "MP5";
         weaponDamage[2] = 10;
-        weaponDelay[2] = 0.1f;
+        weaponDelay[2] = 0.095f;
         reloadTime[2] = 3.5f; 
         maxAmmo[2] = 50;
-        bulletSpread[2] = 4f;
+        bulletSpread[2] = 5f;
 
         weaponName[3] = "Shotgun";
         weaponDamage[3] = 20;
@@ -59,10 +59,10 @@ public class Shooting : MonoBehaviour
 
         weaponName[4] = "AK-47";
         weaponDamage[4] = 20;
-        weaponDelay[4] = 0.133f;
+        weaponDelay[4] = 0.125f;
         reloadTime[4] = 3.5f;
         maxAmmo[4] = 30;
-        bulletSpread[4] = 2f;
+        bulletSpread[4] = 2.5f;
 
         screenShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>();
 
@@ -158,6 +158,11 @@ public class Shooting : MonoBehaviour
         {
             isReloading[weaponID] = true;
             healthBar.SetReloading(true);
+            switch (weaponID)
+            {
+                //KK: Pozniej bedzie tu switch na dzwieki przeladowywania broni
+            }
+
             yield return new WaitForSeconds(reloadTime[weaponID]);
             if ((currentAmmo[weaponID] + reserveAmmo[weaponID]) > maxAmmo[weaponID])
             {

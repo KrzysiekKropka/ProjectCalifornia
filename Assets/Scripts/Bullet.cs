@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
 
         if (player && Time.time - startTime > 0.01f)
         {
-            AudioSource.PlayClipAtPoint(bodyHitClip, transform.position, 0.75f);
+            AudioSource.PlayClipAtPoint(bodyHitClip, transform.position, 0.25f);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
             player.TakeDamage(bulletDamage);
             Destroy(gameObject);
@@ -48,7 +48,7 @@ public class Bullet : MonoBehaviour
         }
         else if (enemy && enteredEnemy == false)
         {
-            AudioSource.PlayClipAtPoint(bodyHitClip, transform.position, 0.75f);
+            AudioSource.PlayClipAtPoint(bodyHitClip, transform.position, 0.25f);
             enteredEnemy = true;
             Destroy(gameObject);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
