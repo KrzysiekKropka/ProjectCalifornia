@@ -11,7 +11,7 @@ public class EnemyHealthBar : MonoBehaviour
     [SerializeField] TMP_Text healthText;
     [SerializeField] GameObject healthBar;
 
-    Vector3 offset = new Vector3(0f, 1f, 0f);
+    Vector3 offset = new Vector3(0f, 1.33f, 0f);
 
     public void SetMaxHealth(int health)
     {

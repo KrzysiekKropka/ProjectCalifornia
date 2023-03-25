@@ -32,35 +32,35 @@ public class Shooting : MonoBehaviour
         weaponName[0] = "Pistol";
         weaponDamage[0] = 10;
         weaponDelay[0] = 0.25f;
-        reloadTime[0] = 2.5f;
+        reloadTime[0] = 3f;
         maxAmmo[0] = 17;
-        bulletSpread[0] = 1f;
+        bulletSpread[0] = 1.5f;
 
         weaponName[1] = "Deagle";
         weaponDamage[1] = 30;
         weaponDelay[1] = 0.5f;
-        reloadTime[1] = 2.5f;
+        reloadTime[1] = 3f;
         maxAmmo[1] = 7;
         bulletSpread[1] = 0f;
 
         weaponName[2] = "MP5";
         weaponDamage[2] = 10;
         weaponDelay[2] = 0.095f;
-        reloadTime[2] = 3.5f; 
+        reloadTime[2] = 5f; 
         maxAmmo[2] = 50;
         bulletSpread[2] = 5f;
 
         weaponName[3] = "Shotgun";
         weaponDamage[3] = 20;
         weaponDelay[3] = 0.8f;
-        reloadTime[3] = 4f;
+        reloadTime[3] = 6f;
         maxAmmo[3] = 6;
         bulletSpread[3] = 3f;
 
         weaponName[4] = "AK-47";
         weaponDamage[4] = 20;
         weaponDelay[4] = 0.125f;
-        reloadTime[4] = 3.5f;
+        reloadTime[4] = 5f;
         maxAmmo[4] = 30;
         bulletSpread[4] = 2.5f;
 
