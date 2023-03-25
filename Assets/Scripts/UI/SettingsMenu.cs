@@ -15,7 +15,6 @@ public class SettingsMenu : MonoBehaviour
 
     public void ButtonClickSound()
     {
-        audioSource.clip = buttonClickClip;
-        audioSource.Play();
+        audioSource.PlayOneShot(buttonClickClip);
     }
 }

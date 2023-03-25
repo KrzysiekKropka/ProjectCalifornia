@@ -31,8 +31,7 @@ public class LevelManager : MonoBehaviour
             xpText.text = xp + "<sprite=0>";
             PlayerPrefs.SetInt("mapQuantity" + ButtonRef.GetComponent<ShopMapButtonInfo>().itemID, ShopManager.GetComponent<ShopManager>().shopMaps[3, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID]);
             PlayerPrefs.SetInt("experiencePoints", xp);
-            audioSource.clip = moneyClip;
-            audioSource.Play();
+            audioSource.PlayOneShot(moneyClip);
         }
         else
         {

@@ -118,8 +118,7 @@ public class ShopManager : MonoBehaviour
             moneyText.text = "<sprite=0>" + money + "$";
             PlayerPrefs.SetInt("itemQuantity" + ButtonRef.GetComponent<ShopItemButtonInfo>().itemID, shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]);
             PlayerPrefs.SetInt("money", money);
-            audioSource.clip = moneyClip;
-            audioSource.Play();
+            audioSource.PlayOneShot(moneyClip);
         }
     }
 
@@ -134,8 +133,7 @@ public class ShopManager : MonoBehaviour
             xpText.text = xp + "<sprite=0>";
             PlayerPrefs.SetInt("skillQuantity" + ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID, shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]);
             PlayerPrefs.SetInt("experiencePoints", xp);
-            audioSource.clip = moneyClip;
-            audioSource.Play();
+            audioSource.PlayOneShot(moneyClip);
         }
     }
 }

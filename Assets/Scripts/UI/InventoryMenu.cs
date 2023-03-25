@@ -48,7 +48,6 @@ public class InventoryMenu : MonoBehaviour
 
     public void ButtonClickSound()
     {
-        audioSource.clip = buttonClickClip;
-        audioSource.Play();
+        audioSource.PlayOneShot(buttonClickClip);
     }
 }
