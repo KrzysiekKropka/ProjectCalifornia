@@ -18,8 +18,11 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        //AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/" + weaponName + "Shoot");
-        //AudioSource.PlayClipAtPoint(weaponShootClip, transform.position, 1f);
+        if (weaponName != "")
+        {
+            AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/" + weaponName + "Shoot");
+            AudioSource.PlayClipAtPoint(weaponShootClip, transform.position, 1f);
+        }
         int randomInt = Random.Range(1, 17);
         AudioClip passByClip = (AudioClip)Resources.Load("Audio/PassBy" + randomInt);
         AudioSource.PlayClipAtPoint(passByClip, transform.position, 1f);

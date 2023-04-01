@@ -11,6 +11,8 @@ public class AIBrain : MonoBehaviour
     [SerializeField] GameObject bloodPoolEffect;
     [SerializeField] GameObject deadBody;
     [SerializeField] GameObject damagePopupPrefab;
+    [SerializeField] GameObject moneyDropPrefab;
+    [SerializeField] GameObject ammoDropPrefab;
     [SerializeField] Rigidbody2D rb;
 
     private GameObject player;
@@ -90,6 +92,9 @@ public class AIBrain : MonoBehaviour
             if (Time.time - currentTimeBloodPool > .01f)
             {
                 Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
+                GameObject droppedMoney = Instantiate(moneyDropPrefab, transform.position + new Vector3(-0.75f, 0f, 0f), Quaternion.identity);
+                droppedMoney.GetComponent<MoneyDrop>().money = dropMoney;
+                GameObject droppedAmmo = Instantiate(ammoDropPrefab, transform.position + new Vector3(0.75f, 0f, 0f), Quaternion.identity);
                 currentTimeBloodPool = Time.time;
             }
         }

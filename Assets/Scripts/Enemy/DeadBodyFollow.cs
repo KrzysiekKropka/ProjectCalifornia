@@ -11,6 +11,7 @@ public class DeadBodyFollow : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.flipY = true;
         DeadBodyPosition();
     }
 

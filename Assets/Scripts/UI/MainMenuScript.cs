@@ -8,8 +8,17 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] GameObject settingsPrefab;
     [SerializeField] AudioClip buttonClickClip;
     [SerializeField] AudioSource audioSource;
-
     private GameObject settings;
+
+    void Start()
+    {
+        if (PlayerPrefs.HasKey("VolumeValue")) AudioListener.volume = PlayerPrefs.GetFloat("VolumeValue");
+        else
+        {
+            AudioListener.volume = 0.5f;
+            PlayerPrefs.SetFloat("VolumeValue", 0.5f);
+        };
+    }
 
     public void PlayGame(int level)
     {
