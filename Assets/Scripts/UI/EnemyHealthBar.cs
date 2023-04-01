@@ -22,7 +22,7 @@ public class EnemyHealthBar : MonoBehaviour
 
     public void SetHealth(int health)
     {
-        if (health < 100) healthBar.SetActive(true);
+        healthBar.SetActive(true);
         slider.value = health;
         healthText.text = health.ToString();
     }

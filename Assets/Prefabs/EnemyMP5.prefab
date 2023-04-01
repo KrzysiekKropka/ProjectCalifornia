@@ -130,7 +130,7 @@ MonoBehaviour:
   ammoDropPrefab: {fileID: 2989067539229740685, guid: 582bc39b399d6964f9ad355c71f5d921, type: 3}
   rb: {fileID: 8324491963002387412}
   speed: 4
-  maxHealth: 75
+  maxHealth: 100
   dropXP: 45
   dropMoney: 300
 --- !u!50 &8324491963002387412
