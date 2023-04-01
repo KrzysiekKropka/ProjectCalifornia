@@ -130,6 +130,7 @@ public class Shooting : MonoBehaviour
             healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(firePoint.rotation.eulerAngles + spread)); //KK: Spawnuje naboj z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni
             bullet.GetComponent<Bullet>().bulletDamage = damage;
+            bullet.GetComponent<Bullet>().playerIsOwner = true;
             bullet.GetComponent<Bullet>().weaponName = weaponName[equippedWeaponID];
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(bullet.transform.up * bulletForce, ForceMode2D.Impulse);

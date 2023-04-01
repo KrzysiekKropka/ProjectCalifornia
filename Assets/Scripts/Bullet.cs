@@ -15,6 +15,8 @@ public class Bullet : MonoBehaviour
     bool initiatedStart = false;
     public string weaponName;
     public int bulletDamage;
+    public bool playerIsOwner = false;
+    public bool enemyIsOwner = false;
     float startTime;
 
     void Start()
@@ -38,12 +40,13 @@ public class Bullet : MonoBehaviour
             AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/" + weaponName + "Shoot");
             AudioSource.PlayClipAtPoint(weaponShootClip, transform.position, 0.66f);
         }
+
         var player = collision.collider.GetComponent<Player>();
         var enemy = collision.collider.GetComponent<AIBrain>();
         var tilemap = collision.collider.GetComponent<TilemapCollider2D>();
         var bullet = collision.collider.GetComponent<Bullet>();
 
-        if (player && Time.time - startTime > 0.01f)
+        if (!playerIsOwner && player)
         {
             int randomInt = Random.Range(1, 5);
             bodyHitClip = (AudioClip)Resources.Load("Audio/HitBody" + randomInt);
@@ -65,8 +68,10 @@ public class Bullet : MonoBehaviour
             AudioSource.PlayClipAtPoint(bulletHitClip, transform.position, 0.5f);
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
             bulletDamage /= 2;
+            enemyIsOwner = false;
+            playerIsOwner = false;
         }
-        else if (enemy && enteredEnemy == false)
+        else if (!enemyIsOwner && enemy && enteredEnemy == false)
         {
             int randomInt = Random.Range(1, 5);
             bodyHitClip = (AudioClip)Resources.Load("Audio/HitBody"+randomInt);

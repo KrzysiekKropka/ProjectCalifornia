@@ -97,7 +97,8 @@ public class AIShooting : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(bullet.transform.up * bulletForce, ForceMode2D.Impulse);
         GameObject shootEffect = Instantiate(shootPrefab, firePoint.position, firePoint.rotation);
-        bullet.GetComponent<Bullet>().bulletDamage = weaponDamage[equippedWeaponID];
+        bullet.GetComponent<Bullet>().bulletDamage = weaponDamage[equippedWeaponID]; 
+        bullet.GetComponent<Bullet>().enemyIsOwner = true;
         bullet.GetComponent<Bullet>().weaponName = weaponName[equippedWeaponID];
         Destroy(bullet, 10);
         Destroy(shootEffect, 1);
