@@ -9,7 +9,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] GameObject shootPrefab;
     [SerializeField] HealthBar healthBar;
     [SerializeField] Sprite PlayerPistol, PlayerRifle;
-    [SerializeField] AudioClip OmaygotClip, OhShitClip;
+    [SerializeField] AudioClip EmptyMagClip, EmptyEverythingClip, AmmoDropClip;
     private SpriteRenderer spriteRenderer;
 
     public ScreenShake screenShake;
@@ -154,12 +154,12 @@ public class Shooting : MonoBehaviour
 
             if (currentAmmo[equippedWeaponID] == 0 && reserveAmmo[equippedWeaponID] == 0)
             {
-                AudioSource.PlayClipAtPoint(OhShitClip, transform.position, 1f);
+                AudioSource.PlayClipAtPoint(EmptyEverythingClip, transform.position, 1f);
             }
             else if (currentAmmo[equippedWeaponID] == 0)
             {
                 StartCoroutine(Reload(equippedWeaponID));
-                AudioSource.PlayClipAtPoint(OmaygotClip, transform.position, 1f);
+                AudioSource.PlayClipAtPoint(EmptyMagClip, transform.position, 1f);
             }
             Destroy(bullet, 10); //KK: Usuwa obiekt po 10 sekundach jesli nie zostanie usuniety przez cos innego
             Destroy(shootEffect, 1);
@@ -179,10 +179,6 @@ public class Shooting : MonoBehaviour
         {
             isReloading[weaponID] = true;
             healthBar.SetReloading(true);
-            switch (weaponID)
-            {
-                //KK: Pozniej bedzie tu switch na dzwieki przeladowywania broni
-            }
 
             yield return new WaitForSeconds(reloadTime[weaponID]);
             if ((currentAmmo[weaponID] + reserveAmmo[weaponID]) > maxAmmo[weaponID])
@@ -197,7 +193,12 @@ public class Shooting : MonoBehaviour
                 reserveAmmo[weaponID] = 0;
             }
             isReloading[weaponID] = false;
-            if(equippedWeaponID == weaponID)healthBar.SetReloading(false);
+            if (equippedWeaponID == weaponID)
+            {
+                healthBar.SetReloading(false);
+                AudioSource.PlayClipAtPoint(AmmoDropClip, transform.position, 1f);
+            }
+
             healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
         }
     }

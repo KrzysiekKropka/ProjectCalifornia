@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     private GameObject effect;
 
     bool enteredEnemy = false;
+    bool initiatedStart = false;
     public string weaponName;
     public int bulletDamage;
     float startTime;
@@ -21,8 +22,9 @@ public class Bullet : MonoBehaviour
         if (weaponName != "")
         {
             AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/" + weaponName + "Shoot");
-            AudioSource.PlayClipAtPoint(weaponShootClip, transform.position, 1f);
+            AudioSource.PlayClipAtPoint(weaponShootClip, transform.position, 0.66f);
         }
+        initiatedStart = true;
         int randomInt = Random.Range(1, 17);
         AudioClip passByClip = (AudioClip)Resources.Load("Audio/PassBy" + randomInt);
         AudioSource.PlayClipAtPoint(passByClip, transform.position, 1f);
@@ -31,6 +33,11 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!initiatedStart && weaponName != "") 
+        {
+            AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/" + weaponName + "Shoot");
+            AudioSource.PlayClipAtPoint(weaponShootClip, transform.position, 0.66f);
+        }
         var player = collision.collider.GetComponent<Player>();
         var enemy = collision.collider.GetComponent<AIBrain>();
         var tilemap = collision.collider.GetComponent<TilemapCollider2D>();
