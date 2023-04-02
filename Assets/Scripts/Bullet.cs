@@ -23,9 +23,7 @@ public class Bullet : MonoBehaviour
     {
         if (weaponName != "")
         {
-            int randomInt1 = Random.Range(1, 4);
-            AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/Weapons/" + weaponName + "/Shoot" + randomInt1);
-            AudioSource.PlayClipAtPoint(weaponShootClip, transform.position, 0.66f);
+            PlaySound();
         }
         initiatedStart = true;
         int randomInt2 = Random.Range(1, 17);
@@ -38,9 +36,7 @@ public class Bullet : MonoBehaviour
     {
         if (!initiatedStart && weaponName != "") 
         {
-            int randomInt = Random.Range(1, 4);
-            AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/Weapons/" + weaponName + "/Shoot" + randomInt);
-            AudioSource.PlayClipAtPoint(weaponShootClip, transform.position, 0.66f);
+            PlaySound();
         }
 
         var player = collision.collider.GetComponent<Player>();
@@ -89,5 +85,12 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
         Destroy(effect, 1f);
+    }
+
+    void PlaySound()
+    {
+        int randomInt = Random.Range(1, 4);
+        AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/Weapons/" + weaponName + "/Shoot" + randomInt);
+        AudioSource.PlayClipAtPoint(weaponShootClip, transform.position, 0.66f);
     }
 }

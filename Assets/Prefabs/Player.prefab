@@ -304,6 +304,7 @@ MonoBehaviour:
   rb: {fileID: 928417037708580564}
   damagePopupPrefab: {fileID: 4262376480512933044, guid: 770715aeadb58bf4d85976cac77fec9b, type: 3}
   manHurtClip: {fileID: 8300000, guid: 1ca823397e1eb2542aa72f99318dba34, type: 3}
+  healClip: {fileID: 8300000, guid: d23b6ccc378bf2d418d24132aa4137bb, type: 3}
 --- !u!58 &5549066903250612929
 CircleCollider2D:
   m_ObjectHideFlags: 0

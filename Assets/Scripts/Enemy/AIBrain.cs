@@ -26,6 +26,7 @@ public class AIBrain : MonoBehaviour
     int currentHealth;
     public int dropXP;
     public int dropMoney;
+    public int dropHP;
     int summedDamage;
     float currentTime, currentTimeBloodPool;
     float aimAngle;
@@ -95,6 +96,7 @@ public class AIBrain : MonoBehaviour
                 GameObject droppedMoney = Instantiate(moneyDropPrefab, transform.position + new Vector3(-0.75f, 0f, 0f), Quaternion.identity);
                 droppedMoney.GetComponent<MoneyDrop>().money = dropMoney;
                 GameObject droppedAmmo = Instantiate(ammoDropPrefab, transform.position + new Vector3(0.75f, 0f, 0f), Quaternion.identity);
+                droppedAmmo.GetComponent<AmmoDrop>().hp = dropHP;
                 currentTimeBloodPool = Time.time;
             }
         }

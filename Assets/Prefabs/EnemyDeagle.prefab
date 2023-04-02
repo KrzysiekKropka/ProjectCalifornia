@@ -133,6 +133,7 @@ MonoBehaviour:
   maxHealth: 75
   dropXP: 30
   dropMoney: 200
+  dropHP: 10
 --- !u!50 &8324491963002387412
 Rigidbody2D:
   serializedVersion: 4

@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] NextLevelScreen nextLevelScreen;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject damagePopupPrefab;
-    [SerializeField] AudioClip manHurtClip;
+    [SerializeField] AudioClip manHurtClip, healClip;
     private GameObject damagePopup;
 
     public static bool inInventory = false;
@@ -111,6 +111,16 @@ public class Player : MonoBehaviour
         else
         {
             healthBar.SetHealth(currentHealth);
+        }
+    }
+
+    public void AddHP(int hp)
+    {
+        if (currentHealth < 100)
+        {
+            currentHealth += hp;
+            healthBar.SetHealth(currentHealth);
+            AudioSource.PlayClipAtPoint(healClip, transform.position, 1f);
         }
     }
 
