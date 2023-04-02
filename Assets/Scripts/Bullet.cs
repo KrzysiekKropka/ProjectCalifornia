@@ -38,8 +38,8 @@ public class Bullet : MonoBehaviour
     {
         if (!initiatedStart && weaponName != "") 
         {
-            int randomInt = Random.Range(1, 17);
-            AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/" + weaponName + "/Shoot" + randomInt);
+            int randomInt = Random.Range(1, 4);
+            AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/Weapons/" + weaponName + "/Shoot" + randomInt);
             AudioSource.PlayClipAtPoint(weaponShootClip, transform.position, 0.66f);
         }
 
