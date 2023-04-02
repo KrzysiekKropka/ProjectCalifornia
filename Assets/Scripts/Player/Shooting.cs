@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//KK: Aby to gowno dzialalo, trzeba zmienic ilosc arrayow w inspektorze.
+[System.Serializable]
+public class AudioClipArray
+{
+    public AudioClip[] clips;
+}
+
 public class Shooting : MonoBehaviour
 {
     [SerializeField] Transform firePoint, firePointShotgun1, firePointShotgun2;
@@ -27,6 +35,8 @@ public class Shooting : MonoBehaviour
     public int[] reserveAmmo = new int[5];
     int[] weaponDamage = new int[5];
     int[] maxAmmo = new int[5];
+
+    public AudioClipArray[] weaponAudioClips;
 
     void Start()
     {
@@ -64,6 +74,11 @@ public class Shooting : MonoBehaviour
         reloadTime[4] = 5f;
         maxAmmo[4] = 30;
         bulletSpread[4] = 2.5f;
+
+        for (int i = 0; i < 5; i++)
+        {
+            weaponAudioClips[i].clips = Resources.LoadAll<AudioClip>("Audio/Weapons/" + weaponName[i]);
+        }
 
         screenShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>();
 
@@ -131,21 +146,21 @@ public class Shooting : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(firePoint.rotation.eulerAngles + spread)); //KK: Spawnuje naboj z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni
             bullet.GetComponent<Bullet>().bulletDamage = damage;
             bullet.GetComponent<Bullet>().playerIsOwner = true;
-            bullet.GetComponent<Bullet>().weaponName = weaponName[equippedWeaponID];
+            bullet.GetComponent<Bullet>().weaponID = equippedWeaponID;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(bullet.transform.up * bulletForce, ForceMode2D.Impulse);
             GameObject shootEffect = Instantiate(shootPrefab, firePoint.position, firePoint.rotation);
             if (equippedWeaponID == 3) //shotgun
             {
                 GameObject bullet1 = Instantiate(bulletPrefab, firePointShotgun1.position, Quaternion.Euler(firePointShotgun1.rotation.eulerAngles + spread));
-                bullet1.GetComponent<Bullet>().weaponName = "";
+                bullet1.GetComponent<Bullet>().weaponID = -1;
                 bullet1.GetComponent<Bullet>().bulletDamage = damage;
                 Rigidbody2D rb1 = bullet1.GetComponent<Rigidbody2D>();
                 rb1.AddForce(bullet1.transform.up * bulletForce, ForceMode2D.Impulse);
                 Destroy(bullet1, 10);
 
                 GameObject bullet2 = Instantiate(bulletPrefab, firePointShotgun2.position, Quaternion.Euler(firePointShotgun2.rotation.eulerAngles + spread));
-                bullet2.GetComponent<Bullet>().weaponName = "";
+                bullet2.GetComponent<Bullet>().weaponID = -1;
                 bullet2.GetComponent<Bullet>().bulletDamage = damage;
                 Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
                 rb2.AddForce(bullet2.transform.up * bulletForce, ForceMode2D.Impulse);

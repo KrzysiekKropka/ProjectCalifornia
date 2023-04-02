@@ -287,6 +287,12 @@ MonoBehaviour:
   equippedWeaponID: 0
   currentAmmo: 0000000000000000000000000000000000000000
   reserveAmmo: 0000000000000000000000000000000000000000
+  weaponAudioClips:
+  - clips: []
+  - clips: []
+  - clips: []
+  - clips: []
+  - clips: []
 --- !u!114 &4351985592562470451
 MonoBehaviour:
   m_ObjectHideFlags: 0

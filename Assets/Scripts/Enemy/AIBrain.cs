@@ -82,16 +82,16 @@ public class AIBrain : MonoBehaviour
         if (currentHealth <= 0)
         {
             var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-            if (player)
-            {
-                player.SetXP(dropXP);
-                player.AddKill();
-            }
             deadBody.SetActive(true);
             Destroy(gameObject);
             Destroy(healthBar);
             if (Time.time - currentTimeBloodPool > .01f)
             {
+                if (player)
+                {
+                    player.SetXP(dropXP);
+                    player.AddKill();
+                }
                 Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
                 GameObject droppedMoney = Instantiate(moneyDropPrefab, transform.position + new Vector3(-0.75f, 0f, 0f), Quaternion.identity);
                 droppedMoney.GetComponent<MoneyDrop>().money = dropMoney;

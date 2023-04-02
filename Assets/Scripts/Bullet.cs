@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
 
     bool enteredEnemy = false;
     bool initiatedStart = false;
-    public string weaponName;
+    public int weaponID;
     public int bulletDamage;
     public bool playerIsOwner = false;
     public bool enemyIsOwner = false;
@@ -21,10 +21,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        if (weaponName != "")
-        {
-            PlaySound();
-        }
+        PlaySound();
         initiatedStart = true;
         int randomInt2 = Random.Range(1, 17);
         AudioClip passByClip = (AudioClip)Resources.Load("Audio/PassBy" + randomInt2);
@@ -34,7 +31,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!initiatedStart && weaponName != "") 
+        if (!initiatedStart) 
         {
             PlaySound();
         }
@@ -89,8 +86,7 @@ public class Bullet : MonoBehaviour
 
     void PlaySound()
     {
-        int randomInt = Random.Range(1, 4);
-        AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/Weapons/" + weaponName + "/Shoot" + randomInt);
-        AudioSource.PlayClipAtPoint(weaponShootClip, transform.position, 0.66f);
+        // ja pierdole pozdrawiam ludzi ktorzy beda musieli to czytac w przyszlosci zawiodlem was
+        if(weaponID > -1)AudioSource.PlayClipAtPoint(GameObject.FindGameObjectWithTag("Player").GetComponent<Shooting>().weaponAudioClips[weaponID].clips[Random.Range(1, GameObject.FindGameObjectWithTag("Player").GetComponent<Shooting>().weaponAudioClips[weaponID].clips.Length)], transform.position, 0.66f);
     }
 }

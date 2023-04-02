@@ -99,7 +99,7 @@ public class AIShooting : MonoBehaviour
         GameObject shootEffect = Instantiate(shootPrefab, firePoint.position, firePoint.rotation);
         bullet.GetComponent<Bullet>().bulletDamage = weaponDamage[equippedWeaponID]; 
         bullet.GetComponent<Bullet>().enemyIsOwner = true;
-        bullet.GetComponent<Bullet>().weaponName = weaponName[equippedWeaponID];
+        bullet.GetComponent<Bullet>().weaponID = equippedWeaponID;
         Destroy(bullet, 10);
         Destroy(shootEffect, 1);
     }

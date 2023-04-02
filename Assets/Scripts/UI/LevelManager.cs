@@ -18,7 +18,10 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         xp = PlayerPrefs.GetInt("experiencePoints");
-        xpText.text = xp + "<sprite=0>";
+        if (xpText != null)
+        {
+            xpText.text = xp + "<sprite=0>";
+        }
     }
 
     public void BuyMap()
