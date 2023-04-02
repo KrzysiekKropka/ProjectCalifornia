@@ -23,12 +23,13 @@ public class Bullet : MonoBehaviour
     {
         if (weaponName != "")
         {
-            AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/" + weaponName + "Shoot");
+            int randomInt1 = Random.Range(1, 4);
+            AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/Weapons/" + weaponName + "/Shoot" + randomInt1);
             AudioSource.PlayClipAtPoint(weaponShootClip, transform.position, 0.66f);
         }
         initiatedStart = true;
-        int randomInt = Random.Range(1, 17);
-        AudioClip passByClip = (AudioClip)Resources.Load("Audio/PassBy" + randomInt);
+        int randomInt2 = Random.Range(1, 17);
+        AudioClip passByClip = (AudioClip)Resources.Load("Audio/PassBy" + randomInt2);
         AudioSource.PlayClipAtPoint(passByClip, transform.position, 1f);
         startTime = Time.time;
     }
@@ -37,7 +38,8 @@ public class Bullet : MonoBehaviour
     {
         if (!initiatedStart && weaponName != "") 
         {
-            AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/" + weaponName + "Shoot");
+            int randomInt = Random.Range(1, 17);
+            AudioClip weaponShootClip = (AudioClip)Resources.Load("Audio/" + weaponName + "/Shoot" + randomInt);
             AudioSource.PlayClipAtPoint(weaponShootClip, transform.position, 0.66f);
         }
 
