@@ -116,9 +116,19 @@ public class Player : MonoBehaviour
 
     public void AddHP(int hp)
     {
-        if (currentHealth < 100)
+        if (currentHealth == maxHealth)
+        {
+            return;
+        }
+        else if (currentHealth + hp < maxHealth)
         {
             currentHealth += hp;
+            healthBar.SetHealth(currentHealth);
+            AudioSource.PlayClipAtPoint(healClip, transform.position, 1f);
+        }
+        else if (currentHealth + hp > maxHealth)
+        {
+            currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
             AudioSource.PlayClipAtPoint(healClip, transform.position, 1f);
         }
