@@ -153,14 +153,14 @@ public class Shooting : MonoBehaviour
             if (equippedWeaponID == 3) //shotgun
             {
                 GameObject bullet1 = Instantiate(bulletPrefab, firePointShotgun1.position, Quaternion.Euler(firePointShotgun1.rotation.eulerAngles + spread));
-                bullet1.GetComponent<Bullet>().weaponID = -1;
+                bullet1.GetComponent<Bullet>().weaponID = null;
                 bullet1.GetComponent<Bullet>().bulletDamage = damage;
                 Rigidbody2D rb1 = bullet1.GetComponent<Rigidbody2D>();
                 rb1.AddForce(bullet1.transform.up * bulletForce, ForceMode2D.Impulse);
                 Destroy(bullet1, 10);
 
                 GameObject bullet2 = Instantiate(bulletPrefab, firePointShotgun2.position, Quaternion.Euler(firePointShotgun2.rotation.eulerAngles + spread));
-                bullet2.GetComponent<Bullet>().weaponID = -1;
+                bullet2.GetComponent<Bullet>().weaponID = null;
                 bullet2.GetComponent<Bullet>().bulletDamage = damage;
                 Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
                 rb2.AddForce(bullet2.transform.up * bulletForce, ForceMode2D.Impulse);
