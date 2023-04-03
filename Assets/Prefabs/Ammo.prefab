@@ -75,7 +75,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 90
   AmmoDropClip: {fileID: 8300000, guid: 97a70c086e2475c46a0df11eb6e9636d, type: 3}
+  infoText: {fileID: 5121407708994177827}
   rb: {fileID: 8301694961800617955}
+  hp: 0
 --- !u!1 &4380406230366984524
 GameObject:
   m_ObjectHideFlags: 0

@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        else if (currentHealth + hp < maxHealth)
+        else if (currentHealth + hp <= maxHealth)
         {
             currentHealth += hp;
             healthBar.SetHealth(currentHealth);
