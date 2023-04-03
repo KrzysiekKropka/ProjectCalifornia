@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
 
     bool enteredEnemy = false;
     bool initiatedStart = false;
-    public int weaponID;
+    public int? weaponID;
     public int bulletDamage;
     public bool playerIsOwner = false;
     public bool enemyIsOwner = false;
