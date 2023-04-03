@@ -87,6 +87,6 @@ public class Bullet : MonoBehaviour
     void PlaySound()
     {
         // ja pierdole pozdrawiam ludzi ktorzy beda musieli to czytac w przyszlosci zawiodlem was
-        if(weaponID > -1)AudioSource.PlayClipAtPoint(GameObject.FindGameObjectWithTag("Player").GetComponent<Shooting>().weaponAudioClips[weaponID].clips[Random.Range(0, GameObject.FindGameObjectWithTag("Player").GetComponent<Shooting>().weaponAudioClips[weaponID].clips.Length)], transform.position, 0.66f);
+        if(weaponID != null)AudioSource.PlayClipAtPoint(GameObject.FindGameObjectWithTag("Player").GetComponent<Shooting>().weaponAudioClips[weaponID].clips[Random.Range(0, GameObject.FindGameObjectWithTag("Player").GetComponent<Shooting>().weaponAudioClips[weaponID].clips.Length)], transform.position, 0.66f);
     }
 }
