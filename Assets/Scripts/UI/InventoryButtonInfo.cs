@@ -18,6 +18,7 @@ public class InventoryButtonInfo : MonoBehaviour
     {
         button = gameObject.GetComponent<Button>();
         if (infoText!=null) AssignOwnership();
+        print("Gowno");
     }
 
     public void AssignOwnership()

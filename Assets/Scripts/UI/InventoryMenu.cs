@@ -32,16 +32,16 @@ public class InventoryMenu : MonoBehaviour
 
     void ShowDuringGameplay()
     {
-        inventoryMenu.SetActive(true);
         hideable.SetActive(false);
+        inventoryMenu.SetActive(true);
         Time.timeScale = 0.33f;
         Player.inInventory = true;
     }
 
     public void HideDuringGameplay()
     {
-        inventoryMenu.SetActive(false);
         hideable.SetActive(true);
+        inventoryMenu.SetActive(false);
         Time.timeScale = 1f;
         Player.inInventory = false;
     }
