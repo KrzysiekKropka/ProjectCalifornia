@@ -30,7 +30,7 @@ public class InventoryMenu : MonoBehaviour
         }
     }
 
-    void ShowDuringGameplay()
+    public void ShowDuringGameplay()
     {
         hideable.SetActive(false);
         inventoryMenu.SetActive(true);

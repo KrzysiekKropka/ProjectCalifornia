@@ -53,7 +53,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         healthBar.SetActive(true);
-        //inventoryMenu.SetActive(false);
+        inventoryMenu.SetActive(false);
         if (settings != null) Destroy(settings);
         Time.timeScale = 1f;
         isPaused = false;

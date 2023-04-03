@@ -14,11 +14,14 @@ public class InventoryButtonInfo : MonoBehaviour
     bool isOwned;
     public int itemID;
 
-    void Start()
+    void Awake()
     {
         button = gameObject.GetComponent<Button>();
+    }
+
+    void OnEnable()
+    {
         if (infoText!=null) AssignOwnership();
-        print("Gowno");
     }
 
     public void AssignOwnership()
