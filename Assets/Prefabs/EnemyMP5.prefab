@@ -128,6 +128,7 @@ MonoBehaviour:
   damagePopupPrefab: {fileID: 4262376480512933044, guid: 770715aeadb58bf4d85976cac77fec9b, type: 3}
   moneyDropPrefab: {fileID: 2989067539229740685, guid: 5adbb0e51e2fb6b4a8a1d8905f69dd37, type: 3}
   ammoDropPrefab: {fileID: 2989067539229740685, guid: 582bc39b399d6964f9ad355c71f5d921, type: 3}
+  medkitPrefab: {fileID: 4214963647153061173, guid: 00d7f7373598b5c4eb274016ad7120fd, type: 3}
   rb: {fileID: 8324491963002387412}
   speed: 4
   maxHealth: 100

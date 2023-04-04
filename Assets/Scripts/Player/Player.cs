@@ -114,23 +114,29 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void AddHP(int hp)
+    public bool AddHP(int hp)
     {
         if (currentHealth == maxHealth)
         {
-            return;
+            return false;
         }
         else if (currentHealth + hp <= maxHealth)
         {
             currentHealth += hp;
             healthBar.SetHealth(currentHealth);
             AudioSource.PlayClipAtPoint(healClip, transform.position, 1f);
+            return true;
         }
         else if (currentHealth + hp > maxHealth)
         {
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
             AudioSource.PlayClipAtPoint(healClip, transform.position, 1f);
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

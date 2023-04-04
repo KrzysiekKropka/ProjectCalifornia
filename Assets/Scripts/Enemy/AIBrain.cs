@@ -13,6 +13,7 @@ public class AIBrain : MonoBehaviour
     [SerializeField] GameObject damagePopupPrefab;
     [SerializeField] GameObject moneyDropPrefab;
     [SerializeField] GameObject ammoDropPrefab;
+    [SerializeField] GameObject medkitPrefab;
     [SerializeField] Rigidbody2D rb;
 
     private GameObject player;
@@ -93,10 +94,11 @@ public class AIBrain : MonoBehaviour
                     player.AddKill();
                 }
                 Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
-                GameObject droppedMoney = Instantiate(moneyDropPrefab, transform.position + new Vector3(-0.75f, 0f, 0f), Quaternion.identity);
+                GameObject droppedMoney = Instantiate(moneyDropPrefab, transform.position + new Vector3(-0.75f, -0.75f, 0f), Quaternion.identity);
                 droppedMoney.GetComponent<MoneyDrop>().money = dropMoney;
-                GameObject droppedAmmo = Instantiate(ammoDropPrefab, transform.position + new Vector3(0.75f, 0f, 0f), Quaternion.identity);
-                droppedAmmo.GetComponent<AmmoDrop>().hp = dropHP;
+                GameObject droppedAmmo = Instantiate(ammoDropPrefab, transform.position + new Vector3(0.75f, -0.75f, 0f), Quaternion.identity);
+                GameObject droppedMedkit = Instantiate(medkitPrefab, transform.position + new Vector3(0f, 0.75f, 0f), Quaternion.identity);
+                droppedMedkit.GetComponent<Medkit>().hp = dropHP;
                 currentTimeBloodPool = Time.time;
             }
         }
