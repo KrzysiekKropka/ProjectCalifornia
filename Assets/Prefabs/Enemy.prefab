@@ -423,6 +423,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5001969082769403738}
+  sprites:
+  - {fileID: 21300000, guid: 11387cda408fe8845842752a7d28db4b, type: 3}
+  - {fileID: 21300000, guid: d7b89054354dbdf4da2dd6cc029c547c, type: 3}
+  - {fileID: 21300000, guid: 2e45dbbec65b5604e8ecd6ab8665c220, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 1977d05022ca2d44783ec0e5d037f016, type: 3}
 --- !u!1001 &8553481234927558881
 PrefabInstance:
   m_ObjectHideFlags: 0

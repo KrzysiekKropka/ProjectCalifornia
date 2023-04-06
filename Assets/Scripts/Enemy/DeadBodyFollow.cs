@@ -5,18 +5,20 @@ using UnityEngine;
 public class DeadBodyFollow : MonoBehaviour
 {
     [SerializeField] GameObject enemy;
+    [SerializeField] Sprite[] sprites;
 
     private SpriteRenderer spriteRenderer;
 
-    void Start()
+    void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.flipY = true;
-        DeadBodyPosition();
     }
 
-    void DeadBodyPosition()
+    public void DeadBodyPosition(int bodyColor)
     {
+        spriteRenderer.sprite = sprites[bodyColor];
+
         transform.position = enemy.transform.position;
         transform.rotation = enemy.transform.rotation;
         if (Random.Range(0, 2) == 1) spriteRenderer.flipX = true;

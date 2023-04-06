@@ -92,6 +92,7 @@ public class AIBrain : MonoBehaviour
         {
             var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             deadBody.SetActive(true);
+            deadBody.GetComponent<DeadBodyFollow>().DeadBodyPosition(gameObject.GetComponent<AIShooting>().equippedWeaponID);
             Destroy(gameObject);
             Destroy(healthBar);
             if (Time.time - currentTimeBloodPool > .01f)
