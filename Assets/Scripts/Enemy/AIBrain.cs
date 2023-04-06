@@ -21,9 +21,11 @@ public class AIBrain : MonoBehaviour
     private AIPath ai;
 
     [SerializeField] float speed = 4f; 
-    [SerializeField] int maxHealth = 100;
-    bool readyToShoot = false;
-    bool seenPlayer = true;
+    public int maxHealth = 100;
+
+    bool playerDetected = true;
+    bool shotBefore = false;
+
     int currentHealth;
     public int dropXP;
     public int dropMoney;
@@ -32,14 +34,14 @@ public class AIBrain : MonoBehaviour
     float currentTime, currentTimeBloodPool;
     float aimAngle;
 
+    RaycastHit hit;
+
     Vector3 aimDirection;
 
     void Start()
     {
         deadBody.SetActive(false);
         ai = GetComponent<AIPath>();
-        currentHealth = maxHealth;
-        healthBar.GetComponent<EnemyHealthBar>().SetMaxHealth(maxHealth);
         player = GameObject.FindGameObjectWithTag("Player");
         ai.maxSpeed = speed;
     }
@@ -57,11 +59,17 @@ public class AIBrain : MonoBehaviour
 
     void LateUpdate()
     {
-        if (seenPlayer) ai.destination = player.transform.position;
+        if (playerDetected) ai.destination = player.transform.position;
     }
 
     public void TakeDamage(int damage)
     {
+        if(!shotBefore)
+        {
+            currentHealth = maxHealth;
+            healthBar.GetComponent<EnemyHealthBar>().SetMaxHealth(maxHealth);
+            shotBefore = true;
+        }
         currentHealth -= damage;
         //KK:Blagam nie dotykaj tego kodu ponizej, jest on tak kurwa niestabilny ze lekka zmiana kompletnie rozpierdoli dzialanie licznika. To jest niesamowite ze to w ogole dziala.
         if (Time.time - currentTime > 0.75f)

@@ -21,7 +21,7 @@ public class ShopManager : MonoBehaviour
     int money;
     int xp;
 
-    void Start()
+    void OnEnable()
     {
         money = PlayerPrefs.GetInt("money");
         xp = PlayerPrefs.GetInt("experiencePoints");

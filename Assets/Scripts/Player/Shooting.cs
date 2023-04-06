@@ -22,6 +22,7 @@ public class Shooting : MonoBehaviour
 
     public ScreenShake screenShake;
 
+    bool canShoot = true;
     public bool[] isReloading = new bool[5];
     bool[] equippedBefore = new bool[5];
     string[] weaponName = new string[5];
@@ -120,7 +121,7 @@ public class Shooting : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            Shoot();
+            StartCoroutine(Shoot());
         }
     }
 
@@ -132,24 +133,35 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public void AddAmmo()
     {
-        if (Time.time - currentTime > weaponDelay[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && Player.inInventory == false && isReloading[equippedWeaponID] == false)
+        reserveAmmo[equippedWeaponID] += maxAmmo[equippedWeaponID] / 2;
+        healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
+        if (currentAmmo[equippedWeaponID] == 0) StartCoroutine(Reload(equippedWeaponID));
+    }
+
+    IEnumerator Shoot()
+    {
+        if (canShoot && currentAmmo[equippedWeaponID] > 0 && !isReloading[equippedWeaponID] && !Player.inInventory)
         {
+            canShoot = false;
             int damage = Random.Range(weaponDamage[equippedWeaponID] - 5, weaponDamage[equippedWeaponID] + 3);
             float randomVal = Random.Range(90f - bulletSpread[equippedWeaponID], 90f + bulletSpread[equippedWeaponID]);
             Vector3 spread = new Vector3(0, 0, randomVal - 90);
+
             screenShake.CamShake();
-            currentTime = Time.time;
             currentAmmo[equippedWeaponID]--;
             healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
+
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(firePoint.rotation.eulerAngles + spread)); //KK: Spawnuje naboj z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni
             bullet.GetComponent<Bullet>().bulletDamage = damage;
             bullet.GetComponent<Bullet>().playerIsOwner = true;
             bullet.GetComponent<Bullet>().weaponID = equippedWeaponID;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(bullet.transform.up * bulletForce, ForceMode2D.Impulse);
+
             GameObject shootEffect = Instantiate(shootPrefab, firePoint.position, firePoint.rotation);
+
             if (equippedWeaponID == 3) //shotgun
             {
                 GameObject bullet1 = Instantiate(bulletPrefab, firePointShotgun1.position, Quaternion.Euler(firePointShotgun1.rotation.eulerAngles + spread));
@@ -177,16 +189,11 @@ public class Shooting : MonoBehaviour
                 StartCoroutine(Reload(equippedWeaponID));
                 AudioSource.PlayClipAtPoint(EmptyMagClip, transform.position, 1f);
             }
+            yield return new WaitForSeconds(weaponDelay[equippedWeaponID]);
+            canShoot = true;
             Destroy(bullet, 10); //KK: Usuwa obiekt po 10 sekundach jesli nie zostanie usuniety przez cos innego
             Destroy(shootEffect, 1);
         }
-    }
-
-    public void AddAmmo()
-    {
-        reserveAmmo[equippedWeaponID] += maxAmmo[equippedWeaponID]/2;
-        healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
-        if (currentAmmo[equippedWeaponID] == 0) StartCoroutine(Reload(equippedWeaponID));
     }
 
     IEnumerator Reload(int weaponID)

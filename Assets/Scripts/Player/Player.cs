@@ -9,11 +9,13 @@ public class Player : MonoBehaviour
     [SerializeField] NextLevelScreen nextLevelScreen;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject damagePopupPrefab;
+    [SerializeField] GameObject ShopManager;
     [SerializeField] AudioClip manHurtClip, healClip;
     private GameObject damagePopup;
 
     public static bool inInventory = false;
 
+    bool inFocus = false;
     float speed = 6f;
     float aimAngle;
     float currentTime;
@@ -30,8 +32,26 @@ public class Player : MonoBehaviour
     private Vector2 mousePosition;
     private Vector2 aimDirection;
 
+    private bool canMoreHP;
+    private bool canMoreSpeed;
+    //private bool canDash;
+    //private bool canFocus;
+
+    [SerializeField] Transform sightStart, sightEnd;
+
     void Start()
     {
+        canMoreHP = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 1] >= 1);
+        canMoreSpeed = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 2] >= 1);
+        //canUnnamed = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 3] >= 1);
+        //canFocus = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 4] >= 1);
+
+        if(canMoreHP) maxHealth = 150;
+        else maxHealth = 100;
+
+        if (canMoreSpeed) speed = 8f;
+        else speed = 6f;
+
         currentHealth = maxHealth;
         experiencePoints = PlayerPrefs.GetInt("experiencePoints");
         money = PlayerPrefs.GetInt("money");
@@ -73,6 +93,22 @@ public class Player : MonoBehaviour
         {
             TakeDamage(10);
         }
+
+        /*if (Input.GetKeyDown(KeyCode.LeftShift) && canFocus)
+        {
+            if(!inFocus)
+            {
+                Time.timeScale = 0.5f;
+                speed *= 2f;
+                inFocus = true;
+            }
+            else if (inFocus)
+            {
+                Time.timeScale = 1f;
+                speed /= 2f;
+                inFocus = false;
+            }
+        }*/
     }
 
     void FixedUpdate()

@@ -9,6 +9,7 @@ public class EnemyHealthBar : MonoBehaviour
     [SerializeField] Transform enemy;
     [SerializeField] Slider slider;
     [SerializeField] TMP_Text healthText;
+    [SerializeField] TMP_Text ammoText;
     [SerializeField] GameObject healthBar;
 
     Vector3 offset = new Vector3(0f, 1.33f, 0f);
@@ -31,5 +32,16 @@ public class EnemyHealthBar : MonoBehaviour
     {
         Vector3 targetPosition = enemy.position + offset;
         transform.position = targetPosition;
+    }
+
+    public void SetReloading(bool isReloading)
+    {
+        if (isReloading) ammoText.text = "Reloading...";
+        else ammoText.text = "";
+    }
+
+    public void SetAmmo(int currentAmmo)
+    {
+        ammoText.text = currentAmmo.ToString();
     }
 }
