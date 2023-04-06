@@ -134,7 +134,6 @@ public class AIShooting : MonoBehaviour
 
         if (readyToShoot) StartCoroutine(Shoot());
         Debug.DrawRay(transform.position, transform.up * reach, Color.red);
-        Debug.Log(timer);
     }
 
     IEnumerator Shoot()
