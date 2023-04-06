@@ -42,6 +42,6 @@ public class EnemyHealthBar : MonoBehaviour
 
     public void SetAmmo(int currentAmmo)
     {
-        ammoText.text = currentAmmo.ToString();
+        ammoText.text = "<sprite=0>" + currentAmmo;
     }
 }

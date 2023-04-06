@@ -17,7 +17,7 @@ public class AIShooting : MonoBehaviour
     bool canShoot = true;
     string[] weaponName = new string[5];
     float currentTime;
-    float reactionTime = 3f;
+    float reactionTime = 0.25f;
     float[] bulletSpread = new float[5];
     float[] weaponDelay = new float[5];
     float[] reloadTime = new float[5];
@@ -71,6 +71,7 @@ public class AIShooting : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+        //KK: Fuj
         switch (equippedWeaponID)
         {
             case 0:
@@ -104,26 +105,41 @@ public class AIShooting : MonoBehaviour
         healthBar.SetAmmo(currentAmmo[equippedWeaponID]);
     }
 
-    void RayCasting()
-    {
-        RaycastHit2D detectRay = Physics2D.Raycast(transform.position, transform.up);
-
-        if (detectRay.collider != null)
-            readyToShoot = detectRay.collider.tag == "Player" && detectRay.distance < reach;
-
-        if (readyToShoot) StartCoroutine(Shoot());
-        Debug.DrawRay(transform.position, transform.up * reach, Color.red);
-        Debug.Log(detectRay.distance);
-    }
-
     void Update()
     {
         RayCasting();
     }
 
+    void RayCasting()
+    {
+        RaycastHit2D detectRay = Physics2D.Raycast(transform.position, transform.up);
+
+
+        //KK: Bardziej debilnego kodu napisac nie moglem
+        if (detectRay.collider != null)
+        {
+            if (detectRay.collider.tag == "Player" && detectRay.distance < reach)
+            {
+                readyToShoot = true;
+                if (timer < reactionTime*2) timer += Time.deltaTime;
+                else timer = reactionTime*2;
+            }
+            else
+            {
+                readyToShoot = false;
+                if(timer>0)timer -= Time.deltaTime;
+                else timer = 0;
+            }
+        }
+
+        if (readyToShoot) StartCoroutine(Shoot());
+        Debug.DrawRay(transform.position, transform.up * reach, Color.red);
+        Debug.Log(timer);
+    }
+
     IEnumerator Shoot()
     {
-        if (canShoot && !isReloading && readyToShoot)
+        if (timer >= reactionTime && canShoot && !isReloading && readyToShoot)
         {
             canShoot = false;
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); //KK: Spawnuje nabój z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni

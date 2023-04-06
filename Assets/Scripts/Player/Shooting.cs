@@ -22,7 +22,7 @@ public class Shooting : MonoBehaviour
 
     public ScreenShake screenShake;
 
-    bool canShoot = true;
+    bool[] canShoot = new bool[5];
     public bool[] isReloading = new bool[5];
     bool[] equippedBefore = new bool[5];
     string[] weaponName = new string[5];
@@ -89,6 +89,7 @@ public class Shooting : MonoBehaviour
         {
             reserveAmmo[i] = maxAmmo[i] * 2;
             currentAmmo[i] = maxAmmo[i];
+            canShoot[i] = true;
         }
 
         equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
@@ -140,22 +141,24 @@ public class Shooting : MonoBehaviour
         if (currentAmmo[equippedWeaponID] == 0) StartCoroutine(Reload(equippedWeaponID));
     }
 
+
+    //KK: Rozczytaj sie z tego :DDD
     IEnumerator Shoot()
     {
-        if (canShoot && currentAmmo[equippedWeaponID] > 0 && !isReloading[equippedWeaponID] && !Player.inInventory)
+        if (canShoot[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && !isReloading[equippedWeaponID] && !Player.inInventory)
         {
-            canShoot = false;
+            canShoot[equippedWeaponID] = false;
             int damage = Random.Range(weaponDamage[equippedWeaponID] - 5, weaponDamage[equippedWeaponID] + 3);
-            float randomVal = Random.Range(90f - bulletSpread[equippedWeaponID], 90f + bulletSpread[equippedWeaponID]);
-            Vector3 spread = new Vector3(0, 0, randomVal - 90);
+            float randomVal = Random.Range(90f - bulletSpread[equippedWeaponID], 90f + bulletSpread[equippedWeaponID]); //KK: Randomowa liczba na spread broni
+            Vector3 spread = new Vector3(0, 0, randomVal - 90); 
 
-            screenShake.CamShake();
+            screenShake.CamShake(); //KK: Trzesienie kamera
             currentAmmo[equippedWeaponID]--;
             healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(firePoint.rotation.eulerAngles + spread)); //KK: Spawnuje naboj z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni
             bullet.GetComponent<Bullet>().bulletDamage = damage;
-            bullet.GetComponent<Bullet>().playerIsOwner = true;
+            bullet.GetComponent<Bullet>().playerIsOwner = true; //KK: Aby kula gracza go nie uderzyla
             bullet.GetComponent<Bullet>().weaponID = equippedWeaponID;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(bullet.transform.up * bulletForce, ForceMode2D.Impulse);
@@ -189,10 +192,12 @@ public class Shooting : MonoBehaviour
                 StartCoroutine(Reload(equippedWeaponID));
                 AudioSource.PlayClipAtPoint(EmptyMagClip, transform.position, 1f);
             }
-            yield return new WaitForSeconds(weaponDelay[equippedWeaponID]);
-            canShoot = true;
             Destroy(bullet, 10); //KK: Usuwa obiekt po 10 sekundach jesli nie zostanie usuniety przez cos innego
             Destroy(shootEffect, 1);
+
+            int weaponID = equippedWeaponID; 
+            yield return new WaitForSeconds(weaponDelay[equippedWeaponID]);
+            canShoot[weaponID] = true;
         }
     }
 
@@ -204,6 +209,8 @@ public class Shooting : MonoBehaviour
             healthBar.SetReloading(true);
 
             yield return new WaitForSeconds(reloadTime[weaponID]);
+
+            //KK: Jestem pewny, ze da sie tego ifa zrobic o wiele lepiej. Nie chce mi sie :)
             if ((currentAmmo[weaponID] + reserveAmmo[weaponID]) > maxAmmo[weaponID])
             {
                 int reloadAmount = maxAmmo[weaponID] - currentAmmo[weaponID];

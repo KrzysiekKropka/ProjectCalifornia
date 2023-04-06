@@ -112,7 +112,6 @@ MonoBehaviour:
   EnemyDeagle: {fileID: 21300000, guid: cce68eeffb3387444b6e4aa84d6e92dd, type: 3}
   EnemyMP5: {fileID: 21300000, guid: 2f2c6e520bc6b334e81fabe6cd652a31, type: 3}
   EnemyAK47: {fileID: 21300000, guid: 8a9e153a94c1fe8459d373c64ebe22d9, type: 3}
-  isReloading: 0
   equippedWeaponID: 0
   currentAmmo: 0000000000000000000000000000000000000000
 --- !u!114 &5891919148703806736
@@ -135,11 +134,8 @@ MonoBehaviour:
   ammoDropPrefab: {fileID: 2989067539229740685, guid: 582bc39b399d6964f9ad355c71f5d921, type: 3}
   medkitPrefab: {fileID: 4214963647153061173, guid: 00d7f7373598b5c4eb274016ad7120fd, type: 3}
   rb: {fileID: 8324491963002387412}
-  reactionTime: 0.3
-  reach: 12.5
   speed: 4
   maxHealth: 100
-  readyToShoot: 0
   dropXP: 15
   dropMoney: 100
   dropHP: 5
@@ -452,7 +448,7 @@ PrefabInstance:
       objectReference: {fileID: 1266505938021331753}
     - target: {fileID: 5938828242070102825, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5938828242070102825, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -565,6 +561,10 @@ PrefabInstance:
     - target: {fileID: 8986998325532272153, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
       propertyPath: m_Name
       value: EnemyBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998325532272155, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
