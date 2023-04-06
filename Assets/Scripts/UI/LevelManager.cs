@@ -30,7 +30,7 @@ public class LevelManager : MonoBehaviour
         if (ShopManager.GetComponent<ShopManager>().shopMaps[3, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID] < 1 && xp >= ShopManager.GetComponent<ShopManager>().shopMaps[2, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID])
         {
             xp -= ShopManager.GetComponent<ShopManager>().shopMaps[2, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID];
-            ShopManager.GetComponent<ShopManager>().shopMaps[3, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID]++;
+            ShopManager.GetComponent<ShopManager>().shopMaps[3, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID] = 1;
             xpText.text = xp + "<sprite=0>";
             PlayerPrefs.SetInt("mapQuantity" + ButtonRef.GetComponent<ShopMapButtonInfo>().itemID, ShopManager.GetComponent<ShopManager>().shopMaps[3, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID]);
             PlayerPrefs.SetInt("experiencePoints", xp);

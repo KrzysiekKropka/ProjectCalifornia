@@ -114,7 +114,7 @@ public class ShopManager : MonoBehaviour
         if ((money >= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]) && (shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] < 1))
         {
             money -= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID];
-            shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]++;
+            shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]=1;
             moneyText.text = "<sprite=0>" + money + "$";
             PlayerPrefs.SetInt("itemQuantity" + ButtonRef.GetComponent<ShopItemButtonInfo>().itemID, shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]);
             PlayerPrefs.SetInt("money", money);
@@ -129,7 +129,7 @@ public class ShopManager : MonoBehaviour
         if ((xp >= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]) && (shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] < 1))
         {
             xp -= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID];
-            shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]++;
+            shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]=1;
             xpText.text = xp + "<sprite=0>";
             PlayerPrefs.SetInt("skillQuantity" + ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID, shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]);
             PlayerPrefs.SetInt("experiencePoints", xp);
