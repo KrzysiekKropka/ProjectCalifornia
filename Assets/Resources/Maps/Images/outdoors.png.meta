@@ -3110,7 +3110,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -2, y: 0}
+        - {x: -3, y: -1}
+        - {x: -3, y: -4}
+        - {x: -2, y: -6}
+        - {x: 2, y: -6}
+        - {x: 3, y: -4}
+        - {x: 3, y: -1}
+        - {x: 2, y: 0}
       tessellationDetail: 0
       bones: []
       spriteID: 139ef36b393e0a349883bfb8a756f8ea
@@ -3572,7 +3580,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -2, y: -5}
+        - {x: 2, y: -5}
+        - {x: 4, y: -3}
+        - {x: 4, y: 0}
+        - {x: -4, y: 0}
+        - {x: -4, y: -3}
       tessellationDetail: 0
       bones: []
       spriteID: 7f347f4b935f1af4da949c02a3928a3e
@@ -3656,7 +3670,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -2, y: 1}
+        - {x: -2, y: -3}
+        - {x: 2, y: -3}
+        - {x: 2, y: 1}
       tessellationDetail: 0
       bones: []
       spriteID: e59358f5aa1139b45ada07f85dbefb1d
@@ -5000,7 +5018,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 4, y: -1}
+        - {x: -4, y: -1}
+        - {x: -5, y: -2}
+        - {x: -5, y: -6}
+        - {x: -3, y: -8}
+        - {x: 3, y: -8}
+        - {x: 5, y: -6}
+        - {x: 5, y: -2}
       tessellationDetail: 0
       bones: []
       spriteID: bf4343fb3d8a01141a54eafd6644b7bf
@@ -11635,7 +11661,6 @@ TextureImporter:
       outdoors_349: -439730241
       outdoors_361: -291031400
       outdoors_168: 710149253
-      outdoors_542: -314448772
       outdoors_399: -1540380742
       outdoors_24: -1864176423
       outdoors_192: 1966204954
@@ -11692,9 +11717,10 @@ TextureImporter:
       outdoors_194: 232724226
       outdoors_291: 1286230732
       outdoors_437: -1654475
+      outdoors_514: 160603829
       outdoors_264: -1757159893
-      outdoors_323: -504290365
       outdoors_200: -1159929721
+      outdoors_323: -504290365
       outdoors_375: 54168104
       outdoors_229: 1187139312
       outdoors_412: 1108386074
@@ -11703,7 +11729,6 @@ TextureImporter:
       outdoors_455: 1468246304
       outdoors_313: -1969581023
       outdoors_45: 1910815134
-      outdoors_514: 160603829
       outdoors_409: -135950225
       outdoors_207: 1834866558
       outdoors_470: -173894492
@@ -11713,9 +11738,9 @@ TextureImporter:
       outdoors_436: 1450463794
       outdoors_472: 152520066
       outdoors_240: 260809627
-      outdoors_315: 1291283211
-      outdoors_284: -623307360
       outdoors_66: -371742125
+      outdoors_284: -623307360
+      outdoors_315: 1291283211
       outdoors_111: 351351787
       outdoors_275: -1798364497
       outdoors_302: 2088984730
@@ -11788,24 +11813,24 @@ TextureImporter:
       outdoors_491: 907909982
       outdoors_518: -1514553138
       outdoors_246: 644545957
-      outdoors_336: 173599505
-      outdoors_38: -645112783
       outdoors_390: -1288773290
-      outdoors_206: 148998449
-      outdoors_222: -1013817815
-      outdoors_513: -1246538068
-      outdoors_371: 1003519874
-      outdoors_395: 5870653
+      outdoors_336: 173599505
       outdoors_510: -2062462451
+      outdoors_38: -645112783
+      outdoors_206: 148998449
+      outdoors_513: -1246538068
       outdoors_4: 1761795012
+      outdoors_395: 5870653
+      outdoors_222: -1013817815
       outdoors_530: 908736449
       outdoors_446: 1507864507
       outdoors_74: -1659423022
       outdoors_270: -1226485524
+      outdoors_371: 1003519874
       outdoors_48: -1380813251
       outdoors_173: -711931699
-      outdoors_251: 275641525
       outdoors_519: 1249581139
+      outdoors_251: 275641525
       outdoors_461: -1628467131
       outdoors_525: -2111764270
       outdoors_322: 957592822
@@ -11908,20 +11933,20 @@ TextureImporter:
       outdoors_541: -1711606468
       outdoors_310: 611452867
       outdoors_350: 737117969
+      outdoors_351: 256219710
       outdoors_236: 1268516703
       outdoors_122: -1068219745
-      outdoors_351: 256219710
-      outdoors_456: 413723424
       outdoors_475: 1751011754
-      outdoors_377: 1536465795
+      outdoors_456: 413723424
       outdoors_540: -393131458
+      outdoors_377: 1536465795
       outdoors_202: 1850960565
       outdoors_83: -1327614758
       outdoors_267: -567788448
-      outdoors_211: -1386580030
+      outdoors_67: -705416587
       outdoors_18: -884456248
       outdoors_387: -60064375
-      outdoors_67: -705416587
+      outdoors_211: -1386580030
       outdoors_502: 1729602643
       outdoors_7: -1106213627
       outdoors_95: -1680109068
@@ -11948,14 +11973,14 @@ TextureImporter:
       outdoors_384: 806891491
       outdoors_309: 394333282
       outdoors_184: 699855893
+      outdoors_97: -50833760
       outdoors_115: 599665319
       outdoors_8: -1635869844
-      outdoors_97: -50833760
       outdoors_144: 2007049566
-      outdoors_175: 981560850
       outdoors_254: -1611851123
       outdoors_420: -1517898976
       outdoors_473: -484824920
+      outdoors_175: 981560850
       outdoors_363: -2146129439
       outdoors_3: -29362566
       outdoors_293: 480178524
@@ -12161,12 +12186,13 @@ TextureImporter:
       outdoors_364: 316589958
       outdoors_46: 1107636946
       outdoors_292: 1158689324
+      outdoors_542: -314448772
       outdoors_174: -2064588754
-      outdoors_471: -23464184
       outdoors_21: 730716572
-      outdoors_536: 1368074121
+      outdoors_471: -23464184
       outdoors_156: 49637782
       outdoors_262: -538130305
+      outdoors_536: 1368074121
       outdoors_148: -275382031
       outdoors_242: -730614582
       outdoors_345: 35625419

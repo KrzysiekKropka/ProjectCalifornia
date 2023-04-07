@@ -23,6 +23,7 @@ public class AIBrain : MonoBehaviour
     [SerializeField] float speed = 4f; 
     public int maxHealth = 100;
 
+    public bool isStatic = false;
     bool playerDetected = true;
     bool shotBefore = false;
 
@@ -59,7 +60,7 @@ public class AIBrain : MonoBehaviour
 
     void LateUpdate()
     {
-        if (playerDetected) ai.destination = player.transform.position;
+        if (!isStatic && playerDetected) ai.destination = player.transform.position;
     }
 
     public void TakeDamage(int damage)
