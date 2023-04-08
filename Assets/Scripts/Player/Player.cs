@@ -98,22 +98,6 @@ public class Player : MonoBehaviour
         {
             TakeDamage(10);
         }
-
-        /*if (Input.GetKeyDown(KeyCode.LeftShift) && canFocus)
-        {
-            if(!inFocus)
-            {
-                Time.timeScale = 0.5f;
-                speed *= 2f;
-                inFocus = true;
-            }
-            else if (inFocus)
-            {
-                Time.timeScale = 1f;
-                speed /= 2f;
-                inFocus = false;
-            }
-        }*/
     }
 
     void FixedUpdate()
@@ -125,29 +109,33 @@ public class Player : MonoBehaviour
 
     void Dash()
     {
-        float previousDashingTimer = dashingTimer;
-        dashingTimer = Time.time; 
         dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        if (dashingTimer - previousDashingTimer > dashingCooldown)
+        if(dashDirection != Vector2.zero)
         {
-            dashingSpree = 0;
-            isDashing = true;
-            trailRenderer.emitting = true;
-            AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
+            float previousDashingTimer = dashingTimer;
+            dashingTimer = Time.time;
+
+            if (dashingTimer - previousDashingTimer > dashingCooldown)
+            {
+                dashingSpree = 0;
+                isDashing = true;
+                trailRenderer.emitting = true;
+                AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
+            }
+            else if (dashingSpree < 2)
+            {
+                dashingSpree++;
+                isDashing = true;
+                trailRenderer.emitting = true;
+                AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
+            }
+            else
+            {
+                dashingSpree = 0;
+                StartCoroutine(DashingCooldown());
+            }
+            StartCoroutine(StopDashing());
         }
-        else if (dashingSpree < 2)
-        {
-            dashingSpree++;
-            isDashing = true;
-            trailRenderer.emitting = true;
-            AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
-        }
-        else
-        {
-            dashingSpree = 0;
-            StartCoroutine(DashingCooldown());
-        }
-        StartCoroutine(StopDashing());
     }
 
     //KK: Kiedy dostajemy od czegoś wpierdol, usuwa damage od obecnego zdrowia gracza i ustawia wartość filla w healthBarze na obecne HP gracza.

@@ -79,9 +79,11 @@ public class AIBrain : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool playerOwnedBullet = false)
     {
-        if(!shotBefore)
+        playerDetected = playerOwnedBullet;
+
+        if (!shotBefore)
         {
             currentHealth = maxHealth;
             healthBar.GetComponent<EnemyHealthBar>().SetMaxHealth(maxHealth);
