@@ -136,6 +136,7 @@ MonoBehaviour:
   rb: {fileID: 8324491963002387412}
   speed: 4
   maxHealth: 100
+  isStatic: 0
   dropXP: 15
   dropMoney: 100
   dropHP: 5
@@ -257,9 +258,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.045, y: -0.01}
+  m_Offset: {x: -0.045, y: -0.03}
   serializedVersion: 2
-  m_Radius: 0.07
+  m_Radius: 0.08
 --- !u!1 &6616441681885582288
 GameObject:
   m_ObjectHideFlags: 0

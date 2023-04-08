@@ -55,8 +55,8 @@ public class Bullet : MonoBehaviour
         }
         else if (tilemap)
         {
-            int randomInt = Random.Range(1, 5);
-            ricochetClip = (AudioClip)Resources.Load("Audio/HitMetal" + randomInt);
+            int randomInt = Random.Range(1, 4);
+            ricochetClip = (AudioClip)Resources.Load("Audio/HitGeneric" + randomInt);
             AudioSource.PlayClipAtPoint(ricochetClip, transform.position, 1f);
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
