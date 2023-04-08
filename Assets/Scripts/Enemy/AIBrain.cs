@@ -24,7 +24,7 @@ public class AIBrain : MonoBehaviour
     public int maxHealth = 100;
 
     public bool isStatic = false;
-    bool playerDetected = true;
+    bool playerDetected = false;
     bool shotBefore = false;
 
     int currentHealth;
@@ -33,6 +33,7 @@ public class AIBrain : MonoBehaviour
     public int dropHP;
     int summedDamage;
     float currentTime, currentTimeBloodPool;
+    float rotationSpeed = 0.1f;
     float aimAngle;
 
     RaycastHit hit;
@@ -49,14 +50,33 @@ public class AIBrain : MonoBehaviour
 
     void LateUpdate()
     {
-        aimDirection = player.transform.position - transform.position;
-        aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+        if (playerDetected)
+        {
+            aimDirection = player.transform.position - transform.position;
+            aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+        }
         if (!isStatic && playerDetected) ai.destination = player.transform.position;
     }
 
     void FixedUpdate()
     {
-        rb.rotation = aimAngle;
+        rb.rotation = Mathf.LerpAngle(rb.rotation, aimAngle, rotationSpeed);
+    }
+    
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        {
+            playerDetected = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            //playerDetected = false;
+        }
     }
 
     public void TakeDamage(int damage)
