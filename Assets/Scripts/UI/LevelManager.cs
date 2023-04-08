@@ -17,6 +17,11 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        AssignNumbers();
+    }
+
+    public void AssignNumbers()
+    {
         xp = PlayerPrefs.GetInt("experiencePoints");
         if (xpText != null)
         {

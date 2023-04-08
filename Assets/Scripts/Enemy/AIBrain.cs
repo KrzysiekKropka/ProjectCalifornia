@@ -47,20 +47,16 @@ public class AIBrain : MonoBehaviour
         ai.maxSpeed = speed;
     }
 
-    void Update()
+    void LateUpdate()
     {
         aimDirection = player.transform.position - transform.position;
         aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+        if (!isStatic && playerDetected) ai.destination = player.transform.position;
     }
 
     void FixedUpdate()
     {
         rb.rotation = aimAngle;
-    }
-
-    void LateUpdate()
-    {
-        if (!isStatic && playerDetected) ai.destination = player.transform.position;
     }
 
     public void TakeDamage(int damage)

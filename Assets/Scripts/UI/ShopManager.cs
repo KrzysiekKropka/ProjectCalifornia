@@ -21,15 +21,9 @@ public class ShopManager : MonoBehaviour
     int money;
     int xp;
 
-    void OnEnable()
+    void Start()
     {
-        money = PlayerPrefs.GetInt("money");
-        xp = PlayerPrefs.GetInt("experiencePoints");
-        if (moneyText != null || xpText != null)
-        {
-            moneyText.text = "<sprite=0>" + money + "$";
-            xpText.text = xp + "<sprite=0>";
-        }
+        AssignNumbers();
 
         //KK: ustawianie ID przedmiotom w sklepie
         shopItems[1, 1] = 1;
@@ -106,6 +100,17 @@ public class ShopManager : MonoBehaviour
         PlayerPrefs.SetInt("mapQuantity" + 3, 0);
         PlayerPrefs.SetInt("mapQuantity" + 4, 0);
         PlayerPrefs.DeleteKey("equippedWeaponID");
+    }
+
+    public void AssignNumbers()
+    {
+        money = PlayerPrefs.GetInt("money");
+        xp = PlayerPrefs.GetInt("experiencePoints");
+        if (moneyText != null || xpText != null)
+        {
+            moneyText.text = "<sprite=0>" + money + "$";
+            xpText.text = xp + "<sprite=0>";
+        }
     }
 
     public void BuyItem()

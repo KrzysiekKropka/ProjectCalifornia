@@ -10,15 +10,23 @@ public class Player : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject damagePopupPrefab;
     [SerializeField] GameObject ShopManager;
-    [SerializeField] AudioClip manHurtClip, healClip;
+    [SerializeField] AudioClip manHurtClip, healClip, dashClip;
+    private TrailRenderer trailRenderer;
     private GameObject damagePopup;
 
     public static bool inInventory = false;
 
-    bool inFocus = false;
+    bool inFocus;
+    bool isDashing;
+    bool inDashingCooldown;
+    float dashingSpeed = 30f;
+    float dashingTime = 0.075f;
+    float dashingTimer;
+    float dashingCooldown = 0.33f;
     float speed = 6f;
     float aimAngle;
     float currentTime;
+    int dashingSpree;
     int maxHealth = 100;
     int currentHealth;
     int equippedWeaponID;
@@ -31,19 +39,20 @@ public class Player : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 mousePosition;
     private Vector2 aimDirection;
+    private Vector2 dashDirection;
 
     private bool canMoreHP;
     private bool canMoreSpeed;
-    //private bool canDash;
+    private bool canDash;
     //private bool canFocus;
-
-    [SerializeField] Transform sightStart, sightEnd;
 
     void Start()
     {
+        trailRenderer = GetComponent<TrailRenderer>();
+
         canMoreSpeed = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 1] >= 1);
         canMoreHP = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 2] >= 1);
-        //canUnnamed = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 3] >= 1);
+        canDash = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 3] >= 1);
         //canFocus = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 4] >= 1);
 
         if(canMoreHP) maxHealth = 150;
@@ -66,13 +75,15 @@ public class Player : MonoBehaviour
     //KK: Prosto z poradnika Brackeys (RIP).
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-
-        moveDirection = new Vector2(moveX, moveY).normalized;
+        moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         aimDirection = mousePosition - rb.position;
         aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+
+        if (Input.GetKeyDown(KeyCode.Space) && canDash && !inDashingCooldown && !isDashing)
+        {
+            Dash();
+        }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -85,11 +96,6 @@ public class Player : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Y))
-        {
-            TakeDamage(10);
-        }
-
-        if (Input.GetKeyDown(KeyCode.U))
         {
             TakeDamage(10);
         }
@@ -114,7 +120,35 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
+        if (isDashing) rb.velocity = new Vector2(dashDirection.x * dashingSpeed, dashDirection.y * dashingSpeed);
         if (inInventory == false) rb.rotation = aimAngle;
+    }
+
+    void Dash()
+    {
+        float previousDashingTimer = dashingTimer;
+        dashingTimer = Time.time; 
+        dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        if (dashingTimer - previousDashingTimer > dashingCooldown)
+        {
+            dashingSpree = 0;
+            isDashing = true;
+            trailRenderer.emitting = true;
+            AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
+        }
+        else if (dashingSpree < 2)
+        {
+            dashingSpree++;
+            isDashing = true;
+            trailRenderer.emitting = true;
+            AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
+        }
+        else
+        {
+            dashingSpree = 0;
+            StartCoroutine(DashingCooldown());
+        }
+        StartCoroutine(StopDashing());
     }
 
     //KK: Kiedy dostajemy od czegoś wpierdol, usuwa damage od obecnego zdrowia gracza i ustawia wartość filla w healthBarze na obecne HP gracza.
@@ -196,5 +230,19 @@ public class Player : MonoBehaviour
         if (money < 0) money = 0;
         healthBar.SetMoney(money);
         PlayerPrefs.SetInt("money", money);
+    }
+
+    IEnumerator StopDashing()
+    {
+        yield return new WaitForSeconds(dashingTime);
+        isDashing = false;
+        trailRenderer.emitting = false;
+    }
+
+    IEnumerator DashingCooldown()
+    {
+        inDashingCooldown = true;
+        yield return new WaitForSeconds(dashingCooldown);
+        inDashingCooldown = false;
     }
 }
