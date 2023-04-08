@@ -127,6 +127,7 @@ public class AIShooting : MonoBehaviour
         {
             if (detectRay.collider.tag == "Player" && detectRay.distance < reach)
             {
+                GetComponent<AIBrain>().PlayerInterrupts();
                 readyToShoot = true;
                 if (timer < reactionTime*2) timer += Time.deltaTime;
                 else timer = reactionTime*2;

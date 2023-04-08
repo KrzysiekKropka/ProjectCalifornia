@@ -78,7 +78,8 @@ public class Bullet : MonoBehaviour
             enteredEnemy = true;
             Destroy(gameObject);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
-            enemy.TakeDamage(modifiedBulletDamage, playerIsOwner);
+            enemy.TakeDamage(modifiedBulletDamage);
+            enemy.PlayerInterrupts();
         }
         else
         {

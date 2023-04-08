@@ -24,21 +24,24 @@ public class AIBrain : MonoBehaviour
     public int maxHealth = 100;
 
     public bool isStatic = false;
-    bool playerDetected = false;
+    public bool playerDetected = false;
     bool shotBefore = false;
 
     int currentHealth;
+    int forgetPlayer = 5;
     public int dropXP;
     public int dropMoney;
     public int dropHP;
     int summedDamage;
     float currentTime, currentTimeBloodPool;
-    float rotationSpeed = 0.1f;
+    float rotationSpeed = 0.2f;
     float aimAngle;
 
     RaycastHit hit;
 
     Vector3 aimDirection;
+
+    private IEnumerator coroutine;
 
     void Start()
     {
@@ -67,7 +70,7 @@ public class AIBrain : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            playerDetected = true;
+            PlayerInRange();
         }
     }
 
@@ -75,14 +78,33 @@ public class AIBrain : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            //playerDetected = false;
+            PlayerOutRange();
         }
     }
 
-    public void TakeDamage(int damage, bool playerOwnedBullet = false)
+    public void PlayerInRange()
     {
-        playerDetected = playerOwnedBullet;
+        if (coroutine != null) StopCoroutine(coroutine);
+        playerDetected = true;
+    }
 
+    public void PlayerOutRange()
+    {
+        if (coroutine != null) StopCoroutine(coroutine);
+        coroutine = StopFollowing();
+        StartCoroutine(coroutine);
+    }
+
+    public void PlayerInterrupts()
+    {
+        if (coroutine != null) StopCoroutine(coroutine);
+        playerDetected = true;
+        coroutine = StopFollowing();
+        StartCoroutine(coroutine);
+    }
+
+    public void TakeDamage(int damage)
+    {
         if (!shotBefore)
         {
             currentHealth = maxHealth;
@@ -132,5 +154,11 @@ public class AIBrain : MonoBehaviour
         }
         healthBar.GetComponent<EnemyHealthBar>().SetHealth(currentHealth);
         currentTime = Time.time;
+    }
+
+    IEnumerator StopFollowing()
+    {
+        yield return new WaitForSeconds(forgetPlayer);
+        playerDetected = false;
     }
 }
