@@ -16,7 +16,7 @@ public class TextEffect : MonoBehaviour
         textMesh = GetComponent<TMP_Text>();
     }
 
-    void Update()
+    void LateUpdate()
     {
         textMesh.ForceMeshUpdate();
         mesh = textMesh.mesh;

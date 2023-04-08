@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
     bool initiatedStart = false;
     public int? weaponID;
     public int bulletDamage;
+    int modifiedBulletDamage;
     public bool playerIsOwner = false;
     public bool enemyIsOwner = false;
     float startTime;
@@ -31,6 +32,8 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        modifiedBulletDamage = bulletDamage;
+
         if (!initiatedStart) 
         {
             PlaySound();
@@ -47,7 +50,7 @@ public class Bullet : MonoBehaviour
             bodyHitClip = (AudioClip)Resources.Load("Audio/HitBody" + randomInt);
             AudioSource.PlayClipAtPoint(bodyHitClip, transform.position, 1f);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
-            player.TakeDamage(bulletDamage);
+            player.TakeDamage(modifiedBulletDamage);
             Destroy(gameObject);
         }
         else if (tilemap)
@@ -62,7 +65,7 @@ public class Bullet : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(bulletHitClip, transform.position, 0.5f);
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
-            bulletDamage /= 2;
+            modifiedBulletDamage = bulletDamage / 2;
             enemyIsOwner = false;
             playerIsOwner = false;
         }
@@ -74,7 +77,7 @@ public class Bullet : MonoBehaviour
             enteredEnemy = true;
             Destroy(gameObject);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
-            enemy.TakeDamage(bulletDamage);
+            enemy.TakeDamage(modifiedBulletDamage);
         }
         else
         {

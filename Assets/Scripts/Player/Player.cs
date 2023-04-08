@@ -41,8 +41,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        canMoreHP = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 1] >= 1);
-        canMoreSpeed = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 2] >= 1);
+        canMoreSpeed = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 1] >= 1);
+        canMoreHP = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 2] >= 1);
         //canUnnamed = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 3] >= 1);
         //canFocus = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 4] >= 1);
 

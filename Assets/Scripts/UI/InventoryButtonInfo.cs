@@ -39,7 +39,7 @@ public class InventoryButtonInfo : MonoBehaviour
         }
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (isOwned)
         {

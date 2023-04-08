@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 75817399}
   - component: {fileID: 75817402}
   m_Layer: 5
-  m_Name: MoreSpeed
+  m_Name: MoreHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2355,7 +2355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MORE HP
+  m_text: "FASTER \nRUN"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65a2743910e14ad49949e6480d74a877, type: 2}
   m_sharedMaterial: {fileID: -7948516847588031618, guid: 65a2743910e14ad49949e6480d74a877, type: 2}
@@ -3491,7 +3491,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "FASTER \nRUN"
+  m_text: 'MORE
+
+    HP'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65a2743910e14ad49949e6480d74a877, type: 2}
   m_sharedMaterial: {fileID: -7948516847588031618, guid: 65a2743910e14ad49949e6480d74a877, type: 2}
@@ -10089,7 +10091,7 @@ GameObject:
   - component: {fileID: 1896988985}
   - component: {fileID: 1896988988}
   m_Layer: 5
-  m_Name: MoreHP
+  m_Name: MoreSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
