@@ -690,7 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90e3c8e43cbd6a4e9028ae0767f449d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShopManager: {fileID: 5110669956922794588}
+  ShopManager: {fileID: 0}
   player: {fileID: 0}
   infoText: {fileID: 547838736501667858}
   reloadText: {fileID: 3995674555645983820}
@@ -865,7 +865,6 @@ RectTransform:
   m_Children:
   - {fileID: 6061599906604266297}
   - {fileID: 7173648364830088979}
-  - {fileID: 8606251545071189056}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1197,7 +1196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90e3c8e43cbd6a4e9028ae0767f449d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShopManager: {fileID: 5110669956922794588}
+  ShopManager: {fileID: 0}
   player: {fileID: 0}
   infoText: {fileID: 8683372249261259299}
   reloadText: {fileID: 4849832821807007033}
@@ -1352,7 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90e3c8e43cbd6a4e9028ae0767f449d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShopManager: {fileID: 5110669956922794588}
+  ShopManager: {fileID: 0}
   player: {fileID: 0}
   infoText: {fileID: 6980886420117182810}
   reloadText: {fileID: 383233600168894142}
@@ -2123,7 +2122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90e3c8e43cbd6a4e9028ae0767f449d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShopManager: {fileID: 5110669956922794588}
+  ShopManager: {fileID: 0}
   player: {fileID: 0}
   infoText: {fileID: 2791920311808746666}
   reloadText: {fileID: 9110640280369187672}
@@ -2968,7 +2967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6e176075f71134887054fe5d10783d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShopManager: {fileID: 5110669956922794588}
   equippedText: {fileID: 2103629073291993923}
 --- !u!1 &3810543528304806172
 GameObject:
@@ -3240,54 +3238,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &5110669956922794588
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8606251545071189056}
-  - component: {fileID: 912466881039441408}
-  m_Layer: 0
-  m_Name: ShopManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8606251545071189056
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5110669956922794588}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -469.99005, y: -341.99002, z: 0}
-  m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2103629072946906953}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &912466881039441408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5110669956922794588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39318ecf8ac493b47870a07aa89e4857, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneyText: {fileID: 0}
-  xpText: {fileID: 0}
-  moneyClip: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!1 &6388226130834813141
 GameObject:
   m_ObjectHideFlags: 0

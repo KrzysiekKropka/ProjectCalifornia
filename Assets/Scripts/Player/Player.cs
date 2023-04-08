@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     [SerializeField] NextLevelScreen nextLevelScreen;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject damagePopupPrefab;
-    [SerializeField] GameObject ShopManager;
     [SerializeField] AudioClip manHurtClip, healClip, dashClip;
     private TrailRenderer trailRenderer;
     private GameObject damagePopup;
@@ -46,16 +45,16 @@ public class Player : MonoBehaviour
     private bool canDash;
     //private bool canFocus;
 
-    void Start()
+    void OnEnable()
     {
         trailRenderer = GetComponent<TrailRenderer>();
 
-        canMoreSpeed = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 1] >= 1);
-        canMoreHP = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 2] >= 1);
-        canDash = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 3] >= 1);
-        //canFocus = (ShopManager.GetComponent<ShopManager>().shopSkills[3, 4] >= 1);
+        canMoreSpeed = PlayerPrefs.GetInt("skillQuantity" + 1) >= 1;
+        canMoreHP = PlayerPrefs.GetInt("skillQuantity" + 2) >= 1;
+        canDash = PlayerPrefs.GetInt("skillQuantity" + 3) >= 1;
+        //canFocus = PlayerPrefs.GetInt("skillQuantity" + 4) >= 1;
 
-        if(canMoreHP) maxHealth = 150;
+        if (canMoreHP) maxHealth = 150;
         else maxHealth = 100;
 
         if (canMoreSpeed) speed = 8f;

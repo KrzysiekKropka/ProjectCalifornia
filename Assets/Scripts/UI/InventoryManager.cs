@@ -7,7 +7,6 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
-    [SerializeField] GameObject ShopManager;
     [SerializeField] TMP_Text equippedText;
     private GameObject player;
 
@@ -26,11 +25,11 @@ public class InventoryManager : MonoBehaviour
     {
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
 
-        if (ShopManager.GetComponent<ShopManager>().shopItems[3, ButtonRef.GetComponent<InventoryButtonInfo>().itemID] >= 1)
+        if (PlayerPrefs.GetInt("itemQuantity" + ButtonRef.GetComponent<InventoryButtonInfo>().itemID) >= 1)
         {
             equippedWeaponID = ButtonRef.GetComponent<InventoryButtonInfo>().itemID;
             PlayerPrefs.SetInt("equippedWeaponID", equippedWeaponID);
-            if (player!= null)
+            if (player!=null)
             {
                 player.GetComponent<Shooting>().AssignWeapon(equippedWeaponID);
             }

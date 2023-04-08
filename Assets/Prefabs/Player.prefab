@@ -34,7 +34,6 @@ Transform:
   - {fileID: 1237728739542715856}
   - {fileID: 2162557679811656907}
   - {fileID: 6311583285640562096}
-  - {fileID: 2513675922636580055}
   - {fileID: 3658014364225802241}
   - {fileID: 4213534571438172480}
   - {fileID: 1355627434456740122}
@@ -71,7 +70,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 415657006011368950}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9149075296838906995
 MonoBehaviour:
@@ -311,7 +310,7 @@ MonoBehaviour:
   nextLevelScreen: {fileID: 1763164974387467106}
   rb: {fileID: 928417037708580564}
   damagePopupPrefab: {fileID: 4262376480512933044, guid: 770715aeadb58bf4d85976cac77fec9b, type: 3}
-  ShopManager: {fileID: 7097255530040572141}
+  ShopManager: {fileID: 0}
   manHurtClip: {fileID: 8300000, guid: 1ca823397e1eb2542aa72f99318dba34, type: 3}
   healClip: {fileID: 8300000, guid: d23b6ccc378bf2d418d24132aa4137bb, type: 3}
   dashClip: {fileID: 8300000, guid: 6b8a7734e78715d498a29801c7ec8ca3, type: 3}
@@ -370,7 +369,7 @@ TrailRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1860915387
+  m_SortingLayerID: -1298465833
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Time: 0.5
@@ -470,7 +469,7 @@ Transform:
   m_Children:
   - {fileID: 8212931633079362197}
   m_Father: {fileID: 415657006011368950}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6755467661782796440
 MonoBehaviour:
@@ -516,7 +515,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 415657006011368950}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4923570494599904037
 MonoBehaviour:
@@ -553,54 +552,6 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
---- !u!1 &7097255530040572141
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2513675922636580055}
-  - component: {fileID: 1728841642377359250}
-  m_Layer: 0
-  m_Name: ShopManager
-  m_TagString: ShopManager
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2513675922636580055
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7097255530040572141}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -69.99002, y: -41.99002, z: 0}
-  m_LocalScale: {x: 0.95, y: 0.95, z: 0.95}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 415657006011368950}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1728841642377359250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7097255530040572141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39318ecf8ac493b47870a07aa89e4857, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneyText: {fileID: 0}
-  xpText: {fileID: 0}
-  moneyClip: {fileID: 0}
-  audioSource: {fileID: 0}
 --- !u!1 &7684548835070399293
 GameObject:
   m_ObjectHideFlags: 0

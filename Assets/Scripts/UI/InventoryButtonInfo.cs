@@ -26,7 +26,7 @@ public class InventoryButtonInfo : MonoBehaviour
 
     public void AssignOwnership()
     {
-        if (ShopManager.GetComponent<ShopManager>().shopItems[3, itemID] >= 1)
+        if (PlayerPrefs.GetInt("itemQuantity" + itemID) >= 1)
         {
             isOwned = true;
             button.interactable = true;
