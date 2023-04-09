@@ -79,6 +79,7 @@ public class Shooting : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             weaponAudioClips[i].clips = Resources.LoadAll<AudioClip>("Audio/Weapons/" + weaponName[i]);
+            //bulletSpread[i] = bulletSpread[i] * Mathf.Pow(0.75f, betterAim);
         }
 
         screenShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>();
