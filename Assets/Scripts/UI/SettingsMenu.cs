@@ -75,10 +75,14 @@ public class SettingsMenu : MonoBehaviour
             Screen.SetResolution(resolution.width, resolution.height, true);
             resolutionDropdown.gameObject.SetActive(true);
         }
-        else
+        else if(fullscreenToggle.isOn == false && Screen.fullScreen)
         {
             Screen.SetResolution(640, 480, false);
             resolutionDropdown.gameObject.SetActive(false);
+        }
+        else
+        {
+            Screen.fullScreen = false;
         }
     }
 

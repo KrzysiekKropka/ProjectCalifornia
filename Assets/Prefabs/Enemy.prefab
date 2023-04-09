@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5665263307305356168}
   - component: {fileID: 4914727876095307337}
   - component: {fileID: 8058466330421404766}
+  - component: {fileID: 2495327491922491930}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -135,7 +136,6 @@ MonoBehaviour:
   ammoDropPrefab: {fileID: 2989067539229740685, guid: 582bc39b399d6964f9ad355c71f5d921, type: 3}
   medkitPrefab: {fileID: 4214963647153061173, guid: 00d7f7373598b5c4eb274016ad7120fd, type: 3}
   rb: {fileID: 8324491963002387412}
-  speed: 4
   maxHealth: 100
   isStatic: 0
   playerDetected: 0
@@ -262,7 +262,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.045, y: -0.03}
   serializedVersion: 2
-  m_Radius: 0.08
+  m_Radius: 0.075
 --- !u!58 &8058466330421404766
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -278,7 +278,27 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.045, y: -0.03}
   serializedVersion: 2
-  m_Radius: 0.33
+  m_Radius: 0.12
+--- !u!114 &2495327491922491930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5001969082769403738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa58c7dd10acf4d438216507af4dda65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 15
+  angle: 45
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  obstructionLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &6616441681885582288
 GameObject:
   m_ObjectHideFlags: 0

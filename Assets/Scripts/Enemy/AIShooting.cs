@@ -26,12 +26,13 @@ public class AIShooting : MonoBehaviour
     int[] weaponDamage = new int[5];
     int[] maxAmmo = new int[5];
     float bulletForce = 25f;
-    float reach = 20f;
+    float reach;
     float timer;
 
     void Start()
     {
         int isStatic = gameObject.GetComponent<AIBrain>().isStatic ? 0 : 1;
+        reach = gameObject.GetComponent<FieldOfView>().radius*1.5f;
 
         weaponName[0] = "Pistol";
         weaponDamage[0] = 5;
