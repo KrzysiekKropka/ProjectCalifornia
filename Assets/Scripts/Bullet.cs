@@ -70,16 +70,26 @@ public class Bullet : MonoBehaviour
             //enemyIsOwner = false;
             //playerIsOwner = false;
         }
-        else if (!enemyIsOwner && enemy && enteredEnemy == false)
+        else if(playerIsOwner && enemy && enteredEnemy == false)
         {
             int randomInt = Random.Range(1, 5);
-            bodyHitClip = (AudioClip)Resources.Load("Audio/HitBody"+randomInt);
+            bodyHitClip = (AudioClip)Resources.Load("Audio/HitBody" + randomInt);
             AudioSource.PlayClipAtPoint(bodyHitClip, transform.position, 1f);
             enteredEnemy = true;
             Destroy(gameObject);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
             enemy.TakeDamage(modifiedBulletDamage);
             enemy.PlayerInterrupts();
+        }
+        else if (enemy && enteredEnemy == false)
+        {
+            int randomInt = Random.Range(1, 5);
+            bodyHitClip = (AudioClip)Resources.Load("Audio/HitBody" + randomInt);
+            AudioSource.PlayClipAtPoint(bodyHitClip, transform.position, 1f);
+            enteredEnemy = true;
+            Destroy(gameObject);
+            effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
+            enemy.TakeDamage(modifiedBulletDamage);
         }
         else
         {

@@ -25,6 +25,7 @@ public class AIBrain : MonoBehaviour
 
     public bool isStatic = false;
     public bool playerDetected = false;
+    bool playerWasDetected = false;
     bool shotBefore = false;
 
     int currentHealth;
@@ -50,13 +51,15 @@ public class AIBrain : MonoBehaviour
         ai = GetComponent<AIPath>();
         player = GameObject.FindGameObjectWithTag("Player");
         ai.maxSpeed = speed;
+
+        aimAngle = rb.rotation;
     }
 
     void LateUpdate()
     {
         if (playerDetected) playerLocation = player.transform.position;
         if (playerLocation!=null) aimDirection = playerLocation - transform.position;
-        if (aimDirection != Vector3.zero) aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+        if (playerWasDetected) aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         if (!isStatic && playerDetected) ai.destination = player.transform.position;
     }
 
@@ -85,6 +88,7 @@ public class AIBrain : MonoBehaviour
     {
         if (coroutine != null) StopCoroutine(coroutine);
         playerDetected = true;
+        playerWasDetected = true;
     }
 
     public void PlayerOutRange()
@@ -98,6 +102,7 @@ public class AIBrain : MonoBehaviour
     {
         if (coroutine != null) StopCoroutine(coroutine);
         playerDetected = true;
+        playerWasDetected = true;
         coroutine = StopFollowing();
         StartCoroutine(coroutine);
     }
