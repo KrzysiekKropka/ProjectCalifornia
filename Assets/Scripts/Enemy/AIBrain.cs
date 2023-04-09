@@ -173,7 +173,6 @@ public class AIBrain : MonoBehaviour
     {
         yield return new WaitForSeconds(forgetPlayer);
         playerDetected = false;
-        //seekingActivated = false;
         //if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
         //seekPlayerCoroutine = SeekingPlayer();
         //StartCoroutine(seekPlayerCoroutine);
@@ -181,6 +180,7 @@ public class AIBrain : MonoBehaviour
 
     /*IEnumerator SeekingPlayer()
     {
+        seekingActivated = false;
         yield return new WaitForSeconds(5);
         seekingActivated = true;
         print("test");
