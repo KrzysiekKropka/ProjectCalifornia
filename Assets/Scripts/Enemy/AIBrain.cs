@@ -40,6 +40,7 @@ public class AIBrain : MonoBehaviour
     RaycastHit hit;
 
     Vector3 aimDirection;
+    Vector3 playerLocation;
 
     private IEnumerator coroutine;
 
@@ -53,7 +54,8 @@ public class AIBrain : MonoBehaviour
 
     void LateUpdate()
     {
-        if (playerDetected) aimDirection = player.transform.position - transform.position;
+        if (playerDetected) playerLocation = player.transform.position;
+        if (playerLocation!=null) aimDirection = playerLocation - transform.position;
         if (aimDirection != Vector3.zero) aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         if (!isStatic && playerDetected) ai.destination = player.transform.position;
     }
