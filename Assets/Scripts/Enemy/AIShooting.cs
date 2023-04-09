@@ -17,7 +17,7 @@ public class AIShooting : MonoBehaviour
     bool canShoot = true;
     string[] weaponName = new string[5];
     float currentTime;
-    float reactionTime = 0.25f;
+    //float reactionTime = 0.1f;
     float[] bulletSpread = new float[5];
     float[] weaponDelay = new float[5];
     float[] reloadTime = new float[5];
@@ -25,7 +25,7 @@ public class AIShooting : MonoBehaviour
     public int[] currentAmmo = new int[5];
     int[] weaponDamage = new int[5];
     int[] maxAmmo = new int[5];
-    float bulletForce = 25f;
+    float bulletForce = 20f;
     float reach;
     float timer;
 
@@ -49,8 +49,8 @@ public class AIShooting : MonoBehaviour
         bulletSpread[1] = 3f;
 
         weaponName[2] = "MP5";
-        weaponDamage[2] = 5;
-        weaponDelay[2] = 0.2f;
+        weaponDamage[2] = 8;
+        weaponDelay[2] = 0.18f;
         reloadTime[2] = 5f;
         maxAmmo[2] = 50;
         bulletSpread[2] = 9f;
@@ -63,8 +63,8 @@ public class AIShooting : MonoBehaviour
         bulletSpread[3] = 3f;*/
 
         weaponName[4] = "AK-47";
-        weaponDamage[4] = 15;
-        weaponDelay[4] = 0.4f;
+        weaponDamage[4] = 16;
+        weaponDelay[4] = 0.36f;
         reloadTime[4] = 5f;
         maxAmmo[4] = 30;
         bulletSpread[4] = 6f;
@@ -130,8 +130,8 @@ public class AIShooting : MonoBehaviour
             {
                 GetComponent<AIBrain>().PlayerInterrupts();
                 readyToShoot = true;
-                if (timer < reactionTime*2) timer += Time.deltaTime;
-                else timer = reactionTime*2;
+                //if (timer < reactionTime*2) timer += Time.deltaTime;
+                //else timer = reactionTime*2;
             }
             else
             {
@@ -147,7 +147,8 @@ public class AIShooting : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        if (timer >= reactionTime && canShoot && !isReloading && readyToShoot)
+        //if (timer >= reactionTime && canShoot && !isReloading && readyToShoot)
+        if (canShoot && !isReloading && readyToShoot)
         {
             canShoot = false;
             float randomVal = Random.Range(90f - bulletSpread[equippedWeaponID], 90f + bulletSpread[equippedWeaponID]); //KK: Randomowa liczba na spread broni

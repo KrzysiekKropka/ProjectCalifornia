@@ -26,7 +26,7 @@ public class Shooting : MonoBehaviour
     public bool[] isReloading = new bool[5];
     bool[] equippedBefore = new bool[5];
     string[] weaponName = new string[5];
-    float bulletForce = 25f;
+    float bulletForce = 20f;
     float currentTime;
     float[] bulletSpread = new float[5];
     float[] weaponDelay = new float[5];
