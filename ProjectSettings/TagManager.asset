@@ -9,6 +9,7 @@ TagManager:
   - ScreenShake
   - AudioManager
   - Enemy
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

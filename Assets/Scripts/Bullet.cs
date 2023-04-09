@@ -28,6 +28,7 @@ public class Bullet : MonoBehaviour
         AudioClip passByClip = (AudioClip)Resources.Load("Audio/PassBy" + randomInt2);
         AudioSource.PlayClipAtPoint(passByClip, transform.position, 1f);
         startTime = Time.time;
+        //if (playerIsOwner) gameObject.tag = "PlayerBullet";
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

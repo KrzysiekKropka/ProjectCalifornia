@@ -16,18 +16,26 @@ public class Player : MonoBehaviour
     public static bool inInventory = false;
 
     bool inFocus;
+    bool isSprinting;
     bool isDashing;
+
     bool inDashingCooldown;
-    float dashingSpeed = 20f;
+    float dashingSpeed = 25f;
     float dashingTime = 0.1f;
     float dashingTimer;
     float dashingCooldown = 0.25f;
-    float speed = 6f;
-    float aimAngle;
-    float currentTime;
     int dashingSpree;
+
+    bool inSprintingCooldown;
+    float speed = 5f;
+    float sprintingSpeed = 10f;
+    float sprintCooldown = 3f;
+    float maxSprintingTime = 15f;
+    float remainingSprintingTime;
+
     int maxHealth = 100;
     int currentHealth;
+
     int equippedWeaponID;
     int kills = 0;
     int experiencePoints;
@@ -35,36 +43,39 @@ public class Player : MonoBehaviour
     int summedDamage;
     string equippedWeaponName;
 
+    float aimAngle;
     private Vector2 moveDirection;
     private Vector2 mousePosition;
     private Vector2 aimDirection;
     private Vector2 dashDirection;
 
-    private bool canMoreHP;
-    private bool canMoreSpeed;
+    private bool canSprint;
     private bool canDash;
-    //private bool canFocus;
+    //private bool canMoreSpeed;
+    private bool canMoreHP;
+
+    float currentTime;
 
     void OnEnable()
     {
         trailRenderer = GetComponent<TrailRenderer>();
 
-        canMoreSpeed = PlayerPrefs.GetInt("skillQuantity" + 1) >= 1;
-        canMoreHP = PlayerPrefs.GetInt("skillQuantity" + 2) >= 1;
-        canDash = PlayerPrefs.GetInt("skillQuantity" + 3) >= 1;
-        //canFocus = PlayerPrefs.GetInt("skillQuantity" + 4) >= 1;
+        canSprint = PlayerPrefs.GetInt("skillQuantity" + 1) >= 1;
+        canDash = PlayerPrefs.GetInt("skillQuantity" + 2) >= 1;
+        //canMoreSpeed = PlayerPrefs.GetInt("skillQuantity" + 3) >= 1;
+        canMoreHP = PlayerPrefs.GetInt("skillQuantity" + 4) >= 1;
 
         if (canMoreHP) maxHealth = 150;
         else maxHealth = 100;
 
-        if (canMoreSpeed) speed = 8f;
-        else speed = 6f;
+        if (canSprint) remainingSprintingTime = maxSprintingTime;
 
         currentHealth = maxHealth;
         experiencePoints = PlayerPrefs.GetInt("experiencePoints");
         money = PlayerPrefs.GetInt("money");
         equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
         equippedWeaponName = PlayerPrefs.GetString("equippedWeaponName");
+        healthBar.SetMaxStamina(maxSprintingTime);
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetExperiencePoints(experiencePoints);
         healthBar.SetMoney(money);
@@ -98,13 +109,39 @@ public class Player : MonoBehaviour
         {
             TakeDamage(10);
         }
+
+        if(Input.GetKey(KeyCode.LeftShift) && canSprint && !inSprintingCooldown)
+        {
+            isSprinting = true;
+        }
+        else
+        {
+            isSprinting = false;
+        }
     }
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
+        print(remainingSprintingTime);
+        if (isSprinting && remainingSprintingTime>0 && rb.velocity != Vector2.zero)
+        {
+            rb.velocity = new Vector2(moveDirection.x * sprintingSpeed, moveDirection.y * sprintingSpeed);
+            remainingSprintingTime -= Time.deltaTime;
+            if (remainingSprintingTime < 0) StartCoroutine(SprintCooldown());
+        }
+        else
+        {
+            rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
+            if(canSprint && remainingSprintingTime<maxSprintingTime) remainingSprintingTime += 2*Time.deltaTime;
+        }
+
         if (isDashing) rb.velocity = new Vector2(dashDirection.x * dashingSpeed, dashDirection.y * dashingSpeed);
         if (inInventory == false) rb.rotation = aimAngle;
+    }
+
+    void LateUpdate()
+    {
+        healthBar.SetStamina(remainingSprintingTime);
     }
 
     void Dash()
@@ -231,5 +268,12 @@ public class Player : MonoBehaviour
         inDashingCooldown = true;
         yield return new WaitForSeconds(dashingCooldown);
         inDashingCooldown = false;
+    }
+
+    IEnumerator SprintCooldown()
+    {
+        inSprintingCooldown = true;
+        yield return new WaitForSeconds(sprintCooldown);
+        inSprintingCooldown = false;
     }
 }

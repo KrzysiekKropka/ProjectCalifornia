@@ -7,6 +7,7 @@ using TMPro;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] Slider slider;
+    [SerializeField] Slider staminaSlider;
     [SerializeField] Image weaponIcon;
     [SerializeField] TMP_Text healthText;
     [SerializeField] TMP_Text experiencePointsText;
@@ -37,6 +38,17 @@ public class HealthBar : MonoBehaviour
     {
         slider.value = health;
         healthText.text = health.ToString();
+    }
+
+    public void SetMaxStamina(float stamina)
+    {
+        staminaSlider.maxValue = stamina;
+        staminaSlider.value = stamina;
+    }
+
+    public void SetStamina(float stamina)
+    {
+        staminaSlider.value = stamina;
     }
 
     //KK: te funkcje sa uzywane w Player.cs
