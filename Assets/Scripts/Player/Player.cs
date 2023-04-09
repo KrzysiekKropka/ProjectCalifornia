@@ -18,10 +18,10 @@ public class Player : MonoBehaviour
     bool inFocus;
     bool isDashing;
     bool inDashingCooldown;
-    float dashingSpeed = 30f;
-    float dashingTime = 0.075f;
+    float dashingSpeed = 20f;
+    float dashingTime = 0.1f;
     float dashingTimer;
-    float dashingCooldown = 0.33f;
+    float dashingCooldown = 0.25f;
     float speed = 6f;
     float aimAngle;
     float currentTime;

@@ -37,21 +37,21 @@ public class AIShooting : MonoBehaviour
         weaponName[0] = "Pistol";
         weaponDamage[0] = 5;
         weaponDelay[0] = 0.5f;
-        reloadTime[0] = 3f;
+        reloadTime[0] = 2f;
         maxAmmo[0] = 17;
         bulletSpread[0] = 4f;
 
         weaponName[1] = "Deagle";
         weaponDamage[1] = 20;
         weaponDelay[1] = 0.75f;
-        reloadTime[1] = 3f;
+        reloadTime[1] = 2f;
         maxAmmo[1] = 7;
         bulletSpread[1] = 3f;
 
         weaponName[2] = "MP5";
         weaponDamage[2] = 8;
         weaponDelay[2] = 0.18f;
-        reloadTime[2] = 5f;
+        reloadTime[2] = 3f;
         maxAmmo[2] = 50;
         bulletSpread[2] = 9f;
 
@@ -65,7 +65,7 @@ public class AIShooting : MonoBehaviour
         weaponName[4] = "AK-47";
         weaponDamage[4] = 16;
         weaponDelay[4] = 0.36f;
-        reloadTime[4] = 5f;
+        reloadTime[4] = 4f;
         maxAmmo[4] = 30;
         bulletSpread[4] = 6f;
 

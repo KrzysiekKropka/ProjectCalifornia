@@ -9483,7 +9483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6e176075f71134887054fe5d10783d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShopManager: {fileID: 679993649}
   equippedText: {fileID: 1711707339}
 --- !u!1 &1774530052
 GameObject:

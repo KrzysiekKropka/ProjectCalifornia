@@ -39,7 +39,8 @@ public class SettingsMenu : MonoBehaviour
         List<string> options = new List<string>();
         for (int i = 0; i < filteredResolutions.Count; i++)
         {
-            string resolutionOption = filteredResolutions[i].width + "x" + filteredResolutions[i].height + " " + filteredResolutions[i].refreshRate + " Hz";
+            //string resolutionOption = filteredResolutions[i].width + "x" + filteredResolutions[i].height + " " + filteredResolutions[i].refreshRate + " Hz";
+            string resolutionOption = filteredResolutions[i].width + "x" + filteredResolutions[i].height + "p";
             options.Add(resolutionOption);
             if (filteredResolutions[i].width == Screen.width && filteredResolutions[i].height == Screen.height)
             {
@@ -51,19 +52,24 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
-        if (Screen.fullScreen)
-        {
-            fullscreenToggle.isOn = true;
-            resolutionDropdown.gameObject.SetActive(true);
-        }
-        else
+        globalVolume = PlayerPrefs.GetFloat("VolumeValue");
+        volumeSlider.value = globalVolume;
+    }
+
+    void OnEnable()
+    {
+        if (!Screen.fullScreen)
         {
             fullscreenToggle.isOn = false;
             resolutionDropdown.gameObject.SetActive(false);
+            Screen.fullScreen = false;
         }
-
-        globalVolume = PlayerPrefs.GetFloat("VolumeValue");
-        volumeSlider.value = globalVolume;
+        else
+        {
+            fullscreenToggle.isOn = true;
+            resolutionDropdown.gameObject.SetActive(true);
+            Screen.fullScreen = true;
+        }
     }
 
     public void SetFullscreen()
@@ -75,7 +81,7 @@ public class SettingsMenu : MonoBehaviour
             Screen.SetResolution(resolution.width, resolution.height, true);
             resolutionDropdown.gameObject.SetActive(true);
         }
-        else if(fullscreenToggle.isOn == false && Screen.fullScreen)
+        else if(!fullscreenToggle.isOn && Screen.fullScreen)
         {
             Screen.SetResolution(640, 480, false);
             resolutionDropdown.gameObject.SetActive(false);
@@ -83,6 +89,7 @@ public class SettingsMenu : MonoBehaviour
         else
         {
             Screen.fullScreen = false;
+            resolutionDropdown.gameObject.SetActive(false);
         }
     }
 
