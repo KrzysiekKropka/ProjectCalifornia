@@ -43,7 +43,9 @@ public class AIBrain : MonoBehaviour
     Vector3 aimDirection;
     Vector3 playerLocation;
 
-    private IEnumerator coroutine;
+    private IEnumerator stopFollowCoroutine;
+    private IEnumerator seekPlayerCoroutine;
+    bool seekingActivated;
 
     void Start()
     {
@@ -65,7 +67,8 @@ public class AIBrain : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.rotation = Mathf.LerpAngle(rb.rotation, aimAngle, rotationSpeed);
+        //if(!seekingActivated)
+            rb.rotation = Mathf.LerpAngle(rb.rotation, aimAngle, rotationSpeed);
     }
     
     void OnTriggerEnter2D(Collider2D collision)
@@ -86,25 +89,31 @@ public class AIBrain : MonoBehaviour
 
     public void PlayerInRange()
     {
-        if (coroutine != null) StopCoroutine(coroutine);
+        if (stopFollowCoroutine != null) StopCoroutine(stopFollowCoroutine);
+        /*if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
+        seekingActivated = false;*/
         playerDetected = true;
         playerWasDetected = true;
     }
 
     public void PlayerOutRange()
     {
-        if (coroutine != null) StopCoroutine(coroutine);
-        coroutine = StopFollowing();
-        StartCoroutine(coroutine);
+        if (stopFollowCoroutine != null) StopCoroutine(stopFollowCoroutine);
+        /* if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
+        seekingActivated = false; */
+        stopFollowCoroutine = StopFollowing();
+        StartCoroutine(stopFollowCoroutine);
     }
 
     public void PlayerInterrupts()
     {
-        if (coroutine != null) StopCoroutine(coroutine);
+        if (stopFollowCoroutine != null) StopCoroutine(stopFollowCoroutine);
+        /* if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
+        seekingActivated = false; */
         playerDetected = true;
         playerWasDetected = true;
-        coroutine = StopFollowing();
-        StartCoroutine(coroutine);
+        stopFollowCoroutine = StopFollowing();
+        StartCoroutine(stopFollowCoroutine);
     }
 
     public void TakeDamage(int damage)
@@ -164,5 +173,20 @@ public class AIBrain : MonoBehaviour
     {
         yield return new WaitForSeconds(forgetPlayer);
         playerDetected = false;
+        //seekingActivated = false;
+        //if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
+        //seekPlayerCoroutine = SeekingPlayer();
+        //StartCoroutine(seekPlayerCoroutine);
     }
+
+    /*IEnumerator SeekingPlayer()
+    {
+        yield return new WaitForSeconds(5);
+        seekingActivated = true;
+        print("test");
+        float OriginalRotation = rb.rotation;
+        rb.rotation = Mathf.LerpAngle(rb.rotation, OriginalRotation + 90, 0.05f);
+        yield return new WaitForSeconds(1);
+        rb.rotation = Mathf.LerpAngle(rb.rotation, OriginalRotation - 90, 0.05f);
+    }*/
 }
