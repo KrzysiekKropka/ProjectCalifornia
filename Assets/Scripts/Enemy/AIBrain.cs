@@ -20,7 +20,7 @@ public class AIBrain : MonoBehaviour
     private GameObject damagePopup;
     private AIPath ai;
 
-    float speed = 5f; 
+    float speed = 6f; 
     public int maxHealth = 100;
 
     public bool isStatic = false;
