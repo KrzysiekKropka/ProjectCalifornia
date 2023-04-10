@@ -14,6 +14,11 @@ public class EnemyHealthBar : MonoBehaviour
 
     Vector3 offset = new Vector3(0f, 1.33f, 0f);
 
+    void Start()
+    {
+        transform.Rotate(0, 0, 0);
+    }
+
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;

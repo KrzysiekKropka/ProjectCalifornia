@@ -607,10 +607,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyBar
       objectReference: {fileID: 0}
-    - target: {fileID: 8986998325532272154, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -897786017
-      objectReference: {fileID: 0}
     - target: {fileID: 8986998325532272155, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
