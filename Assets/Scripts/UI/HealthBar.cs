@@ -20,6 +20,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] Sprite MP5;
     [SerializeField] Sprite Shotgun;
     [SerializeField] Sprite AK47;
+    [SerializeField] RectTransform HealthBarOnly;
 
 
     public void ActiveMode(bool active)
@@ -49,6 +50,12 @@ public class HealthBar : MonoBehaviour
     public void SetStamina(float stamina)
     {
         staminaSlider.value = stamina;
+    }
+
+    public void HideStamina()
+    {
+        staminaSlider.gameObject.SetActive(false);
+        HealthBarOnly.anchoredPosition = new Vector2(0, 5);
     }
 
     //KK: te funkcje sa uzywane w Player.cs

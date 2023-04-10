@@ -75,7 +75,8 @@ public class Player : MonoBehaviour
         money = PlayerPrefs.GetInt("money");
         equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
         equippedWeaponName = PlayerPrefs.GetString("equippedWeaponName");
-        healthBar.SetMaxStamina(maxSprintingTime);
+        if (canSprint) healthBar.SetMaxStamina(maxSprintingTime);
+        else healthBar.HideStamina();
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetExperiencePoints(experiencePoints);
         healthBar.SetMoney(money);

@@ -87,18 +87,21 @@ public class AIShooting : MonoBehaviour
             case 0:
                 spriteRenderer.sprite = EnemyPistol;
                 gameObject.GetComponent<AIBrain>().dropHP = 5;
+                gameObject.GetComponent<AIBrain>().dropXP = 15;
                 gameObject.GetComponent<AIBrain>().dropMoney = 100;
                 gameObject.GetComponent<AIBrain>().maxHealth = 50;
                 break;
             case 1:
                 spriteRenderer.sprite = EnemyDeagle;
                 gameObject.GetComponent<AIBrain>().dropHP = 10;
+                gameObject.GetComponent<AIBrain>().dropXP = 30;
                 gameObject.GetComponent<AIBrain>().dropMoney = 200;
                 gameObject.GetComponent<AIBrain>().maxHealth = 75;
                 break;
             case 2:
                 spriteRenderer.sprite = EnemyMP5;
                 gameObject.GetComponent<AIBrain>().dropHP = 15;
+                gameObject.GetComponent<AIBrain>().dropXP = 45;
                 gameObject.GetComponent<AIBrain>().dropMoney = 300;
                 gameObject.GetComponent<AIBrain>().maxHealth = 100;
                 break;
@@ -107,6 +110,7 @@ public class AIShooting : MonoBehaviour
             case 4:
                 spriteRenderer.sprite = EnemyAK47;
                 gameObject.GetComponent<AIBrain>().dropHP = 20;
+                gameObject.GetComponent<AIBrain>().dropXP = 60;
                 gameObject.GetComponent<AIBrain>().dropMoney = 400;
                 gameObject.GetComponent<AIBrain>().maxHealth = 150;
                 break;
