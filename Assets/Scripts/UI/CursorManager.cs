@@ -22,40 +22,6 @@ public class CursorManager : MonoBehaviour
             spriteRenderer.enabled = true;
             Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = cursorPos;
-
-
-            //RaycastHit2D rightRay = Physics2D.Raycast(transform.position + new Vector3(-crosshairReach*1.5f, 0, 0), transform.right);
-            //RaycastHit2D upRay = Physics2D.Raycast(transform.position + new Vector3(0, -crosshairReach, 0), transform.up);
-
-            /*if (rightRay.collider != null && rightRay.distance < crosshairReach)
-            {
-                if (rightRay.collider.tag == "Enemy")
-                {
-                    print("RightRay" + rightRay.distance);
-                    spriteRenderer.sprite = cursorRed;
-                }
-                else
-                {
-                    spriteRenderer.sprite = cursorYellow;
-                }
-            }
-            else
-            {
-                spriteRenderer.sprite = cursorYellow;
-            }
-
-            if (upRay.collider != null && upRay.distance < crosshairReach)
-            {
-                if (upRay.collider.tag == "Enemy")
-                {
-                    print("UpRay" + upRay.distance);
-                    spriteRenderer.sprite = cursorRed;
-                }
-                else
-                {
-                    spriteRenderer.sprite = cursorYellow;
-                }
-            }*/
         }
         else
         {
