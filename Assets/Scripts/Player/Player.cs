@@ -16,8 +16,8 @@ public class Player : MonoBehaviour
     public static bool inInventory = false;
 
     bool inFocus;
-    bool isSprinting;
-    bool isDashing;
+    public bool isSprinting;
+    public bool isDashing;
 
     bool inDashingCooldown;
     float dashingSpeed = 25f;
@@ -110,7 +110,7 @@ public class Player : MonoBehaviour
             TakeDamage(10);
         }
 
-        if(Input.GetKey(KeyCode.LeftShift) && canSprint && !inSprintingCooldown)
+        if(Input.GetKey(KeyCode.LeftShift) && canSprint && !inSprintingCooldown && rb.velocity != Vector2.zero)
         {
             isSprinting = true;
         }
@@ -121,8 +121,9 @@ public class Player : MonoBehaviour
     }
 
     void FixedUpdate()
-    { 
-        if (isSprinting && remainingSprintingTime>0 && rb.velocity != Vector2.zero)
+    {
+        print(isSprinting);
+        if (isSprinting && remainingSprintingTime>0)
         {
             rb.velocity = new Vector2(moveDirection.x * sprintingSpeed, moveDirection.y * sprintingSpeed);
             remainingSprintingTime -= Time.deltaTime;
@@ -130,6 +131,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            isSprinting = false;
             rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
             if(canSprint && remainingSprintingTime<maxSprintingTime) remainingSprintingTime += 2*Time.deltaTime;
         }

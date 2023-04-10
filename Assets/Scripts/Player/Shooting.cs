@@ -156,9 +156,12 @@ public class Shooting : MonoBehaviour
     {
         if (canShoot[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && !isReloading[equippedWeaponID] && !Player.inInventory)
         {
+            float currentWeaponSpread = bulletSpread[equippedWeaponID];
+            if (gameObject.GetComponent<Player>().isSprinting) currentWeaponSpread *= 2;
+            if (gameObject.GetComponent<Player>().isDashing) currentWeaponSpread *= 2;
             canShoot[equippedWeaponID] = false;
             int damage = Random.Range(weaponDamage[equippedWeaponID] - 5, weaponDamage[equippedWeaponID] + 3);
-            float randomVal = Random.Range(90f - bulletSpread[equippedWeaponID], 90f + bulletSpread[equippedWeaponID]); //KK: Randomowa liczba na spread broni
+            float randomVal = Random.Range(90f - currentWeaponSpread, 90f + currentWeaponSpread); //KK: Randomowa liczba na spread broni
             Vector3 spread = new Vector3(0, 0, randomVal - 90); 
 
             screenShake.CamShake(); //KK: Trzesienie kamera
