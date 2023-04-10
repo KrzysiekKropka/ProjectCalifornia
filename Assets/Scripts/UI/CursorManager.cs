@@ -66,11 +66,11 @@ public class CursorManager : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (!collision.isTrigger && collision.CompareTag("Enemy"))
         {
             spriteRenderer.sprite = cursorRed;
         }
-        //else spriteRenderer.sprite = cursorYellow;
+        else spriteRenderer.sprite = cursorYellow;
     }
 
     void OnTriggerExit2D(Collider2D collision)
