@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
         if (playerIsOwner) 
         {
             gameObject.tag = "PlayerBullet";
-            gameObject.layer = 8;
+            //gameObject.layer = 8;
         }
     }
 
