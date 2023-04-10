@@ -6,7 +6,6 @@ public class CursorManager : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
     [SerializeField] Sprite cursorYellow, cursorRed;
-    float crosshairReach = 1f;
 
     void Start()
     {
@@ -71,7 +70,7 @@ public class CursorManager : MonoBehaviour
         {
             spriteRenderer.sprite = cursorRed;
         }
-        else spriteRenderer.sprite = cursorYellow;
+        //else spriteRenderer.sprite = cursorYellow;
     }
 
     void OnTriggerExit2D(Collider2D collision)

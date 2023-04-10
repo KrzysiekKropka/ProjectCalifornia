@@ -46,7 +46,7 @@ public class Shooting : MonoBehaviour
         weaponDelay[0] = 0.35f;
         reloadTime[0] = 3f;
         maxAmmo[0] = 17;
-        bulletSpread[0] = 1.5f;
+        bulletSpread[0] = 2f;
 
         weaponName[1] = "Deagle";
         weaponDamage[1] = 30;
@@ -60,7 +60,7 @@ public class Shooting : MonoBehaviour
         weaponDelay[2] = 0.09f;
         reloadTime[2] = 5f; 
         maxAmmo[2] = 50;
-        bulletSpread[2] = 5f;
+        bulletSpread[2] = 6f;
 
         weaponName[3] = "Shotgun";
         weaponDamage[3] = 23;
@@ -70,16 +70,24 @@ public class Shooting : MonoBehaviour
         bulletSpread[3] = 3f;
 
         weaponName[4] = "AK-47";
-        weaponDamage[4] = 20;
+        weaponDamage[4] = 25;
         weaponDelay[4] = 0.18f;
         reloadTime[4] = 6f;
         maxAmmo[4] = 30;
-        bulletSpread[4] = 2.5f;
+        bulletSpread[4] = 4f;
 
         for (int i = 0; i < 5; i++)
         {
             weaponAudioClips[i].clips = Resources.LoadAll<AudioClip>("Audio/Weapons/" + weaponName[i]);
             //bulletSpread[i] = bulletSpread[i] * Mathf.Pow(0.75f, betterAim);
+        }
+
+        if (gameObject.GetComponent<Player>().canBetterAim)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                bulletSpread[i] = bulletSpread[i] * 0.5f;
+            }
         }
 
         screenShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>();

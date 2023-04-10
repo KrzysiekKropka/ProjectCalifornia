@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
 
     private bool canSprint;
     private bool canDash;
-    //private bool canMoreSpeed;
+    public bool canBetterAim;
     private bool canMoreHP;
 
     float currentTime;
@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
 
         canSprint = PlayerPrefs.GetInt("skillQuantity" + 1) >= 1;
         canDash = PlayerPrefs.GetInt("skillQuantity" + 2) >= 1;
-        //canMoreSpeed = PlayerPrefs.GetInt("skillQuantity" + 3) >= 1;
+        canBetterAim = PlayerPrefs.GetInt("skillQuantity" + 3) >= 1;
         canMoreHP = PlayerPrefs.GetInt("skillQuantity" + 4) >= 1;
 
         if (canMoreHP) maxHealth = 150;
