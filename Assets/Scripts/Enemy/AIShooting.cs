@@ -31,7 +31,6 @@ public class AIShooting : MonoBehaviour
 
     void Start()
     {
-        int isStatic = gameObject.GetComponent<AIBrain>().isStatic ? 0 : 1;
         reach = gameObject.GetComponent<FieldOfView>().radius*1.5f;
 
         weaponName[0] = "Pistol";
@@ -69,9 +68,12 @@ public class AIShooting : MonoBehaviour
         maxAmmo[4] = 30;
         bulletSpread[4] = 6f;
 
-        for(int i = 0; i < 5; i++)
+        if(!gameObject.GetComponent<AIBrain>().isStatic)
         {
-            bulletSpread[i] = bulletSpread[i] * Mathf.Pow(1.5f, isStatic);
+            for (int i = 0; i < 5; i++)
+            {
+                bulletSpread[i] = bulletSpread[i] * 1.5f;
+            }
         }
 
         currentAmmo[equippedWeaponID] = maxAmmo[equippedWeaponID];

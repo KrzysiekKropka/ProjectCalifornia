@@ -24,10 +24,11 @@ public class CursorManager : MonoBehaviour
             Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = cursorPos;
 
-            RaycastHit2D rightRay = Physics2D.Raycast(transform.position + new Vector3(-crosshairReach*1.5f, 0, 0), transform.right);
+
+            //RaycastHit2D rightRay = Physics2D.Raycast(transform.position + new Vector3(-crosshairReach*1.5f, 0, 0), transform.right);
             //RaycastHit2D upRay = Physics2D.Raycast(transform.position + new Vector3(0, -crosshairReach, 0), transform.up);
 
-            if (rightRay.collider != null && rightRay.distance < crosshairReach)
+            /*if (rightRay.collider != null && rightRay.distance < crosshairReach)
             {
                 if (rightRay.collider.tag == "Enemy")
                 {
@@ -44,7 +45,7 @@ public class CursorManager : MonoBehaviour
                 spriteRenderer.sprite = cursorYellow;
             }
 
-            /*if (upRay.collider != null && upRay.distance < crosshairReach)
+            if (upRay.collider != null && upRay.distance < crosshairReach)
             {
                 if (upRay.collider.tag == "Enemy")
                 {
@@ -61,6 +62,23 @@ public class CursorManager : MonoBehaviour
         {
             Cursor.visible = true;
             spriteRenderer.enabled = false;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            spriteRenderer.sprite = cursorRed;
+        }
+        else spriteRenderer.sprite = cursorYellow;
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            spriteRenderer.sprite = cursorYellow;
         }
     }
 }
