@@ -122,7 +122,6 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        print(isSprinting);
         if (isSprinting && remainingSprintingTime>0)
         {
             rb.velocity = new Vector2(moveDirection.x * sprintingSpeed, moveDirection.y * sprintingSpeed);

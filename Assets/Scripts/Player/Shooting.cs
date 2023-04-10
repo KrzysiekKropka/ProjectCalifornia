@@ -159,6 +159,7 @@ public class Shooting : MonoBehaviour
             float currentWeaponSpread = bulletSpread[equippedWeaponID];
             if (gameObject.GetComponent<Player>().isSprinting) currentWeaponSpread *= 2;
             if (gameObject.GetComponent<Player>().isDashing) currentWeaponSpread *= 2;
+
             canShoot[equippedWeaponID] = false;
             int damage = Random.Range(weaponDamage[equippedWeaponID] - 5, weaponDamage[equippedWeaponID] + 3);
             float randomVal = Random.Range(90f - currentWeaponSpread, 90f + currentWeaponSpread); //KK: Randomowa liczba na spread broni
