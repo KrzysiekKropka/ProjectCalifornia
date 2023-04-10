@@ -56,11 +56,11 @@ public class Shooting : MonoBehaviour
         bulletSpread[1] = 0f;
 
         weaponName[2] = "MP5";
-        weaponDamage[2] = 10;
+        weaponDamage[2] = 8;
         weaponDelay[2] = 0.09f;
         reloadTime[2] = 5f; 
         maxAmmo[2] = 50;
-        bulletSpread[2] = 6f;
+        bulletSpread[2] = 8f;
 
         weaponName[3] = "Shotgun";
         weaponDamage[3] = 23;
@@ -70,7 +70,7 @@ public class Shooting : MonoBehaviour
         bulletSpread[3] = 3f;
 
         weaponName[4] = "AK-47";
-        weaponDamage[4] = 25;
+        weaponDamage[4] = 24;
         weaponDelay[4] = 0.18f;
         reloadTime[4] = 6f;
         maxAmmo[4] = 30;

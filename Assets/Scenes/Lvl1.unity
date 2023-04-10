@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2274889813281843858, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: equippedWeaponID
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2546401352739831611, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: m_RootOrder
@@ -80133,6 +80133,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2274889813281843858, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
+      propertyPath: equippedWeaponID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2546401352739831611, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -80218,6 +80222,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2274889813281843858, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
+      propertyPath: equippedWeaponID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2546401352739831611, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: m_RootOrder
       value: 2
