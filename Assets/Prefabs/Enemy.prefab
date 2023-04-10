@@ -295,7 +295,7 @@ MonoBehaviour:
   angle: 100
   targetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   obstructionLayer:
     serializedVersion: 2
     m_Bits: 8
