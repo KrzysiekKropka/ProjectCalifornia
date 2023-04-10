@@ -73,7 +73,7 @@ public class AIBrain : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if(collision.CompareTag("Player") || collision.CompareTag("PlayerBullet"))
         {
             PlayerInRange();
         }
@@ -81,7 +81,7 @@ public class AIBrain : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.CompareTag("PlayerBullet"))
         {
             PlayerOutRange();
         }
