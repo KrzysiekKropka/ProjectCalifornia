@@ -75,11 +75,11 @@ public class AIBrain : MonoBehaviour
     {
         if(collision.CompareTag("Player") || collision.CompareTag("PlayerBullet"))
         {
-            PlayerInRange();
+            PlayerInterrupts();
         }
     }
 
-    void OnTriggerExit2D(Collider2D collision)
+    /*void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") || collision.CompareTag("PlayerBullet"))
         {
@@ -103,7 +103,7 @@ public class AIBrain : MonoBehaviour
         seekingActivated = false;
         stopFollowCoroutine = StopFollowing();
         StartCoroutine(stopFollowCoroutine);
-    }
+    }*/
 
     public void PlayerInterrupts()
     {
@@ -174,7 +174,7 @@ public class AIBrain : MonoBehaviour
         yield return new WaitForSeconds(forgetPlayer);
         playerDetected = false;
         if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
-        //seekPlayerCoroutine = SeekingPlayer();
+        seekPlayerCoroutine = SeekingPlayer();
         //StartCoroutine(seekPlayerCoroutine);
     }
 
