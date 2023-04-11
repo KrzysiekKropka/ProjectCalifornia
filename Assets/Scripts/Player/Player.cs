@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
             isSprinting = false;
         }
 
-        if (remainingStamina < maxStamina) remainingStamina += Time.deltaTime;
+        if (remainingStamina < maxStamina) remainingStamina += 2 * Time.deltaTime;
     }
 
     void FixedUpdate()
