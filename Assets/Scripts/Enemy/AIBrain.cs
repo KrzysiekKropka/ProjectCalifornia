@@ -47,6 +47,8 @@ public class AIBrain : MonoBehaviour
     private IEnumerator seekPlayerCoroutine;
     bool seekingActivated;
 
+    Collider2D[] Colliders;
+
     void Start()
     {
         deadBody.SetActive(false);
@@ -59,6 +61,18 @@ public class AIBrain : MonoBehaviour
 
     void LateUpdate()
     {
+        Colliders = Physics2D.OverlapCircleAll(transform.position, 10f);
+        if(playerDetected)
+        {
+            foreach (Collider2D Enemy in Colliders)
+            {
+                if (Enemy.gameObject.tag == "Enemy")
+                {
+                    if (!Enemy.gameObject.GetComponent<AIBrain>().playerDetected) Enemy.gameObject.GetComponent<AIBrain>().PlayerInterrupts();
+                }
+            }
+        }
+
         if (playerDetected) playerLocation = player.transform.position;
         if (playerLocation!=null) aimDirection = playerLocation - transform.position;
         if (playerWasDetected) aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
@@ -109,6 +123,7 @@ public class AIBrain : MonoBehaviour
     {
         if (stopFollowCoroutine != null) StopCoroutine(stopFollowCoroutine);
         if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
+
         seekingActivated = false;
         playerDetected = true;
         playerWasDetected = true;
