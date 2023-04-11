@@ -21,18 +21,18 @@ public class Player : MonoBehaviour
 
     bool staminaCooldownBool;
     float staminaCooldown = 2f;
-    float maxStamina = 30f;
+    float maxStamina = 45f;
     float remainingStamina;
 
     bool inDashingCooldown;
-    float dashingSpeed = 20f;
+    float dashingSpeed = 24f;
     float dashingTime = 0.1f;
     float dashingTimer;
     float dashingCooldown = 0.25f;
     int dashingSpree;
 
-    float speed = 5f;
-    float sprintingSpeed = 10f;
+    float speed = 8f;
+    float sprintingSpeed = 12f;
 
     int maxHealth = 100;
     int currentHealth;
@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
             dashingSpree = 0;
             isDashing = true;
             trailRenderer.emitting = true;
-            remainingStamina -= 1;
+            remainingStamina -= 0.5f;
             AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
         }
         else if (dashingSpree < 2)
@@ -165,7 +165,7 @@ public class Player : MonoBehaviour
             dashingSpree++;
             isDashing = true;
             trailRenderer.emitting = true;
-            remainingStamina -= 1;
+            remainingStamina -= 0.5f;
             AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
         }
         else
