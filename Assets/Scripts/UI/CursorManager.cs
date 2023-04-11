@@ -7,6 +7,10 @@ public class CursorManager : MonoBehaviour
     SpriteRenderer spriteRenderer;
     [SerializeField] Sprite cursorYellow, cursorRed;
 
+    bool isColliding;
+
+    Collider2D[] Colliders;
+
     void Start()
     {
         Cursor.visible = false;
@@ -16,6 +20,23 @@ public class CursorManager : MonoBehaviour
 
     void Update()
     {
+        Colliders = Physics2D.OverlapCircleAll(transform.position, 0.25f);
+        if (Colliders.Length > 0)
+        {
+            spriteRenderer.sprite = cursorYellow;
+            foreach (Collider2D Enemy in Colliders)
+            {
+                if (Enemy.gameObject.tag == "Enemy" && !Enemy.isTrigger)
+                {
+                    spriteRenderer.sprite = cursorRed;
+                }
+            }
+        }
+        else
+        {
+            spriteRenderer.sprite = cursorYellow;
+        }
+
         if (!PauseMenu.isPaused && !Player.inInventory)
         {
             Cursor.visible = false;
@@ -30,20 +51,19 @@ public class CursorManager : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    /*void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.isTrigger && collision.CompareTag("Enemy"))
+        isColliding = true;
+        if (collision.CompareTag("Enemy") && !collision.isTrigger)
         {
             spriteRenderer.sprite = cursorRed;
         }
-        else spriteRenderer.sprite = cursorYellow;
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
-        {
+        isColliding = false;
+        if (collision.CompareTag("Enemy") && collision.isTrigger) 
             spriteRenderer.sprite = cursorYellow;
-        }
-    }
+    }*/
 }
