@@ -52,7 +52,7 @@ public class AIShooting : MonoBehaviour
         weaponDelay[2] = 0.18f;
         reloadTime[2] = 3f;
         maxAmmo[2] = 50;
-        bulletSpread[2] = 8f;
+        bulletSpread[2] = 6f;
 
         /*weaponName[3] = "Shotgun";
         weaponDamage[3] = 10;
@@ -66,7 +66,7 @@ public class AIShooting : MonoBehaviour
         weaponDelay[4] = 0.36f;
         reloadTime[4] = 4f;
         maxAmmo[4] = 30;
-        bulletSpread[4] = 4f;
+        bulletSpread[4] = 3f;
 
         if(!gameObject.GetComponent<AIBrain>().isStatic)
         {
