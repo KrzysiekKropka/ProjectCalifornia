@@ -29,7 +29,11 @@ public class AIBrain : MonoBehaviour
     bool shotBefore = false;
 
     int currentHealth;
-    int forgetPlayer = 5;
+
+    float forgetPlayer = 5;
+    float forgetPlayerTimer;
+    float notifyOthersCooldown = 3;
+
     public int dropXP;
     public int dropMoney;
     public int dropHP;
@@ -61,8 +65,11 @@ public class AIBrain : MonoBehaviour
 
     void LateUpdate()
     {
+        print(forgetPlayerTimer);
+
+        if(forgetPlayerTimer>0)forgetPlayerTimer -= Time.deltaTime;
         Colliders = Physics2D.OverlapCircleAll(transform.position, 10f);
-        if(playerDetected && Colliders.Length > 0)
+        if (playerDetected && forgetPlayerTimer>notifyOthersCooldown && Colliders.Length > 0)
         {
             foreach (Collider2D Enemy in Colliders)
             {
@@ -123,7 +130,7 @@ public class AIBrain : MonoBehaviour
     {
         if (stopFollowCoroutine != null) StopCoroutine(stopFollowCoroutine);
         if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
-
+        forgetPlayerTimer = forgetPlayer;
         seekingActivated = false;
         playerDetected = true;
         playerWasDetected = true;
