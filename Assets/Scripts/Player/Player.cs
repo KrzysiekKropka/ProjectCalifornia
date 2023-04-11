@@ -19,6 +19,11 @@ public class Player : MonoBehaviour
     public bool isSprinting;
     public bool isDashing;
 
+    bool staminaCooldownBool;
+    float staminaCooldown = 3f;
+    float maxStamina = 30f;
+    float remainingStamina;
+
     bool inDashingCooldown;
     float dashingSpeed = 20f;
     float dashingTime = 0.1f;
@@ -26,12 +31,8 @@ public class Player : MonoBehaviour
     float dashingCooldown = 0.25f;
     int dashingSpree;
 
-    bool inSprintingCooldown;
     float speed = 5f;
     float sprintingSpeed = 10f;
-    float sprintCooldown = 3f;
-    float maxSprintingTime = 15f;
-    float remainingSprintingTime;
 
     int maxHealth = 100;
     int currentHealth;
@@ -68,14 +69,14 @@ public class Player : MonoBehaviour
         if (canMoreHP) maxHealth = 150;
         else maxHealth = 100;
 
-        if (canSprint) remainingSprintingTime = maxSprintingTime;
+        if (canSprint || canDash) remainingStamina = maxStamina;
 
         currentHealth = maxHealth;
         experiencePoints = PlayerPrefs.GetInt("experiencePoints");
         money = PlayerPrefs.GetInt("money");
         equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
         equippedWeaponName = PlayerPrefs.GetString("equippedWeaponName");
-        if (canSprint) healthBar.SetMaxStamina(maxSprintingTime);
+        if (canSprint || canDash) healthBar.SetMaxStamina(maxStamina);
         else healthBar.HideStamina();
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetExperiencePoints(experiencePoints);
@@ -91,7 +92,7 @@ public class Player : MonoBehaviour
         aimDirection = mousePosition - rb.position;
         aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
 
-        if (Input.GetKeyDown(KeyCode.Space) && canDash && !inDashingCooldown && !isDashing)
+        if (Input.GetKeyDown(KeyCode.Space) && canDash && !staminaCooldownBool && !inDashingCooldown && !isDashing && rb.velocity != Vector2.zero)
         {
             Dash();
         }
@@ -111,7 +112,7 @@ public class Player : MonoBehaviour
             TakeDamage(10);
         }
 
-        if(Input.GetKey(KeyCode.LeftShift) && canSprint && !inSprintingCooldown && rb.velocity != Vector2.zero)
+        if(Input.GetKey(KeyCode.LeftShift) && canSprint && !staminaCooldownBool && rb.velocity != Vector2.zero)
         {
             isSprinting = true;
         }
@@ -123,17 +124,17 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isSprinting && remainingSprintingTime>0)
+        if (isSprinting && remainingStamina > 0)
         {
             rb.velocity = new Vector2(moveDirection.x * sprintingSpeed, moveDirection.y * sprintingSpeed);
-            remainingSprintingTime -= Time.deltaTime;
-            if (remainingSprintingTime < 0) StartCoroutine(SprintCooldown());
+            remainingStamina -= Time.deltaTime;
+            if (remainingStamina <= 0) StartCoroutine(SprintCooldown());
         }
         else
         {
             isSprinting = false;
             rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
-            if(canSprint && remainingSprintingTime<maxSprintingTime) remainingSprintingTime += 2*Time.deltaTime;
+            if(remainingStamina < maxStamina) remainingStamina += 2*Time.deltaTime;
         }
 
         if (isDashing) rb.velocity = new Vector2(dashDirection.x * dashingSpeed, dashDirection.y * dashingSpeed);
@@ -142,38 +143,38 @@ public class Player : MonoBehaviour
 
     void LateUpdate()
     {
-        healthBar.SetStamina(remainingSprintingTime);
+        healthBar.SetStamina(remainingStamina);
     }
 
     void Dash()
     {
         dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        if(dashDirection != Vector2.zero)
-        {
-            float previousDashingTimer = dashingTimer;
-            dashingTimer = Time.time;
+        float previousDashingTimer = dashingTimer;
+        dashingTimer = Time.time;
 
-            if (dashingTimer - previousDashingTimer > dashingCooldown)
-            {
-                dashingSpree = 0;
-                isDashing = true;
-                trailRenderer.emitting = true;
-                AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
-            }
-            else if (dashingSpree < 2)
-            {
-                dashingSpree++;
-                isDashing = true;
-                trailRenderer.emitting = true;
-                AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
-            }
-            else
-            {
-                dashingSpree = 0;
-                StartCoroutine(DashingCooldown());
-            }
-            StartCoroutine(StopDashing());
+        if (dashingTimer - previousDashingTimer > dashingCooldown)
+        {
+            dashingSpree = 0;
+            isDashing = true;
+            trailRenderer.emitting = true;
+            remainingStamina -= 1;
+            AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
         }
+        else if (dashingSpree < 2)
+        {
+            dashingSpree++;
+            isDashing = true;
+            trailRenderer.emitting = true;
+            remainingStamina -= 1;
+            AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
+        }
+        else
+        {
+            dashingSpree = 0;
+            StartCoroutine(DashingCooldown());
+        }
+        if (remainingStamina <= 0) StartCoroutine(SprintCooldown());
+        StartCoroutine(StopDashing());
     }
 
     //KK: Kiedy dostajemy od czegoś wpierdol, usuwa damage od obecnego zdrowia gracza i ustawia wartość filla w healthBarze na obecne HP gracza.
@@ -273,8 +274,8 @@ public class Player : MonoBehaviour
 
     IEnumerator SprintCooldown()
     {
-        inSprintingCooldown = true;
-        yield return new WaitForSeconds(sprintCooldown);
-        inSprintingCooldown = false;
+        staminaCooldownBool = true;
+        yield return new WaitForSeconds(staminaCooldown);
+        staminaCooldownBool = false;
     }
 }
