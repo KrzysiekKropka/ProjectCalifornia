@@ -60,7 +60,7 @@ public class Shooting : MonoBehaviour
         weaponDelay[2] = 0.09f;
         reloadTime[2] = 5f; 
         maxAmmo[2] = 50;
-        bulletSpread[2] = 8f;
+        bulletSpread[2] = 6f;
 
         weaponName[3] = "Shotgun";
         weaponDamage[3] = 25;
@@ -74,7 +74,7 @@ public class Shooting : MonoBehaviour
         weaponDelay[4] = 0.18f;
         reloadTime[4] = 6f;
         maxAmmo[4] = 30;
-        bulletSpread[4] = 4f;
+        bulletSpread[4] = 3f;
 
         for (int i = 0; i < 5; i++)
         {
