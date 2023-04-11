@@ -6,9 +6,6 @@ public class CursorManager : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
     [SerializeField] Sprite cursorYellow, cursorRed;
-
-    bool isColliding;
-
     Collider2D[] Colliders;
 
     void Start()
