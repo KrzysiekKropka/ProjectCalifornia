@@ -39,7 +39,7 @@ public class AIBrain : MonoBehaviour
     public int dropHP;
     int summedDamage;
     float currentTime, currentTimeBloodPool;
-    float rotationSpeed = 0.125f;
+    float rotationSpeed = 0.25f;
     float aimAngle;
 
     RaycastHit hit;
@@ -63,7 +63,7 @@ public class AIBrain : MonoBehaviour
         aimAngle = rb.rotation;
     }
 
-    void LateUpdate()
+    void Update()
     {
         print(forgetPlayerTimer);
 
