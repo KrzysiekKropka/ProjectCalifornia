@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public bool isDashing;
 
     bool inDashingCooldown;
-    float dashingSpeed = 25f;
+    float dashingSpeed = 20f;
     float dashingTime = 0.1f;
     float dashingTimer;
     float dashingCooldown = 0.25f;
