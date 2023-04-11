@@ -68,11 +68,11 @@ public class AIShooting : MonoBehaviour
         maxAmmo[4] = 30;
         bulletSpread[4] = 3f;
 
-        if(!gameObject.GetComponent<AIBrain>().isStatic)
+        if(gameObject.GetComponent<AIBrain>().isStatic)
         {
             for (int i = 0; i < 5; i++)
             {
-                bulletSpread[i] = bulletSpread[i] * 1.5f;
+                bulletSpread[i] = bulletSpread[i] * .5f;
             }
         }
 
