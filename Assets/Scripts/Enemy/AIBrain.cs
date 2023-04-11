@@ -62,7 +62,7 @@ public class AIBrain : MonoBehaviour
     void LateUpdate()
     {
         Colliders = Physics2D.OverlapCircleAll(transform.position, 10f);
-        if(playerDetected)
+        if(playerDetected && Colliders.Length > 0)
         {
             foreach (Collider2D Enemy in Colliders)
             {
