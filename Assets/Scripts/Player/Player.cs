@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
             isSprinting = false;
         }
 
-        if (remainingStamina < maxStamina) remainingStamina += 2 * Time.deltaTime;
+        if (remainingStamina < maxStamina) remainingStamina += 4 * Time.deltaTime;
     }
 
     void FixedUpdate()
@@ -129,7 +129,7 @@ public class Player : MonoBehaviour
         if (isSprinting && remainingStamina > 0)
         {
             rb.velocity = new Vector2(moveDirection.x * sprintingSpeed, moveDirection.y * sprintingSpeed);
-            if (!isDashing) remainingStamina -= 3*Time.deltaTime;
+            if (!isDashing) remainingStamina -= 5*Time.deltaTime;
             if (remainingStamina <= 0) StartCoroutine(SprintCooldown());
         }
         else
