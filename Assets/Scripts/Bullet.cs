@@ -63,10 +63,10 @@ public class Bullet : MonoBehaviour
         }
         else if (tilemap)
         {
+            effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
             int randomInt = Random.Range(1, 4);
             ricochetClip = (AudioClip)Resources.Load("Audio/HitGeneric" + randomInt);
             AudioSource.PlayClipAtPoint(ricochetClip, transform.position, 1f);
-            effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
             if (playerIsOwner && playerYPosition > transform.position.y)
             {
                 effect.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 0;
