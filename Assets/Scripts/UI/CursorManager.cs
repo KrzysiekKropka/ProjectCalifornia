@@ -47,20 +47,4 @@ public class CursorManager : MonoBehaviour
             spriteRenderer.enabled = false;
         }
     }
-
-    /*void OnTriggerEnter2D(Collider2D collision)
-    {
-        isColliding = true;
-        if (collision.CompareTag("Enemy") && !collision.isTrigger)
-        {
-            spriteRenderer.sprite = cursorRed;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        isColliding = false;
-        if (collision.CompareTag("Enemy") && collision.isTrigger) 
-            spriteRenderer.sprite = cursorYellow;
-    }*/
 }
