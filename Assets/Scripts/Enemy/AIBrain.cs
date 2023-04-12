@@ -209,7 +209,7 @@ public class AIBrain : MonoBehaviour
         while(location!=transform.position)
         {
             location = transform.position;
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(2);
         }
         seekingActivated = true;
         print("test");
