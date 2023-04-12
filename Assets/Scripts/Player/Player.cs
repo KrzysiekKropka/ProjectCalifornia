@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject damagePopupPrefab;
     [SerializeField] GameObject triggerNextLevelMenu;
+    [SerializeField] GameObject ShopManager;
     [SerializeField] AudioClip manHurtClip, healClip, dashClip;
     private TrailRenderer trailRenderer;
     private GameObject damagePopup;
@@ -59,32 +60,39 @@ public class Player : MonoBehaviour
 
     float currentTime;
 
-    void OnEnable()
+    void Start()
     {
         NextLevelScreen.isActive = false;
         trailRenderer = GetComponent<TrailRenderer>();
 
-        canSprint = PlayerPrefs.GetInt("skillQuantity" + 1) >= 1;
-        canDash = PlayerPrefs.GetInt("skillQuantity" + 2) >= 1;
-        canBetterAim = PlayerPrefs.GetInt("skillQuantity" + 3) >= 1;
-        canMoreHP = PlayerPrefs.GetInt("skillQuantity" + 4) >= 1;
-
-        if (canMoreHP) maxHealth = 150;
-        else maxHealth = 100;
-
-        if (canSprint || canDash) remainingStamina = maxStamina;
-
-        currentHealth = maxHealth;
         experiencePoints = PlayerPrefs.GetInt("experiencePoints");
         money = PlayerPrefs.GetInt("money");
         equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
         equippedWeaponName = PlayerPrefs.GetString("equippedWeaponName");
-        if (canSprint || canDash) healthBar.SetMaxStamina(maxStamina);
-        else healthBar.HideStamina();
-        healthBar.SetMaxHealth(maxHealth);
         healthBar.SetExperiencePoints(experiencePoints);
         healthBar.SetMoney(money);
         healthBar.SetKills(kills);
+
+        RefreshSkills();
+        currentHealth = maxHealth;
+    }
+
+    public void RefreshSkills()
+    {
+        canSprint = ShopManager.GetComponent<ShopManager>().shopSkills[3, 1] >= 1;
+        canDash = ShopManager.GetComponent<ShopManager>().shopSkills[3, 2] >= 1;
+        canBetterAim = ShopManager.GetComponent<ShopManager>().shopSkills[3, 3] >= 1;
+        canMoreHP = ShopManager.GetComponent<ShopManager>().shopSkills[3, 4] >= 1;
+
+        if (canMoreHP) maxHealth = 150;
+        else maxHealth = 100;
+
+        healthBar.SetMaxHealth(maxHealth);
+
+        if (canSprint || canDash) remainingStamina = maxStamina;
+
+        if (canSprint || canDash) healthBar.SetMaxStamina(maxStamina);
+        else healthBar.HideStamina();
     }
 
     //KK: Prosto z poradnika Brackeys (RIP).

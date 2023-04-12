@@ -139,6 +139,9 @@ public class ShopManager : MonoBehaviour
             PlayerPrefs.SetInt("skillQuantity" + ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID, shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]);
             PlayerPrefs.SetInt("experiencePoints", xp);
             audioSource.PlayOneShot(moneyClip);
+
+            var player = GameObject.FindWithTag("Player");
+            if (player) player.GetComponent<Player>().RefreshSkills();
         }
     }
 }

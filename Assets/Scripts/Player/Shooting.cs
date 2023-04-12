@@ -28,7 +28,7 @@ public class Shooting : MonoBehaviour
     string[] weaponName = new string[5];
     float bulletForce = 20f;
     float currentTime;
-    float[] bulletSpread = new float[5];
+    public float[] bulletSpread = new float[5];
     float[] weaponDelay = new float[5];
     float[] reloadTime = new float[5];
     public int equippedWeaponID;
@@ -80,14 +80,6 @@ public class Shooting : MonoBehaviour
         {
             weaponAudioClips[i].clips = Resources.LoadAll<AudioClip>("Audio/Weapons/" + weaponName[i]);
             //bulletSpread[i] = bulletSpread[i] * Mathf.Pow(0.75f, betterAim);
-        }
-
-        if (gameObject.GetComponent<Player>().canBetterAim)
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                bulletSpread[i] = bulletSpread[i] * 0.5f;
-            }
         }
 
         screenShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>();
@@ -157,6 +149,7 @@ public class Shooting : MonoBehaviour
         if (canShoot[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && !isReloading[equippedWeaponID] && !Player.inInventory && !NextLevelScreen.isActive)
         {
             float currentWeaponSpread = bulletSpread[equippedWeaponID];
+            if (gameObject.GetComponent<Player>().canBetterAim) currentWeaponSpread *= 0.33f;
             if (gameObject.GetComponent<Player>().isSprinting) currentWeaponSpread *= 2;
             if (gameObject.GetComponent<Player>().isDashing) currentWeaponSpread *= 2;
 

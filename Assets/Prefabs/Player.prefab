@@ -807,8 +807,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+      - m_Target: {fileID: 7460648684313594570}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: ButtonClickSound
         m_Mode: 1
         m_Arguments:
@@ -1445,12 +1445,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.825
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3610,6 +3610,7 @@ MonoBehaviour:
   rb: {fileID: 928417037708580564}
   damagePopupPrefab: {fileID: 4262376480512933044, guid: 770715aeadb58bf4d85976cac77fec9b, type: 3}
   triggerNextLevelMenu: {fileID: 1237728739542715868}
+  ShopManager: {fileID: 2051500460809565887}
   manHurtClip: {fileID: 8300000, guid: 1ca823397e1eb2542aa72f99318dba34, type: 3}
   healClip: {fileID: 8300000, guid: d23b6ccc378bf2d418d24132aa4137bb, type: 3}
   dashClip: {fileID: 8300000, guid: 6b8a7734e78715d498a29801c7ec8ca3, type: 3}
