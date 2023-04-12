@@ -17,7 +17,7 @@ public class CursorManager : MonoBehaviour
 
     void Update()
     {
-        Colliders = Physics2D.OverlapCircleAll(transform.position, 0.25f);
+        Colliders = Physics2D.OverlapCircleAll(transform.position, 0.2f);
         if (Colliders.Length > 0)
         {
             spriteRenderer.sprite = cursorYellow;
