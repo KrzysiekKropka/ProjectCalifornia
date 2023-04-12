@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class NextLevelTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.CompareTag("Player"))
+        {
+            if(collision.gameObject.GetComponent<Player>().kills>= collision.gameObject.GetComponent<Player>().enemies) collision.gameObject.GetComponent<Player>().TriggerNextLevel();
+        }
     }
 }

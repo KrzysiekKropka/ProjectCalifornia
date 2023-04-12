@@ -18,6 +18,7 @@ public class NextLevelScreen : MonoBehaviour
         slider.maxValue = seconds;
         isActive = true;
         gameObject.SetActive(true);
+        GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().UnlockLevels();
         StartCoroutine(Countdown(seconds));
     }
 
@@ -31,6 +32,7 @@ public class NextLevelScreen : MonoBehaviour
             yield return new WaitForSeconds(1);
             currCountdownValue--;
         }
+        isActive = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

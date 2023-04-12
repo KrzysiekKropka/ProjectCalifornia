@@ -9,11 +9,14 @@ public class Player : MonoBehaviour
     [SerializeField] NextLevelScreen nextLevelScreen;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject damagePopupPrefab;
+    [SerializeField] GameObject triggerNextLevelMenu;
     [SerializeField] AudioClip manHurtClip, healClip, dashClip;
     private TrailRenderer trailRenderer;
     private GameObject damagePopup;
 
     public static bool inInventory = false;
+    public int kills = 0;
+    public int enemies = 0;
 
     bool inFocus;
     public bool isSprinting;
@@ -38,7 +41,6 @@ public class Player : MonoBehaviour
     int currentHealth;
 
     int equippedWeaponID;
-    int kills = 0;
     int experiencePoints;
     int money;
     int summedDamage;
@@ -59,6 +61,7 @@ public class Player : MonoBehaviour
 
     void OnEnable()
     {
+        NextLevelScreen.isActive = false;
         trailRenderer = GetComponent<TrailRenderer>();
 
         canSprint = PlayerPrefs.GetInt("skillQuantity" + 1) >= 1;
@@ -240,7 +243,13 @@ public class Player : MonoBehaviour
     public void AddKill()
     {
         kills++;
-        healthBar.SetKills(kills);
+        //healthBar.SetKills(kills);
+    }
+
+    public void AddEnemy()
+    {
+        enemies++;
+        //healthBar.SetKills(kills);
     }
 
     public void SetXP(int XP)
@@ -257,6 +266,12 @@ public class Player : MonoBehaviour
         if (money < 0) money = 0;
         healthBar.SetMoney(money);
         PlayerPrefs.SetInt("money", money);
+    }
+
+    public void TriggerNextLevel()
+    {
+        triggerNextLevelMenu.SetActive(true);
+        triggerNextLevelMenu.GetComponent<NextLevelScreen>().StartCountdown(5);
     }
 
     IEnumerator StopDashing()

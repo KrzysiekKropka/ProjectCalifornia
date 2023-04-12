@@ -311,9 +311,12 @@ MonoBehaviour:
   nextLevelScreen: {fileID: 1763164974387467106}
   rb: {fileID: 928417037708580564}
   damagePopupPrefab: {fileID: 4262376480512933044, guid: 770715aeadb58bf4d85976cac77fec9b, type: 3}
+  triggerNextLevelMenu: {fileID: 1237728739542715868}
   manHurtClip: {fileID: 8300000, guid: 1ca823397e1eb2542aa72f99318dba34, type: 3}
   healClip: {fileID: 8300000, guid: d23b6ccc378bf2d418d24132aa4137bb, type: 3}
   dashClip: {fileID: 8300000, guid: 6b8a7734e78715d498a29801c7ec8ca3, type: 3}
+  kills: 0
+  enemies: 0
   isSprinting: 0
   isDashing: 0
   canBetterAim: 0
@@ -1515,12 +1518,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7449026929469589029, guid: 4b35240d1d5a155428ca9849eb9cdee7, type: 3}
   m_PrefabInstance: {fileID: 8524479829660584949}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1237728739542715868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7449026929469589033, guid: 4b35240d1d5a155428ca9849eb9cdee7, type: 3}
+  m_PrefabInstance: {fileID: 8524479829660584949}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1763164974387467106 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7941266773668550807, guid: 4b35240d1d5a155428ca9849eb9cdee7, type: 3}
   m_PrefabInstance: {fileID: 8524479829660584949}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1237728739542715868}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7a7c78d014a649458424e1099d2b0d9, type: 3}

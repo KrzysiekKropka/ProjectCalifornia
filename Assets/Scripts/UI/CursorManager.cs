@@ -34,7 +34,7 @@ public class CursorManager : MonoBehaviour
             spriteRenderer.sprite = cursorYellow;
         }
 
-        if (!PauseMenu.isPaused && !Player.inInventory)
+        if (!PauseMenu.isPaused && !Player.inInventory && !NextLevelScreen.isActive)
         {
             Cursor.visible = false;
             spriteRenderer.enabled = true;

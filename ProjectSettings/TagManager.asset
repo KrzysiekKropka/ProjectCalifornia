@@ -10,6 +10,7 @@ TagManager:
   - AudioManager
   - Enemy
   - PlayerBullet
+  - LevelUnlocker
   layers:
   - Default
   - TransparentFX
