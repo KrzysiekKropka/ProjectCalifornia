@@ -208,8 +208,8 @@ public class AIBrain : MonoBehaviour
         Vector3 location = Vector3.zero;
         while(location!=transform.position)
         {
-            yield return new WaitForSeconds(3);
             location = transform.position;
+            yield return new WaitForSeconds(3);
         }
         seekingActivated = true;
         print("test");
