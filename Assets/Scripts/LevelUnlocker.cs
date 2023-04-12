@@ -11,7 +11,6 @@ public class LevelUnlocker : MonoBehaviour
     {
         for (int i = 0; i < ToUnlock.Length; i++)
         {
-            print(ToUnlock[i]);
             ShopManager.GetComponent<ShopManager>().shopMaps[3, ToUnlock[i]] = 1;
             PlayerPrefs.SetInt("mapQuantity" + ToUnlock[i], 1);
         }

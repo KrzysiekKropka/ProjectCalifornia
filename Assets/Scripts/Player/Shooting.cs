@@ -154,7 +154,7 @@ public class Shooting : MonoBehaviour
     //KK: Rozczytaj sie z tego :DDD
     IEnumerator Shoot()
     {
-        if (canShoot[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && !isReloading[equippedWeaponID] && !Player.inInventory)
+        if (canShoot[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && !isReloading[equippedWeaponID] && !Player.inInventory && !NextLevelScreen.isActive)
         {
             float currentWeaponSpread = bulletSpread[equippedWeaponID];
             if (gameObject.GetComponent<Player>().isSprinting) currentWeaponSpread *= 2;
