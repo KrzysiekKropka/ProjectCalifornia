@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - PlayerBullet
   - LevelUnlocker
+  - NextLevelTrigger
   layers:
   - Default
   - TransparentFX

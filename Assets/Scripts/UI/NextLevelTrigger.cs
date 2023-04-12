@@ -8,7 +8,7 @@ public class NextLevelTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if(collision.gameObject.GetComponent<Player>().kills>= collision.gameObject.GetComponent<Player>().enemies) collision.gameObject.GetComponent<Player>().TriggerNextLevel();
+            if(collision.gameObject.GetComponent<Player>().kills >= collision.gameObject.GetComponent<Player>().enemies) collision.gameObject.GetComponent<Player>().TriggerNextLevel();
         }
     }
 }

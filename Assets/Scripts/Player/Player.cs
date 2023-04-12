@@ -246,6 +246,7 @@ public class Player : MonoBehaviour
     public void AddKill()
     {
         kills++;
+        if (kills >= enemies) GameObject.FindWithTag("NextLevelTrigger").GetComponent<BoxCollider2D>().isTrigger = true;
         //healthBar.SetKills(kills);
     }
 
