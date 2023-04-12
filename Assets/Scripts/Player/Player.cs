@@ -42,8 +42,8 @@ public class Player : MonoBehaviour
     int currentHealth;
 
     int equippedWeaponID;
-    int experiencePoints;
-    int money;
+    public int experiencePoints;
+    public int money;
     int summedDamage;
     string equippedWeaponName;
 
@@ -65,19 +65,22 @@ public class Player : MonoBehaviour
         NextLevelScreen.isActive = false;
         trailRenderer = GetComponent<TrailRenderer>();
 
+        RefreshShop();
+
         experiencePoints = PlayerPrefs.GetInt("experiencePoints");
         money = PlayerPrefs.GetInt("money");
         equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
         equippedWeaponName = PlayerPrefs.GetString("equippedWeaponName");
-        healthBar.SetExperiencePoints(experiencePoints);
-        healthBar.SetMoney(money);
         healthBar.SetKills(kills);
 
-        RefreshSkills();
         currentHealth = maxHealth;
+
+        healthBar.SetHealth(currentHealth);
+        healthBar.SetExperiencePoints(experiencePoints);
+        healthBar.SetMoney(money);
     }
 
-    public void RefreshSkills()
+    public void RefreshShop()
     {
         canSprint = ShopManager.GetComponent<ShopManager>().shopSkills[3, 1] >= 1;
         canDash = ShopManager.GetComponent<ShopManager>().shopSkills[3, 2] >= 1;
@@ -88,11 +91,18 @@ public class Player : MonoBehaviour
         else maxHealth = 100;
 
         healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(currentHealth);
 
         if (canSprint || canDash) remainingStamina = maxStamina;
 
         if (canSprint || canDash) healthBar.SetMaxStamina(maxStamina);
         else healthBar.HideStamina();
+
+        money = ShopManager.GetComponent<ShopManager>().money;
+        experiencePoints = ShopManager.GetComponent<ShopManager>().xp;
+
+        healthBar.SetExperiencePoints(experiencePoints);
+        healthBar.SetMoney(money);
     }
 
     //KK: Prosto z poradnika Brackeys (RIP).

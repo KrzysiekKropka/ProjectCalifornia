@@ -31,8 +31,6 @@ public class HealthBar : MonoBehaviour
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;
-        slider.value = health;
-        healthText.text = health.ToString();
     }
 
     public void SetHealth(int health)

@@ -13,13 +13,14 @@ public class ShopManager : MonoBehaviour
     [SerializeField] TMP_Text xpText;
     [SerializeField] AudioClip moneyClip;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] GameObject player;
 
     public int[,] shopItems = new int[5, 5];
     public int[,] shopSkills = new int[5, 5];
     public int[,] shopMaps = new int[5, 5];
 
-    int money;
-    int xp;
+    public int money;
+    public int xp;
 
     void Start()
     {
@@ -104,8 +105,17 @@ public class ShopManager : MonoBehaviour
 
     public void AssignNumbers()
     {
-        money = PlayerPrefs.GetInt("money");
-        xp = PlayerPrefs.GetInt("experiencePoints");
+        if(player != null)
+        {
+            money = player.GetComponent<Player>().money;
+            xp = player.GetComponent<Player>().experiencePoints;
+        }
+        else
+        {
+            money = PlayerPrefs.GetInt("money");
+            xp = PlayerPrefs.GetInt("experiencePoints");
+        }
+
         if (moneyText != null || xpText != null)
         {
             moneyText.text = "<sprite=0>" + money + "$";
@@ -124,6 +134,8 @@ public class ShopManager : MonoBehaviour
             PlayerPrefs.SetInt("itemQuantity" + ButtonRef.GetComponent<ShopItemButtonInfo>().itemID, shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]);
             PlayerPrefs.SetInt("money", money);
             audioSource.PlayOneShot(moneyClip);
+
+            if (player != null) player.GetComponent<Player>().RefreshShop();
         }
     }
 
@@ -140,8 +152,7 @@ public class ShopManager : MonoBehaviour
             PlayerPrefs.SetInt("experiencePoints", xp);
             audioSource.PlayOneShot(moneyClip);
 
-            var player = GameObject.FindWithTag("Player");
-            if (player) player.GetComponent<Player>().RefreshSkills();
+            if (player != null) player.GetComponent<Player>().RefreshShop();
         }
     }
 }
