@@ -197,7 +197,7 @@ public class AIBrain : MonoBehaviour
         playerDetected = false;
         if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
         seekPlayerCoroutine = SeekingPlayer();
-        //StartCoroutine(seekPlayerCoroutine);
+        StartCoroutine(seekPlayerCoroutine);
     }
 
     //KK: Kod na dole dziala, jednak trzeba dobrze zaimplementowac to w StopFollowing();
@@ -205,29 +205,32 @@ public class AIBrain : MonoBehaviour
     IEnumerator SeekingPlayer()
     {
         seekingActivated = false;
-        int i = 0;
-        yield return new WaitForSeconds(3);
+        Vector3 location = Vector3.zero;
+        while(location!=transform.position)
+        {
+            yield return new WaitForSeconds(3);
+            location = transform.position;
+        }
         seekingActivated = true;
         print("test");
         float OriginalRotation = rb.rotation;
-        while(true)
+        float i = 0;
+        while (true)
         {
             i = 0;
-            while (i < 100)
+            while (i < 2)
             {
-                rb.rotation = Mathf.LerpAngle(rb.rotation, OriginalRotation + 30, 0.03f);
-                i++;
+                rb.rotation = Mathf.LerpAngle(rb.rotation, OriginalRotation + 50, 0.03f);
+                i += Time.deltaTime;
                 yield return new WaitForSeconds(0.01f);
             }
             i = 0;
-            yield return new WaitForSeconds(1);
-            while (i < 100)
+            while (i < 2)
             {
-                rb.rotation = Mathf.LerpAngle(rb.rotation, OriginalRotation - 30, 0.03f);
-                i++;
+                rb.rotation = Mathf.LerpAngle(rb.rotation, OriginalRotation - 50, 0.03f);
+                i += Time.deltaTime;
                 yield return new WaitForSeconds(0.01f);
             }
-            yield return new WaitForSeconds(1);
         }
     }
 }

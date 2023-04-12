@@ -44,7 +44,7 @@ public class HealthBar : MonoBehaviour
     public void SetMaxStamina(float stamina)
     {
         staminaSlider.gameObject.SetActive(true);
-        HealthBarOnly.anchoredPosition = new Vector2(0, 35);
+        HealthBarOnly.anchoredPosition = new Vector2(0, 40);
         staminaSlider.maxValue = stamina;
         staminaSlider.value = stamina;
     }
