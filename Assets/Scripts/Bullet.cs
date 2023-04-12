@@ -19,6 +19,7 @@ public class Bullet : MonoBehaviour
     public bool playerIsOwner = false;
     public bool enemyIsOwner = false;
     float startTime;
+    float playerYPosition;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class Bullet : MonoBehaviour
         if (playerIsOwner) 
         {
             gameObject.tag = "PlayerBullet";
+            playerYPosition = GameObject.FindWithTag("Player").transform.position.y;
             //gameObject.layer = 8;
         }
     }
@@ -49,6 +51,7 @@ public class Bullet : MonoBehaviour
         var tilemap = collision.collider.GetComponent<TilemapCollider2D>();
         var bullet = collision.collider.GetComponent<Bullet>();
 
+
         if (!playerIsOwner && player)
         {
             int randomInt = Random.Range(1, 5);
@@ -64,6 +67,14 @@ public class Bullet : MonoBehaviour
             ricochetClip = (AudioClip)Resources.Load("Audio/HitGeneric" + randomInt);
             AudioSource.PlayClipAtPoint(ricochetClip, transform.position, 1f);
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
+            if (playerIsOwner && playerYPosition > transform.position.y)
+            {
+                effect.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 0;
+            }
+            else
+            {
+                effect.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 1;
+            }
             Destroy(gameObject);
         }
         else if (bullet)

@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public bool isDashing;
 
     bool staminaCooldownBool;
-    float staminaCooldown = 2f;
+    float staminaCooldown = 3f;
     float maxStamina = 45f;
     float remainingStamina;
 

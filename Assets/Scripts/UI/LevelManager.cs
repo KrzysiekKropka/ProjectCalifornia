@@ -29,7 +29,16 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void BuyMap()
+    public void PlayMap()
+    {
+        GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
+        if (ShopManager.GetComponent<ShopManager>().shopMaps[3, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID] >= 1)
+        {
+            SceneManager.LoadScene("Lvl" + ButtonRef.GetComponent<ShopMapButtonInfo>().itemID);
+        }
+    }
+
+    /*public void BuyMap()
     {
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
         if (ShopManager.GetComponent<ShopManager>().shopMaps[3, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID] < 1 && xp >= ShopManager.GetComponent<ShopManager>().shopMaps[2, ButtonRef.GetComponent<ShopMapButtonInfo>().itemID])
@@ -45,5 +54,5 @@ public class LevelManager : MonoBehaviour
         {
             SceneManager.LoadScene("Lvl" + ButtonRef.GetComponent<ShopMapButtonInfo>().itemID);
         }
-    }
+    }*/
 }

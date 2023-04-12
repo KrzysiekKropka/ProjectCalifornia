@@ -56,10 +56,10 @@ public class ShopManager : MonoBehaviour
         shopSkills[2, 4] = 600;
 
         //KK: ustawianie ceny mapom w sklepie
-        shopMaps[2, 1] = 300;
+        /*shopMaps[2, 1] = 300;
         shopMaps[2, 2] = 600;
         shopMaps[2, 3] = 900;
-        shopMaps[2, 4] = 1200;
+        shopMaps[2, 4] = 1200;*/
 
         //KK: ustawianie ilosci przedmiotom w sklepie
         shopItems[3, 1] = PlayerPrefs.GetInt("itemQuantity" + 1);
