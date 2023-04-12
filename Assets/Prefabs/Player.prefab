@@ -5243,6 +5243,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7449026929469589026, guid: 51eb7272ab2e02543bb53dec9bda5df7, type: 3}
+      propertyPath: shop
+      value: 
+      objectReference: {fileID: 3572352998024013361}
+    - target: {fileID: 7449026929469589026, guid: 51eb7272ab2e02543bb53dec9bda5df7, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2936219500929913464}
