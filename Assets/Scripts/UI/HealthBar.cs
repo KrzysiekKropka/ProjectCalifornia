@@ -118,7 +118,7 @@ public class HealthBar : MonoBehaviour
         messageBox.text += message + "\r\n";
         messageBox.gameObject.SetActive(true);
         if (messageBoxCoroutine != null) StopCoroutine(messageBoxCoroutine);
-        if (messageBox.textInfo.lineCount > 10)
+        if (messageBox.textInfo.lineCount >= 10)
         {
             string oldText = messageBox.text;
             int index = oldText.IndexOf(System.Environment.NewLine);
