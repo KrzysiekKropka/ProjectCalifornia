@@ -475,6 +475,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2546401352739831611}
     m_Modifications:
+    - target: {fileID: 1254376299139032502, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
+      propertyPath: m_text
+      value: 17<sprite=0>
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254376299139032502, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
+      propertyPath: m_fontSize
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254376299139032502, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254376299139032502, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1254376299139032502, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2185579491338234144, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -493,11 +513,19 @@ PrefabInstance:
       objectReference: {fileID: 1266505938021331753}
     - target: {fileID: 5938828242070102825, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 40
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938828242070102825, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5938828242070102825, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938828242070102825, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7433078681888396232, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
       propertyPath: m_IsActive

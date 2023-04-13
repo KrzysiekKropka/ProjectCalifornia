@@ -47,6 +47,6 @@ public class EnemyHealthBar : MonoBehaviour
 
     public void SetAmmo(int currentAmmo)
     {
-        ammoText.text = "<sprite=0>" + currentAmmo;
+        ammoText.text = currentAmmo + "<sprite=0>";
     }
 }
