@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
-public class ShopManager : MonoBehaviour
+public class ShopManagerIngame : MonoBehaviour
 {
     //KK: Poradnik na to: https://www.youtube.com/watch?v=Oie-G5xuQNA
 
@@ -19,8 +19,8 @@ public class ShopManager : MonoBehaviour
     public int[,] shopSkills = new int[5, 5];
     public int[,] shopMaps = new int[5, 5];
 
-    int money;
-    int xp;
+    public int money;
+    public int xp;
 
     void Start()
     {
@@ -105,49 +105,26 @@ public class ShopManager : MonoBehaviour
 
     public void AssignNumbers()
     {
-        if (player != null)
+        if (moneyText != null || xpText != null)
         {
-            if (moneyText != null || xpText != null)
-            {
-                moneyText.text = "<sprite=0>" + player.money + "$";
-                xpText.text = player.experiencePoints + "<sprite=0>";
-            }
-        }
-        else
-        {
-            money = PlayerPrefs.GetInt("money");
-            xp = PlayerPrefs.GetInt("experiencePoints");
-
-            if (moneyText != null || xpText != null)
-            {
-                moneyText.text = "<sprite=0>" + money + "$";
-                xpText.text = xp + "<sprite=0>";
-            }
+            moneyText.text = "<sprite=0>" + player.money + "$";
+            xpText.text = player.experiencePoints + "<sprite=0>";
         }
     }
 
     public void BuyItem()
     {
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
-        if (player != null && player.money >= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] && shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] < 1)
+        if ((player.money >= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]) && (shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] < 1))
         {
             player.money -= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID];
-            shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] = 1;
+            shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]=1;
             moneyText.text = "<sprite=0>" + player.money + "$";
             PlayerPrefs.SetInt("itemQuantity" + ButtonRef.GetComponent<ShopItemButtonInfo>().itemID, shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]);
             PlayerPrefs.SetInt("money", player.money);
             audioSource.PlayOneShot(moneyClip);
 
-            player.RefreshShop();
-        }
-        else if (money >= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] && shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] < 1)
-        {
-            money -= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID];
-            shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]=1;
-            moneyText.text = "<sprite=0>" + money + "$";
-            PlayerPrefs.SetInt("itemQuantity" + ButtonRef.GetComponent<ShopItemButtonInfo>().itemID, shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]);
-            PlayerPrefs.SetInt("money", money);
-            audioSource.PlayOneShot(moneyClip);
+            if (player != null) player.GetComponent<Player>().RefreshShop();
         }
     }
 
@@ -155,25 +132,16 @@ public class ShopManager : MonoBehaviour
     {
         //kod na kupowanie skillu
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
-        if (player != null && player.experiencePoints >= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] && shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] < 1)
+        if ((player.experiencePoints >= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]) && (shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] < 1))
         {
             player.experiencePoints -= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID];
-            shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] = 1;
+            shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]=1;
             xpText.text = player.experiencePoints + "<sprite=0>";
             PlayerPrefs.SetInt("skillQuantity" + ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID, shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]);
             PlayerPrefs.SetInt("experiencePoints", player.experiencePoints);
             audioSource.PlayOneShot(moneyClip);
 
-            player.RefreshShop();
-        }
-        else if (xp >= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] && shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] < 1)
-        {
-            xp -= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID];
-            shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]=1;
-            xpText.text = xp + "<sprite=0>";
-            PlayerPrefs.SetInt("skillQuantity" + ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID, shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]);
-            PlayerPrefs.SetInt("experiencePoints", xp);
-            audioSource.PlayOneShot(moneyClip);
+            if (player != null) player.GetComponent<Player>().RefreshShop();
         }
     }
 }

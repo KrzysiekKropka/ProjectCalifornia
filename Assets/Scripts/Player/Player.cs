@@ -98,9 +98,6 @@ public class Player : MonoBehaviour
         if (canSprint || canDash) healthBar.SetMaxStamina(maxStamina);
         else healthBar.HideStamina();
 
-        money = ShopManager.GetComponent<ShopManager>().money;
-        experiencePoints = ShopManager.GetComponent<ShopManager>().xp;
-
         healthBar.SetExperiencePoints(experiencePoints);
         healthBar.SetMoney(money);
     }
