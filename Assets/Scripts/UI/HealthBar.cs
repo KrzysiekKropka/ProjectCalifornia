@@ -25,6 +25,12 @@ public class HealthBar : MonoBehaviour
 
     private IEnumerator messageBoxCoroutine;
 
+    void OnEnable()
+    {
+        if (messageBoxCoroutine != null) StopCoroutine(messageBoxCoroutine);
+        messageBoxCoroutine = MessageBoxInterval();
+        StartCoroutine(messageBoxCoroutine);
+    }
 
     public void ActiveMode(bool active)
     {
