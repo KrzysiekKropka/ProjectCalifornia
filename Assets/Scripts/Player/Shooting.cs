@@ -23,6 +23,7 @@ public class Shooting : MonoBehaviour
 
     public ScreenShake screenShake;
 
+    bool canShootGlobal = true;
     bool[] canShoot = new bool[5];
     public bool[] isReloading = new bool[5];
     bool[] equippedBefore = new bool[5];
@@ -39,6 +40,7 @@ public class Shooting : MonoBehaviour
     int[] maxAmmo = new int[5];
 
     public AudioClipArray[] weaponAudioClips;
+    private IEnumerator weaponCooldownCoroutine;
 
     void Start()
     {
@@ -100,7 +102,14 @@ public class Shooting : MonoBehaviour
 
     public void AssignWeapon(int weaponID)
     {
-        if(shopManager.shopItems[3, weaponID] == 1)
+        if (weaponID != equippedWeaponID)
+        {
+            if (weaponCooldownCoroutine != null) StopCoroutine(weaponCooldownCoroutine);
+            weaponCooldownCoroutine = WeaponSwitchCooldown();
+            StartCoroutine(weaponCooldownCoroutine);
+        }
+
+        if (shopManager.shopItems[3, weaponID] == 1)
         {
             healthBar.SetWeaponIcon(weaponID);
             healthBar.SetAmmo(currentAmmo[weaponID], reserveAmmo[weaponID]);
@@ -168,11 +177,10 @@ public class Shooting : MonoBehaviour
         if (currentAmmo[equippedWeaponID] == 0) StartCoroutine(Reload(equippedWeaponID));
     }
 
-
     //KK: Rozczytaj sie z tego :DDD
     IEnumerator Shoot()
     {
-        if (canShoot[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && !isReloading[equippedWeaponID] && !PauseMenu.isPaused && !Player.inInventory && !NextLevelScreen.isActive)
+        if (canShootGlobal && canShoot[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && !isReloading[equippedWeaponID] && !PauseMenu.isPaused && !Player.inInventory && !NextLevelScreen.isActive)
         {
             float currentWeaponSpread = bulletSpread[equippedWeaponID];
             if (gameObject.GetComponent<Player>().canBetterAim) currentWeaponSpread *= 0.33f;
@@ -231,6 +239,13 @@ public class Shooting : MonoBehaviour
             yield return new WaitForSeconds(weaponDelay[equippedWeaponID]);
             canShoot[weaponID] = true;
         }
+    }
+
+    IEnumerator WeaponSwitchCooldown()
+    {
+        canShootGlobal = false;
+        yield return new WaitForSeconds(0.25f);
+        canShootGlobal = true;
     }
 
     IEnumerator Reload(int weaponID)
