@@ -115,18 +115,21 @@ public class HealthBar : MonoBehaviour
 
     public void MessageBox(string message)
     {
-        messageBox.text += message + "\r\n";
-        messageBox.gameObject.SetActive(true);
-        if (messageBoxCoroutine != null) StopCoroutine(messageBoxCoroutine);
-        if (messageBox.textInfo.lineCount >= 10)
+        if(!PauseMenu.isPaused)
         {
-            string oldText = messageBox.text;
-            int index = oldText.IndexOf(System.Environment.NewLine);
-            string newText = oldText.Substring(index + System.Environment.NewLine.Length);
-            messageBox.text = newText;
+            messageBox.text += message + "\r\n";
+            messageBox.gameObject.SetActive(true);
+            if (messageBox.textInfo.lineCount >= 10)
+            {
+                string oldText = messageBox.text;
+                int index = oldText.IndexOf(System.Environment.NewLine);
+                string newText = oldText.Substring(index + System.Environment.NewLine.Length);
+                messageBox.text = newText;
+            }
+            if (messageBoxCoroutine != null) StopCoroutine(messageBoxCoroutine);
+            messageBoxCoroutine = MessageBoxInterval();
+            StartCoroutine(messageBoxCoroutine);
         }
-        messageBoxCoroutine = MessageBoxInterval();
-        StartCoroutine(messageBoxCoroutine);
     }
 
     public IEnumerator MessageBoxInterval()
