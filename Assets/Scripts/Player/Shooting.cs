@@ -15,6 +15,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] Transform firePoint, firePointShotgun1, firePointShotgun2;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] GameObject shootPrefab;
+    [SerializeField] ShopManager shopManager;
     [SerializeField] HealthBar healthBar;
     [SerializeField] Sprite PlayerPistol, PlayerRifle;
     [SerializeField] AudioClip EmptyMagClip, EmptyEverythingClip, AmmoDropClip;
@@ -119,19 +120,37 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            StartCoroutine(Shoot());
-        }
-    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(Reload(equippedWeaponID));
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            StartCoroutine(Shoot());
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && shopManager.shopItems[3, 1] == 1)
+        {
+            AssignWeapon(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2) && shopManager.shopItems[3, 2] == 1)
+        {
+            AssignWeapon(2);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3) && shopManager.shopItems[3, 3] == 1)
+        {
+            AssignWeapon(3);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4) && shopManager.shopItems[3, 4] == 1)
+        {
+            AssignWeapon(4);
         }
     }
 
@@ -146,7 +165,7 @@ public class Shooting : MonoBehaviour
     //KK: Rozczytaj sie z tego :DDD
     IEnumerator Shoot()
     {
-        if (canShoot[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && !isReloading[equippedWeaponID] && !Player.inInventory && !NextLevelScreen.isActive)
+        if (canShoot[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && !isReloading[equippedWeaponID] && !PauseMenu.isPaused && !Player.inInventory && !NextLevelScreen.isActive)
         {
             float currentWeaponSpread = bulletSpread[equippedWeaponID];
             if (gameObject.GetComponent<Player>().canBetterAim) currentWeaponSpread *= 0.33f;

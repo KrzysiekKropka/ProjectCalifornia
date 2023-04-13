@@ -82,10 +82,10 @@ public class Player : MonoBehaviour
 
     public void RefreshShop()
     {
-        canSprint = ShopManager.GetComponent<ShopManager>().shopSkills[3, 1] >= 1;
-        canDash = ShopManager.GetComponent<ShopManager>().shopSkills[3, 2] >= 1;
-        canBetterAim = ShopManager.GetComponent<ShopManager>().shopSkills[3, 3] >= 1;
-        canMoreHP = ShopManager.GetComponent<ShopManager>().shopSkills[3, 4] >= 1;
+        canSprint = ShopManager.GetComponent<ShopManager>().shopSkills[3, 1] == 1;
+        canDash = ShopManager.GetComponent<ShopManager>().shopSkills[3, 2] == 1;
+        canBetterAim = ShopManager.GetComponent<ShopManager>().shopSkills[3, 3] == 1;
+        canMoreHP = ShopManager.GetComponent<ShopManager>().shopSkills[3, 4] == 1;
 
         if (canMoreHP) maxHealth = 150;
         else maxHealth = 100;
