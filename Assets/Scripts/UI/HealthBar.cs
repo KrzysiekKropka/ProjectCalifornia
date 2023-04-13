@@ -115,34 +115,32 @@ public class HealthBar : MonoBehaviour
 
     public void MessageBox(string message)
     {
-        if(!PauseMenu.isPaused)
+        messageBox.text += message + "\r\n";
+        messageBox.gameObject.SetActive(true);
+        if (messageBox.textInfo.lineCount >= 10)
         {
-            messageBox.text += message + "\r\n";
-            messageBox.gameObject.SetActive(true);
-            if (messageBox.textInfo.lineCount >= 10)
-            {
-                string oldText = messageBox.text;
-                int index = oldText.IndexOf(System.Environment.NewLine);
-                string newText = oldText.Substring(index + System.Environment.NewLine.Length);
-                messageBox.text = newText;
-            }
-            if (messageBoxCoroutine != null) StopCoroutine(messageBoxCoroutine);
-            messageBoxCoroutine = MessageBoxInterval();
-            StartCoroutine(messageBoxCoroutine);
+            string oldText = messageBox.text;
+            int index = oldText.IndexOf(System.Environment.NewLine);
+            string newText = oldText.Substring(index + System.Environment.NewLine.Length);
+            messageBox.text = newText;
         }
+        if (messageBoxCoroutine != null) StopCoroutine(messageBoxCoroutine);
+        messageBoxCoroutine = MessageBoxInterval();
+        StartCoroutine(messageBoxCoroutine);
     }
 
     public IEnumerator MessageBoxInterval()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSecondsRealtime(3f);
         while(messageBox.text != "")
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSecondsRealtime(1f);
             string oldText = messageBox.text;
             int index = oldText.IndexOf(System.Environment.NewLine);
             string newText = oldText.Substring(index + System.Environment.NewLine.Length);
             messageBox.text = newText;
         }
         messageBox.gameObject.SetActive(false);
+        messageBox.text = "";
     }
 }
