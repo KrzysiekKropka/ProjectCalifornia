@@ -31,7 +31,7 @@ public class AIShooting : MonoBehaviour
 
     void Start()
     {
-        reach = gameObject.GetComponent<FieldOfView>().radius*1.5f;
+        reach = gameObject.GetComponent<FieldOfView>().radius;
 
         weaponName[0] = "Pistol";
         weaponDamage[0] = 5;
