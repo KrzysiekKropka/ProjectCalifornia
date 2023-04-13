@@ -63,6 +63,7 @@ public class ShopManager : MonoBehaviour
         shopMaps[2, 4] = 1200;*/
 
         //KK: ustawianie ilosci przedmiotom w sklepie
+        shopItems[3, 0] = 1;
         shopItems[3, 1] = PlayerPrefs.GetInt("itemQuantity" + 1);
         shopItems[3, 2] = PlayerPrefs.GetInt("itemQuantity" + 2);
         shopItems[3, 3] = PlayerPrefs.GetInt("itemQuantity" + 3);

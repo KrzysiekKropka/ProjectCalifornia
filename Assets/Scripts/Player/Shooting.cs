@@ -100,23 +100,30 @@ public class Shooting : MonoBehaviour
 
     public void AssignWeapon(int weaponID)
     {
-        healthBar.SetWeaponIcon(weaponID);
-        healthBar.SetAmmo(currentAmmo[weaponID], reserveAmmo[weaponID]);
-        equippedWeaponID = weaponID;
-        healthBar.SetReloading(false);
-
-        if (weaponID < 2)
+        if(shopManager.shopItems[3, weaponID] == 1)
         {
-            spriteRenderer.sprite = PlayerPistol;
+            healthBar.SetWeaponIcon(weaponID);
+            healthBar.SetAmmo(currentAmmo[weaponID], reserveAmmo[weaponID]);
+            equippedWeaponID = weaponID;
+            healthBar.SetReloading(false);
+
+            if (weaponID < 2)
+            {
+                spriteRenderer.sprite = PlayerPistol;
+            }
+            else
+            {
+                spriteRenderer.sprite = PlayerRifle;
+            }
+
+            if (isReloading[weaponID])
+            {
+                healthBar.SetReloading(true);
+            }
         }
         else
         {
-            spriteRenderer.sprite = PlayerRifle;
-        }
-
-        if (isReloading[weaponID])
-        {
-            healthBar.SetReloading(true);
+            healthBar.MessageBox("You do not own " + weaponName[weaponID] + "!");
         }
     }
 
@@ -133,22 +140,22 @@ public class Shooting : MonoBehaviour
             StartCoroutine(Shoot());
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && shopManager.shopItems[3, 1] == 1)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             AssignWeapon(1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && shopManager.shopItems[3, 2] == 1)
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             AssignWeapon(2);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3) && shopManager.shopItems[3, 3] == 1)
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             AssignWeapon(3);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha4) && shopManager.shopItems[3, 4] == 1)
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             AssignWeapon(4);
         }

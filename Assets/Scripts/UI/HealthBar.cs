@@ -15,12 +15,15 @@ public class HealthBar : MonoBehaviour
     [SerializeField] TMP_Text killsText;
     [SerializeField] TMP_Text ammoText;
     [SerializeField] TMP_Text reloadingText;
+    [SerializeField] TMP_Text messageBox;
     [SerializeField] Sprite Pistol;
     [SerializeField] Sprite Deagle;
     [SerializeField] Sprite MP5;
     [SerializeField] Sprite Shotgun;
     [SerializeField] Sprite AK47;
     [SerializeField] RectTransform HealthBarOnly;
+
+    private IEnumerator messageBoxCoroutine;
 
 
     public void ActiveMode(bool active)
@@ -108,5 +111,35 @@ public class HealthBar : MonoBehaviour
     {
         if (isReloading) reloadingText.text = "Reloading...";
         else reloadingText.text = "";
+    }
+
+    public void MessageBox(string message)
+    {
+        messageBox.text += message + "\r\n";
+        messageBox.gameObject.SetActive(true);
+        if (messageBoxCoroutine != null) StopCoroutine(messageBoxCoroutine);
+        if (messageBox.textInfo.lineCount > 10)
+        {
+            string oldText = messageBox.text;
+            int index = oldText.IndexOf(System.Environment.NewLine);
+            string newText = oldText.Substring(index + System.Environment.NewLine.Length);
+            messageBox.text = newText;
+        }
+        messageBoxCoroutine = MessageBoxInterval();
+        StartCoroutine(messageBoxCoroutine);
+    }
+
+    public IEnumerator MessageBoxInterval()
+    {
+        yield return new WaitForSeconds(3f);
+        while(messageBox.text != "")
+        {
+            yield return new WaitForSeconds(1f);
+            string oldText = messageBox.text;
+            int index = oldText.IndexOf(System.Environment.NewLine);
+            string newText = oldText.Substring(index + System.Environment.NewLine.Length);
+            messageBox.text = newText;
+        }
+        messageBox.gameObject.SetActive(false);
     }
 }
