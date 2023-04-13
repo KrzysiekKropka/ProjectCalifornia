@@ -137,7 +137,7 @@ public class HealthBar : MonoBehaviour
 
     public IEnumerator MessageBoxInterval()
     {
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(5f);
         while(messageBox.text != "")
         {
             yield return new WaitForSecondsRealtime(1f);
