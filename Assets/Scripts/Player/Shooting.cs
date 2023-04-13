@@ -174,7 +174,7 @@ public class Shooting : MonoBehaviour
     {
         for(int i = 0; i < 5; i++)
         {
-            reserveAmmo[i] += maxAmmo[i] / 2;
+            reserveAmmo[i] += maxAmmo[i] / 3;
         }
         healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
         if (currentAmmo[equippedWeaponID] == 0) StartCoroutine(Reload(equippedWeaponID));
