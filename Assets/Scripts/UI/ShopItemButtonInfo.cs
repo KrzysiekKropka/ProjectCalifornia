@@ -18,7 +18,7 @@ public class ShopItemButtonInfo : MonoBehaviour
 
     public void AssignOwnership()
     {
-        if (ShopManager.GetComponent<ShopManager>().shopItems[3, itemID] >= 1)
+        if (ShopManager.GetComponent<ShopManager>().shopItems[3, itemID] == 1)
         {
             quantityText.text = "OWNED!";
         }

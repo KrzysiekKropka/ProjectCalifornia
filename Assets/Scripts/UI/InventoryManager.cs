@@ -25,7 +25,7 @@ public class InventoryManager : MonoBehaviour
     {
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
 
-        if (PlayerPrefs.GetInt("itemQuantity" + ButtonRef.GetComponent<InventoryButtonInfo>().itemID) >= 1)
+        if (PlayerPrefs.GetInt("itemQuantity" + ButtonRef.GetComponent<InventoryButtonInfo>().itemID) == 1)
         {
             equippedWeaponID = ButtonRef.GetComponent<InventoryButtonInfo>().itemID;
             PlayerPrefs.SetInt("equippedWeaponID", equippedWeaponID);

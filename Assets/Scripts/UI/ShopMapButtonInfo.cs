@@ -21,7 +21,7 @@ public class ShopMapButtonInfo : MonoBehaviour
     {
         //if(priceText!=null)
         //{
-            if (ShopManager.GetComponent<ShopManager>().shopMaps[3, itemID] >= 1)
+            if (ShopManager.GetComponent<ShopManager>().shopMaps[3, itemID] == 1)
             {
                 //priceText.text = "";
             }

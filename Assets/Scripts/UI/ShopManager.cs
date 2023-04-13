@@ -130,7 +130,7 @@ public class ShopManager : MonoBehaviour
     public void BuyItem()
     {
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
-        if (player != null && player.money >= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] && shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] < 1)
+        if (player != null && player.money >= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] && shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] != 1)
         {
             player.money -= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID];
             shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] = 1;
@@ -141,7 +141,7 @@ public class ShopManager : MonoBehaviour
 
             player.RefreshShop();
         }
-        else if (money >= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] && shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] < 1)
+        else if (money >= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] && shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID] != 1)
         {
             money -= shopItems[2, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID];
             shopItems[3, ButtonRef.GetComponent<ShopItemButtonInfo>().itemID]=1;
@@ -156,7 +156,7 @@ public class ShopManager : MonoBehaviour
     {
         //kod na kupowanie skillu
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
-        if (player != null && player.experiencePoints >= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] && shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] < 1)
+        if (player != null && player.experiencePoints >= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] && shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] != 1)
         {
             player.experiencePoints -= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID];
             shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] = 1;
@@ -167,7 +167,7 @@ public class ShopManager : MonoBehaviour
 
             player.RefreshShop();
         }
-        else if (xp >= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] && shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] < 1)
+        else if (xp >= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] && shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] != 1)
         {
             xp -= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID];
             shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID]=1;
