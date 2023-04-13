@@ -123,7 +123,7 @@ public class Shooting : MonoBehaviour
         }
         else
         {
-            healthBar.MessageBox("You do not own " + weaponName[weaponID] + "!");
+            healthBar.MessageBox("You don't own " + weaponName[weaponID] + "!");
         }
     }
 
