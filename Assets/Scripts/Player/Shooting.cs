@@ -229,6 +229,7 @@ public class Shooting : MonoBehaviour
             {
                 GameObject bullet1 = Instantiate(bulletPrefab, firePointShotgun1.position, Quaternion.Euler(firePointShotgun1.rotation.eulerAngles + spread));
                 bullet1.GetComponent<Bullet>().weaponID = null;
+                bullet1.GetComponent<Bullet>().playerIsOwner = true;
                 bullet1.GetComponent<Bullet>().bulletDamage = damage;
                 Rigidbody2D rb1 = bullet1.GetComponent<Rigidbody2D>();
                 rb1.AddForce(bullet1.transform.up * bulletForce, ForceMode2D.Impulse);
@@ -236,6 +237,7 @@ public class Shooting : MonoBehaviour
 
                 GameObject bullet2 = Instantiate(bulletPrefab, firePointShotgun2.position, Quaternion.Euler(firePointShotgun2.rotation.eulerAngles + spread));
                 bullet2.GetComponent<Bullet>().weaponID = null;
+                bullet2.GetComponent<Bullet>().playerIsOwner = true;
                 bullet2.GetComponent<Bullet>().bulletDamage = damage;
                 Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
                 rb2.AddForce(bullet2.transform.up * bulletForce, ForceMode2D.Impulse);
@@ -243,6 +245,7 @@ public class Shooting : MonoBehaviour
 
                 GameObject bullet3 = Instantiate(bulletPrefab, firePointShotgun3.position, Quaternion.Euler(firePointShotgun3.rotation.eulerAngles + spread));
                 bullet3.GetComponent<Bullet>().weaponID = null;
+                bullet3.GetComponent<Bullet>().playerIsOwner = true;
                 bullet3.GetComponent<Bullet>().bulletDamage = damage;
                 Rigidbody2D rb3 = bullet3.GetComponent<Rigidbody2D>();
                 rb3.AddForce(bullet3.transform.up * bulletForce, ForceMode2D.Impulse);
@@ -250,6 +253,7 @@ public class Shooting : MonoBehaviour
 
                 GameObject bullet4 = Instantiate(bulletPrefab, firePointShotgun4.position, Quaternion.Euler(firePointShotgun4.rotation.eulerAngles + spread));
                 bullet4.GetComponent<Bullet>().weaponID = null;
+                bullet4.GetComponent<Bullet>().playerIsOwner = true;
                 bullet4.GetComponent<Bullet>().bulletDamage = damage;
                 Rigidbody2D rb4 = bullet4.GetComponent<Rigidbody2D>();
                 rb4.AddForce(bullet4.transform.up * bulletForce, ForceMode2D.Impulse);
