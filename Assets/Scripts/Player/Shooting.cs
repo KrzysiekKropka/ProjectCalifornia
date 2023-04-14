@@ -47,14 +47,14 @@ public class Shooting : MonoBehaviour
         weaponName[0] = "Pistol";
         weaponDamage[0] = 10;
         weaponDelay[0] = 0.35f;
-        reloadTime[0] = 3f;
+        reloadTime[0] = 2f;
         maxAmmo[0] = 17;
         bulletSpread[0] = 2f;
 
         weaponName[1] = "Deagle";
         weaponDamage[1] = 30;
         weaponDelay[1] = 0.5f;
-        reloadTime[1] = 3f;
+        reloadTime[1] = 2f;
         maxAmmo[1] = 7;
         bulletSpread[1] = 0f;
 
@@ -75,7 +75,7 @@ public class Shooting : MonoBehaviour
         weaponName[4] = "AK-47";
         weaponDamage[4] = 16;
         weaponDelay[4] = 0.135f;
-        reloadTime[4] = 5f;
+        reloadTime[4] = 4f;
         maxAmmo[4] = 30;
         bulletSpread[4] = 3f;
 
