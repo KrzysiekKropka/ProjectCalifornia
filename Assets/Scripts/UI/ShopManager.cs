@@ -22,7 +22,7 @@ public class ShopManager : MonoBehaviour
     int money;
     int xp;
 
-    void Start()
+    void Awake()
     {
         AssignNumbers();
 

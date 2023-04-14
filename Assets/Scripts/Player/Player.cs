@@ -65,13 +65,13 @@ public class Player : MonoBehaviour
         NextLevelScreen.isActive = false;
         trailRenderer = GetComponent<TrailRenderer>();
 
-        RefreshShop();
-
         experiencePoints = PlayerPrefs.GetInt("experiencePoints");
         money = PlayerPrefs.GetInt("money");
         equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
         equippedWeaponName = PlayerPrefs.GetString("equippedWeaponName");
         healthBar.SetKills(kills);
+
+        RefreshShop();
 
         currentHealth = maxHealth;
 
