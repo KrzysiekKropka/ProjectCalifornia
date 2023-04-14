@@ -41,7 +41,7 @@ public class EnemyHealthBar : MonoBehaviour
 
     public void SetReloading(bool isReloading)
     {
-        if (isReloading) ammoText.text = "Reloading...";
+        if (isReloading) ammoText.text = "Reloading";
         else ammoText.text = "";
     }
 

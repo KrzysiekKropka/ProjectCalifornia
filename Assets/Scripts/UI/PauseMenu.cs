@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject healthBar;
-    [SerializeField] GameObject settingsPrefab;
+    [SerializeField] GameObject settings;
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject inventoryMenu;
     [SerializeField] GameObject shop;
@@ -19,7 +19,6 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] AudioSource audioSource;
 
     public static bool isPaused;
-    private GameObject settings;
 
     void Start()
     {
@@ -56,7 +55,7 @@ public class PauseMenu : MonoBehaviour
         healthBar.SetActive(true);
         inventoryMenu.SetActive(false);
         shop.SetActive(false);
-        if (settings != null) Destroy(settings);
+        settings.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
@@ -70,12 +69,6 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
-    }
-
-    public void InstantiateSettings()
-    {
-        settings = Instantiate(settingsPrefab);
-        settings.SetActive(true);
     }
 
     public void ButtonClickSound()

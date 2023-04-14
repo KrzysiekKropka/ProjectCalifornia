@@ -74,7 +74,7 @@ public class Shooting : MonoBehaviour
 
         weaponName[4] = "AK-47";
         weaponDamage[4] = 16;
-        weaponDelay[4] = 0.18f;
+        weaponDelay[4] = 0.135f;
         reloadTime[4] = 5f;
         maxAmmo[4] = 30;
         bulletSpread[4] = 3f;

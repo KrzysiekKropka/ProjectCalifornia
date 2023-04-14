@@ -20,7 +20,7 @@ public class SettingsMenu : MonoBehaviour
     private float currentRefreshRate;
     private int currentResolutionIndex = 0;
 
-    void Start()
+    void Awake()
     {
         resolutions = Screen.resolutions;
         filteredResolutions = new List<Resolution>();
@@ -54,10 +54,7 @@ public class SettingsMenu : MonoBehaviour
 
         globalVolume = PlayerPrefs.GetFloat("VolumeValue");
         volumeSlider.value = globalVolume;
-    }
 
-    void OnEnable()
-    {
         if (!Screen.fullScreen)
         {
             fullscreenToggle.isOn = false;
