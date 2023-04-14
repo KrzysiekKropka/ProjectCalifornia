@@ -97,7 +97,24 @@ public class Shooting : MonoBehaviour
         }
 
         equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
-        AssignWeapon(equippedWeaponID);
+
+        healthBar.SetWeaponIcon(equippedWeaponID);
+        healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
+        healthBar.SetReloading(false);
+
+        if (equippedWeaponID < 2)
+        {
+            spriteRenderer.sprite = PlayerPistol;
+        }
+        else
+        {
+            spriteRenderer.sprite = PlayerRifle;
+        }
+
+        if (isReloading[equippedWeaponID])
+        {
+            healthBar.SetReloading(true);
+        }
     }
 
     public void AssignWeapon(int weaponID)
