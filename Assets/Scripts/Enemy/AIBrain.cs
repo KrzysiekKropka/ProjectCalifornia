@@ -14,7 +14,10 @@ public class AIBrain : MonoBehaviour
     [SerializeField] GameObject moneyDropPrefab;
     [SerializeField] GameObject ammoDropPrefab;
     [SerializeField] GameObject medkitPrefab;
+    [SerializeField] DialogueBox dialogue;
     [SerializeField] Rigidbody2D rb;
+
+    private string[] SeekingPlayerDialogue = { "Where is he?", "I lost him!" };
 
     private GameObject player;
     private GameObject damagePopup;
@@ -206,6 +209,7 @@ public class AIBrain : MonoBehaviour
     {
         seekingActivated = false;
         Vector3 location = Vector3.zero;
+        dialogue.Dialogue(SeekingPlayerDialogue[Random.Range(0, SeekingPlayerDialogue.Length)]);
         while(location!=transform.position)
         {
             location = transform.position;
