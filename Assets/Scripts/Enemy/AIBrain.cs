@@ -213,7 +213,7 @@ public class AIBrain : MonoBehaviour
         while(location!=transform.position)
         {
             location = transform.position;
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
         }
         seekingActivated = true;
         float OriginalRotation = rb.rotation;
