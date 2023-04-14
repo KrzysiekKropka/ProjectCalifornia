@@ -12,7 +12,7 @@ public class AudioClipArray
 
 public class Shooting : MonoBehaviour
 {
-    [SerializeField] Transform firePoint, firePointShotgun1, firePointShotgun2;
+    [SerializeField] Transform firePoint, firePointShotgun1, firePointShotgun2, firePointShotgun3, firePointShotgun4;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] GameObject shootPrefab;
     [SerializeField] ShopManager shopManager;
@@ -45,14 +45,14 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         weaponName[0] = "Pistol";
-        weaponDamage[0] = 10;
+        weaponDamage[0] = 8;
         weaponDelay[0] = 0.35f;
         reloadTime[0] = 2f;
         maxAmmo[0] = 17;
         bulletSpread[0] = 2f;
 
         weaponName[1] = "Deagle";
-        weaponDamage[1] = 30;
+        weaponDamage[1] = 32;
         weaponDelay[1] = 0.5f;
         reloadTime[1] = 2f;
         maxAmmo[1] = 7;
@@ -66,14 +66,14 @@ public class Shooting : MonoBehaviour
         bulletSpread[2] = 6f;
 
         weaponName[3] = "Shotgun";
-        weaponDamage[3] = 25;
+        weaponDamage[3] = 20;
         weaponDelay[3] = 1f;
         reloadTime[3] = 6f;
         maxAmmo[3] = 6;
         bulletSpread[3] = 3f;
 
         weaponName[4] = "AK-47";
-        weaponDamage[4] = 16;
+        weaponDamage[4] = 24;
         weaponDelay[4] = 0.135f;
         reloadTime[4] = 4f;
         maxAmmo[4] = 30;
@@ -191,7 +191,7 @@ public class Shooting : MonoBehaviour
     {
         for(int i = 0; i < 5; i++)
         {
-            reserveAmmo[i] += maxAmmo[i] / 3;
+            if(shopManager.shopItems[3, i] == 1) reserveAmmo[i] += maxAmmo[i] / 3;
         }
         healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
         if (currentAmmo[equippedWeaponID] == 0) StartCoroutine(Reload(equippedWeaponID));
@@ -240,6 +240,20 @@ public class Shooting : MonoBehaviour
                 Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
                 rb2.AddForce(bullet2.transform.up * bulletForce, ForceMode2D.Impulse);
                 Destroy(bullet2, 10);
+
+                GameObject bullet3 = Instantiate(bulletPrefab, firePointShotgun3.position, Quaternion.Euler(firePointShotgun3.rotation.eulerAngles + spread));
+                bullet3.GetComponent<Bullet>().weaponID = null;
+                bullet3.GetComponent<Bullet>().bulletDamage = damage;
+                Rigidbody2D rb3 = bullet3.GetComponent<Rigidbody2D>();
+                rb3.AddForce(bullet3.transform.up * bulletForce, ForceMode2D.Impulse);
+                Destroy(bullet3, 10);
+
+                GameObject bullet4 = Instantiate(bulletPrefab, firePointShotgun4.position, Quaternion.Euler(firePointShotgun4.rotation.eulerAngles + spread));
+                bullet4.GetComponent<Bullet>().weaponID = null;
+                bullet4.GetComponent<Bullet>().bulletDamage = damage;
+                Rigidbody2D rb4 = bullet4.GetComponent<Rigidbody2D>();
+                rb4.AddForce(bullet4.transform.up * bulletForce, ForceMode2D.Impulse);
+                Destroy(bullet4, 10);
             }
 
 
