@@ -208,7 +208,7 @@ public class AIBrain : MonoBehaviour
         reacting = true;
         yield return new WaitForSeconds(reactionTime);
         reacting = false;
-        if (!playerDetected) healthBar.Dialogue(FoundPlayerDialogue[Random.Range(0, FoundPlayerDialogue.Length)]);
+        healthBar.Dialogue(FoundPlayerDialogue[Random.Range(0, FoundPlayerDialogue.Length)]);
         seekingActivated = false;
         playerDetected = true;
         playerWasDetected = true;
