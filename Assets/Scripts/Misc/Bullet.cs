@@ -79,7 +79,9 @@ public class Bullet : MonoBehaviour
         }
         else if (bullet)
         {
-            AudioSource.PlayClipAtPoint(bulletHitClip, transform.position, 0.5f);
+            int randomInt = Random.Range(1, 5);
+            bulletHitClip = (AudioClip)Resources.Load("Audio/HitBullet" + randomInt);
+            AudioSource.PlayClipAtPoint(bulletHitClip, transform.position, 1f);
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
             //modifiedBulletDamage = bulletDamage / 2;

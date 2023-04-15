@@ -140,7 +140,7 @@ public class AIBrain : MonoBehaviour
         if (stopFollowCoroutine != null) StopCoroutine(stopFollowCoroutine);
         if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
         if (reactionCoroutine != null && !reacting) StopCoroutine(reactionCoroutine);
-        if (!playerDetected)
+        if (!playerDetected && !reacting)
         {
             reactionCoroutine = ReactionTime();
             StartCoroutine(reactionCoroutine);
