@@ -7,17 +7,17 @@ using Pathfinding;
 
 public class AIBrain : MonoBehaviour
 {
-    [SerializeField] GameObject healthBar;
+    [SerializeField] EnemyHealthBar healthBar;
     [SerializeField] GameObject bloodPoolEffect;
     [SerializeField] GameObject deadBody;
     [SerializeField] GameObject damagePopupPrefab;
     [SerializeField] GameObject moneyDropPrefab;
     [SerializeField] GameObject ammoDropPrefab;
     [SerializeField] GameObject medkitPrefab;
-    [SerializeField] DialogueBox dialogue;
     [SerializeField] Rigidbody2D rb;
 
-    private string[] SeekingPlayerDialogue = { "Where is he?", "I lost him!" };
+    private string[] SeekPlayerDialogue = { "Where are they?", "I lost them!", "I lost sight!" };
+    private string[] FoundPlayerDialogue = { "Here they are!", "Found them!", "You're going down!", "You're dead!", "You're screwed!" };
 
     private GameObject player;
     private GameObject damagePopup;
@@ -72,6 +72,7 @@ public class AIBrain : MonoBehaviour
 
         if(forgetPlayerTimer>0)forgetPlayerTimer -= Time.deltaTime;
         Colliders = Physics2D.OverlapCircleAll(transform.position, 10f);
+
         if (playerDetected && forgetPlayerTimer>notifyOthersCooldown && Colliders.Length > 0)
         {
             foreach (Collider2D Enemy in Colliders)
@@ -133,6 +134,7 @@ public class AIBrain : MonoBehaviour
     {
         if (stopFollowCoroutine != null) StopCoroutine(stopFollowCoroutine);
         if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
+        if (!playerDetected) healthBar.Dialogue(FoundPlayerDialogue[Random.Range(0, FoundPlayerDialogue.Length)]);
         forgetPlayerTimer = forgetPlayer;
         seekingActivated = false;
         playerDetected = true;
@@ -146,7 +148,7 @@ public class AIBrain : MonoBehaviour
         if (!shotBefore)
         {
             currentHealth = maxHealth;
-            healthBar.GetComponent<EnemyHealthBar>().SetMaxHealth(maxHealth);
+            healthBar.SetMaxHealth(maxHealth);
             shotBefore = true;
         }
         currentHealth -= damage;
@@ -173,8 +175,7 @@ public class AIBrain : MonoBehaviour
             deadBody.SetActive(true);
             deadBody.GetComponent<DeadBodyFollow>().DeadBodyPosition(gameObject.GetComponent<AIShooting>().equippedWeaponID);
             Destroy(gameObject);
-            Destroy(healthBar);
-            Destroy(dialogue.gameObject);
+            Destroy(healthBar.gameObject);
             if (Time.time - currentTimeBloodPool > .01f)
             {
                 if (player)
@@ -191,7 +192,7 @@ public class AIBrain : MonoBehaviour
                 currentTimeBloodPool = Time.time;
             }
         }
-        healthBar.GetComponent<EnemyHealthBar>().SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth);
         currentTime = Time.time;
     }
 
@@ -210,7 +211,7 @@ public class AIBrain : MonoBehaviour
     {
         seekingActivated = false;
         Vector3 location = Vector3.zero;
-        dialogue.Dialogue(SeekingPlayerDialogue[Random.Range(0, SeekingPlayerDialogue.Length)]);
+        healthBar.Dialogue(SeekPlayerDialogue[Random.Range(0, SeekPlayerDialogue.Length)]);
         while(location!=transform.position)
         {
             location = transform.position;

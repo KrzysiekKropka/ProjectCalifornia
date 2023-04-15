@@ -8,14 +8,18 @@ public class EnemyHealthBar : MonoBehaviour
 {
     [SerializeField] Transform enemy;
     [SerializeField] Slider slider;
+    [SerializeField] TMP_Text dialogueText;
     [SerializeField] TMP_Text healthText;
     [SerializeField] TMP_Text ammoText;
     [SerializeField] GameObject healthBar;
+
+    private IEnumerator dialogueCoroutine;
 
     Vector3 offset = new Vector3(0f, 1.33f, 0f);
 
     void Start()
     {
+        dialogueText.gameObject.SetActive(false);
         transform.Rotate(0, 0, 0);
     }
 
@@ -48,5 +52,20 @@ public class EnemyHealthBar : MonoBehaviour
     public void SetAmmo(int currentAmmo)
     {
         ammoText.text = currentAmmo + "<sprite=0>";
+    }
+
+    public void Dialogue(string text)
+    {
+        dialogueText.gameObject.SetActive(true);
+        dialogueText.text = text;
+        if (dialogueCoroutine != null) StopCoroutine(dialogueCoroutine);
+        dialogueCoroutine = DialogueInterval();
+        StartCoroutine(dialogueCoroutine);
+    }
+
+    private IEnumerator DialogueInterval()
+    {
+        yield return new WaitForSeconds(2.5f);
+        dialogueText.gameObject.SetActive(false);
     }
 }
