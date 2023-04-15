@@ -10,7 +10,7 @@ public class DialogueBox : MonoBehaviour
 
     private IEnumerator dialogueCoroutine;
 
-    Vector3 offset = new Vector3(0f, 3f, 0f);
+    Vector3 offset = new Vector3(0f, 3.25f, 0f);
 
     void Start()
     {

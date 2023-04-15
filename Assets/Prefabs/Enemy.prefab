@@ -573,6 +573,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueBox
       objectReference: {fileID: 0}
+    - target: {fileID: 4218557936155687681, guid: ecba78d3fcfdc4b4191ee14bf124e306, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218557936155687681, guid: ecba78d3fcfdc4b4191ee14bf124e306, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580459665443087685, guid: ecba78d3fcfdc4b4191ee14bf124e306, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647946187071621004, guid: ecba78d3fcfdc4b4191ee14bf124e306, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 4647946187071621004, guid: ecba78d3fcfdc4b4191ee14bf124e306, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3372220415
+      objectReference: {fileID: 0}
     - target: {fileID: 8840567864883433854, guid: ecba78d3fcfdc4b4191ee14bf124e306, type: 3}
       propertyPath: enemy
       value: 
