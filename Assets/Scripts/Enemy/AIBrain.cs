@@ -16,8 +16,10 @@ public class AIBrain : MonoBehaviour
     [SerializeField] GameObject medkitPrefab;
     [SerializeField] Rigidbody2D rb;
 
-    private string[] SeekPlayerDialogue = { "Where are they?", "I lost them!", "I lost sight!", "Where did they hide?" };
-    private string[] FoundPlayerDialogue = { "Here they are!", "Found them!", "You're going down!", "You're dead!", "You're screwed!" };
+    private string[] SeekPlayerDialogue = { "Where are they?", "I lost them!", "I lost sight!", "Where did they hide?", "Dammit!", "They're gone!", "You can run, but you can't hide!" };
+
+    private string[] FoundPlayerDialogue = { "Here they are!", "Found them!", "You're going down!", "You're dead!", "You're screwed!", "Enemy spotted!",
+                                             "Back by popular demand!", "What's the word, Bruce?", "Yo yo yo!", "Dude stop!", "Yo, dude stop!", "Hump day!" };
 
     private GameObject player;
     private GameObject damagePopup;

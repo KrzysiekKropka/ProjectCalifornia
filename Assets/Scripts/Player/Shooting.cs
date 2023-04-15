@@ -203,7 +203,7 @@ public class Shooting : MonoBehaviour
         if (canShootGlobal && canShoot[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && !isReloading[equippedWeaponID] && !PauseMenu.isPaused && !Player.inInventory && !NextLevelScreen.isActive)
         {
             float currentWeaponSpread = bulletSpread[equippedWeaponID];
-            if (gameObject.GetComponent<Player>().canBetterAim) currentWeaponSpread *= 0.33f;
+            if (gameObject.GetComponent<Player>().canBetterAim) currentWeaponSpread *= 0.5f;
             if (gameObject.GetComponent<Player>().isSprinting) currentWeaponSpread *= 2;
             if (gameObject.GetComponent<Player>().isDashing) currentWeaponSpread *= 2;
 
