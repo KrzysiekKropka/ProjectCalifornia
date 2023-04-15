@@ -32,6 +32,7 @@ public class AIBrain : MonoBehaviour
     public bool playerDetected = false;
     bool playerWasDetected = false;
     bool shotBefore = false;
+    bool reacting = false;
 
     int currentHealth;
 
@@ -44,7 +45,8 @@ public class AIBrain : MonoBehaviour
     public int dropHP;
     int summedDamage;
     float currentTime, currentTimeBloodPool;
-    float rotationSpeed = 0.25f;
+    float reactionTime = 0.1f;
+    float rotationSpeed = 0.2f;
     float aimAngle;
 
     RaycastHit hit;
@@ -54,6 +56,7 @@ public class AIBrain : MonoBehaviour
 
     private IEnumerator stopFollowCoroutine;
     private IEnumerator seekPlayerCoroutine;
+    private IEnumerator reactionCoroutine;
     bool seekingActivated;
 
     Collider2D[] Colliders;
@@ -136,11 +139,13 @@ public class AIBrain : MonoBehaviour
     {
         if (stopFollowCoroutine != null) StopCoroutine(stopFollowCoroutine);
         if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
-        if (!playerDetected) healthBar.Dialogue(FoundPlayerDialogue[Random.Range(0, FoundPlayerDialogue.Length)]);
+        if (reactionCoroutine != null && !reacting) StopCoroutine(reactionCoroutine);
+        if (!playerDetected)
+        {
+            reactionCoroutine = ReactionTime();
+            StartCoroutine(reactionCoroutine);
+        }
         forgetPlayerTimer = forgetPlayer;
-        seekingActivated = false;
-        playerDetected = true;
-        playerWasDetected = true;
         stopFollowCoroutine = StopFollowing();
         StartCoroutine(stopFollowCoroutine);
     }
@@ -196,6 +201,17 @@ public class AIBrain : MonoBehaviour
         }
         healthBar.SetHealth(currentHealth);
         currentTime = Time.time;
+    }
+
+    IEnumerator ReactionTime()
+    {
+        reacting = true;
+        yield return new WaitForSeconds(reactionTime);
+        reacting = false;
+        if (!playerDetected) healthBar.Dialogue(FoundPlayerDialogue[Random.Range(0, FoundPlayerDialogue.Length)]);
+        seekingActivated = false;
+        playerDetected = true;
+        playerWasDetected = true;
     }
 
     IEnumerator StopFollowing()
