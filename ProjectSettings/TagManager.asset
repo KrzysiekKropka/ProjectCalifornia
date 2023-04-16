@@ -12,6 +12,7 @@ TagManager:
   - PlayerBullet
   - LevelUnlocker
   - NextLevelTrigger
+  - HealthBar
   layers:
   - Default
   - TransparentFX
