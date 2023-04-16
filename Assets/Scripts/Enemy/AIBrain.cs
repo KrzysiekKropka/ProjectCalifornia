@@ -237,6 +237,7 @@ public class AIBrain : MonoBehaviour
             yield return new WaitForSeconds(3);
         }
         seekingActivated = true;
+        ai.destination = transform.position;
         float OriginalRotation = rb.rotation;
         float i = 0;
         while (true)
