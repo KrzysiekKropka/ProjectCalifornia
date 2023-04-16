@@ -16,10 +16,13 @@ public class AIBrain : MonoBehaviour
     [SerializeField] GameObject medkitPrefab;
     [SerializeField] Rigidbody2D rb;
 
-    private string[] SeekPlayerDialogue = { "Where are they?", "I lost them!", "I lost sight!", "Where did they hide?", "Dammit!", "They're gone!", "You can run, but you can't hide!" };
+    private string[] SeekPlayerDialogue = { "Where are they?", "I lost them!", "I lost sight!", "Where did they hide?", "Dammit!", "They're gone!", "You can run, but you can't hide!",
+                                            "Come on, man!", "I can't take this shit no more man!", "Oh my lord!", "This is not even funny bro!", "I'm trying to get a payment check here!",
+                                            "Huh?!", "They must have slipped away!", "I want to be dominated right now."};
 
     private string[] FoundPlayerDialogue = { "Here they are!", "Found them!", "You're going down!", "You're dead!", "You're screwed!", "Enemy spotted!",
-                                             "Back by popular demand!", "What's the word, Bruce?", "Yo yo yo!", "Dude stop!", "Yo, dude stop!", "Hump day!" };
+                                             "Back by popular demand!", "What's the word, Bruce?", "Yo yo yo!", "Dude stop!", "Yo, dude stop!", "Hump day!", 
+                                             "Self pleasure does not make you gay!", "I will knock you out!", "You can do the thug shaker?", "Gimme the thug shaker!", "Daddy, I'm coming!" };
 
     private GameObject player;
     private GameObject damagePopup;
