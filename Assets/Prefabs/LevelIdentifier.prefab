@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2926710702785506387}
   - component: {fileID: 4663250087213461514}
   m_Layer: 0
-  m_Name: LevelUnlocker
+  m_Name: LevelIdentifier
   m_TagString: LevelUnlocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
