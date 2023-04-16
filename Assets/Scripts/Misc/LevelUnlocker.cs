@@ -5,6 +5,8 @@ using UnityEngine;
 public class LevelUnlocker : MonoBehaviour
 {
     [SerializeField] GameObject ShopManager;
+
+    public int levelID;
     [SerializeField] int[] ToUnlock;
 
     public void UnlockLevels()
