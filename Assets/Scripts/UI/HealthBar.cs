@@ -8,6 +8,8 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField] Slider slider;
     [SerializeField] Slider staminaSlider;
+    [SerializeField] AudioClip messageBoxClip;
+    [SerializeField] AudioSource audioSource;
     [SerializeField] Image weaponIcon;
     [SerializeField] TMP_Text healthText;
     [SerializeField] TMP_Text experiencePointsText;
@@ -123,6 +125,7 @@ public class HealthBar : MonoBehaviour
     {
         messageBox.text += message + "\r\n";
         messageBox.gameObject.SetActive(true);
+        audioSource.PlayOneShot(messageBoxClip);
         if (messageBox.textInfo.lineCount >= 10)
         {
             string oldText = messageBox.text;
@@ -147,6 +150,5 @@ public class HealthBar : MonoBehaviour
             messageBox.text = newText;
         }
         messageBox.gameObject.SetActive(false);
-        messageBox.text = "";
     }
 }
