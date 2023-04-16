@@ -17,7 +17,7 @@ public class AIBrain : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
 
     private string[] SeekPlayerDialogue = { "Where are they?", "I lost them!", "I lost sight!", "Where did they hide?", "Dammit!", "They're gone!", "You can run,\nbut you can't hide!",
-                                            "Come on, man!", "I can't take this shit\nno more man!", "Oh my lord!", "This is not even funny bro!", "I'm trying to get a\npayment check here!",
+                                            "Come on, man!", "I can't take this shit\nno more man!", "Oh my lord!", "This is not\neven funny bro!", "I'm trying to get a\npayment check here!",
                                             "Huh?!", "They must have\nslipped away!", "I want to be dominated\nright now."};
 
     private string[] FoundPlayerDialogue = { "Here they are!", "Found them!", "You're going down!", "You're dead!", "You're screwed!", "Enemy spotted!",
