@@ -71,7 +71,7 @@ public class Bullet : MonoBehaviour
             {
                 effect.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 0;
             }
-            else
+            else if (playerIsOwner && playerYPosition < transform.position.y)
             {
                 effect.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 1;
             }

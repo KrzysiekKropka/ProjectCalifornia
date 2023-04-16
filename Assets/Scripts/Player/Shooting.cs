@@ -82,7 +82,6 @@ public class Shooting : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             weaponAudioClips[i].clips = Resources.LoadAll<AudioClip>("Audio/Weapons/" + weaponName[i]);
-            //bulletSpread[i] = bulletSpread[i] * Mathf.Pow(0.75f, betterAim);
         }
 
         screenShake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<ScreenShake>();
@@ -259,7 +258,6 @@ public class Shooting : MonoBehaviour
                 rb4.AddForce(bullet4.transform.up * bulletForce, ForceMode2D.Impulse);
                 Destroy(bullet4, 10);
             }
-
 
             if (currentAmmo[equippedWeaponID] == 0 && reserveAmmo[equippedWeaponID] == 0)
             {
