@@ -79,7 +79,7 @@ public class AIBrain : MonoBehaviour
         if(forgetPlayerTimer>0)forgetPlayerTimer -= Time.deltaTime;
         Colliders = Physics2D.OverlapCircleAll(transform.position, 10f);
 
-        if (playerDetected && forgetPlayerTimer>notifyOthersCooldown && Colliders.Length > 0)
+        if (Colliders.Length > 0 && playerDetected && forgetPlayerTimer>notifyOthersCooldown)
         {
             foreach (Collider2D Enemy in Colliders)
             {

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -41,6 +41,8 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+
+    //KK: Ten kod jest bardzo janky. Mogłem to lepiej zrobić, ale jest to bardzo stary kod i w sumie działa.
     public void AssignNames()
     {
         switch (equippedWeaponID)
