@@ -122,7 +122,7 @@ public class SettingsMenu : MonoBehaviour
     public void MusicSlider()
     {
         musicVolume = musicVolumeSlider.value;
-        if(GameObject.FindWithTag("LevelUnlocker"))GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().musicVolume = musicVolume;
+        if (GameObject.FindWithTag("LevelUnlocker")) GameObject.FindWithTag("LevelUnlocker").GetComponent<AudioSource>().volume = musicVolume;
         PlayerPrefs.SetFloat("MusicVolumeValue", musicVolume);
     }
 }

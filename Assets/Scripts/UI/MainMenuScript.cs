@@ -21,7 +21,7 @@ public class MainMenuScript : MonoBehaviour
             PlayerPrefs.SetFloat("VolumeValue", 0.5f);
         };
 
-        if (!PlayerPrefs.HasKey("MusicVolumeValue")) PlayerPrefs.SetFloat("MusicVolumeValue", 0.5f);
+        if (!PlayerPrefs.HasKey("MusicVolumeValue")) PlayerPrefs.SetFloat("MusicVolumeValue", 0.025f);
     }
 
     public void PlayGame(int level)

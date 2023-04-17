@@ -7,13 +7,15 @@ public class LevelUnlocker : MonoBehaviour
     [SerializeField] GameObject ShopManager;
 
     public int levelID;
-    public float musicVolume;
+    [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip[] musicClips;
     [SerializeField] int[] ToUnlock;
 
     void Start()
     {
-        musicVolume = PlayerPrefs.GetFloat("MusicVolumeValue");
+        audioSource.clip = musicClips[levelID];
+        audioSource.volume = PlayerPrefs.GetFloat("MusicVolumeValue");
+        audioSource.Play();
     }
 
     public void UnlockLevels()
