@@ -1400,9 +1400,17 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 5941050457226436469}
+    - target: {fileID: 2103629072730652549, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
+      propertyPath: ShopManager
+      value: 
+      objectReference: {fileID: 3410051807388556082}
     - target: {fileID: 2103629072946906952, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
       propertyPath: m_Name
       value: Inventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103629072946906952, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2103629072946906953, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
       propertyPath: m_Pivot.x
@@ -1508,14 +1516,26 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 5941050457226436469}
+    - target: {fileID: 2103629073025997646, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
+      propertyPath: ShopManager
+      value: 
+      objectReference: {fileID: 3410051807388556082}
     - target: {fileID: 2103629073048431319, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 5941050457226436469}
+    - target: {fileID: 2103629073048431319, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
+      propertyPath: ShopManager
+      value: 
+      objectReference: {fileID: 3410051807388556082}
     - target: {fileID: 2103629073706900630, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 5941050457226436469}
+    - target: {fileID: 2103629073706900630, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
+      propertyPath: ShopManager
+      value: 
+      objectReference: {fileID: 3410051807388556082}
     - target: {fileID: 2103629073776151090, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1523,6 +1543,10 @@ PrefabInstance:
     - target: {fileID: 2103629073776151090, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238729314299041320, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7014435434551136423, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
       propertyPath: m_IsActive
