@@ -14,7 +14,7 @@ public class CameraFollow : MonoBehaviour
     Vector3 velocity = Vector3.zero;
     Vector3 targetPosition;
 
-    void Update()
+    void LateUpdate()
     {
         Vector3 mousePos = Input.mousePosition * maxScreenPoint + new Vector3(Screen.width, Screen.height, 0f) * ((1f - maxScreenPoint) * 0.5f);
         targetPosition = (player.position + Camera.main.ScreenToWorldPoint(mousePos)) / 2f + offset;
