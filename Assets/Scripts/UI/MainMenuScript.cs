@@ -20,6 +20,15 @@ public class MainMenuScript : MonoBehaviour
             AudioListener.volume = 0.5f;
             PlayerPrefs.SetFloat("VolumeValue", 0.5f);
         };
+
+        if (PlayerPrefs.HasKey("MusicVolumeValue"))
+        {
+
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("MusicVolumeValue", 0.5f);
+        };
     }
 
     public void PlayGame(int level)

@@ -9,6 +9,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] TMP_Dropdown resolutionDropdown;
 
     [SerializeField] Slider volumeSlider;
+    [SerializeField] Slider musicVolumeSlider;
     [SerializeField] Toggle fullscreenToggle;
     [SerializeField] AudioClip buttonClickClip;
     [SerializeField] AudioSource audioSource;
@@ -17,6 +18,7 @@ public class SettingsMenu : MonoBehaviour
     private List<Resolution> filteredResolutions;
 
     private float globalVolume;
+    private float musicVolume;
     private float currentRefreshRate;
     private int currentResolutionIndex = 0;
 
@@ -54,6 +56,9 @@ public class SettingsMenu : MonoBehaviour
 
         globalVolume = PlayerPrefs.GetFloat("VolumeValue");
         volumeSlider.value = globalVolume;
+
+        musicVolume = PlayerPrefs.GetFloat("MusicVolumeValue");
+        musicVolumeSlider.value = musicVolume;
 
         if (!Screen.fullScreen)
         {
@@ -112,5 +117,11 @@ public class SettingsMenu : MonoBehaviour
         globalVolume = volumeSlider.value;
         AudioListener.volume = globalVolume;
         PlayerPrefs.SetFloat("VolumeValue", globalVolume);
+    }
+
+    public void MusicSlider()
+    {
+        musicVolume = musicVolumeSlider.value;
+        PlayerPrefs.SetFloat("MusicVolumeValue", musicVolume);
     }
 }
