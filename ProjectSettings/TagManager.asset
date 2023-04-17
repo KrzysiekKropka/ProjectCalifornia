@@ -80,3 +80,6 @@ TagManager:
   - name: UI
     uniqueID: 3397181279
     locked: 0
+  - name: CameraUI
+    uniqueID: 2988256481
+    locked: 0
