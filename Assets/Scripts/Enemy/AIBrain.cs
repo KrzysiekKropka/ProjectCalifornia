@@ -49,7 +49,7 @@ public class AIBrain : MonoBehaviour
     int summedDamage;
     float currentTime, currentTimeBloodPool;
     float reactionTime = 0.15f;
-    float rotationSpeed = 0.15f;
+    float rotationSpeed = 0.25f;
     float aimAngle;
 
     RaycastHit hit;
