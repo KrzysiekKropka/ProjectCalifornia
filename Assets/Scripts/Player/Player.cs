@@ -147,7 +147,7 @@ public class Player : MonoBehaviour
         if (isSprinting && remainingStamina > 0)
         {
             rb.velocity = new Vector2(moveDirection.x * sprintingSpeed, moveDirection.y * sprintingSpeed);
-            if (!isDashing) remainingStamina -= 6*Time.deltaTime;
+            if (!isDashing) remainingStamina -= 6 * Time.deltaTime;
             if (remainingStamina <= 0) StartCoroutine(SprintCooldown());
         }
         else
@@ -178,7 +178,7 @@ public class Player : MonoBehaviour
                 dashingSpree = 0;
                 isDashing = true;
                 trailRenderer.emitting = true;
-                remainingStamina -= 1.5f;
+                remainingStamina -= 2.5f;
                 AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
             }
             else if (dashingSpree < 2)
@@ -186,7 +186,7 @@ public class Player : MonoBehaviour
                 dashingSpree++;
                 isDashing = true;
                 trailRenderer.emitting = true;
-                remainingStamina -= 1.5f;
+                remainingStamina -= 2.5f;
                 AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
             }
             else
