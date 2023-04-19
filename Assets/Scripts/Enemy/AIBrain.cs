@@ -72,12 +72,16 @@ public class AIBrain : MonoBehaviour
         player.GetComponent<Player>().AddEnemy();
         ai.maxSpeed = speed;
         aimAngle = rb.rotation;
+
+        if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
+        seekPlayerCoroutine = SeekingPlayer();
+        StartCoroutine(seekPlayerCoroutine);
     }
 
     void Update()
     {
         if(forgetPlayerTimer>0)forgetPlayerTimer -= Time.deltaTime;
-        Colliders = Physics2D.OverlapCircleAll(transform.position, 10f);
+        Colliders = Physics2D.OverlapCircleAll(transform.position, 12.5f);
 
         if (Colliders.Length > 0 && playerDetected && forgetPlayerTimer>notifyOthersCooldown)
         {
@@ -219,6 +223,7 @@ public class AIBrain : MonoBehaviour
     {
         yield return new WaitForSeconds(forgetPlayer);
         playerDetected = false;
+        healthBar.Dialogue(SeekPlayerDialogue[Random.Range(0, SeekPlayerDialogue.Length)]);
         if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
         seekPlayerCoroutine = SeekingPlayer();
         StartCoroutine(seekPlayerCoroutine);
@@ -230,7 +235,6 @@ public class AIBrain : MonoBehaviour
     {
         seekingActivated = false;
         Vector3 location = Vector3.zero;
-        healthBar.Dialogue(SeekPlayerDialogue[Random.Range(0, SeekPlayerDialogue.Length)]);
         while(location!=transform.position)
         {
             location = transform.position;
