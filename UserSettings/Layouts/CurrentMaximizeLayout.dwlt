@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 21905
+  controlID: 22423
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 21906
+  controlID: 22424
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 21907
+  controlID: 22425
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -186,8 +186,8 @@ MonoBehaviour:
     y: 0
     width: 286.4
     height: 606.4
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -224,8 +224,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: debf0200
-      m_LastClickedID: 180190
+      m_SelectedIDs: de210000
+      m_LastClickedID: 0
       m_ExpandedIDs: 00bcf9ffccbcf9ffdcbcf9ff72c2f9ff76c2f9ff7ac2f9ff88cdf9ff04d4f9ff7cd5f9ff92f0f9ff36f1f9ff46f1f9fff8f6f9fffcf6f9ff00f7f9ffe002faff8609fafffe0afaff9c2bfaff1c2ffaffc02ffaff3232faffe837fafff037fafff837faffdc43faff864afaff0a4cfaff3684faff0691faff30c2faffaefcfaffb204fbff0632fbff1a45fbffac39fcff9488fcff8891fcff9eb8fcffa0f3fcff221afdff9c25fdff9842fdffa82afffffcfafffffefaffff12f000004ad2010030d30100f8d3010098d401005ed50100ae230200082502008e250200b6250200f8260200da7702000ac10200
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -888,22 +888,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts/Enemy
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts/Enemy
   m_LastFoldersGridSize: -1
   m_LastProjectPath: B:\Inne\Documents\GitHub\ProjectCalifornia
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 168d0000
-    m_LastClickedID: 36118
-    m_ExpandedIDs: 00000000ea8c000000ca9a3b
+    m_SelectedIDs: 9e910000
+    m_LastClickedID: 37278
+    m_ExpandedIDs: 00000000ea8c00001c8d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -956,9 +956,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: debf0200
-    m_LastClickedInstanceID: 180190
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: de210000
+    m_LastClickedInstanceID: 8670
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000429100007c9d000094b2000000000000cc7101001e7c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1034,8 +1034,8 @@ MonoBehaviour:
     y: 0
     width: 748.80005
     height: 996.4
-  m_MinSize: {x: 276, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
