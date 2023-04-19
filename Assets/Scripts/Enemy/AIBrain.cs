@@ -39,9 +39,9 @@ public class AIBrain : MonoBehaviour
 
     int currentHealth;
 
-    float forgetPlayer = 5;
+    float forgetPlayer = 3f;
     float forgetPlayerTimer;
-    float notifyOthersCooldown = 3;
+    float notifyOthersCooldown = 1.5f;
 
     public int dropXP;
     public int dropMoney;

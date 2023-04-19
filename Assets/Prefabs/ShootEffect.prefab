@@ -156,9 +156,9 @@ MonoBehaviour:
   m_FalloffIntensity: 1
   m_Color: {r: 1, g: 0.8000001, b: 0, a: 1}
   m_Intensity: 1
-  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensity: 0.25
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 37964847570a8b86b3664c7c0fd327bb
+  m_ApplyToSortingLayers: 37964847570a8b86b3664c7c0fd327bb45af1491
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -168,8 +168,8 @@ MonoBehaviour:
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
   m_ShadowIntensityEnabled: 0
-  m_ShadowIntensity: 0.75
-  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowIntensity: 1
+  m_ShadowVolumeIntensityEnabled: 1
   m_ShadowVolumeIntensity: 0.75
   m_Vertices:
   - position: {x: 0.9985302, y: 0.9985302, z: 0}
