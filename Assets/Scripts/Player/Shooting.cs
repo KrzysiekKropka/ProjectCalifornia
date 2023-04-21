@@ -45,7 +45,7 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         weaponName[0] = "Pistol";
-        weaponDamage[0] = 8;
+        weaponDamage[0] = 10;
         weaponDelay[0] = 0.35f;
         reloadTime[0] = 2f;
         maxAmmo[0] = 17;
@@ -59,7 +59,7 @@ public class Shooting : MonoBehaviour
         bulletSpread[1] = 0f;
 
         weaponName[2] = "MP5";
-        weaponDamage[2] = 8;
+        weaponDamage[2] = 10;
         weaponDelay[2] = 0.09f;
         reloadTime[2] = 4f; 
         maxAmmo[2] = 60;
@@ -70,14 +70,14 @@ public class Shooting : MonoBehaviour
         weaponDelay[3] = 1f;
         reloadTime[3] = 4f;
         maxAmmo[3] = 5;
-        bulletSpread[3] = 3f;
+        bulletSpread[3] = 4f;
 
         weaponName[4] = "AK-47";
-        weaponDamage[4] = 24;
+        weaponDamage[4] = 20;
         weaponDelay[4] = 0.135f;
         reloadTime[4] = 4f;
         maxAmmo[4] = 40;
-        bulletSpread[4] = 3f;
+        bulletSpread[4] = 4f;
 
         for (int i = 0; i < 5; i++)
         {
