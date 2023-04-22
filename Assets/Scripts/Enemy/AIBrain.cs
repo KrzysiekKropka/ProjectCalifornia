@@ -238,7 +238,7 @@ public class AIBrain : MonoBehaviour
         while(location!=transform.position)
         {
             location = transform.position;
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(3f);
         }
         seekingActivated = true;
         ai.destination = transform.position;
@@ -246,7 +246,6 @@ public class AIBrain : MonoBehaviour
         float i = 0;
         while (true)
         {
-            i = 0;
             while (i < 1)
             {
                 rb.rotation = Mathf.LerpAngle(rb.rotation, OriginalRotation + 50, 0.03f);
@@ -254,12 +253,15 @@ public class AIBrain : MonoBehaviour
                 yield return new WaitForSeconds(0.01f);
             }
             i = 0;
+            yield return new WaitForSeconds(1f);
             while (i < 1)
             {
                 rb.rotation = Mathf.LerpAngle(rb.rotation, OriginalRotation - 50, 0.03f);
                 i += Time.deltaTime;
                 yield return new WaitForSeconds(0.01f);
             }
+            i = 0;
+            yield return new WaitForSeconds(1f);
         }
     }
 }
