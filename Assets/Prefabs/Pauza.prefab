@@ -1760,7 +1760,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.825
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1797,9 +1797,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 7449026929169845563}
   healthBar: {fileID: 0}
-  settingsPrefab: {fileID: 6651287304483298214, guid: ff13a437240001d4b8a9097097794745, type: 3}
+  settings: {fileID: 0}
   inventory: {fileID: 0}
   inventoryMenu: {fileID: 0}
+  shop: {fileID: 0}
   buttonClickClip: {fileID: 8300000, guid: ce929f9656fa84541b14e1badb89d0e4, type: 3}
   audioSource: {fileID: 1257784151924085121}
 --- !u!82 &1257784151924085121
