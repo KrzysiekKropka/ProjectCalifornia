@@ -21,7 +21,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] AudioClip EmptyMagClip, EmptyEverythingClip, AmmoDropClip;
     private SpriteRenderer spriteRenderer;
 
-    public ScreenShake screenShake;
+    private ScreenShake screenShake;
 
     bool canShootGlobal = true;
     bool[] canShoot = new bool[5];
@@ -30,10 +30,11 @@ public class Shooting : MonoBehaviour
     string[] weaponName = new string[5];
     float bulletForce = 20f;
     float currentTime;
-    public float[] bulletSpread = new float[5];
+    float[] bulletSpread = new float[5];
+    float[] runningBulletSpread = new float[5];
     float[] weaponDelay = new float[5];
     float[] reloadTime = new float[5];
-    public int equippedWeaponID;
+    int equippedWeaponID;
     public int[] currentAmmo = new int[5];
     public int[] reserveAmmo = new int[5];
     int[] weaponDamage = new int[5];
@@ -50,6 +51,7 @@ public class Shooting : MonoBehaviour
         reloadTime[0] = 2f;
         maxAmmo[0] = 17;
         bulletSpread[0] = 2f;
+        runningBulletSpread[0] = 4f;
 
         weaponName[1] = "Deagle";
         weaponDamage[1] = 32;
@@ -57,13 +59,15 @@ public class Shooting : MonoBehaviour
         reloadTime[1] = 2f;
         maxAmmo[1] = 8;
         bulletSpread[1] = 0f;
+        runningBulletSpread[1] = 2f;
 
         weaponName[2] = "MP5";
         weaponDamage[2] = 10;
-        weaponDelay[2] = 0.09f;
+        weaponDelay[2] = 0.07f;
         reloadTime[2] = 4f; 
         maxAmmo[2] = 60;
         bulletSpread[2] = 6f;
+        runningBulletSpread[2] = 9f;
 
         weaponName[3] = "Shotgun";
         weaponDamage[3] = 25;
@@ -71,13 +75,15 @@ public class Shooting : MonoBehaviour
         reloadTime[3] = 4f;
         maxAmmo[3] = 5;
         bulletSpread[3] = 4f;
+        runningBulletSpread[3] = 12f;
 
         weaponName[4] = "AK-47";
         weaponDamage[4] = 20;
-        weaponDelay[4] = 0.135f;
+        weaponDelay[4] = 0.14f;
         reloadTime[4] = 4f;
         maxAmmo[4] = 40;
         bulletSpread[4] = 4f;
+        runningBulletSpread[4] = 24f;
 
         for (int i = 0; i < 5; i++)
         {
@@ -201,10 +207,10 @@ public class Shooting : MonoBehaviour
     {
         if (canShootGlobal && canShoot[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && !isReloading[equippedWeaponID] && !PauseMenu.isPaused && !Player.inInventory && !NextLevelScreen.isActive)
         {
-            float currentWeaponSpread = bulletSpread[equippedWeaponID];
+            float currentWeaponSpread;
+            if (gameObject.GetComponent<Player>().isSprinting || gameObject.GetComponent<Player>().isDashing) currentWeaponSpread = runningBulletSpread[equippedWeaponID];
+            else currentWeaponSpread = bulletSpread[equippedWeaponID];
             if (gameObject.GetComponent<Player>().canBetterAim) currentWeaponSpread *= 0.5f;
-            if (gameObject.GetComponent<Player>().isSprinting) currentWeaponSpread *= 2;
-            if (gameObject.GetComponent<Player>().isDashing) currentWeaponSpread *= 2;
 
             canShoot[equippedWeaponID] = false;
             int damage = Random.Range(weaponDamage[equippedWeaponID] - 5, weaponDamage[equippedWeaponID] + 3);
