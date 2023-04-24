@@ -46,16 +46,16 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         weaponName[0] = "Pistol";
-        weaponDamage[0] = 10;
-        weaponDelay[0] = 0.35f;
+        weaponDamage[0] = 16;
+        weaponDelay[0] = 0.25f;
         reloadTime[0] = 2f;
-        maxAmmo[0] = 17;
+        maxAmmo[0] = 21;
         bulletSpread[0] = 2f;
         runningBulletSpread[0] = 4f;
 
         weaponName[1] = "Deagle";
         weaponDamage[1] = 32;
-        weaponDelay[1] = 0.5f;
+        weaponDelay[1] = 0.375f;
         reloadTime[1] = 2f;
         maxAmmo[1] = 8;
         bulletSpread[1] = 0f;

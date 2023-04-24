@@ -295,7 +295,7 @@ MonoBehaviour:
   angle: 100
   targetLayer:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 64
   obstructionLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -499,9 +499,33 @@ PrefabInstance:
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 1659542258713055489}
+    - target: {fileID: 7040235870372557280, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
+      propertyPath: m_fontSize
+      value: 46.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040235870372557280, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 7433078681888396232, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479252278023990793, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479252278023990793, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 99.99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479252278023990793, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479252278023990793, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 8986998324899027060, guid: 0386175863fa6b648b0c82a5d93d816d, type: 3}
       propertyPath: m_IsActive

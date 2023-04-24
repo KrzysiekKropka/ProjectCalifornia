@@ -35,8 +35,8 @@ public class Player : MonoBehaviour
     float dashingCooldown = 0.25f;
     int dashingSpree;
 
-    float speed = 8f;
-    float sprintingSpeed = 12f;
+    float speed = 9f;
+    float sprintingSpeed = 12.5f;
 
     int maxHealth = 100;
     int currentHealth;

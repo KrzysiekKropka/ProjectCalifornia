@@ -102,6 +102,8 @@ public class ShopManager : MonoBehaviour
         PlayerPrefs.SetInt("mapQuantity" + 3, 0);
         PlayerPrefs.SetInt("mapQuantity" + 4, 0);
         PlayerPrefs.DeleteKey("equippedWeaponID");
+        PlayerPrefs.DeleteKey("money");
+        PlayerPrefs.DeleteKey("experiencePoints");
     }
 
     public void AssignNumbers()

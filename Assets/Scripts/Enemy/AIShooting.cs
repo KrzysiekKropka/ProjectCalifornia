@@ -121,16 +121,12 @@ public class AIShooting : MonoBehaviour
     {
         RaycastHit2D detectRay = Physics2D.Raycast(transform.position, transform.up);
 
-
         //KK: Bardziej debilnego kodu napisac nie moglem
         if (detectRay.collider != null)
         {
-            if (detectRay.collider.tag == "Player" && detectRay.distance < reach)
+            if (detectRay.collider.tag == "Player" && detectRay.distance < reach && gameObject.GetComponent<AIBrain>().playerDetected)
             {
-                GetComponent<AIBrain>().PlayerInterrupts();
                 readyToShoot = true;
-                //if (timer < reactionTime*2) timer += Time.deltaTime;
-                //else timer = reactionTime*2;
             }
             else
             {
