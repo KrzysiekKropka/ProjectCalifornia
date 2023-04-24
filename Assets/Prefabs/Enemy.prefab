@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6830697598704125694}
   - component: {fileID: 5080916039018766799}
-  - component: {fileID: 2274889813281843858}
   - component: {fileID: 5891919148703806736}
   - component: {fileID: 8324491963002387412}
   - component: {fileID: 7696586945089226356}
@@ -94,28 +93,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2274889813281843858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5001969082769403738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf1b1b198d1c9794b8715c457a728d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 7100006923973303438}
-  healthBar: {fileID: 3722000080651904150}
-  bulletPrefab: {fileID: 2444222622796115849, guid: 1916dc42e3d5ca4478c8cb6d81251b9f, type: 3}
-  shootPrefab: {fileID: 5524518565218896284, guid: 5fd2e0e416d3d3b4ea42ece57ca39556, type: 3}
-  EnemyPistol: {fileID: 21300000, guid: 80ffea204bf752348b71c6b80bdeb1fc, type: 3}
-  EnemyDeagle: {fileID: 21300000, guid: cce68eeffb3387444b6e4aa84d6e92dd, type: 3}
-  EnemyMP5: {fileID: 21300000, guid: 2f2c6e520bc6b334e81fabe6cd652a31, type: 3}
-  EnemyAK47: {fileID: 21300000, guid: 8a9e153a94c1fe8459d373c64ebe22d9, type: 3}
-  equippedWeaponID: 0
-  currentAmmo: 0000000000000000000000000000000000000000
 --- !u!114 &5891919148703806736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 3722000080651904150}
+  shootingScript: {fileID: 3503180920176394681}
   bloodPoolEffect: {fileID: 5524518565218896284, guid: b8c46913c893ec24794099e0a77ec6fb, type: 3}
   deadBody: {fileID: 7680671717274413116}
   damagePopupPrefab: {fileID: 4262376480512933044, guid: 770715aeadb58bf4d85976cac77fec9b, type: 3}
@@ -339,6 +317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2546401352739831611}
+  - component: {fileID: 3503180920176394681}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -364,6 +343,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3503180920176394681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6810274436053365145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1b1b198d1c9794b8715c457a728d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 7100006923973303438}
+  healthBar: {fileID: 3722000080651904150}
+  bulletPrefab: {fileID: 2444222622796115849, guid: 1916dc42e3d5ca4478c8cb6d81251b9f, type: 3}
+  shootPrefab: {fileID: 5524518565218896284, guid: 5fd2e0e416d3d3b4ea42ece57ca39556, type: 3}
+  EnemyPistol: {fileID: 21300000, guid: 80ffea204bf752348b71c6b80bdeb1fc, type: 3}
+  EnemyDeagle: {fileID: 21300000, guid: cce68eeffb3387444b6e4aa84d6e92dd, type: 3}
+  EnemyMP5: {fileID: 21300000, guid: 2f2c6e520bc6b334e81fabe6cd652a31, type: 3}
+  EnemyAK47: {fileID: 21300000, guid: 8a9e153a94c1fe8459d373c64ebe22d9, type: 3}
+  enemy: {fileID: 5001969082769403738}
+  equippedWeaponID: 0
+  currentAmmo: 0000000000000000000000000000000000000000
 --- !u!1 &7680671717274413116
 GameObject:
   m_ObjectHideFlags: 0

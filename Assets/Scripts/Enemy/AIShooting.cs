@@ -9,6 +9,7 @@ public class AIShooting : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] GameObject shootPrefab;
     [SerializeField] Sprite EnemyPistol, EnemyDeagle, EnemyMP5, EnemyAK47;
+    [SerializeField] GameObject enemy;
     private GameObject player;
     private SpriteRenderer spriteRenderer;
 
@@ -31,7 +32,7 @@ public class AIShooting : MonoBehaviour
 
     void Start()
     {
-        reach = gameObject.GetComponent<FieldOfView>().radius;
+        reach = enemy.GetComponent<FieldOfView>().radius;
 
         weaponName[0] = "Pistol";
         weaponDamage[0] = 6;
@@ -61,7 +62,7 @@ public class AIShooting : MonoBehaviour
         maxAmmo[4] = 40;
         bulletSpread[4] = 4f;
 
-        if(gameObject.GetComponent<AIBrain>().isStatic)
+        if(enemy.GetComponent<AIBrain>().isStatic)
         {
             for (int i = 0; i < 5; i++)
             {
@@ -72,40 +73,40 @@ public class AIShooting : MonoBehaviour
         currentAmmo[equippedWeaponID] = maxAmmo[equippedWeaponID];
 
         player = GameObject.FindGameObjectWithTag("Player");
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = enemy.GetComponent<SpriteRenderer>();
 
         //KK: Fuj
         switch (equippedWeaponID)
         {
             case 0:
                 spriteRenderer.sprite = EnemyPistol;
-                gameObject.GetComponent<AIBrain>().dropHP = 15;
-                gameObject.GetComponent<AIBrain>().dropXP = 15;
-                gameObject.GetComponent<AIBrain>().dropMoney = 100;
-                gameObject.GetComponent<AIBrain>().maxHealth = 50;
+                enemy.GetComponent<AIBrain>().dropHP = 15;
+                enemy.GetComponent<AIBrain>().dropXP = 15;
+                enemy.GetComponent<AIBrain>().dropMoney = 100;
+                enemy.GetComponent<AIBrain>().maxHealth = 50;
                 break;
             case 1:
                 spriteRenderer.sprite = EnemyDeagle;
-                gameObject.GetComponent<AIBrain>().dropHP = 20;
-                gameObject.GetComponent<AIBrain>().dropXP = 30;
-                gameObject.GetComponent<AIBrain>().dropMoney = 200;
-                gameObject.GetComponent<AIBrain>().maxHealth = 75;
+                enemy.GetComponent<AIBrain>().dropHP = 20;
+                enemy.GetComponent<AIBrain>().dropXP = 30;
+                enemy.GetComponent<AIBrain>().dropMoney = 200;
+                enemy.GetComponent<AIBrain>().maxHealth = 75;
                 break;
             case 2:
                 spriteRenderer.sprite = EnemyMP5;
-                gameObject.GetComponent<AIBrain>().dropHP = 25;
-                gameObject.GetComponent<AIBrain>().dropXP = 45;
-                gameObject.GetComponent<AIBrain>().dropMoney = 300;
-                gameObject.GetComponent<AIBrain>().maxHealth = 100;
+                enemy.GetComponent<AIBrain>().dropHP = 25;
+                enemy.GetComponent<AIBrain>().dropXP = 45;
+                enemy.GetComponent<AIBrain>().dropMoney = 300;
+                enemy.GetComponent<AIBrain>().maxHealth = 100;
                 break;
             case 3:
                 break;
             case 4:
                 spriteRenderer.sprite = EnemyAK47;
-                gameObject.GetComponent<AIBrain>().dropHP = 30;
-                gameObject.GetComponent<AIBrain>().dropXP = 60;
-                gameObject.GetComponent<AIBrain>().dropMoney = 400;
-                gameObject.GetComponent<AIBrain>().maxHealth = 150;
+                enemy.GetComponent<AIBrain>().dropHP = 30;
+                enemy.GetComponent<AIBrain>().dropXP = 60;
+                enemy.GetComponent<AIBrain>().dropMoney = 400;
+                enemy.GetComponent<AIBrain>().maxHealth = 150;
                 break;
         }
 
@@ -119,12 +120,12 @@ public class AIShooting : MonoBehaviour
 
     void RayCasting()
     {
-        RaycastHit2D detectRay = Physics2D.Raycast(transform.position, transform.up);
+        RaycastHit2D detectRay = Physics2D.Raycast(enemy.transform.position, enemy.transform.up);
 
         //KK: Bardziej debilnego kodu napisac nie moglem
         if (detectRay.collider != null)
         {
-            if (detectRay.collider.tag == "Player" && detectRay.distance < reach && gameObject.GetComponent<AIBrain>().playerDetected)
+            if (detectRay.collider.tag == "Player" && detectRay.distance < reach && enemy.GetComponent<AIBrain>().playerDetected)
             {
                 readyToShoot = true;
             }
@@ -137,7 +138,7 @@ public class AIShooting : MonoBehaviour
         }
 
         if (readyToShoot) StartCoroutine(Shoot());
-        Debug.DrawRay(transform.position, transform.up * reach, Color.red);
+        Debug.DrawRay(enemy.transform.position, enemy.transform.up * reach, Color.red);
     }
 
     IEnumerator Shoot()

@@ -8,6 +8,7 @@ using Pathfinding;
 public class AIBrain : MonoBehaviour
 {
     [SerializeField] EnemyHealthBar healthBar;
+    [SerializeField] AIShooting shootingScript;
     [SerializeField] GameObject bloodPoolEffect;
     [SerializeField] GameObject deadBody;
     [SerializeField] GameObject damagePopupPrefab;
@@ -185,7 +186,8 @@ public class AIBrain : MonoBehaviour
         {
             var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             deadBody.SetActive(true);
-            deadBody.GetComponent<DeadBodyFollow>().DeadBodyPosition(gameObject.GetComponent<AIShooting>().equippedWeaponID);
+            deadBody.GetComponent<DeadBodyFollow>().DeadBodyPosition(shootingScript.equippedWeaponID);
+            shootingScript.enabled = false;
             Destroy(gameObject);
             Destroy(healthBar.gameObject);
             if (Time.time - currentTimeBloodPool > .01f)
