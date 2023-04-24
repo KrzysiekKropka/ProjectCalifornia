@@ -57,7 +57,7 @@ public class Shooting : MonoBehaviour
         weaponDamage[1] = 32;
         weaponDelay[1] = 0.375f;
         reloadTime[1] = 1.5f;
-        maxAmmo[1] = 8;
+        maxAmmo[1] = 9;
         bulletSpread[1] = 0f;
         runningBulletSpread[1] = 2f;
 
@@ -73,7 +73,7 @@ public class Shooting : MonoBehaviour
         weaponDamage[3] = 25;
         weaponDelay[3] = 1f;
         reloadTime[3] = 3f;
-        maxAmmo[3] = 5;
+        maxAmmo[3] = 7;
         bulletSpread[3] = 4f;
         runningBulletSpread[3] = 8f;
 

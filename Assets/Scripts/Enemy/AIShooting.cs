@@ -35,32 +35,32 @@ public class AIShooting : MonoBehaviour
         reach = enemy.GetComponent<FieldOfView>().radius*1.5f;
 
         weaponName[0] = "Pistol";
-        weaponDamage[0] = 6;
+        weaponDamage[0] = 5;
         weaponDelay[0] = 0.5f;
         reloadTime[0] = 2f;
         maxAmmo[0] = 17;
-        bulletSpread[0] = 4f;
+        bulletSpread[0] = 3f;
 
         weaponName[1] = "Deagle";
-        weaponDamage[1] = 12;
+        weaponDamage[1] = 10;
         weaponDelay[1] = 0.75f;
         reloadTime[1] = 2f;
-        maxAmmo[1] = 8;
-        bulletSpread[1] = 2f;
+        maxAmmo[1] = 9;
+        bulletSpread[1] = 1f;
 
         weaponName[2] = "MP5";
-        weaponDamage[2] = 8;
+        weaponDamage[2] = 6;
         weaponDelay[2] = 0.16f;
         reloadTime[2] = 4f;
         maxAmmo[2] = 60;
-        bulletSpread[2] = 6f;
+        bulletSpread[2] = 5f;
 
         weaponName[4] = "AK-47";
-        weaponDamage[4] = 16;
+        weaponDamage[4] = 12;
         weaponDelay[4] = 0.32f;
         reloadTime[4] = 4f;
         maxAmmo[4] = 40;
-        bulletSpread[4] = 4f;
+        bulletSpread[4] = 3f;
 
         if(enemy.GetComponent<AIBrain>().isStatic)
         {
