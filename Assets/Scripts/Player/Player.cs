@@ -178,7 +178,7 @@ public class Player : MonoBehaviour
                 dashingSpree = 0;
                 isDashing = true;
                 trailRenderer.emitting = true;
-                remainingStamina -= 3f;
+                remainingStamina -= 2f;
                 AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
             }
             else if (dashingSpree < 2)
@@ -186,7 +186,7 @@ public class Player : MonoBehaviour
                 dashingSpree++;
                 isDashing = true;
                 trailRenderer.emitting = true;
-                remainingStamina -= 3f;
+                remainingStamina -= 2f;
                 AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
             }
             else
