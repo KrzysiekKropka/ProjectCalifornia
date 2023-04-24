@@ -9,22 +9,22 @@ public class NextLevelScreen : MonoBehaviour
 {
     [SerializeField] TMP_Text nextLevelCountdownText;
     [SerializeField] Slider slider;
+    int countdown = 5;
 
     public static bool isActive = false;
-    int currCountdownValue;
 
-    public void StartCountdown(int seconds)
+    public void StartCountdown()
     {
-        slider.maxValue = seconds;
+        slider.maxValue = countdown;
         isActive = true;
         gameObject.SetActive(true);
         GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().UnlockLevels();
-        StartCoroutine(Countdown(seconds));
+        StartCoroutine(Countdown());
     }
 
-    IEnumerator Countdown(int countdownValue)
+    IEnumerator Countdown()
     {
-        currCountdownValue = countdownValue;
+        int currCountdownValue = countdown;
         while (currCountdownValue > 0)
         {
             nextLevelCountdownText.text = "Starting the next level in " + currCountdownValue + " seconds!";
@@ -32,6 +32,9 @@ public class NextLevelScreen : MonoBehaviour
             yield return new WaitForSeconds(1);
             currCountdownValue--;
         }
+        nextLevelCountdownText.text = "Starting the next level in " + currCountdownValue + " seconds!";
+        slider.value = currCountdownValue;
+        yield return new WaitForSeconds(1);
         isActive = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

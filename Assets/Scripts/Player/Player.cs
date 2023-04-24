@@ -294,7 +294,7 @@ public class Player : MonoBehaviour
     public void TriggerNextLevel()
     {
         triggerNextLevelMenu.SetActive(true);
-        triggerNextLevelMenu.GetComponent<NextLevelScreen>().StartCountdown(5);
+        triggerNextLevelMenu.GetComponent<NextLevelScreen>().StartCountdown();
     }
 
     IEnumerator StopDashing()
