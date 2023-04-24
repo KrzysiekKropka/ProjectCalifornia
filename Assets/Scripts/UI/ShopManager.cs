@@ -47,14 +47,14 @@ public class ShopManager : MonoBehaviour
         //KK: ustawianie ceny przedmiotom w sklepie
         shopItems[2, 1] = 1500;
         shopItems[2, 2] = 3000;
-        shopItems[2, 3] = 4500;
-        shopItems[2, 4] = 6000;
+        shopItems[2, 3] = 15000;
+        shopItems[2, 4] = 30000;
 
         //KK: ustawianie ceny skillom w sklepie
         shopSkills[2, 1] = 150;
         shopSkills[2, 2] = 300;
-        shopSkills[2, 3] = 450;
-        shopSkills[2, 4] = 600;
+        shopSkills[2, 3] = 1500;
+        shopSkills[2, 4] = 3000;
 
         //KK: ustawianie ceny mapom w sklepie
         /*shopMaps[2, 1] = 300;
