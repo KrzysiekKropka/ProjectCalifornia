@@ -38,7 +38,7 @@ public class AIShooting : MonoBehaviour
         weaponDamage[0] = 5;
         weaponDelay[0] = 0.5f;
         reloadTime[0] = 2f;
-        maxAmmo[0] = 17;
+        maxAmmo[0] = 21;
         bulletSpread[0] = 3f;
 
         weaponName[1] = "Deagle";
