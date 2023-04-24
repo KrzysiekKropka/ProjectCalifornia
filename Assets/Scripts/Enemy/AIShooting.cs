@@ -36,28 +36,28 @@ public class AIShooting : MonoBehaviour
         weaponName[0] = "Pistol";
         weaponDamage[0] = 6;
         weaponDelay[0] = 0.5f;
-        reloadTime[0] = 1.5f;
+        reloadTime[0] = 2f;
         maxAmmo[0] = 17;
         bulletSpread[0] = 4f;
 
         weaponName[1] = "Deagle";
-        weaponDamage[1] = 24;
+        weaponDamage[1] = 12;
         weaponDelay[1] = 0.75f;
-        reloadTime[1] = 1.5f;
+        reloadTime[1] = 2f;
         maxAmmo[1] = 8;
         bulletSpread[1] = 2f;
 
         weaponName[2] = "MP5";
-        weaponDamage[2] = 9;
+        weaponDamage[2] = 8;
         weaponDelay[2] = 0.16f;
-        reloadTime[2] = 3f;
+        reloadTime[2] = 4f;
         maxAmmo[2] = 60;
         bulletSpread[2] = 6f;
 
         weaponName[4] = "AK-47";
-        weaponDamage[4] = 18;
+        weaponDamage[4] = 16;
         weaponDelay[4] = 0.32f;
-        reloadTime[4] = 3f;
+        reloadTime[4] = 4f;
         maxAmmo[4] = 40;
         bulletSpread[4] = 4f;
 
@@ -79,21 +79,21 @@ public class AIShooting : MonoBehaviour
         {
             case 0:
                 spriteRenderer.sprite = EnemyPistol;
-                gameObject.GetComponent<AIBrain>().dropHP = 5;
+                gameObject.GetComponent<AIBrain>().dropHP = 15;
                 gameObject.GetComponent<AIBrain>().dropXP = 15;
                 gameObject.GetComponent<AIBrain>().dropMoney = 100;
                 gameObject.GetComponent<AIBrain>().maxHealth = 50;
                 break;
             case 1:
                 spriteRenderer.sprite = EnemyDeagle;
-                gameObject.GetComponent<AIBrain>().dropHP = 10;
+                gameObject.GetComponent<AIBrain>().dropHP = 20;
                 gameObject.GetComponent<AIBrain>().dropXP = 30;
                 gameObject.GetComponent<AIBrain>().dropMoney = 200;
                 gameObject.GetComponent<AIBrain>().maxHealth = 75;
                 break;
             case 2:
                 spriteRenderer.sprite = EnemyMP5;
-                gameObject.GetComponent<AIBrain>().dropHP = 15;
+                gameObject.GetComponent<AIBrain>().dropHP = 25;
                 gameObject.GetComponent<AIBrain>().dropXP = 45;
                 gameObject.GetComponent<AIBrain>().dropMoney = 300;
                 gameObject.GetComponent<AIBrain>().maxHealth = 100;
@@ -102,7 +102,7 @@ public class AIShooting : MonoBehaviour
                 break;
             case 4:
                 spriteRenderer.sprite = EnemyAK47;
-                gameObject.GetComponent<AIBrain>().dropHP = 20;
+                gameObject.GetComponent<AIBrain>().dropHP = 30;
                 gameObject.GetComponent<AIBrain>().dropXP = 60;
                 gameObject.GetComponent<AIBrain>().dropMoney = 400;
                 gameObject.GetComponent<AIBrain>().maxHealth = 150;

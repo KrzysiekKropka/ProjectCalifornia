@@ -8,12 +8,12 @@ public class LevelUnlocker : MonoBehaviour
 
     public int levelID;
     [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip[] musicClips;
+    [SerializeField] AudioClip musicClip;
     [SerializeField] int[] ToUnlock;
 
     void Start()
     {
-        audioSource.clip = musicClips[levelID];
+        audioSource.clip = musicClip;
         audioSource.volume = PlayerPrefs.GetFloat("MusicVolumeValue");
         audioSource.Play();
     }
