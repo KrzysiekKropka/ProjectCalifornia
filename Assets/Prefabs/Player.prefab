@@ -395,6 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2936219501362031632}
   nextLevelScreen: {fileID: 1763164974387467106}
+  settings: {fileID: 8552992975855850512}
   rb: {fileID: 928417037708580564}
   damagePopupPrefab: {fileID: 4262376480512933044, guid: 770715aeadb58bf4d85976cac77fec9b, type: 3}
   triggerNextLevelMenu: {fileID: 1237728739542715868}
@@ -1717,6 +1718,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1928038607214706000, guid: ff13a437240001d4b8a9097097794745, type: 3}
   m_PrefabInstance: {fileID: 5653179225561026637}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8552992975855850512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4091086257090872413, guid: ff13a437240001d4b8a9097097794745, type: 3}
+  m_PrefabInstance: {fileID: 5653179225561026637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313430539866475499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776fb23a15b345048a4ecb0cf0dbd2f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6055009747812299873
 PrefabInstance:
   m_ObjectHideFlags: 0

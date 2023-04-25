@@ -111,14 +111,20 @@ public class SettingsMenu : MonoBehaviour
     {
         if (postProcessingToggle.isOn)
         {
-            player.setSettings(true);
+            SetVisualSettings(true);
             PlayerPrefs.SetInt("postProcessingEnabled", 1);
         }
         else
         {
-            player.setSettings(false);
+            SetVisualSettings(false);
             PlayerPrefs.SetInt("postProcessingEnabled", 0);
         }
+    }
+
+    public void SetVisualSettings(bool high)
+    {
+        if (high) QualitySettings.SetQualityLevel(1, false);
+        else QualitySettings.SetQualityLevel(0, false);
     }
 
     public void SetResolution(int resolutionIndex)

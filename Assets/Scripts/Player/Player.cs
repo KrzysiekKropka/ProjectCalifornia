@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] HealthBar healthBar;
     [SerializeField] NextLevelScreen nextLevelScreen;
+    [SerializeField] SettingsMenu settings;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject damagePopupPrefab;
     [SerializeField] GameObject triggerNextLevelMenu;
@@ -82,16 +83,16 @@ public class Player : MonoBehaviour
 
         if (PlayerPrefs.GetInt("postProcessingEnabled") == 1)
         {
-            setSettings(true);
+            settings.SetVisualSettings(true);
         }
         else if (!PlayerPrefs.HasKey("postProcessingEnabled"))
         {
-            setSettings(true);
+            settings.SetVisualSettings(true);
             PlayerPrefs.SetInt("postProcessingEnabled", 1);
         }
         else
         {
-            setSettings(false);
+            settings.SetVisualSettings(false);
         }
     }
 
@@ -178,20 +179,6 @@ public class Player : MonoBehaviour
     void LateUpdate()
     {
         healthBar.SetStamina(remainingStamina);
-    }
-
-    public void setSettings(bool high)
-    {
-        if (high)
-        {
-            QualitySettings.SetQualityLevel(1, false);
-            postProcessing.SetActive(true);
-        }
-        else
-        {
-            QualitySettings.SetQualityLevel(0, false);
-            postProcessing.SetActive(false);
-        }
     }
 
     void Dash()
