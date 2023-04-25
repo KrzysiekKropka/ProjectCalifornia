@@ -79,10 +79,12 @@ public class SettingsMenu : MonoBehaviour
         if(PlayerPrefs.GetInt("postProcessingEnabled") == 1)
         {
             postProcessingToggle.isOn = true;
+            SetVisualSettings(true);
         }
         else
         {
             postProcessingToggle.isOn = false;
+            SetVisualSettings(false);
         }
     }
 
@@ -112,19 +114,25 @@ public class SettingsMenu : MonoBehaviour
         if (postProcessingToggle.isOn)
         {
             SetVisualSettings(true);
-            PlayerPrefs.SetInt("postProcessingEnabled", 1);
         }
         else
         {
             SetVisualSettings(false);
-            PlayerPrefs.SetInt("postProcessingEnabled", 0);
         }
     }
 
     public void SetVisualSettings(bool high)
     {
-        if (high) QualitySettings.SetQualityLevel(1, false);
-        else QualitySettings.SetQualityLevel(0, false);
+        if (high)
+        {
+            QualitySettings.SetQualityLevel(1, true);
+            PlayerPrefs.SetInt("postProcessingEnabled", 1);
+        }
+        else
+        {
+            QualitySettings.SetQualityLevel(0, false);
+            PlayerPrefs.SetInt("postProcessingEnabled", 0);
+        }
     }
 
     public void SetResolution(int resolutionIndex)

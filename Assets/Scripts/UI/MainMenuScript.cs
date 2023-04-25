@@ -8,7 +8,7 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] GameObject settingsPrefab;
     [SerializeField] AudioClip buttonClickClip;
     [SerializeField] AudioSource audioSource;
-    private GameObject settings;
+    [SerializeField] SettingsMenu settings;
 
     void Start()
     {
@@ -22,6 +22,11 @@ public class MainMenuScript : MonoBehaviour
         };
 
         if (!PlayerPrefs.HasKey("MusicVolumeValue")) PlayerPrefs.SetFloat("MusicVolumeValue", 0.025f);
+
+        if (!PlayerPrefs.HasKey("postProcessingEnabled"))
+        {
+            PlayerPrefs.SetInt("postProcessingEnabled", 1);
+        }
     }
 
     public void PlayGame(int level)
@@ -32,12 +37,6 @@ public class MainMenuScript : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
-    }
-
-    public void InstantiateSettings()
-    {
-        settings = Instantiate(settingsPrefab);
-        settings.SetActive(true);
     }
 
     public void ButtonClickSound()

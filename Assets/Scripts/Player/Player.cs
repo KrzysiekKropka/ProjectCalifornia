@@ -7,12 +7,10 @@ public class Player : MonoBehaviour
 {
     [SerializeField] HealthBar healthBar;
     [SerializeField] NextLevelScreen nextLevelScreen;
-    [SerializeField] SettingsMenu settings;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] GameObject damagePopupPrefab;
     [SerializeField] GameObject triggerNextLevelMenu;
     [SerializeField] GameObject ShopManager;
-    [SerializeField] GameObject postProcessing;
     [SerializeField] AudioClip manHurtClip, healClip, dashClip;
     private TrailRenderer trailRenderer;
     private GameObject damagePopup;
@@ -80,20 +78,6 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         healthBar.SetExperiencePoints(experiencePoints);
         healthBar.SetMoney(money);
-
-        if (PlayerPrefs.GetInt("postProcessingEnabled") == 1)
-        {
-            settings.SetVisualSettings(true);
-        }
-        else if (!PlayerPrefs.HasKey("postProcessingEnabled"))
-        {
-            settings.SetVisualSettings(true);
-            PlayerPrefs.SetInt("postProcessingEnabled", 1);
-        }
-        else
-        {
-            settings.SetVisualSettings(false);
-        }
     }
 
     public void RefreshShop()
