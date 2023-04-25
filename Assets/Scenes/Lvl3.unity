@@ -9605,7 +9605,15 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4663250087213461514, guid: 2861d141fdf38384e90b95d2af8d0d8f, type: 3}
+      propertyPath: musicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6424fe06de8f6184999e149c0cdf2702, type: 3}
+    - target: {fileID: 4663250087213461514, guid: 2861d141fdf38384e90b95d2af8d0d8f, type: 3}
       propertyPath: ToUnlock.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663250087213461514, guid: 2861d141fdf38384e90b95d2af8d0d8f, type: 3}
+      propertyPath: ToUnlock.Array.data[0]
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4663250087213461514, guid: 2861d141fdf38384e90b95d2af8d0d8f, type: 3}
