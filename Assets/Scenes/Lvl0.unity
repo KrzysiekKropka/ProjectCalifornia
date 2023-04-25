@@ -9083,6 +9083,14 @@ PrefabInstance:
       propertyPath: musicClip
       value: 
       objectReference: {fileID: 8300000, guid: 34e3d6055592ca3459d93c8673485d49, type: 3}
+    - target: {fileID: 4663250087213461514, guid: 2861d141fdf38384e90b95d2af8d0d8f, type: 3}
+      propertyPath: ToUnlock.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663250087213461514, guid: 2861d141fdf38384e90b95d2af8d0d8f, type: 3}
+      propertyPath: ToUnlock.Array.data[1]
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5624347641870493473, guid: 2861d141fdf38384e90b95d2af8d0d8f, type: 3}
       propertyPath: m_Name
       value: LevelUnlocker
