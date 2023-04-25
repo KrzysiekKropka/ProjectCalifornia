@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] Transform player;
 
     float maxScreenPoint = 0.6f;
-    float smoothTime = 0.1f;
+    float smoothTime = 0.125f;
     Vector3 offset = new Vector3(0f, 0f, -10f);
     Vector3 velocity = Vector3.zero;
     Vector3 targetPosition;
