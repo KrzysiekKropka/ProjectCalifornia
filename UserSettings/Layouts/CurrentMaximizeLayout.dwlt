@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 38884
+  controlID: 42172
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 38837
+  controlID: 42173
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 38828
+  controlID: 42174
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,9 +224,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a0b8f5ff
-      m_LastClickedID: -673632
-      m_ExpandedIDs: 90bcf5ff6af7f5ffd85bf6ffa25cf6ffb25cf6ff7262f6ff4868f6ff7e7ef6ff8298f6ff0aa5f6ff9ca6f6ff46b9f6ffecb9f6ff52bcf6ff12c2f6ffe8c7f6ff1edef6ff22f8f6ffac04f7ff4606f7ffc2b6f8ff68b7f8ffceb9f8ff8ebff8ff64c5f8ff9adbf8ff9ef5f8ff2802f9ffc203f9ffb0f1fcff78f2fcff88f2fcff16f8fcffbafdfcffbe13fdff902dfdffe639fdff5a3bfdff7c4efdff464ffdff564ffdffe454fdff885afdff8c70fdff5e8afdffb496fdff2898fdff5ad0fdfffed0fdff68d3fdff16d9fdffdadefdffdaf6fdff1813feff4620feffc621feff7031feff2652ffffca52ffff3055ffffbe5affff6260ffff6676ffff3890ffff909cffff0c9effff2cfbffff220a0100
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: de26f4ff842ef4ff1035f4ff9c3bf4ff104df4ff7e6bf4ff447bf4ffce9cf4ff22b6f4ff2acff4ff90bcf5ff6af7f5ffd85bf6ffa25cf6ffb25cf6ff7262f6ff4868f6ff7e7ef6ff8298f6ff0aa5f6ff9ca6f6ff46b9f6ffecb9f6ff52bcf6ff12c2f6ffe8c7f6ff1edef6ff22f8f6ffac04f7ff4606f7ffc2b6f8ff68b7f8ffceb9f8ff8ebff8ff64c5f8ff9adbf8ff9ef5f8ff2802f9ffc203f9ffb0f1fcff78f2fcff88f2fcff16f8fcffbafdfcffbe13fdff902dfdffe639fdff5a3bfdff7c4efdff464ffdff564ffdffe454fdff885afdff8c70fdff5e8afdffb496fdff2898fdff5ad0fdfffed0fdff68d3fdff16d9fdffdadefdffdaf6fdff1813feff4620feffc621feff7031feff2652ffffca52ffff3055ffffbe5affff6260ffff6676ffff3890ffff909cffff0c9effff2cfbffff220a0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -888,22 +888,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Audio/Music
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Audio/Music
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: B:\Inne\Documents\GitHub\ProjectCalifornia
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c2a70000
-    m_LastClickedID: 42946
-    m_ExpandedIDs: 00000000488f0000568f000050a1000000ca9a3b
+    m_SelectedIDs: 588f0000
+    m_LastClickedID: 36696
+    m_ExpandedIDs: 00000000488f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -956,9 +956,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: a0b8f5ff
-    m_LastClickedInstanceID: -673632
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000429100007c9d000094b20000cc7101001e7c000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1113,4 +1113,4 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 416288
+  m_LastSelectedObjectID: -777490
