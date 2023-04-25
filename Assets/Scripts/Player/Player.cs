@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject damagePopupPrefab;
     [SerializeField] GameObject triggerNextLevelMenu;
     [SerializeField] GameObject ShopManager;
+    [SerializeField] GameObject postProcessing;
     [SerializeField] AudioClip manHurtClip, healClip, dashClip;
     private TrailRenderer trailRenderer;
     private GameObject damagePopup;
@@ -78,6 +79,20 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         healthBar.SetExperiencePoints(experiencePoints);
         healthBar.SetMoney(money);
+
+        if (PlayerPrefs.GetInt("postProcessingEnabled") == 1)
+        {
+            setSettings(true);
+        }
+        else if (!PlayerPrefs.HasKey("postProcessingEnabled"))
+        {
+            setSettings(true);
+            PlayerPrefs.SetInt("postProcessingEnabled", 1);
+        }
+        else
+        {
+            setSettings(false);
+        }
     }
 
     public void RefreshShop()
@@ -163,6 +178,20 @@ public class Player : MonoBehaviour
     void LateUpdate()
     {
         healthBar.SetStamina(remainingStamina);
+    }
+
+    public void setSettings(bool high)
+    {
+        if (high)
+        {
+            QualitySettings.SetQualityLevel(1, false);
+            postProcessing.SetActive(true);
+        }
+        else
+        {
+            QualitySettings.SetQualityLevel(0, false);
+            postProcessing.SetActive(false);
+        }
     }
 
     void Dash()

@@ -399,6 +399,7 @@ MonoBehaviour:
   damagePopupPrefab: {fileID: 4262376480512933044, guid: 770715aeadb58bf4d85976cac77fec9b, type: 3}
   triggerNextLevelMenu: {fileID: 1237728739542715868}
   ShopManager: {fileID: 3410051807388556082}
+  postProcessing: {fileID: 3332562869250220398}
   manHurtClip: {fileID: 8300000, guid: 1ca823397e1eb2542aa72f99318dba34, type: 3}
   healClip: {fileID: 8300000, guid: d23b6ccc378bf2d418d24132aa4137bb, type: 3}
   dashClip: {fileID: 8300000, guid: 6b8a7734e78715d498a29801c7ec8ca3, type: 3}
@@ -1560,21 +1561,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 415657006011368950}
     m_Modifications:
-    - target: {fileID: 249832272589189007, guid: ff13a437240001d4b8a9097097794745, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 249832272589189007, guid: ff13a437240001d4b8a9097097794745, type: 3}
-      propertyPath: m_SortingOrder
-      value: 9999
-      objectReference: {fileID: 0}
     - target: {fileID: 1928038607214706000, guid: ff13a437240001d4b8a9097097794745, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1928038607214706000, guid: ff13a437240001d4b8a9097097794745, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1928038607214706000, guid: ff13a437240001d4b8a9097097794745, type: 3}
       propertyPath: m_RootOrder
@@ -1582,11 +1575,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1928038607214706000, guid: ff13a437240001d4b8a9097097794745, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1928038607214706000, guid: ff13a437240001d4b8a9097097794745, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1928038607214706000, guid: ff13a437240001d4b8a9097097794745, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1602,6 +1595,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1928038607214706000, guid: ff13a437240001d4b8a9097097794745, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928038607214706000, guid: ff13a437240001d4b8a9097097794745, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928038607214706000, guid: ff13a437240001d4b8a9097097794745, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928038607214706000, guid: ff13a437240001d4b8a9097097794745, type: 3}
+      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1928038607214706000, guid: ff13a437240001d4b8a9097097794745, type: 3}
@@ -1658,12 +1663,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3132687195355947128, guid: ff13a437240001d4b8a9097097794745, type: 3}
       propertyPath: m_fontSize
-      value: 16
+      value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 4091086257090872413, guid: ff13a437240001d4b8a9097097794745, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 4351985592562470451}
     - target: {fileID: 4091086257090872413, guid: ff13a437240001d4b8a9097097794745, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1269244268558998889}
+    - target: {fileID: 4091086257090872413, guid: ff13a437240001d4b8a9097097794745, type: 3}
+      propertyPath: postProcessing
+      value: 
+      objectReference: {fileID: 3332562869250220398}
     - target: {fileID: 4135609835756640379, guid: ff13a437240001d4b8a9097097794745, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1685,6 +1698,10 @@ PrefabInstance:
       value: Settings
       objectReference: {fileID: 0}
     - target: {fileID: 6651287304483298214, guid: ff13a437240001d4b8a9097097794745, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7886316689142976317, guid: ff13a437240001d4b8a9097097794745, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

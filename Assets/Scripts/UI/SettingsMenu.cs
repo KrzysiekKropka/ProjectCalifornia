@@ -11,8 +11,11 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] Slider volumeSlider;
     [SerializeField] Slider musicVolumeSlider;
     [SerializeField] Toggle fullscreenToggle;
+    [SerializeField] Toggle postProcessingToggle;
     [SerializeField] AudioClip buttonClickClip;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] GameObject postProcessing;
+    [SerializeField] Player player;
 
     private Resolution[] resolutions;
     private List<Resolution> filteredResolutions;
@@ -72,6 +75,15 @@ public class SettingsMenu : MonoBehaviour
             resolutionDropdown.gameObject.SetActive(true);
             Screen.fullScreen = true;
         }
+
+        if(PlayerPrefs.GetInt("postProcessingEnabled") == 1)
+        {
+            postProcessingToggle.isOn = true;
+        }
+        else
+        {
+            postProcessingToggle.isOn = false;
+        }
     }
 
     public void SetFullscreen()
@@ -92,6 +104,20 @@ public class SettingsMenu : MonoBehaviour
         {
             Screen.fullScreen = false;
             resolutionDropdown.gameObject.SetActive(false);
+        }
+    }
+
+    public void SetVisualEffects()
+    {
+        if (postProcessingToggle.isOn)
+        {
+            player.setSettings(true);
+            PlayerPrefs.SetInt("postProcessingEnabled", 1);
+        }
+        else
+        {
+            player.setSettings(false);
+            PlayerPrefs.SetInt("postProcessingEnabled", 0);
         }
     }
 
