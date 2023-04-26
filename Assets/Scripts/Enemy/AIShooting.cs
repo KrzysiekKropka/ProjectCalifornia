@@ -115,6 +115,7 @@ public class AIShooting : MonoBehaviour
         //KK: Bardziej debilnego kodu napisac nie moglem
         if (detectRay.collider != null)
         {
+            print(detectRay.collider.tag);
             if (detectRay.collider.tag == "Player" && detectRay.distance < reach && enemy.GetComponent<AIBrain>().playerDetected)
             {
                 enemy.GetComponent<AIBrain>().ChangeAimLock(true);
