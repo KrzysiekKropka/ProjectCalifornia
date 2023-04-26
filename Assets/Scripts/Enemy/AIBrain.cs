@@ -50,7 +50,7 @@ public class AIBrain : MonoBehaviour
     int summedDamage;
     float currentTime, currentTimeBloodPool;
     float reactionTime = 0.15f;
-    float rotationSpeed = 0.25f;
+    float rotationSpeed = 0.1f;
     float aimAngle;
 
     RaycastHit hit;
@@ -156,6 +156,12 @@ public class AIBrain : MonoBehaviour
         StartCoroutine(stopFollowCoroutine);
     }
 
+    public void ChangeAimLock(bool aimedAtPlayer = false)
+    {
+        if (aimedAtPlayer) rotationSpeed = 0.3f;
+        else rotationSpeed = 0.1f;
+    }
+
     public void TakeDamage(int damage)
     {
         if (!shotBefore)
@@ -225,6 +231,7 @@ public class AIBrain : MonoBehaviour
     {
         yield return new WaitForSeconds(forgetPlayer);
         playerDetected = false;
+        ChangeAimLock(false);
         healthBar.Dialogue(SeekPlayerDialogue[Random.Range(0, SeekPlayerDialogue.Length)]);
         if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
         seekPlayerCoroutine = SeekingPlayer();

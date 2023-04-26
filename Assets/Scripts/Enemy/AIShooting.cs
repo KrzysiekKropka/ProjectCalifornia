@@ -14,7 +14,7 @@ public class AIShooting : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     bool isReloading;
-    bool readyToShoot;
+    //bool readyToShoot;
     bool canShoot = true;
     string[] weaponName = new string[5];
     float currentTime;
@@ -127,24 +127,23 @@ public class AIShooting : MonoBehaviour
         {
             if (detectRay.collider.tag == "Player" && detectRay.distance < reach && enemy.GetComponent<AIBrain>().playerDetected)
             {
-                readyToShoot = true;
+                enemy.GetComponent<AIBrain>().ChangeAimLock(true);
+                StartCoroutine(Shoot());
             }
             else
             {
-                readyToShoot = false;
                 if(timer>0)timer -= Time.deltaTime;
                 else timer = 0;
             }
         }
 
-        if (readyToShoot) StartCoroutine(Shoot());
         Debug.DrawRay(enemy.transform.position, enemy.transform.up * reach, Color.red);
     }
 
     IEnumerator Shoot()
     {
         //if (timer >= reactionTime && canShoot && !isReloading && readyToShoot)
-        if (canShoot && !isReloading && readyToShoot)
+        if (canShoot && !isReloading)
         {
             canShoot = false;
             float randomVal = Random.Range(90f - bulletSpread[equippedWeaponID], 90f + bulletSpread[equippedWeaponID]); //KK: Randomowa liczba na spread broni
