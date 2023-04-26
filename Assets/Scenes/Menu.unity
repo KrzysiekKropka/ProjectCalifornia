@@ -4695,8 +4695,6 @@ GameObject:
   - component: {fileID: 880984494}
   - component: {fileID: 880984493}
   - component: {fileID: 880984492}
-  - component: {fileID: 880984491}
-  - component: {fileID: 880984490}
   m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4704,38 +4702,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &880984490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 880984489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9420f5aea32df7646ab1a75a6346d5df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  matteColor: {r: 0, g: 0, b: 0, a: 1}
-  referenceMode: 0
-  x: 21
-  y: 9
-  width: 960
-  height: 540
-  onAwake: 1
-  onUpdate: 1
---- !u!114 &880984491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 880984489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a38aa2b96b3dc7f49a8464f49874bfae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &880984492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9487,6 +9453,7 @@ MonoBehaviour:
   settingsPrefab: {fileID: 6651287304483298214, guid: ff13a437240001d4b8a9097097794745, type: 3}
   buttonClickClip: {fileID: 8300000, guid: ce929f9656fa84541b14e1badb89d0e4, type: 3}
   audioSource: {fileID: 1813956112}
+  settings: {fileID: 0}
 --- !u!82 &1813956112
 AudioSource:
   m_ObjectHideFlags: 0
