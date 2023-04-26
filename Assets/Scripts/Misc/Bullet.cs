@@ -52,7 +52,7 @@ public class Bullet : MonoBehaviour
         var bullet = collision.collider.GetComponent<Bullet>();
 
 
-        if (!playerIsOwner && player)
+        if (!playerIsOwner && player && !player.GetComponent<Player>().isInvincible)
         {
             int randomInt = Random.Range(1, 5);
             bodyHitClip = (AudioClip)Resources.Load("Audio/HitBody" + randomInt);

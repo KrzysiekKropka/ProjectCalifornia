@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     bool inFocus;
     public bool isSprinting;
     public bool isDashing;
+    public bool isInvincible;
 
     bool staminaCooldownBool;
     float staminaCooldown = 3f;
@@ -57,6 +58,8 @@ public class Player : MonoBehaviour
     private bool canDash;
     public bool canBetterAim;
     private bool canMoreHP;
+
+    private IEnumerator stopInvincibilityCoroutine;
 
     float currentTime;
 
@@ -105,6 +108,7 @@ public class Player : MonoBehaviour
     //KK: Prosto z poradnika Brackeys (RIP).
     void Update()
     {
+        print(isInvincible);
         moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         aimDirection = mousePosition - rb.position;
@@ -169,6 +173,7 @@ public class Player : MonoBehaviour
     {
         if(canDash && !staminaCooldownBool && !inDashingCooldown && !isDashing && rb.velocity != Vector2.zero && !NextLevelScreen.isActive)
         {
+            if(stopInvincibilityCoroutine != null) StopCoroutine(stopInvincibilityCoroutine);
             dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
             float previousDashingTimer = dashingTimer;
             dashingTimer = Time.time;
@@ -177,6 +182,7 @@ public class Player : MonoBehaviour
             {
                 dashingSpree = 0;
                 isDashing = true;
+                isInvincible = true;
                 trailRenderer.emitting = true;
                 remainingStamina -= 2f;
                 AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
@@ -185,6 +191,7 @@ public class Player : MonoBehaviour
             {
                 dashingSpree++;
                 isDashing = true;
+                isInvincible = true;
                 trailRenderer.emitting = true;
                 remainingStamina -= 2f;
                 AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
@@ -196,6 +203,8 @@ public class Player : MonoBehaviour
             }
             if (remainingStamina <= 0) StartCoroutine(SprintCooldown());
             StartCoroutine(StopDashing());
+            stopInvincibilityCoroutine = StopInvincibility();
+            StartCoroutine(stopInvincibilityCoroutine);
         }
     }
 
@@ -203,32 +212,35 @@ public class Player : MonoBehaviour
     //Tutaj zrób skrypt na game over.
     public void TakeDamage(int damage)
     {
-        AudioSource.PlayClipAtPoint(manHurtClip, transform.position, 0.2f);
-        currentHealth -= damage;
-        if (Time.time - currentTime > 0.75f)
+        if(!isInvincible)
         {
-            summedDamage = 0;
-        }
+            AudioSource.PlayClipAtPoint(manHurtClip, transform.position, 0.2f);
+            currentHealth -= damage;
+            if (Time.time - currentTime > 0.75f)
+            {
+                summedDamage = 0;
+            }
 
-        summedDamage += damage;
+            summedDamage += damage;
 
-        if (Time.time - currentTime > 0.1f)
-        {
-            damagePopup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
-            damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
-        }
-        else
-        {
-            damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
-        }
+            if (Time.time - currentTime > 0.1f)
+            {
+                damagePopup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
+                damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
+            }
+            else
+            {
+                damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
+            }
 
-        if (currentHealth <= 0)
-        {
-            SceneManager.LoadScene("GameOver");
-        }
-        else
-        {
-            healthBar.SetHealth(currentHealth);
+            if (currentHealth <= 0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+            else
+            {
+                healthBar.SetHealth(currentHealth);
+            }
         }
     }
 
@@ -305,6 +317,12 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(dashingTime);
         isDashing = false;
         trailRenderer.emitting = false;
+    }
+
+    IEnumerator StopInvincibility()
+    {
+        yield return new WaitForSeconds(dashingCooldown);
+        isInvincible = false;
     }
 
     IEnumerator DashingCooldown()
