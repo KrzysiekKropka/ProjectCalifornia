@@ -69,6 +69,11 @@ public class HealthBar : MonoBehaviour
         HealthBarOnly.anchoredPosition = new Vector2(0, 5);
     }
 
+    public void ArenaMode()
+    {
+        killsText.gameObject.SetActive(true);
+    }
+
     //KK: te funkcje sa uzywane w Player.cs
 
     public void SetKills (int kills)

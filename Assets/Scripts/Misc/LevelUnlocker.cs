@@ -7,6 +7,7 @@ public class LevelUnlocker : MonoBehaviour
     [SerializeField] GameObject ShopManager;
 
     public int levelID;
+    [SerializeField] bool isArena;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip musicClip;
     [SerializeField] int[] ToUnlock;
@@ -16,6 +17,8 @@ public class LevelUnlocker : MonoBehaviour
         audioSource.clip = musicClip;
         audioSource.volume = PlayerPrefs.GetFloat("MusicVolumeValue");
         audioSource.Play();
+
+        if (isArena) GameObject.FindWithTag("HealthBar").GetComponent<HealthBar>().ArenaMode();
     }
 
     public void UnlockLevels()
