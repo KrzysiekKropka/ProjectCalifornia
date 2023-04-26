@@ -7,7 +7,7 @@ public class LevelUnlocker : MonoBehaviour
     [SerializeField] GameObject ShopManager;
 
     public int levelID;
-    [SerializeField] bool isArena;
+    public bool isArena;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip musicClip;
     [SerializeField] int[] ToUnlock;

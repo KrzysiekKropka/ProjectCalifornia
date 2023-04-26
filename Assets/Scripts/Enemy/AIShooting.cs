@@ -14,11 +14,9 @@ public class AIShooting : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     bool isReloading;
-    //bool readyToShoot;
     bool canShoot = true;
     string[] weaponName = new string[5];
     float currentTime;
-    //float reactionTime = 0.1f;
     float[] bulletSpread = new float[5];
     float[] weaponDelay = new float[5];
     float[] reloadTime = new float[5];
@@ -49,26 +47,18 @@ public class AIShooting : MonoBehaviour
         bulletSpread[1] = 1f;
 
         weaponName[2] = "MP5";
-        weaponDamage[2] = 6;
+        weaponDamage[2] = 8;
         weaponDelay[2] = 0.16f;
         reloadTime[2] = 4f;
         maxAmmo[2] = 60;
         bulletSpread[2] = 5f;
 
         weaponName[4] = "AK-47";
-        weaponDamage[4] = 12;
+        weaponDamage[4] = 16;
         weaponDelay[4] = 0.32f;
         reloadTime[4] = 4f;
         maxAmmo[4] = 40;
         bulletSpread[4] = 3f;
-
-        if(enemy.GetComponent<AIBrain>().isStatic)
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                bulletSpread[i] = bulletSpread[i] * .5f;
-            }
-        }
 
         currentAmmo[equippedWeaponID] = maxAmmo[equippedWeaponID];
 
@@ -80,21 +70,21 @@ public class AIShooting : MonoBehaviour
         {
             case 0:
                 spriteRenderer.sprite = EnemyPistol;
-                enemy.GetComponent<AIBrain>().dropHP = 15;
+                enemy.GetComponent<AIBrain>().dropHP = 5;
                 enemy.GetComponent<AIBrain>().dropXP = 30;
                 enemy.GetComponent<AIBrain>().dropMoney = 150;
                 enemy.GetComponent<AIBrain>().maxHealth = 50;
                 break;
             case 1:
                 spriteRenderer.sprite = EnemyDeagle;
-                enemy.GetComponent<AIBrain>().dropHP = 20;
+                enemy.GetComponent<AIBrain>().dropHP = 10;
                 enemy.GetComponent<AIBrain>().dropXP = 45;
                 enemy.GetComponent<AIBrain>().dropMoney = 300;
                 enemy.GetComponent<AIBrain>().maxHealth = 75;
                 break;
             case 2:
                 spriteRenderer.sprite = EnemyMP5;
-                enemy.GetComponent<AIBrain>().dropHP = 25;
+                enemy.GetComponent<AIBrain>().dropHP = 15;
                 enemy.GetComponent<AIBrain>().dropXP = 60;
                 enemy.GetComponent<AIBrain>().dropMoney = 450;
                 enemy.GetComponent<AIBrain>().maxHealth = 100;
@@ -145,8 +135,10 @@ public class AIShooting : MonoBehaviour
         //if (timer >= reactionTime && canShoot && !isReloading && readyToShoot)
         if (canShoot && !isReloading)
         {
+            float currentSpread = bulletSpread[equippedWeaponID];
+            if (enemy.GetComponent<AIBrain>().isStatic) currentSpread /= 2;
             canShoot = false;
-            float randomVal = Random.Range(90f - bulletSpread[equippedWeaponID], 90f + bulletSpread[equippedWeaponID]); //KK: Randomowa liczba na spread broni
+            float randomVal = Random.Range(90f - currentSpread, 90f + currentSpread); //KK: Randomowa liczba na spread broni
             Vector3 spread = new Vector3(0, 0, randomVal - 90);
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(firePoint.rotation.eulerAngles + spread)); //KK: Spawnuje nabój z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni
