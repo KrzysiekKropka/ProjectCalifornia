@@ -272,7 +272,6 @@ public class Shooting : MonoBehaviour
             else if (currentAmmo[equippedWeaponID] == 0)
             {
                 StartCoroutine(Reload(equippedWeaponID));
-                AudioSource.PlayClipAtPoint(EmptyMagClip, transform.position, 1f);
             }
             Destroy(bullet, 10); //KK: Usuwa obiekt po 10 sekundach jesli nie zostanie usuniety przez cos innego
             Destroy(shootEffect, 1);
@@ -295,6 +294,7 @@ public class Shooting : MonoBehaviour
         if (currentAmmo[weaponID] != maxAmmo[weaponID] && reserveAmmo[weaponID] > 0 && isReloading[weaponID] == false)
         {
             isReloading[weaponID] = true;
+            AudioSource.PlayClipAtPoint(EmptyMagClip, transform.position, 1f);
             healthBar.SetReloading(true);
 
             yield return new WaitForSeconds(reloadTime[weaponID]);
