@@ -148,8 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   genericEffect: {fileID: 5524518565218896284, guid: b21e9c2b6b03490428c038824a8b6a42, type: 3}
   bloodEffect: {fileID: 5524518565218896284, guid: 32637808a7ecc14489e42803b1d3fec5, type: 3}
-  ricochetClip: {fileID: 8300000, guid: 6859d39b21f4999499af79f13843e1de, type: 3}
-  bulletHitClip: {fileID: 8300000, guid: 6859d39b21f4999499af79f13843e1de, type: 3}
+  blockEffect: {fileID: 2543246939477496949, guid: f7c569396c994fc42bdc791c78052629, type: 3}
   bulletDamage: 0
   playerIsOwner: 0
   enemyIsOwner: 0

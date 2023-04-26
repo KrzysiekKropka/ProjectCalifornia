@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 41408
+  controlID: 43953
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 41384
+  controlID: 43954
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 41385
+  controlID: 43927
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,9 +224,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: e2300000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 944aeeffa82b0400c22b0400
+      m_ExpandedIDs: e235e7ff8e9b0700
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -591,9 +591,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.011985519, y: 0.30413896, z: -0.0051190024}
+    m_Target: {x: -2.0677826, y: -2.0697203, z: 0.071153514}
     speed: 2
-    m_Value: {x: 0.011985519, y: 0.30413896, z: -0.0051190024}
+    m_Value: {x: -2.0286236, y: -2.033955, z: 0.06979426}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -644,9 +644,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1.1748111
+    m_Target: 2.8846362
     speed: 2
-    m_Value: 1.1748111
+    m_Value: 3.0205615
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -707,6 +707,7 @@ MonoBehaviour:
     - {fileID: 6639955533467256309, guid: a3e9b03c4f86aba42a736d192185c0d7, type: 2}
     - {fileID: -2477875753272006398, guid: 211d18934a5c1d74fb81a959bae417eb, type: 2}
     - {fileID: -5371135380174114306, guid: aeeb11882d65aef409be1674e8577585, type: 2}
+    - {fileID: -8162814732648750493, guid: e2575897033f0b9409e16c92e29db3b9, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.47284213
       e01: 0
@@ -804,10 +805,26 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 211d18934a5c1d74fb81a959bae417eb, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: e2575897033f0b9409e16c92e29db3b9, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -2477875753272006398, guid: 211d18934a5c1d74fb81a959bae417eb, type: 2}
+  - m_Target: {fileID: -8162814732648750493, guid: e2575897033f0b9409e16c92e29db3b9, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -888,22 +905,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Misc
+    - Assets/Resources/Textures/Frames
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Misc
+  - Assets/Resources/Textures/Frames
   m_LastFoldersGridSize: -1
   m_LastProjectPath: B:\Inne\Documents\GitHub\ProjectCalifornia
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 6.999939}
-    m_SelectedIDs: b6a30000
-    m_LastClickedID: 41910
-    m_ExpandedIDs: 000000002c8f00004c8f000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 88910000
+    m_LastClickedID: 37256
+    m_ExpandedIDs: 000000002c8f0000488f00008291000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -956,24 +973,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: e2300000
-    m_LastClickedInstanceID: 12514
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000429100007c9d000094b20000cc7101001e7c000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: BloodEffect
+      m_OriginalName: BloodEffect
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 31948
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
@@ -1077,7 +1094,7 @@ MonoBehaviour:
     m_ControlHash: 1412526313
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 427.20007
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -1106,11 +1123,11 @@ MonoBehaviour:
     x: 1358.4
     y: 73.6
     width: 688.6
-    height: 989.80005
+    height: 997.80005
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 273320
+  m_LastSelectedObjectID: -1624670
