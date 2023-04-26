@@ -108,7 +108,6 @@ public class Player : MonoBehaviour
     //KK: Prosto z poradnika Brackeys (RIP).
     void Update()
     {
-        print(isInvincible);
         moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         aimDirection = mousePosition - rb.position;
@@ -143,7 +142,12 @@ public class Player : MonoBehaviour
             isSprinting = false;
         }
 
-        if (remainingStamina < maxStamina) remainingStamina += 5 * Time.deltaTime;
+        if (remainingStamina < maxStamina)
+        {
+            remainingStamina += 5 * Time.deltaTime;
+            healthBar.SetStamina(remainingStamina);
+        }
+
     }
 
     void FixedUpdate()
@@ -164,10 +168,10 @@ public class Player : MonoBehaviour
         if (inInventory == false) rb.rotation = aimAngle;
     }
 
-    void LateUpdate()
+    /*void LateUpdate()
     {
         healthBar.SetStamina(remainingStamina);
-    }
+    }*/
 
     void Dash()
     {
