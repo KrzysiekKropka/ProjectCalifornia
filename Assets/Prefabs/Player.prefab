@@ -395,12 +395,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2936219501362031632}
   nextLevelScreen: {fileID: 1763164974387467106}
-  settings: {fileID: 8552992975855850512}
   rb: {fileID: 928417037708580564}
   damagePopupPrefab: {fileID: 4262376480512933044, guid: 770715aeadb58bf4d85976cac77fec9b, type: 3}
   triggerNextLevelMenu: {fileID: 1237728739542715868}
   ShopManager: {fileID: 3410051807388556082}
-  postProcessing: {fileID: 3332562869250220398}
   manHurtClip: {fileID: 8300000, guid: 1ca823397e1eb2542aa72f99318dba34, type: 3}
   healClip: {fileID: 8300000, guid: d23b6ccc378bf2d418d24132aa4137bb, type: 3}
   dashClip: {fileID: 8300000, guid: 6b8a7734e78715d498a29801c7ec8ca3, type: 3}
@@ -408,6 +406,7 @@ MonoBehaviour:
   enemies: 0
   isSprinting: 0
   isDashing: 0
+  isInvincible: 0
   experiencePoints: 0
   money: 0
   canBetterAim: 0
@@ -1718,17 +1717,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1928038607214706000, guid: ff13a437240001d4b8a9097097794745, type: 3}
   m_PrefabInstance: {fileID: 5653179225561026637}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8552992975855850512 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4091086257090872413, guid: ff13a437240001d4b8a9097097794745, type: 3}
-  m_PrefabInstance: {fileID: 5653179225561026637}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1313430539866475499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 776fb23a15b345048a4ecb0cf0dbd2f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6055009747812299873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1775,6 +1763,38 @@ PrefabInstance:
     - target: {fileID: 8745570828055196799, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027057, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: volume
+      value: 
+      objectReference: {fileID: 5082385072003846245}
+    - target: {fileID: 8986998324899027057, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: vignetteGradient.ctime1
+      value: 32768
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027057, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: vignetteGradient.ctime2
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027057, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: vignetteGradient.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027057, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: vignetteGradient.key1.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027057, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: vignetteGradient.key1.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027057, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: vignetteGradient.key1.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986998324899027057, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: vignetteGradient.m_NumColorKeys
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8986998324899027062, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
       propertyPath: m_Value

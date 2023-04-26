@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using TMPro;
 
 public class HealthBar : MonoBehaviour
@@ -24,11 +26,19 @@ public class HealthBar : MonoBehaviour
     [SerializeField] Sprite Shotgun;
     [SerializeField] Sprite AK47;
     [SerializeField] RectTransform HealthBarOnly;
+    [SerializeField] Gradient gradient;
+    [SerializeField] Gradient vignetteGradient;
+    [SerializeField] Image fill;
+    [SerializeField] Volume volume;
+    private Vignette vignette;
 
     private IEnumerator messageBoxCoroutine;
 
     void OnEnable()
     {
+        volume.profile.TryGet(out vignette);
+
+        vignette.color.value = vignetteGradient.Evaluate(1f);
         if (messageBoxCoroutine != null) StopCoroutine(messageBoxCoroutine);
         messageBoxCoroutine = MessageBoxInterval();
         StartCoroutine(messageBoxCoroutine);
@@ -42,12 +52,22 @@ public class HealthBar : MonoBehaviour
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;
+
+        //fill.color = gradient.Evaluate(1f);
+        vignette.color.value = vignetteGradient.Evaluate(1f);
+        //vignette.intensity.value = Mathf.InverseLerp(2.5f, -2f, slider.normalizedValue);
     }
 
     public void SetHealth(int health)
     {
         slider.value = health;
         healthText.text = health.ToString();
+        //print(slider.normalizedValue);
+
+        //fill.color = gradient.Evaluate(slider.normalizedValue);
+        vignette.color.value = vignetteGradient.Evaluate(slider.normalizedValue);
+        //vignette.intensity.value = Mathf.InverseLerp(2.5f, -2f, slider.normalizedValue);
+        //print(Mathf.InverseLerp(2.5f, -2f, slider.normalizedValue));
     }
 
     public void SetMaxStamina(float stamina)
