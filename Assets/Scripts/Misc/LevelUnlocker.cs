@@ -8,6 +8,7 @@ public class LevelUnlocker : MonoBehaviour
 
     public int levelID;
     public bool isArena;
+    public bool isTheEnd;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip musicClip;
     [SerializeField] int[] ToUnlock;

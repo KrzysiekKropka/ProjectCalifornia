@@ -279,10 +279,15 @@ public class Player : MonoBehaviour
         kills++;
         if (kills >= enemies)
         {
-            if (!GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isArena)
+            if (!GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isArena && !GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isTheEnd)
             {
                 GameObject.FindWithTag("NextLevelTrigger").GetComponent<BoxCollider2D>().isTrigger = true;
                 healthBar.MessageBox("You killed them all!\nGo on to the next level!");
+            }
+            else if(GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isTheEnd)
+            {
+                GameObject.FindWithTag("NextLevelTrigger").GetComponent<BoxCollider2D>().isTrigger = true;
+                healthBar.MessageBox("You killed them all!\nGo on to finish the game!");
             }
         }
         healthBar.SetKills(kills);
@@ -312,8 +317,15 @@ public class Player : MonoBehaviour
 
     public void TriggerNextLevel()
     {
-        triggerNextLevelMenu.SetActive(true);
-        triggerNextLevelMenu.GetComponent<NextLevelScreen>().StartCountdown();
+        if(!GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isTheEnd)
+        {
+            triggerNextLevelMenu.SetActive(true);
+            triggerNextLevelMenu.GetComponent<NextLevelScreen>().StartCountdown();
+        }
+        else
+        {
+            SceneManager.LoadScene("Menu");
+        }
     }
 
     IEnumerator StopDashing()
