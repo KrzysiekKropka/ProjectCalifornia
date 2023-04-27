@@ -118,7 +118,7 @@ public class Player : MonoBehaviour
             Dash();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        /* if (Input.GetKeyDown(KeyCode.Q))
         {
             SetXP(15);
         }
@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Y))
         {
             TakeDamage(10);
-        }
+        } */
 
         if(Input.GetKey(KeyCode.LeftShift) && canSprint && !staminaCooldownBool && rb.velocity != Vector2.zero)
         {

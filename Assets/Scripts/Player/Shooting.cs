@@ -42,6 +42,7 @@ public class Shooting : MonoBehaviour
 
     public AudioClipArray[] weaponAudioClips;
     private IEnumerator weaponCooldownCoroutine;
+    private IEnumerator currentReloadCoroutine;
 
     void Start()
     {
@@ -129,6 +130,11 @@ public class Shooting : MonoBehaviour
             if (weaponCooldownCoroutine != null) StopCoroutine(weaponCooldownCoroutine);
             weaponCooldownCoroutine = WeaponSwitchCooldown();
             StartCoroutine(weaponCooldownCoroutine);
+            if (currentReloadCoroutine != null)
+            {
+                StopCoroutine(currentReloadCoroutine);
+                isReloading[equippedWeaponID] = false;
+            }
         }
 
         if (shopManager.shopItems[3, weaponID] == 1)
@@ -156,6 +162,12 @@ public class Shooting : MonoBehaviour
         {
             healthBar.MessageBox("You don't own " + weaponName[weaponID] + "!");
         }
+
+        if(currentAmmo[equippedWeaponID] == 0)
+        {
+            currentReloadCoroutine = Reload(weaponID);
+            StartCoroutine(currentReloadCoroutine);
+        }
     }
 
 
@@ -163,7 +175,8 @@ public class Shooting : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            StartCoroutine(Reload(equippedWeaponID));
+            currentReloadCoroutine = Reload(equippedWeaponID);
+            StartCoroutine(currentReloadCoroutine);
         }
 
         if (Input.GetMouseButton(0))
@@ -199,7 +212,11 @@ public class Shooting : MonoBehaviour
             if(shopManager.shopItems[3, i] == 1) reserveAmmo[i] += maxAmmo[i] / 3;
         }
         healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
-        if (currentAmmo[equippedWeaponID] == 0) StartCoroutine(Reload(equippedWeaponID));
+        if (currentAmmo[equippedWeaponID] == 0)
+        {
+            currentReloadCoroutine = Reload(equippedWeaponID);
+            StartCoroutine(currentReloadCoroutine);
+        }
     }
 
     //KK: Rozczytaj sie z tego :DDD
@@ -271,7 +288,8 @@ public class Shooting : MonoBehaviour
             }
             else if (currentAmmo[equippedWeaponID] == 0)
             {
-                StartCoroutine(Reload(equippedWeaponID));
+                currentReloadCoroutine = Reload(equippedWeaponID);
+                StartCoroutine(currentReloadCoroutine);
             }
             Destroy(bullet, 10); //KK: Usuwa obiekt po 10 sekundach jesli nie zostanie usuniety przez cos innego
             Destroy(shootEffect, 1);
