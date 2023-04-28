@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
 
         if (remainingStamina < maxStamina)
         {
-            remainingStamina += 5 * Time.deltaTime;
+            remainingStamina += 10 * Time.deltaTime;
             healthBar.SetStamina(remainingStamina);
         }
 
@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
         if (isSprinting && remainingStamina > 0)
         {
             rb.velocity = new Vector2(moveDirection.x * sprintingSpeed, moveDirection.y * sprintingSpeed);
-            if (!isDashing) remainingStamina -= 6 * Time.deltaTime;
+            if (!isDashing) remainingStamina -= 12 * Time.deltaTime;
             if (remainingStamina <= 0) StartCoroutine(SprintCooldown());
         }
         else
