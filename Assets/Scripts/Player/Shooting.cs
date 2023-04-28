@@ -324,7 +324,7 @@ public class Shooting : MonoBehaviour
                 {
                     isReloading[weaponID] = false;
                     healthBar.SetReloading(false);
-                    StopCoroutine(currentReloadCoroutine);
+                    yield break;
                 }
             }
 
