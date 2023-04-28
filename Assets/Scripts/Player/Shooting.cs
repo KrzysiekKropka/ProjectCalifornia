@@ -135,38 +135,36 @@ public class Shooting : MonoBehaviour
                 StopCoroutine(currentReloadCoroutine);
                 isReloading[equippedWeaponID] = false;
             }
-        }
-
-        if (shopManager.shopItems[3, weaponID] == 1)
-        {
-            healthBar.SetWeaponIcon(weaponID);
-            healthBar.SetAmmo(currentAmmo[weaponID], reserveAmmo[weaponID]);
-            equippedWeaponID = weaponID;
-            healthBar.SetReloading(false);
-
-            if (weaponID < 2)
+            if (shopManager.shopItems[3, weaponID] == 1)
             {
-                spriteRenderer.sprite = PlayerPistol;
+                healthBar.SetWeaponIcon(weaponID);
+                healthBar.SetAmmo(currentAmmo[weaponID], reserveAmmo[weaponID]);
+                equippedWeaponID = weaponID;
+                healthBar.SetReloading(false);
+
+                if (weaponID < 2)
+                {
+                    spriteRenderer.sprite = PlayerPistol;
+                }
+                else
+                {
+                    spriteRenderer.sprite = PlayerRifle;
+                }
+
+                if (isReloading[weaponID])
+                {
+                    healthBar.SetReloading(true);
+                }
             }
             else
             {
-                spriteRenderer.sprite = PlayerRifle;
+                healthBar.MessageBox("You don't own " + weaponName[weaponID] + "!");
             }
-
-            if (isReloading[weaponID])
+            if (currentAmmo[equippedWeaponID] == 0)
             {
-                healthBar.SetReloading(true);
+                currentReloadCoroutine = Reload(weaponID);
+                StartCoroutine(currentReloadCoroutine);
             }
-        }
-        else
-        {
-            healthBar.MessageBox("You don't own " + weaponName[weaponID] + "!");
-        }
-
-        if(currentAmmo[equippedWeaponID] == 0)
-        {
-            currentReloadCoroutine = Reload(weaponID);
-            StartCoroutine(currentReloadCoroutine);
         }
     }
 
@@ -316,9 +314,18 @@ public class Shooting : MonoBehaviour
             float time = reloadTime[weaponID];
             while(time > 0)
             {
-                healthBar.SetReloading(true, time);
-                time -= 0.1f;
-                yield return new WaitForSeconds(0.1f);
+                if (equippedWeaponID == weaponID)
+                {
+                    healthBar.SetReloading(true, time);
+                    time -= 0.1f;
+                    yield return new WaitForSeconds(0.1f);
+                }
+                else
+                {
+                    isReloading[weaponID] = false;
+                    healthBar.SetReloading(false);
+                    StopCoroutine(currentReloadCoroutine);
+                }
             }
 
             //KK: Jestem pewny, ze da sie tego ifa zrobic o wiele lepiej. Nie chce mi sie :)

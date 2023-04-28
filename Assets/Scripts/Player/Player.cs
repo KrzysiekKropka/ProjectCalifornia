@@ -81,6 +81,8 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         healthBar.SetExperiencePoints(experiencePoints);
         healthBar.SetMoney(money);
+
+        healthBar.MessageBox("Kill them all!");
     }
 
     public void RefreshShop()
