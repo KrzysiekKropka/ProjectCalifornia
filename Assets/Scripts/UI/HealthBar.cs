@@ -19,6 +19,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] TMP_Text killsText;
     [SerializeField] TMP_Text ammoText;
     [SerializeField] TMP_Text reloadingText;
+    [SerializeField] TMP_Text reloadingTimer;
     [SerializeField] TMP_Text messageBox;
     [SerializeField] Sprite Pistol;
     [SerializeField] Sprite Deagle;
@@ -141,10 +142,18 @@ public class HealthBar : MonoBehaviour
         }
     }
 
-    public void SetReloading(bool isReloading)
+    public void SetReloading(bool isReloading, float time = 0f)
     {
-        if (isReloading) reloadingText.text = "Reloading...";
-        else reloadingText.text = "";
+        if (isReloading)
+        {
+            reloadingText.text = "Reloading";
+            reloadingTimer.text = "(" + time.ToString("F1") + ")";
+        }
+        else
+        {
+            reloadingText.text = "";
+            reloadingTimer.text = "";
+        }
     }
 
     public void MessageBox(string message)
