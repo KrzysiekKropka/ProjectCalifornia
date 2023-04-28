@@ -52,7 +52,7 @@ public class Bullet : MonoBehaviour
         var bullet = collision.collider.GetComponent<Bullet>();
 
 
-        if (!playerIsOwner && player && !player.GetComponent<Player>().isInvincible)
+        if (enemyIsOwner && player && !player.GetComponent<Player>().isInvincible)
         {
             int randomInt = Random.Range(1, 5);
             bodyHitClip = (AudioClip)Resources.Load("Audio/HitBody" + randomInt);
@@ -61,7 +61,7 @@ public class Bullet : MonoBehaviour
             player.TakeDamage(modifiedBulletDamage);
             Destroy(gameObject);
         }
-        else if (!playerIsOwner && player && player.GetComponent<Player>().isInvincible)
+        else if (enemyIsOwner && player && player.GetComponent<Player>().isInvincible)
         {
             effect = Instantiate(blockEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
