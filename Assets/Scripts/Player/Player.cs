@@ -144,9 +144,12 @@ public class Player : MonoBehaviour
             isSprinting = false;
         }
 
-        if (remainingStamina < maxStamina)
+        if (remainingStamina < maxStamina)//remainingStamina < maxStamina
         {
-            remainingStamina += 10 * Time.deltaTime;
+            if (!isSprinting && !isDashing)
+            {
+                remainingStamina += 8f * Time.deltaTime;
+            }
             healthBar.SetStamina(remainingStamina);
         }
 
@@ -157,12 +160,11 @@ public class Player : MonoBehaviour
         if (isSprinting && remainingStamina > 0)
         {
             rb.velocity = new Vector2(moveDirection.x * sprintingSpeed, moveDirection.y * sprintingSpeed);
-            if (!isDashing) remainingStamina -= 12 * Time.deltaTime;
+            if (!isDashing) remainingStamina -= 2f * Time.deltaTime;
             if (remainingStamina <= 0) StartCoroutine(SprintCooldown());
         }
         else
         {
-            isSprinting = false;
             rb.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
         }
 
