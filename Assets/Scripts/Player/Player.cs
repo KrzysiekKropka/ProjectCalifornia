@@ -192,7 +192,7 @@ public class Player : MonoBehaviour
                 isDashing = true;
                 isInvincible = true;
                 trailRenderer.emitting = true;
-                remainingStamina -= 2f;
+                remainingStamina -= 1.5f;
                 AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
             }
             else if (dashingSpree < 2)
@@ -201,7 +201,7 @@ public class Player : MonoBehaviour
                 isDashing = true;
                 isInvincible = true;
                 trailRenderer.emitting = true;
-                remainingStamina -= 2f;
+                remainingStamina -= 1.5f;
                 AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
             }
             else
