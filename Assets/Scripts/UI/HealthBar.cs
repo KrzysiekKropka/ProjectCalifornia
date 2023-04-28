@@ -67,7 +67,7 @@ public class HealthBar : MonoBehaviour
         //fill.color = gradient.Evaluate(slider.normalizedValue);
         vignette.color.value = vignetteGradient.Evaluate(slider.normalizedValue);
         //vignette.intensity.value = Mathf.InverseLerp(2f, -2f, slider.normalizedValue);
-        print(vignette.intensity.value);
+        //print(vignette.intensity.value);
         //print(Mathf.InverseLerp(2.5f, -2f, slider.normalizedValue));
     }
 
