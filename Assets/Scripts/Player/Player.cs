@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject triggerNextLevelMenu;
     [SerializeField] GameObject ShopManager;
     [SerializeField] AudioClip manHurtClip, healClip, dashClip;
+    private SpriteRenderer spriteRenderer;
     private TrailRenderer trailRenderer;
     private GameObject damagePopup;
 
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
     float dashingTime = 0.1f;
     float dashingTimer;
     float dashingCooldown = 0.25f;
+    float invincibiltyTimer = 0.375f;
     int dashingSpree;
 
     float speed = 9f;
@@ -66,6 +68,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         NextLevelScreen.isActive = false;
+        spriteRenderer = GetComponent<SpriteRenderer>();
         trailRenderer = GetComponent<TrailRenderer>();
 
         experiencePoints = PlayerPrefs.GetInt("experiencePoints");
@@ -192,7 +195,7 @@ public class Player : MonoBehaviour
                 isDashing = true;
                 isInvincible = true;
                 trailRenderer.emitting = true;
-                remainingStamina -= 1.5f;
+                remainingStamina -= 2f;
                 AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
             }
             else if (dashingSpree < 2)
@@ -201,7 +204,7 @@ public class Player : MonoBehaviour
                 isDashing = true;
                 isInvincible = true;
                 trailRenderer.emitting = true;
-                remainingStamina -= 1.5f;
+                remainingStamina -= 2f;
                 AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
             }
             else
@@ -341,8 +344,10 @@ public class Player : MonoBehaviour
 
     IEnumerator StopInvincibility()
     {
-        yield return new WaitForSeconds(dashingCooldown);
+        spriteRenderer.color = new Color(0.75f, 0.75f, 1, 0.75f);
+        yield return new WaitForSeconds(invincibiltyTimer);
         isInvincible = false;
+        spriteRenderer.color = new Color(1, 1, 1, 1);
     }
 
     IEnumerator DashingCooldown()
