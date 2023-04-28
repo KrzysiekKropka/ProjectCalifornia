@@ -33,14 +33,14 @@ public class AIShooting : MonoBehaviour
         reach = enemy.GetComponent<FieldOfView>().radius*1.5f;
 
         weaponName[0] = "Pistol";
-        weaponDamage[0] = 5;
+        weaponDamage[0] = 6;
         weaponDelay[0] = 0.5f;
         reloadTime[0] = 2f;
         maxAmmo[0] = 21;
         bulletSpread[0] = 3f;
 
         weaponName[1] = "Deagle";
-        weaponDamage[1] = 10;
+        weaponDamage[1] = 12;
         weaponDelay[1] = 0.75f;
         reloadTime[1] = 2f;
         maxAmmo[1] = 9;
