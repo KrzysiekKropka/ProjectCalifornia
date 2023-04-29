@@ -344,7 +344,7 @@ public class Player : MonoBehaviour
 
     IEnumerator StopInvincibility()
     {
-        spriteRenderer.color = new Color(0.5f, 0.5f, 1, 0.75f);
+        spriteRenderer.color = new Color(1, 1, 1, 0.5f);
         yield return new WaitForSeconds(invincibiltyTimer);
         isInvincible = false;
         spriteRenderer.color = new Color(1, 1, 1, 1);
