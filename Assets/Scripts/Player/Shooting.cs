@@ -312,13 +312,14 @@ public class Shooting : MonoBehaviour
             isReloading[weaponID] = true;
             AudioSource.PlayClipAtPoint(EmptyMagClip, transform.position, 1f);
             float time = reloadTime[weaponID];
+            healthBar.reloadSlider.maxValue = time;
             while(time > 0)
             {
                 if (equippedWeaponID == weaponID)
                 {
                     healthBar.SetReloading(true, time);
-                    time -= 0.1f;
-                    yield return new WaitForSeconds(0.1f);
+                    time -= 0.01f;
+                    yield return new WaitForSeconds(0.01f);
                 }
                 else
                 {

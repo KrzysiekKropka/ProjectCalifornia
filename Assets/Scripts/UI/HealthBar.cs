@@ -10,6 +10,7 @@ public class HealthBar : MonoBehaviour
 {
     [SerializeField] Slider slider;
     [SerializeField] Slider staminaSlider;
+    public Slider reloadSlider;
     [SerializeField] AudioClip messageBoxClip;
     [SerializeField] AudioSource audioSource;
     [SerializeField] Image weaponIcon;
@@ -146,13 +147,16 @@ public class HealthBar : MonoBehaviour
     {
         if (isReloading)
         {
-            reloadingText.text = "Reloading";
-            reloadingTimer.text = "(" + time.ToString("F1") + ")";
+            reloadSlider.gameObject.SetActive(true);
+            reloadSlider.value = time;
+            reloadingText.text = "Reloading...";
+            //reloadingTimer.text = "(" + time.ToString("F1") + ")";
         }
         else
         {
+            reloadSlider.gameObject.SetActive(false);
             reloadingText.text = "";
-            reloadingTimer.text = "";
+            //reloadingTimer.text = "";
         }
     }
 
