@@ -273,9 +273,7 @@ public class Player : MonoBehaviour
             }
             else if(GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isTheEnd)
             {
-                GameObject.FindWithTag("NextLevelTrigger").GetComponent<BoxCollider2D>().isTrigger = true;
-                healthBar.MessageBox("Congratulations on finishing the game!");
-                StartCoroutine(EndTheGame());
+                triggerNextLevelMenu.GetComponent<NextLevelScreen>().StartCountdown(true);
             }
         }
         healthBar.SetKills(kills);
@@ -338,11 +336,5 @@ public class Player : MonoBehaviour
         staminaCooldownBool = true;
         yield return new WaitForSeconds(staminaCooldown);
         staminaCooldownBool = false;
-    }
-
-    IEnumerator EndTheGame()
-    {
-        yield return new WaitForSeconds(10f);
-        SceneManager.LoadScene("Menu");
     }
 }

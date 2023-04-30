@@ -8,35 +8,56 @@ using TMPro;
 public class NextLevelScreen : MonoBehaviour
 {
     [SerializeField] TMP_Text nextLevelCountdownText;
+    [SerializeField] TMP_Text generalText;
     [SerializeField] Slider slider;
     int countdown = 5;
 
     public static bool isActive = false;
 
-    public void StartCountdown()
+    public void StartCountdown(bool isEnd = false)
     {
         slider.maxValue = countdown;
         isActive = true;
         gameObject.SetActive(true);
         GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().UnlockLevels();
-        StartCoroutine(Countdown());
+        StartCoroutine(Countdown(isEnd));
     }
 
-    IEnumerator Countdown()
+    IEnumerator Countdown(bool isEnd)
     {
-        int currCountdownValue = countdown;
-        while (currCountdownValue > 0)
+        if(!isEnd)
         {
+            int currCountdownValue = countdown;
+            while (currCountdownValue > 0)
+            {
+                nextLevelCountdownText.text = "Starting the next level in " + currCountdownValue + " seconds!";
+                slider.value = currCountdownValue;
+                yield return new WaitForSeconds(1);
+                currCountdownValue--;
+            }
             nextLevelCountdownText.text = "Starting the next level in " + currCountdownValue + " seconds!";
             slider.value = currCountdownValue;
             yield return new WaitForSeconds(1);
-            currCountdownValue--;
+            isActive = false;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        nextLevelCountdownText.text = "Starting the next level in " + currCountdownValue + " seconds!";
-        slider.value = currCountdownValue;
-        yield return new WaitForSeconds(1);
-        isActive = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        else if (isEnd)
+        {
+            generalText.text = "CONGRATULATIONS FOR FINISHING THE GAME!";
+            int currCountdownValue = countdown;
+            while (currCountdownValue > 0)
+            {
+                nextLevelCountdownText.text = "Ending in " + currCountdownValue + " seconds!";
+                slider.value = currCountdownValue;
+                yield return new WaitForSeconds(1);
+                currCountdownValue--;
+            }
+            nextLevelCountdownText.text = "Ending in " + currCountdownValue + " seconds!";
+            slider.value = currCountdownValue;
+            yield return new WaitForSeconds(1);
+            isActive = false;
+            SceneManager.LoadScene("Menu");
+        }
     }
 
     public void GoToMainMenu()
