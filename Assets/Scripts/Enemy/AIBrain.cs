@@ -32,6 +32,8 @@ public class AIBrain : MonoBehaviour
     [SerializeField] float speed = 6f; 
     public int maxHealth = 100;
 
+    [SerializeField] bool isDreamy = false;
+    [SerializeField] AudioClip DreamySeek, DreamyFind, DreamyDeath;
     public bool customHP = false;
     public bool isStatic = false;
     public bool playerDetected = false;
@@ -178,6 +180,7 @@ public class AIBrain : MonoBehaviour
                 {
                     player.SetXP(dropXP);
                     player.AddKill();
+                    if (isDreamy) AudioSource.PlayClipAtPoint(DreamyDeath, transform.position);
                 }
                 Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
                 GameObject droppedMoney = Instantiate(moneyDropPrefab, transform.position + new Vector3(-0.75f, -0.75f, 0f), Quaternion.identity);
@@ -197,7 +200,8 @@ public class AIBrain : MonoBehaviour
         reacting = true;
         yield return new WaitForSeconds(reactionTime);
         reacting = false;
-        healthBar.Dialogue(FoundPlayerDialogue[Random.Range(0, FoundPlayerDialogue.Length)]);
+        if (!isDreamy) healthBar.Dialogue(FoundPlayerDialogue[Random.Range(0, FoundPlayerDialogue.Length)]);
+        else AudioSource.PlayClipAtPoint(DreamyFind, transform.position);
         seekingActivated = false;
         playerDetected = true;
         playerWasDetected = true;
@@ -208,7 +212,8 @@ public class AIBrain : MonoBehaviour
         yield return new WaitForSeconds(forgetPlayer);
         playerDetected = false;
         ChangeAimLock(false);
-        healthBar.Dialogue(SeekPlayerDialogue[Random.Range(0, SeekPlayerDialogue.Length)]);
+        if (!isDreamy) healthBar.Dialogue(SeekPlayerDialogue[Random.Range(0, SeekPlayerDialogue.Length)]);
+        else AudioSource.PlayClipAtPoint(DreamySeek, transform.position);
         if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
         seekPlayerCoroutine = SeekingPlayer();
         StartCoroutine(seekPlayerCoroutine);

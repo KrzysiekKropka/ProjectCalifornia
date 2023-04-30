@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 32652
+  controlID: 36199
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 32653
+  controlID: 36200
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 32654
+  controlID: 36201
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,8 +224,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 490.8}
-      m_SelectedIDs: 9863f1ff
-      m_LastClickedID: -957544
+      m_SelectedIDs: 9263f1ff
+      m_LastClickedID: -957550
       m_ExpandedIDs: de5cf1fffa5df1ff9863f1ff0267f1ff9c68f1ffa6b1f5ff1e9ff6ffd2a8f6ffa2aef6ff48aff6ffaeb1f6ff02b8f6ffd4cdf6ffcee5f6ff8400f7ff5a0df7fff40ef7ff160afdffd80afdff7021fdff7821fdfff8c3ffff6cc9ffffacd0fffff2d2ffffb2d3ffffbed3ffffe6d3ffffd8d6ffff64d9ffff98daffff2cfbffff1692000092870300
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -591,9 +591,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -84.41064, y: -14.514233, z: 1.1306399}
+    m_Target: {x: -84.63558, y: -13.576208, z: 1.1283884}
     speed: 2
-    m_Value: {x: -84.41064, y: -14.514233, z: 1.1306399}
+    m_Value: {x: -0.40565017, y: 0.58043945, z: 0.068035476}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -644,9 +644,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.3973784
+    m_Target: 4.602027
     speed: 2
-    m_Value: 7.3973784
+    m_Value: 2.114503
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -905,22 +905,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Enemy
+    - Assets/Resources/Audio
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Enemy
+  - Assets/Resources/Audio
   m_LastFoldersGridSize: -1
   m_LastProjectPath: B:\Inne\Documents\GitHub\ProjectCalifornia
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 38940000
-    m_LastClickedID: 37944
-    m_ExpandedIDs: 00000000429100008291000000ca9a3b
+    m_SelectedIDs: 46a60000
+    m_LastClickedID: 42566
+    m_ExpandedIDs: 00000000429100007e91000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -973,8 +973,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 9863f1ff
-    m_LastClickedInstanceID: -957544
+    m_SelectedInstanceIDs: 9263f1ff
+    m_LastClickedInstanceID: -957550
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000429100007c9d000094b20000cc7101001e7c000000000000
     m_RenameOverlay:
@@ -1130,4 +1130,4 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -957544
+  m_LastSelectedObjectID: 262528

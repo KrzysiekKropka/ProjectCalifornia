@@ -17,6 +17,7 @@ public class AIShooting : MonoBehaviour
     [SerializeField] int customDamage;
     [SerializeField] float customDelay;
     [SerializeField] float customSpread;
+    [SerializeField] Sprite customSprite;
     bool isReloading;
     bool canShoot = true;
     string[] weaponName = new string[5];
@@ -109,6 +110,7 @@ public class AIShooting : MonoBehaviour
             weaponDamage[equippedWeaponID] = customDamage;
             weaponDelay[equippedWeaponID] = customDelay;
             bulletSpread[equippedWeaponID] = customSpread;
+            if(customSprite!=null)spriteRenderer.sprite = customSprite;
         }
 
         healthBar.SetAmmo(currentAmmo[equippedWeaponID]);
