@@ -1573,7 +1573,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8986998324899027063}
   - component: {fileID: 8986998324899027062}
-  - component: {fileID: 8986998324899027057}
   m_Layer: 5
   m_Name: UI
   m_TagString: HealthBar
@@ -1656,96 +1655,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8986998324899027057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8986998324899027060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84b5ddd477f19144d98e36a3b676b0f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 8986998324899027062}
-  staminaSlider: {fileID: 146808750207204245}
-  reloadSlider: {fileID: 5809731544520203913}
-  messageBoxClip: {fileID: 8300000, guid: 36132c310971de24ab8ec19b8d6efe28, type: 3}
-  audioSource: {fileID: 6536067609133419304}
-  weaponIcon: {fileID: 8343167470351434579}
-  healthText: {fileID: 860084100766872380}
-  experiencePointsText: {fileID: 2062176800487659119}
-  moneyText: {fileID: 4690998622052100502}
-  killsText: {fileID: 7685506423705896230}
-  ammoText: {fileID: 6831715471784182422}
-  messageBox: {fileID: 2571467513536974329}
-  Pistol: {fileID: 21300000, guid: 3b122a4c0a5479942929fafa5ed05f5c, type: 3}
-  Deagle: {fileID: 21300000, guid: 2339f558afbdaa74b9b5ecd0acc3586e, type: 3}
-  MP5: {fileID: 21300000, guid: c3bdf69888f81414eaa968f1b0052a85, type: 3}
-  Shotgun: {fileID: 21300000, guid: 875e77a47adb5bc4090de722aa3806ce, type: 3}
-  AK47: {fileID: 21300000, guid: 20516a941f34b0647b6ef112483cd7d7, type: 3}
-  HealthBarOnly: {fileID: 8745570828055196799}
-  gradient:
-    serializedVersion: 2
-    key0: {r: 0.93725497, g: 0.058823533, b: 0.1137255, a: 1}
-    key1: {r: 1, g: 1, b: 0, a: 1}
-    key2: {r: 1, g: 1, b: 0, a: 0}
-    key3: {r: 0.39215687, g: 0.9411765, b: 0.05882351, a: 0}
-    key4: {r: 0.39215687, g: 0.9411765, b: 0.05882351, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 26214
-    ctime2: 39321
-    ctime3: 65535
-    ctime4: 65535
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 4
-    m_NumAlphaKeys: 2
-  vignetteGradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 0, g: 0, b: 0, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 32768
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
-  fill: {fileID: 8986998326100138020}
-  volume: {fileID: 0}
 --- !u!1 &8986998325532272153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,6 +1668,7 @@ GameObject:
   - component: {fileID: 8986998325532272155}
   - component: {fileID: 8986998325532272152}
   - component: {fileID: 6536067609133419304}
+  - component: {fileID: 3434315128830121388}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -1944,6 +1854,96 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3434315128830121388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8986998325532272153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b5ddd477f19144d98e36a3b676b0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 8986998324899027062}
+  staminaSlider: {fileID: 146808750207204245}
+  reloadSlider: {fileID: 5809731544520203913}
+  messageBoxClip: {fileID: 8300000, guid: 36132c310971de24ab8ec19b8d6efe28, type: 3}
+  audioSource: {fileID: 6536067609133419304}
+  weaponIcon: {fileID: 8343167470351434579}
+  healthText: {fileID: 860084100766872380}
+  experiencePointsText: {fileID: 2062176800487659119}
+  moneyText: {fileID: 4690998622052100502}
+  killsText: {fileID: 7685506423705896230}
+  ammoText: {fileID: 6831715471784182422}
+  messageBox: {fileID: 2571467513536974329}
+  Pistol: {fileID: 21300000, guid: 3b122a4c0a5479942929fafa5ed05f5c, type: 3}
+  Deagle: {fileID: 21300000, guid: 2339f558afbdaa74b9b5ecd0acc3586e, type: 3}
+  MP5: {fileID: 21300000, guid: c3bdf69888f81414eaa968f1b0052a85, type: 3}
+  Shotgun: {fileID: 21300000, guid: 875e77a47adb5bc4090de722aa3806ce, type: 3}
+  AK47: {fileID: 21300000, guid: 20516a941f34b0647b6ef112483cd7d7, type: 3}
+  HealthBarOnly: {fileID: 8745570828055196799}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 0.93725497, g: 0.058823533, b: 0.1137255, a: 1}
+    key1: {r: 1, g: 1, b: 0, a: 1}
+    key2: {r: 1, g: 1, b: 0, a: 0}
+    key3: {r: 0.39215687, g: 0.9411765, b: 0.05882351, a: 0}
+    key4: {r: 0.39215687, g: 0.9411765, b: 0.05882351, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 26214
+    ctime2: 39321
+    ctime3: 65535
+    ctime4: 65535
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 2
+  vignetteGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0, g: 0, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 32768
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  fill: {fileID: 8986998326100138020}
+  volume: {fileID: 0}
 --- !u!1 &8986998326061554526
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ public class NextLevelScreen : MonoBehaviour
     [SerializeField] TMP_Text nextLevelCountdownText;
     [SerializeField] TMP_Text generalText;
     [SerializeField] Slider slider;
-    int countdown = 5;
 
     public static bool isActive = false;
 
@@ -26,8 +25,8 @@ public class NextLevelScreen : MonoBehaviour
     {
         if(!isEnd)
         {
-            int currCountdownValue = countdown;
-            slider.maxValue = countdown;
+            int currCountdownValue = 5;
+            slider.maxValue = 5;
             while (currCountdownValue > 0)
             {
                 nextLevelCountdownText.text = "Starting the next level in " + currCountdownValue + " seconds!";

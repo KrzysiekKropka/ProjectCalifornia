@@ -273,7 +273,7 @@ public class Player : MonoBehaviour
             }
             else if(GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isTheEnd)
             {
-                triggerNextLevelMenu.GetComponent<NextLevelScreen>().StartCountdown(true);
+                StartCoroutine(TriggerTheEnd());
             }
         }
         healthBar.SetKills(kills);
@@ -336,5 +336,14 @@ public class Player : MonoBehaviour
         staminaCooldownBool = true;
         yield return new WaitForSeconds(staminaCooldown);
         staminaCooldownBool = false;
+    }
+
+    IEnumerator TriggerTheEnd()
+    {
+        NextLevelScreen.isActive = true;
+        Time.timeScale = 0.33f;
+        yield return new WaitForSecondsRealtime(5);
+        Time.timeScale = 1f;
+        triggerNextLevelMenu.GetComponent<NextLevelScreen>().StartCountdown(true);
     }
 }
