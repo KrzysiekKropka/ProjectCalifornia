@@ -508,7 +508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5891919148703806736, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: speed
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5891919148703806736, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: customHP
@@ -516,7 +516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5891919148703806736, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: maxHealth
-      value: 250
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6810274436053365145, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: m_Name
@@ -19619,6 +19619,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5891919148703806736, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
+      propertyPath: speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891919148703806736, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: customHP
       value: 1
       objectReference: {fileID: 0}
@@ -22334,7 +22338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5891919148703806736, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: speed
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5891919148703806736, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: customHP
@@ -22342,7 +22346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5891919148703806736, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: maxHealth
-      value: 250
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6810274436053365145, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: m_Name
@@ -22626,7 +22630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5891919148703806736, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: speed
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5891919148703806736, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: customHP
@@ -22634,7 +22638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5891919148703806736, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: maxHealth
-      value: 250
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6810274436053365145, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: m_Name
@@ -23169,6 +23173,10 @@ PrefabInstance:
     - target: {fileID: 6311583285640562097, guid: 0a1956ef0a29e9b4f988a9ba49d38b42, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6616374850029376444, guid: 0a1956ef0a29e9b4f988a9ba49d38b42, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8071381121563565409, guid: 0a1956ef0a29e9b4f988a9ba49d38b42, type: 3}
       propertyPath: m_AnchorMax.x
