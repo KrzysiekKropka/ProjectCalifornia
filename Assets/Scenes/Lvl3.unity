@@ -19640,7 +19640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3503180920176394681, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: customDamage
-      value: 24
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 3503180920176394681, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: customSpread
