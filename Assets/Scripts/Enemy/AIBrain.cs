@@ -169,7 +169,6 @@ public class AIBrain : MonoBehaviour
             deadBody.SetActive(true);
             deadBody.GetComponent<DeadBodyFollow>().DeadBodyPosition(shootingScript.equippedWeaponID);
             shootingScript.enabled = false;
-
             Destroy(gameObject);
             Destroy(healthBar.gameObject);
             if (Time.time - currentTimeBloodPool > .01f)
@@ -178,7 +177,6 @@ public class AIBrain : MonoBehaviour
                 {
                     player.SetXP(dropXP);
                     player.AddKill();
-                    player.TriggerNextLevel();
                 }
                 Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
                 GameObject droppedMoney = Instantiate(moneyDropPrefab, transform.position + new Vector3(-0.75f, -0.75f, 0f), Quaternion.identity);
