@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class SettingsMenu : MonoBehaviour
@@ -164,5 +165,10 @@ public class SettingsMenu : MonoBehaviour
         musicVolume = musicVolumeSlider.value;
         if (GameObject.FindWithTag("LevelUnlocker")) GameObject.FindWithTag("LevelUnlocker").GetComponent<AudioSource>().volume = musicVolume;
         PlayerPrefs.SetFloat("MusicVolumeValue", musicVolume);
+    }
+
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
     }
 }
