@@ -73,21 +73,21 @@ public class AIShooting : MonoBehaviour
                 enemy.GetComponent<AIBrain>().dropHP = 5;
                 enemy.GetComponent<AIBrain>().dropXP = 30;
                 enemy.GetComponent<AIBrain>().dropMoney = 150;
-                enemy.GetComponent<AIBrain>().maxHealth = 50;
+                if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 50;
                 break;
             case 1:
                 spriteRenderer.sprite = EnemyDeagle;
                 enemy.GetComponent<AIBrain>().dropHP = 10;
                 enemy.GetComponent<AIBrain>().dropXP = 45;
                 enemy.GetComponent<AIBrain>().dropMoney = 300;
-                enemy.GetComponent<AIBrain>().maxHealth = 75;
+                if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 75;
                 break;
             case 2:
                 spriteRenderer.sprite = EnemyMP5;
                 enemy.GetComponent<AIBrain>().dropHP = 15;
                 enemy.GetComponent<AIBrain>().dropXP = 60;
                 enemy.GetComponent<AIBrain>().dropMoney = 450;
-                enemy.GetComponent<AIBrain>().maxHealth = 100;
+                if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 100;
                 break;
             case 3:
                 break;
@@ -96,7 +96,7 @@ public class AIShooting : MonoBehaviour
                 enemy.GetComponent<AIBrain>().dropHP = 30;
                 enemy.GetComponent<AIBrain>().dropXP = 90;
                 enemy.GetComponent<AIBrain>().dropMoney = 600;
-                enemy.GetComponent<AIBrain>().maxHealth = 150;
+                if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 150;
                 break;
         }
 

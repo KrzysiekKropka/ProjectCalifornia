@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
         {
             if (!isSprinting && !isDashing)
             {
-                remainingStamina += 8f * Time.deltaTime;
+                remainingStamina += 10f * Time.deltaTime;
             }
             healthBar.SetStamina(remainingStamina);
         }
@@ -294,7 +294,8 @@ public class Player : MonoBehaviour
             else if(GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isTheEnd)
             {
                 GameObject.FindWithTag("NextLevelTrigger").GetComponent<BoxCollider2D>().isTrigger = true;
-                healthBar.MessageBox("You killed them all!\nGo on to finish the game!");
+                healthBar.MessageBox("Congratulations on finishing the game!");
+                StartCoroutine(EndTheGame());
             }
         }
         healthBar.SetKills(kills);
@@ -329,10 +330,6 @@ public class Player : MonoBehaviour
             triggerNextLevelMenu.SetActive(true);
             triggerNextLevelMenu.GetComponent<NextLevelScreen>().StartCountdown();
         }
-        else
-        {
-            SceneManager.LoadScene("Menu");
-        }
     }
 
     IEnumerator StopDashing()
@@ -362,5 +359,11 @@ public class Player : MonoBehaviour
         staminaCooldownBool = true;
         yield return new WaitForSeconds(staminaCooldown);
         staminaCooldownBool = false;
+    }
+
+    IEnumerator EndTheGame()
+    {
+        yield return new WaitForSeconds(10f);
+        SceneManager.LoadScene("Menu");
     }
 }
