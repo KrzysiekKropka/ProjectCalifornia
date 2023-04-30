@@ -341,9 +341,9 @@ public class Player : MonoBehaviour
     IEnumerator TriggerTheEnd()
     {
         NextLevelScreen.isActive = true;
-        Time.timeScale = 0.33f;
+        Time.timeScale = 0.5f;
         yield return new WaitForSecondsRealtime(10);
         Time.timeScale = 1f;
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("Credits");
     }
 }
