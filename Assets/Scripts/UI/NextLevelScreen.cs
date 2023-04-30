@@ -57,7 +57,7 @@ public class NextLevelScreen : MonoBehaviour
             slider.value = currCountdownValue;
             yield return new WaitForSeconds(1);
             isActive = false;
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Credits");
         }
     }
 
