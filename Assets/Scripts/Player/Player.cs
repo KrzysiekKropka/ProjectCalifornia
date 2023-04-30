@@ -38,8 +38,8 @@ public class Player : MonoBehaviour
     float invincibiltyTimer = 0.375f;
     int dashingSpree;
 
-    float speed = 9f;
-    float sprintingSpeed = 14f;
+    float speed = 10f;
+    float sprintingSpeed = 12.5f;
 
     int maxHealth = 100;
     int currentHealth;
