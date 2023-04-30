@@ -13,6 +13,10 @@ public class AIShooting : MonoBehaviour
     private GameObject player;
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField] bool customStats;
+    [SerializeField] int customDamage;
+    [SerializeField] float customDelay;
+    [SerializeField] float customSpread;
     bool isReloading;
     bool canShoot = true;
     string[] weaponName = new string[5];
@@ -98,6 +102,13 @@ public class AIShooting : MonoBehaviour
                 enemy.GetComponent<AIBrain>().dropMoney = 600;
                 if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 150;
                 break;
+        }
+
+        if(customStats)
+        {
+            weaponDamage[equippedWeaponID] = customDamage;
+            weaponDelay[equippedWeaponID] = customDelay;
+            bulletSpread[equippedWeaponID] = customSpread;
         }
 
         healthBar.SetAmmo(currentAmmo[equippedWeaponID]);

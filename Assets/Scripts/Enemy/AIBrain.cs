@@ -52,6 +52,7 @@ public class AIBrain : MonoBehaviour
     float currentTime, currentTimeBloodPool;
     float reactionTime = 0.15f;
     float rotationSpeed = 0.1f;
+    [SerializeField] float lockedRotationSpeed = 0.3f;
     float aimAngle;
 
     RaycastHit hit;
@@ -133,7 +134,7 @@ public class AIBrain : MonoBehaviour
 
     public void ChangeAimLock(bool aimedAtPlayer = false)
     {
-        if (aimedAtPlayer) rotationSpeed = 0.3f;
+        if (aimedAtPlayer) rotationSpeed = lockedRotationSpeed;
         else rotationSpeed = 0.1f;
     }
 
