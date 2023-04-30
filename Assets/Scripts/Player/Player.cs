@@ -123,21 +123,6 @@ public class Player : MonoBehaviour
             Dash();
         }
 
-        /* if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SetXP(15);
-        }
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            SetMoney(1000);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            TakeDamage(10);
-        } */
-
         if(Input.GetKey(KeyCode.LeftShift) && canSprint && !staminaCooldownBool && rb.velocity != Vector2.zero)
         {
             isSprinting = true;
@@ -174,11 +159,6 @@ public class Player : MonoBehaviour
         if (isDashing) rb.velocity = new Vector2(dashDirection.x * dashingSpeed, dashDirection.y * dashingSpeed);
         if (inInventory == false) rb.rotation = aimAngle;
     }
-
-    /*void LateUpdate()
-    {
-        healthBar.SetStamina(remainingStamina);
-    }*/
 
     void Dash()
     {
@@ -304,7 +284,6 @@ public class Player : MonoBehaviour
     public void AddEnemy()
     {
         enemies++;
-        //healthBar.SetKills(kills);
     }
 
     public void SetXP(int XP)

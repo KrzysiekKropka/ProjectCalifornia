@@ -83,29 +83,6 @@ public class ShopManager : MonoBehaviour
         shopMaps[3, 4] = PlayerPrefs.GetInt("mapQuantity" + 4);
     }
 
-    void ResetQuantity()
-    {
-        shopItems[3, 1] = 0;
-        shopItems[3, 2] = 0;
-        shopItems[3, 3] = 0;
-        shopItems[3, 4] = 0;
-        PlayerPrefs.SetInt("itemQuantity" + 1, 0);
-        PlayerPrefs.SetInt("itemQuantity" + 2, 0);
-        PlayerPrefs.SetInt("itemQuantity" + 3, 0);
-        PlayerPrefs.SetInt("itemQuantity" + 4, 0);
-        PlayerPrefs.SetInt("skillQuantity" + 1, 0);
-        PlayerPrefs.SetInt("skillQuantity" + 2, 0);
-        PlayerPrefs.SetInt("skillQuantity" + 3, 0);
-        PlayerPrefs.SetInt("skillQuantity" + 4, 0);
-        PlayerPrefs.SetInt("mapQuantity" + 1, 0);
-        PlayerPrefs.SetInt("mapQuantity" + 2, 0);
-        PlayerPrefs.SetInt("mapQuantity" + 3, 0);
-        PlayerPrefs.SetInt("mapQuantity" + 4, 0);
-        PlayerPrefs.DeleteKey("equippedWeaponID");
-        PlayerPrefs.DeleteKey("money");
-        PlayerPrefs.DeleteKey("experiencePoints");
-    }
-
     public void AssignNumbers()
     {
         if (player != null)
@@ -156,7 +133,6 @@ public class ShopManager : MonoBehaviour
 
     public void BuySkill()
     {
-        //kod na kupowanie skillu
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
         if (player != null && player.experiencePoints >= shopSkills[2, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] && shopSkills[3, ButtonRef.GetComponent<ShopSkillButtonInfo>().itemID] != 1)
         {

@@ -32,7 +32,6 @@ public class AIBrain : MonoBehaviour
     [SerializeField] float speed = 6f; 
     public int maxHealth = 100;
 
-    //public bool endsTheGame = false;
     public bool customHP = false;
     public bool isStatic = false;
     public bool playerDetected = false;
@@ -116,32 +115,6 @@ public class AIBrain : MonoBehaviour
             PlayerInterrupts();
         }
     }
-
-    /*void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player") || collision.CompareTag("PlayerBullet"))
-        {
-            PlayerOutRange();
-        }
-    }
-
-    public void PlayerInRange()
-    {
-        if (stopFollowCoroutine != null) StopCoroutine(stopFollowCoroutine);
-        if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
-        seekingActivated = false;
-        playerDetected = true;
-        playerWasDetected = true;
-    }
-
-    public void PlayerOutRange()
-    {
-        if (stopFollowCoroutine != null) StopCoroutine(stopFollowCoroutine);
-        if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
-        seekingActivated = false;
-        stopFollowCoroutine = StopFollowing();
-        StartCoroutine(stopFollowCoroutine);
-    }*/
 
     public void PlayerInterrupts()
     {

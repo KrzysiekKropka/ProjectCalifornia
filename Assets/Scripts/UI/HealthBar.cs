@@ -54,8 +54,6 @@ public class HealthBar : MonoBehaviour
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;
-
-        //fill.color = gradient.Evaluate(1f);
         vignette.color.value = vignetteGradient.Evaluate(1f);
         //vignette.intensity.value = Mathf.InverseLerp(2.5f, -2f, slider.normalizedValue);
     }
@@ -64,13 +62,8 @@ public class HealthBar : MonoBehaviour
     {
         slider.value = health;
         healthText.text = health.ToString();
-        //print(slider.normalizedValue);
-
-        //fill.color = gradient.Evaluate(slider.normalizedValue);
         vignette.color.value = vignetteGradient.Evaluate(slider.normalizedValue);
         //vignette.intensity.value = Mathf.InverseLerp(2f, -2f, slider.normalizedValue);
-        //print(vignette.intensity.value);
-        //print(Mathf.InverseLerp(2.5f, -2f, slider.normalizedValue));
     }
 
     public void SetMaxStamina(float stamina)
@@ -150,13 +143,11 @@ public class HealthBar : MonoBehaviour
             reloadSlider.gameObject.SetActive(true);
             reloadSlider.value = time;
             reloadingText.text = "Reloading...";
-            //reloadingTimer.text = "(" + time.ToString("F1") + ")";
         }
         else
         {
             reloadSlider.gameObject.SetActive(false);
             reloadingText.text = "";
-            //reloadingTimer.text = "";
         }
     }
 

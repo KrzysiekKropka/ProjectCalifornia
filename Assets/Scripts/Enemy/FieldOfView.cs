@@ -52,31 +52,4 @@ public class FieldOfView : MonoBehaviour
             FOV();
         }
     }
-
-    /*void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-
-        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radius);
-
-        Vector3 angle01 = DirectionFromAngle(-transform.eulerAngles.z, -angle / 2);
-        Vector3 angle02 = DirectionFromAngle(-transform.eulerAngles.z, angle / 2);
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + angle01 * radius);
-        Gizmos.DrawLine(transform.position, transform.position + angle02 * radius);
-
-        if (CanSeePlayer)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(transform.position, player.transform.position);
-        }
-    }
-
-    Vector2 DirectionFromAngle(float eulerY, float angleInDegrees)
-    {
-        angleInDegrees += eulerY;
-
-        return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
-    }*/
 }

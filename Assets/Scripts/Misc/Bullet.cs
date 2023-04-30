@@ -33,7 +33,6 @@ public class Bullet : MonoBehaviour
         {
             gameObject.tag = "PlayerBullet";
             playerYPosition = GameObject.FindWithTag("Player").transform.position.y;
-            //gameObject.layer = 8;
         }
     }
 
@@ -89,9 +88,6 @@ public class Bullet : MonoBehaviour
             AudioSource.PlayClipAtPoint(bulletHitClip, transform.position, 1f);
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            //modifiedBulletDamage = bulletDamage / 2;
-            //enemyIsOwner = false;
-            //playerIsOwner = false;
         }
         else if(playerIsOwner && enemy && enteredEnemy == false)
         {
