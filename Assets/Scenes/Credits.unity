@@ -712,12 +712,31 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b><size=125%>PROGRAMMERS</b></size>
+  m_text: '<b><size=125%>GAMEPLAY DESIGNER</b></size>
 
     Krzysztof Kropopek
 
-    Jakub
-    Kryger
+
+    <b><size=125%>PROGRAMMERS</b></size>
+
+    Krzysztof
+    Kropopek
+
+    Jakub Kryger
+
+
+    <b><size=125%>MAP DESIGNERS</b></size>
+
+    Szymon
+    Kozar
+
+    Krzysztof Kropopek
+
+
+    <b><size=125%>TEXTURE DESIGNER</b></size>
+
+    Szymon
+    Kozar
 
 
     <b><size=125%>UI DESIGNER</b></size>
@@ -748,9 +767,13 @@ MonoBehaviour:
 
 
     <b><size=125%>SPECIAL
-    THANKS</b></size>
+    THANKS TO</b></size>
 
-    BRACKEYS'
+    BRACKEYS
+
+    Hubert Wojcikowski
+
+    Karol Wronski'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65a2743910e14ad49949e6480d74a877, type: 2}
   m_sharedMaterial: {fileID: -7948516847588031618, guid: 65a2743910e14ad49949e6480d74a877, type: 2}
