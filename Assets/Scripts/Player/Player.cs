@@ -342,8 +342,8 @@ public class Player : MonoBehaviour
     {
         NextLevelScreen.isActive = true;
         Time.timeScale = 0.33f;
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(10);
         Time.timeScale = 1f;
-        triggerNextLevelMenu.GetComponent<NextLevelScreen>().StartCountdown(true);
+        SceneManager.LoadScene("GameOver");
     }
 }

@@ -23,41 +23,20 @@ public class NextLevelScreen : MonoBehaviour
 
     IEnumerator Countdown(bool isEnd)
     {
-        if(!isEnd)
+        int currCountdownValue = 5;
+        slider.maxValue = 5;
+        while (currCountdownValue > 0)
         {
-            int currCountdownValue = 5;
-            slider.maxValue = 5;
-            while (currCountdownValue > 0)
-            {
-                nextLevelCountdownText.text = "Starting the next level in " + currCountdownValue + " seconds!";
-                slider.value = currCountdownValue;
-                yield return new WaitForSeconds(1);
-                currCountdownValue--;
-            }
             nextLevelCountdownText.text = "Starting the next level in " + currCountdownValue + " seconds!";
             slider.value = currCountdownValue;
             yield return new WaitForSeconds(1);
-            isActive = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            currCountdownValue--;
         }
-        else if (isEnd)
-        {
-            generalText.text = "CONGRATULATIONS!";
-            int currCountdownValue = 10;
-            slider.maxValue = 10;
-            while (currCountdownValue > 0)
-            {
-                nextLevelCountdownText.text = "Ending in " + currCountdownValue + " seconds!";
-                slider.value = currCountdownValue;
-                yield return new WaitForSeconds(1);
-                currCountdownValue--;
-            }
-            nextLevelCountdownText.text = "Ending in " + currCountdownValue + " seconds!";
-            slider.value = currCountdownValue;
-            yield return new WaitForSeconds(1);
-            isActive = false;
-            SceneManager.LoadScene("Credits");
-        }
+        nextLevelCountdownText.text = "Starting the next level in " + currCountdownValue + " seconds!";
+        slider.value = currCountdownValue;
+        yield return new WaitForSeconds(1);
+        isActive = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void GoToMainMenu()
