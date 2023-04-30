@@ -44,7 +44,7 @@ public class NextLevelScreen : MonoBehaviour
         else if (isEnd)
         {
             generalText.text = "CONGRATULATIONS FOR FINISHING THE GAME!";
-            int currCountdownValue = countdown;
+            int currCountdownValue = 10;
             while (currCountdownValue > 0)
             {
                 nextLevelCountdownText.text = "Ending in " + currCountdownValue + " seconds!";
