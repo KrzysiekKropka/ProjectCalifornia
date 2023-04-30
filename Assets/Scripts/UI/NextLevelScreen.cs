@@ -16,7 +16,6 @@ public class NextLevelScreen : MonoBehaviour
 
     public void StartCountdown(bool isEnd = false)
     {
-        slider.maxValue = countdown;
         isActive = true;
         gameObject.SetActive(true);
         GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().UnlockLevels();
@@ -28,6 +27,7 @@ public class NextLevelScreen : MonoBehaviour
         if(!isEnd)
         {
             int currCountdownValue = countdown;
+            slider.maxValue = countdown;
             while (currCountdownValue > 0)
             {
                 nextLevelCountdownText.text = "Starting the next level in " + currCountdownValue + " seconds!";
@@ -43,8 +43,9 @@ public class NextLevelScreen : MonoBehaviour
         }
         else if (isEnd)
         {
-            generalText.text = "CONGRATULATIONS FOR FINISHING THE GAME!";
+            generalText.text = "CONGRATULATIONS!";
             int currCountdownValue = 10;
+            slider.maxValue = 10;
             while (currCountdownValue > 0)
             {
                 nextLevelCountdownText.text = "Ending in " + currCountdownValue + " seconds!";
