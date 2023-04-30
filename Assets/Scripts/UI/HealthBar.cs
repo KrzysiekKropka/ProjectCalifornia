@@ -19,8 +19,6 @@ public class HealthBar : MonoBehaviour
     [SerializeField] TMP_Text moneyText;
     [SerializeField] TMP_Text killsText;
     [SerializeField] TMP_Text ammoText;
-    [SerializeField] TMP_Text reloadingText;
-    [SerializeField] TMP_Text reloadingTimer;
     [SerializeField] TMP_Text messageBox;
     [SerializeField] Sprite Pistol;
     [SerializeField] Sprite Deagle;
@@ -142,12 +140,10 @@ public class HealthBar : MonoBehaviour
         {
             reloadSlider.gameObject.SetActive(true);
             reloadSlider.value = time;
-            reloadingText.text = "Reloading...";
         }
         else
         {
             reloadSlider.gameObject.SetActive(false);
-            reloadingText.text = "";
         }
     }
 
