@@ -15,9 +15,9 @@ public class DeadBodyFollow : MonoBehaviour
         spriteRenderer.flipY = true;
     }
 
-    public void DeadBodyPosition(int bodyColor)
+    public void DeadBodyPosition(int bodyColor, bool isDreamy = false)
     {
-        spriteRenderer.sprite = sprites[bodyColor];
+        if(!isDreamy)spriteRenderer.sprite = sprites[bodyColor];
 
         transform.position = enemy.transform.position;
         transform.rotation = enemy.transform.rotation;

@@ -170,7 +170,7 @@ public class AIBrain : MonoBehaviour
         {
             var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
             deadBody.SetActive(true);
-            deadBody.GetComponent<DeadBodyFollow>().DeadBodyPosition(shootingScript.equippedWeaponID);
+            deadBody.GetComponent<DeadBodyFollow>().DeadBodyPosition(shootingScript.equippedWeaponID, isDreamy);
             shootingScript.enabled = false;
             Destroy(gameObject);
             Destroy(healthBar.gameObject);
