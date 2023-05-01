@@ -347,7 +347,7 @@ public class Player : MonoBehaviour
     {
         NextLevelScreen.isActive = true;
         Time.timeScale = 0.5f;
-        yield return new WaitForSecondsRealtime(16);
+        yield return new WaitForSecondsRealtime(15);
         Time.timeScale = 1f;
         SceneManager.LoadScene("Credits");
     }

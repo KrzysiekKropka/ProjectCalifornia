@@ -7,7 +7,6 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] Transform player;
-    [SerializeField] bool trailer = false;
     float maxScreenPoint = 0.6f;
     float smoothTime = 0.125f;
     Vector3 offset = new Vector3(0f, 0f, -10f);
