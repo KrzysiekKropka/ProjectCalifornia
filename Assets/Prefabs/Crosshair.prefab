@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 6884524368523167468}
   - component: {fileID: 7730515803377799447}
   - component: {fileID: 5517796172783494778}
-  - component: {fileID: 6655483484908772418}
   m_Layer: 0
   m_Name: Crosshair
   m_TagString: Untagged
@@ -132,19 +131,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &6655483484908772418
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3379842364413662866}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.025

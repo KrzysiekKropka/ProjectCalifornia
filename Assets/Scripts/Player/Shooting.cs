@@ -65,7 +65,7 @@ public class Shooting : MonoBehaviour
         weaponName[2] = "MP5";
         weaponDamage[2] = 10;
         weaponDelay[2] = 0.08f;
-        reloadTime[2] = 2f; 
+        reloadTime[2] = 1.5f; 
         maxAmmo[2] = 60;
         bulletSpread[2] = 6f;
         runningBulletSpread[2] = 9f;
