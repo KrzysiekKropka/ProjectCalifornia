@@ -123,7 +123,12 @@ public class Player : MonoBehaviour
             Dash();
         }
 
-        if(Input.GetKey(KeyCode.LeftShift) && canSprint && !staminaCooldownBool && rb.velocity != Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            healthBar.gameObject.SetActive(!healthBar.gameObject.activeSelf);
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift) && canSprint && !staminaCooldownBool && rb.velocity != Vector2.zero)
         {
             isSprinting = true;
         }

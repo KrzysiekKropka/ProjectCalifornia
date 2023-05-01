@@ -74,7 +74,7 @@ public class AIBrain : MonoBehaviour
         deadBody.SetActive(false);
         ai = GetComponent<AIPath>();
         player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<Player>().AddEnemy();
+        if(player != null)player.GetComponent<Player>().AddEnemy();
         ai.maxSpeed = speed;
         aimAngle = rb.rotation;
 
