@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 6780
+  controlID: 8147
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 6781
+  controlID: 8148
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 6782
+  controlID: 8149
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,10 +223,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 289.2}
-      m_SelectedIDs: 42210000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 369d0000
       m_LastClickedID: 0
-      m_ExpandedIDs: c0ccfcff66d4fcff00b1ffff3ebfffff7ccdffff74ebffff1efbffff242e0100
+      m_ExpandedIDs: 1803f7ffde16f7ff4425f7ff122ef7ff783cf7ff8a45f7ff324ef7ff985cf7ff6665f7ffcc73f7ff787cf7ffbc8af7ffec97f7ffc0ccfcff66d4fcff00b1ffff3ebfffff7ccdffff74ebffff1efbffff242e0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -591,9 +591,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -74.72737, y: -14.908789, z: -0.06525113}
+    m_Target: {x: -0.7921212, y: 13.516725, z: -0.32721126}
     speed: 2
-    m_Value: {x: -74.72737, y: -14.908789, z: -0.06525113}
+    m_Value: {x: -0.7921212, y: 13.516725, z: -0.32721126}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -644,9 +644,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 18.493818
+    m_Target: 79.04314
     speed: 2
-    m_Value: 18.493818
+    m_Value: 79.04314
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -939,22 +939,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Enemy
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Enemy
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: B:\Inne\Documents\GitHub\ProjectCalifornia
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 102.99994}
-    m_SelectedIDs: d8890000
-    m_LastClickedID: 35288
-    m_ExpandedIDs: 000000006a8500006c8500006e8500008a85000000ca9a3b
+    scrollPos: {x: 0, y: 74.99994}
+    m_SelectedIDs: 88850000
+    m_LastClickedID: 34184
+    m_ExpandedIDs: 000000006a8500006c8500006e85000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1007,9 +1007,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 42210000
-    m_LastClickedInstanceID: 8514
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 369d0000
+    m_LastClickedInstanceID: 40246
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000429100007c9d000094b20000cc7101001e7c000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
