@@ -148,13 +148,13 @@ public class Shooting : MonoBehaviour
                 spriteRenderer.sprite = PlayerRifle;
             }
 
-            equippedWeaponID = weaponID;
-
-            if (currentAmmo[equippedWeaponID] == 0)
+            if (currentAmmo[weaponID] == 0)
             {
                 currentReloadCoroutine = Reload(weaponID);
                 StartCoroutine(currentReloadCoroutine);
             }
+
+            equippedWeaponID = weaponID;
         }
         else if (shopManager.shopItems[3, weaponID] != 1)
         {
@@ -309,18 +309,9 @@ public class Shooting : MonoBehaviour
             healthBar.reloadSlider.maxValue = time;
             while(time > 0)
             {
-                if (equippedWeaponID == weaponID)
-                {
-                    healthBar.SetReloading(true, time);
-                    time -= 0.01f;
-                    yield return new WaitForSeconds(0.01f);
-                }
-                else
-                {
-                    isReloading[weaponID] = false;
-                    healthBar.SetReloading(false);
-                    yield break;
-                }
+                healthBar.SetReloading(true, time);
+                time -= 0.01f;
+                yield return new WaitForSeconds(0.01f);
             }
 
             //KK: Jestem pewny, ze da sie tego ifa zrobic o wiele lepiej. Nie chce mi sie :)
@@ -335,14 +326,11 @@ public class Shooting : MonoBehaviour
                 currentAmmo[weaponID] += reserveAmmo[weaponID];
                 reserveAmmo[weaponID] = 0;
             }
-            isReloading[weaponID] = false;
-            if (equippedWeaponID == weaponID)
-            {
-                healthBar.SetReloading(false);
-                AudioSource.PlayClipAtPoint(AmmoDropClip, transform.position, 1f);
-            }
 
-            healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
+            isReloading[weaponID] = false;
+            healthBar.SetReloading(false);
+            AudioSource.PlayClipAtPoint(AmmoDropClip, transform.position, 1f);
+            healthBar.SetAmmo(currentAmmo[weaponID], reserveAmmo[weaponID]);
         }
     }
 }
