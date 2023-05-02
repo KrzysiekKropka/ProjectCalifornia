@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 2572
+  controlID: 3399
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 2573
+  controlID: 3400
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 2574
+  controlID: 3391
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,9 +224,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 68a6ffff
+      m_SelectedIDs: 121a0000
       m_LastClickedID: 0
-      m_ExpandedIDs: f8bfffff7ee1ffff2cfbffff808f0000d6b60000
+      m_ExpandedIDs: de44ffff7c45ffffdc47ffffe847ffffce4dffff3263ffffbe7affff0695ffffa4a1ffffe8a2fffff8bfffff7ee1ffff2cfbffff808f0000d6b60000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -939,22 +939,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts/Player
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts/Player
   m_LastFoldersGridSize: -1
   m_LastProjectPath: B:\Inne\Documents\GitHub\ProjectCalifornia
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 74.99994}
-    m_SelectedIDs: 4e8f0000
-    m_LastClickedID: 36686
-    m_ExpandedIDs: 00000000108f0000128f0000148f000000ca9a3b
+    scrollPos: {x: 0, y: 102.99994}
+    m_SelectedIDs: e88f0000
+    m_LastClickedID: 36840
+    m_ExpandedIDs: 00000000108f0000128f0000148f0000508f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1007,8 +1007,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 68a6ffff
-    m_LastClickedInstanceID: -22936
+    m_SelectedInstanceIDs: 121a0000
+    m_LastClickedInstanceID: 6674
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000429100007c9d000094b20000cc7101001e7c000000000000
     m_RenameOverlay:
@@ -1127,8 +1127,8 @@ MonoBehaviour:
     m_CachedPref: 151
     m_ControlHash: 1412526313
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 810
+  m_LastInspectedObjectInstanceID: 6674
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

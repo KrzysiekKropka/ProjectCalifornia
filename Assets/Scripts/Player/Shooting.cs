@@ -125,7 +125,7 @@ public class Shooting : MonoBehaviour
 
     public void AssignWeapon(int weaponID)
     {
-        if (weaponID != equippedWeaponID)
+        if (weaponID != equippedWeaponID && shopManager.shopItems[3, weaponID] == 1)
         {
             if (weaponCooldownCoroutine != null) StopCoroutine(weaponCooldownCoroutine);
             weaponCooldownCoroutine = WeaponSwitchCooldown();
@@ -135,36 +135,35 @@ public class Shooting : MonoBehaviour
                 StopCoroutine(currentReloadCoroutine);
                 isReloading[equippedWeaponID] = false;
             }
-            if (shopManager.shopItems[3, weaponID] == 1)
+            healthBar.SetReloading(false);
+            healthBar.SetWeaponIcon(weaponID);
+            healthBar.SetAmmo(currentAmmo[weaponID], reserveAmmo[weaponID]);
+
+            if (weaponID < 2)
             {
-                healthBar.SetWeaponIcon(weaponID);
-                healthBar.SetAmmo(currentAmmo[weaponID], reserveAmmo[weaponID]);
-                equippedWeaponID = weaponID;
-                healthBar.SetReloading(false);
-
-                if (weaponID < 2)
-                {
-                    spriteRenderer.sprite = PlayerPistol;
-                }
-                else
-                {
-                    spriteRenderer.sprite = PlayerRifle;
-                }
-
-                if (isReloading[weaponID])
-                {
-                    healthBar.SetReloading(true);
-                }
+                spriteRenderer.sprite = PlayerPistol;
             }
             else
             {
-                healthBar.MessageBox("You don't own " + weaponName[weaponID] + "!");
+                spriteRenderer.sprite = PlayerRifle;
             }
-            if (currentAmmo[equippedWeaponID] == 0)
+
+            if (isReloading[weaponID])
+            {
+                healthBar.SetReloading(true);
+            }
+
+            if (currentAmmo[weaponID] == 0)
             {
                 currentReloadCoroutine = Reload(weaponID);
                 StartCoroutine(currentReloadCoroutine);
             }
+
+            equippedWeaponID = weaponID;
+        }
+        else if (shopManager.shopItems[3, weaponID] != 1)
+        {
+            healthBar.MessageBox("You don't own " + weaponName[weaponID] + "!");
         }
     }
 
