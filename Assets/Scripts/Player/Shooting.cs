@@ -130,11 +130,13 @@ public class Shooting : MonoBehaviour
             if (weaponCooldownCoroutine != null) StopCoroutine(weaponCooldownCoroutine);
             weaponCooldownCoroutine = WeaponSwitchCooldown();
             StartCoroutine(weaponCooldownCoroutine);
+
             if (currentReloadCoroutine != null)
             {
                 StopCoroutine(currentReloadCoroutine);
                 isReloading[equippedWeaponID] = false;
             }
+
             healthBar.SetReloading(false);
             healthBar.SetWeaponIcon(weaponID);
             healthBar.SetAmmo(currentAmmo[weaponID], reserveAmmo[weaponID]);
