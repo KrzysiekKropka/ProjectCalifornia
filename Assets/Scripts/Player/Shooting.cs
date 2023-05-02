@@ -148,18 +148,13 @@ public class Shooting : MonoBehaviour
                 spriteRenderer.sprite = PlayerRifle;
             }
 
-            if (isReloading[weaponID])
-            {
-                healthBar.SetReloading(true);
-            }
+            equippedWeaponID = weaponID;
 
-            if (currentAmmo[weaponID] == 0)
+            if (currentAmmo[equippedWeaponID] == 0)
             {
                 currentReloadCoroutine = Reload(weaponID);
                 StartCoroutine(currentReloadCoroutine);
             }
-
-            equippedWeaponID = weaponID;
         }
         else if (shopManager.shopItems[3, weaponID] != 1)
         {
