@@ -273,7 +273,7 @@ public class Player : MonoBehaviour
         {
             if (!GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isArena && !GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isTheEnd)
             {
-                GameObject.FindWithTag("NextLevelTrigger").GetComponent<BoxCollider2D>().isTrigger = true;
+                GameObject.FindWithTag("NextLevelTrigger").transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = true;
                 healthBar.MessageBox("You killed them all!\nGo on to the next level!");
             }
             else if(GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isTheEnd)
