@@ -117,8 +117,8 @@ MonoBehaviour:
   speed: 6
   maxHealth: 100
   isDreamy: 0
-  DreamySeek: {fileID: 8300000, guid: 67322603c0a78544fbe74a92cd2f39cd, type: 3}
-  DreamyFind: {fileID: 8300000, guid: 98cc4e493bb63024f98308bcacd9b82c, type: 3}
+  DreamySeek: {fileID: 8300000, guid: 98cc4e493bb63024f98308bcacd9b82c, type: 3}
+  DreamyFind: {fileID: 8300000, guid: 67322603c0a78544fbe74a92cd2f39cd, type: 3}
   DreamyDeath: {fileID: 8300000, guid: 5958a07866e649848baaf7f28917ad37, type: 3}
   customHP: 0
   isStatic: 0
@@ -373,6 +373,7 @@ MonoBehaviour:
   enemy: {fileID: 5001969082769403738}
   customStats: 0
   customDamage: 0
+  customAmmo: 0
   customDelay: 0
   customSpread: 0
   customSprite: {fileID: 0}
