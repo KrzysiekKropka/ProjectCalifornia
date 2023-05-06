@@ -18,6 +18,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] TMP_Text experiencePointsText;
     [SerializeField] TMP_Text moneyText;
     [SerializeField] TMP_Text killsText;
+    [SerializeField] TMP_Text levelText;
     [SerializeField] TMP_Text ammoText;
     [SerializeField] TMP_Text messageBox;
     [SerializeField] Sprite Pistol;
@@ -86,6 +87,12 @@ public class HealthBar : MonoBehaviour
     public void ArenaMode()
     {
         killsText.gameObject.SetActive(true);
+        levelText.gameObject.SetActive(true);
+    }
+
+    public void SetLevel(int currentLevel)
+    {
+        levelText.text = "Level " + currentLevel.ToString();
     }
 
     //KK: te funkcje sa uzywane w Player.cs

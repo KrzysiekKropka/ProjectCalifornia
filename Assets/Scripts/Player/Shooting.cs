@@ -150,13 +150,13 @@ public class Shooting : MonoBehaviour
                 spriteRenderer.sprite = PlayerRifle;
             }
 
-            if (currentAmmo[weaponID] == 0)
+            equippedWeaponID = weaponID;
+
+            if (currentAmmo[equippedWeaponID] == 0)
             {
-                currentReloadCoroutine = Reload(weaponID);
+                currentReloadCoroutine = Reload(equippedWeaponID);
                 StartCoroutine(currentReloadCoroutine);
             }
-
-            equippedWeaponID = weaponID;
         }
         else if (shopManager.shopItems[3, weaponID] != 1)
         {
@@ -311,9 +311,18 @@ public class Shooting : MonoBehaviour
             healthBar.reloadSlider.maxValue = time;
             while(time > 0)
             {
-                healthBar.SetReloading(true, time);
-                time -= 0.01f;
-                yield return new WaitForSeconds(0.01f);
+                if(equippedWeaponID == weaponID)
+                {
+                    healthBar.SetReloading(true, time);
+                    time -= 0.01f;
+                    yield return new WaitForSeconds(0.01f);
+                }
+                else
+                {
+                    healthBar.SetReloading(false);
+                    isReloading[weaponID] = false;
+                    yield break;
+                }
             }
 
             //KK: Jestem pewny, ze da sie tego ifa zrobic o wiele lepiej. Nie chce mi sie :)
