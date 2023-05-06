@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 65165
+  controlID: 71794
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 65166
+  controlID: 71795
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 65136
+  controlID: 71762
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,9 +224,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 9a200000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 727cadffa808baff4c09baff5e09baff6c09baff320fbaff6827baffa841baffe45ebaff706cbaff9a6dbaff8a73baff8c77baff3078baff4278baff5078baff167ebaff4c96baff8cb0baffc8cdbaff54dbbaff7edcbaff60ecbaff04edbaff16edbaff24edbaffeaf2baff200bbbff6025bbff9c42bbff2850bbff5251bbff3456bbffd856bbffea56bbfff856bbffbe5cbbfff474bbff348fbbff70acbbfffcb9bbff26bbbbff08c1bbffacc1bbffbec1bbffccc1bbff92c7bbffc8dfbbff08fabbff4417bcffd024bcfffa25bcff8a46bfff2e47bfff4047bfff4e47bfff144dbfff4a65bfff8a7fbfffc69cbfff52aabfff7cabbfff0c14c0ff14f0c0ff94f0c0fffcf2c0ff0ef3c0ffd6f8c0ff0c11c1ff4c2bc1ff8848c1ff1456c1ff4657c1ff3cadc1ffbcadc1ff20b0c1ff2eb0c1ffbab5c1ff02ccc1fff2e3c1ffa6fec1ff400bc2ff6e0cc2ffbec3c3ff3ec4c3ffa2c6c3ffb0c6c3ff3accc3ff82e2c3ff72fac3ff2615c4ffc021c4ffee22c4ff1e10c5ff2025c5ff8051caff4052caffa454caffb254caff3e5acaff8670caff7688caff2aa3caffc4afcaffeab0caff82cdcaff36e8caffd8f4caff06f6caff045bd1ff32c6d6fffcc7d6ffb6c9d6ff26d0d6fff881d7fff6a4d7ff62b3d7ffcec1d7ff48d2d8ff502fd9ff4e75d9ff3e76d9ffe676d9ff9278d9ff3679d9ff9e7bd9ffb07bd9ff7881d9ffae99d9ffeeb3d9ff2ad1d9ffecded9ff16e0d9ff8edcdaff14a1e6ff3aa7e6ff3cbce6ff644ce7ff8e55e7ff906ae7ff3ae1e7ff1cfce7ff0098ecff5c74eeff4ea1eeffd2aafaff08cbfaff24fbffff1070000030ec000014260100ae510200365202001e8f02001690020052900200bcda0200ace3020020530300545703000ca30300b2a3030004a4030040a40300
+      m_SelectedIDs: 4a5ea6ff
+      m_LastClickedID: -5874102
+      m_ExpandedIDs: dc5ea6ffb29ea6ff449fa6ff4aa2a6ff10a3a6ff74a5a6ff82a5a6ff14aba6ff64c1a6ff5cd9a6ff18f4a6ffc200a7fff001a7ff727cadffa808baff4c09baff5e09baff6c09baff320fbaff6827baffa841baffe45ebaff706cbaff9a6dbaff8a73baff8c77baff3078baff4278baff5078baff167ebaff4c96baff8cb0baffc8cdbaff54dbbaff7edcbaff60ecbaff04edbaff16edbaff24edbaffeaf2baff200bbbff6025bbff9c42bbff2850bbff5251bbff3456bbffd856bbffea56bbfff856bbffbe5cbbfff474bbff348fbbff70acbbfffcb9bbff26bbbbff08c1bbffacc1bbffbec1bbffccc1bbff92c7bbffc8dfbbff08fabbff4417bcffd024bcfffa25bcff8a46bfff2e47bfff4047bfff4e47bfff144dbfff4a65bfff8a7fbfffc69cbfff52aabfff7cabbfff0c14c0ff14f0c0ff94f0c0fffcf2c0ff0ef3c0ffd6f8c0ff0c11c1ff4c2bc1ff8848c1ff1456c1ff4657c1ff3cadc1ffbcadc1ff20b0c1ff2eb0c1ffbab5c1ff02ccc1fff2e3c1ffa6fec1ff400bc2ff6e0cc2ffbec3c3ff3ec4c3ffa2c6c3ffb0c6c3ff3accc3ff82e2c3ff72fac3ff2615c4ffc021c4ffee22c4ff1e10c5ff2025c5ff8051caff4052caffa454caffb254caff3e5acaff8670caff7688caff2aa3caffc4afcaffeab0caff82cdcaff36e8caffd8f4caff06f6caff045bd1ff32c6d6fffcc7d6ffb6c9d6ff26d0d6fff881d7fff6a4d7ff62b3d7ffcec1d7ff48d2d8ff502fd9ff4e75d9ff3e76d9ffe676d9ff9278d9ff3679d9ff9e7bd9ffb07bd9ff7881d9ffae99d9ffeeb3d9ff2ad1d9ffecded9ff16e0d9ff8edcdaff14a1e6ff3aa7e6ff3cbce6ff644ce7ff8e55e7ff906ae7ff3ae1e7ff1cfce7ff0098ecff5c74eeff4ea1eeffd2aafaff08cbfaff24fbffff1070000030ec000014260100ae510200365202001e8f02001690020052900200bcda0200ace3020020530300545703000ca30300b2a3030004a4030040a40300ccee0a007cef0a0022f00a00b0f00a006e370b009a380b0092390b00ce390b00
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -242,7 +242,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 7}
+        m_ClientGUIView: {fileID: 5}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -591,9 +591,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.0986668, y: -3.1886365, z: 4.7799873}
+    m_Target: {x: 0.5330676, y: -3.814104, z: 4.8013816}
     speed: 2
-    m_Value: {x: 1.0986668, y: -3.1886365, z: 4.7799873}
+    m_Value: {x: 0.5330676, y: -3.814104, z: 4.8013816}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -644,9 +644,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 2.89431
+    m_Target: 4.180872
     speed: 2
-    m_Value: 2.89431
+    m_Value: 4.180872
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -939,22 +939,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Player
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Player
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: B:\Inne\Documents\GitHub\ProjectCalifornia
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 105.39996}
-    m_SelectedIDs: 4a970000
-    m_LastClickedID: 38730
-    m_ExpandedIDs: 00000000c88e0000ca8e0000cc8e0000e88e000000ca9a3b
+    scrollPos: {x: 0, y: 77.39996}
+    m_SelectedIDs: e68e0000
+    m_LastClickedID: 36582
+    m_ExpandedIDs: 00000000c88e0000ca8e0000cc8e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1007,9 +1007,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 9a200000
-    m_LastClickedInstanceID: 8346
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 4a5ea6ff
+    m_LastClickedInstanceID: -5874102
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000429100007c9d000094b20000cc7101001e7c000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1164,4 +1164,4 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 609312
+  m_LastSelectedObjectID: 717046
