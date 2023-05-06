@@ -404,6 +404,7 @@ MonoBehaviour:
   dashClip: {fileID: 8300000, guid: 6b8a7734e78715d498a29801c7ec8ca3, type: 3}
   kills: 0
   enemies: 0
+  remainingEnemies: 0
   isSprinting: 0
   isDashing: 0
   isInvincible: 0

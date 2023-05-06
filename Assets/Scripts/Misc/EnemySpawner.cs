@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
                 int randomMax = Random.Range(minLvl, maxLvl + 1);
                 while (randomMax == 3) randomMax = Random.Range(minLvl, maxLvl + 1);
                 int randomSpawner = Random.Range(0, enemySpawners.Length);
-                if(Random.Range(0, 40) != 39)
+                if(Random.Range(0, 40) != 39 || maxLvl != 4)
                 {
                     GameObject enemy = Instantiate(EnemyPrefab, enemySpawners[randomSpawner].position, Quaternion.identity);
                     enemy.transform.GetChild(0).rotation = enemySpawners[randomSpawner].rotation;
