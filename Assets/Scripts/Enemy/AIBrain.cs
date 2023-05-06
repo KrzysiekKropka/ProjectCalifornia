@@ -32,7 +32,7 @@ public class AIBrain : MonoBehaviour
     [SerializeField] float speed = 6f; 
     public int maxHealth = 100;
 
-    [SerializeField] bool isDreamy = false;
+    public bool isDreamy = false;
     [SerializeField] AudioClip DreamySeek, DreamyFind, DreamyDeath;
     public bool customHP = false;
     public bool isStatic = false;

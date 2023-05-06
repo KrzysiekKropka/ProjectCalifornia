@@ -48,5 +48,6 @@ MonoBehaviour:
   minLvl: 0
   maxLvl: 1
   maxLvlOverall: 4
-  avoidLvls: 03000000
+  maxEnemies: 10
   EnemyPrefab: {fileID: 6810274436053365145, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
+  DreamyPrefab: {fileID: 2186377959770579728, guid: 06cc03af07ef0ac468c0bb52d1f2c743, type: 3}

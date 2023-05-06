@@ -115,7 +115,7 @@ MonoBehaviour:
   medkitPrefab: {fileID: 4214963647153061173, guid: 00d7f7373598b5c4eb274016ad7120fd, type: 3}
   rb: {fileID: 3698562476869544285}
   speed: 5
-  maxHealth: 1500
+  maxHealth: 500
   isDreamy: 1
   DreamySeek: {fileID: 8300000, guid: 98cc4e493bb63024f98308bcacd9b82c, type: 3}
   DreamyFind: {fileID: 8300000, guid: 67322603c0a78544fbe74a92cd2f39cd, type: 3}
@@ -123,9 +123,9 @@ MonoBehaviour:
   customHP: 1
   isStatic: 0
   playerDetected: 0
-  dropXP: 15
-  dropMoney: 100
-  dropHP: 5
+  dropXP: 100
+  dropMoney: 1000
+  dropHP: 50
   lockedRotationSpeed: 0.5
 --- !u!50 &3698562476869544285
 Rigidbody2D:

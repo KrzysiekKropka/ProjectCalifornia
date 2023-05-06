@@ -73,38 +73,41 @@ public class AIShooting : MonoBehaviour
         spriteRenderer = enemy.GetComponent<SpriteRenderer>();
 
         //KK: Fuj
-        switch (equippedWeaponID)
+        if(!enemy.GetComponent<AIBrain>().isDreamy)
         {
-            case 0:
-                spriteRenderer.sprite = EnemyPistol;
-                enemy.GetComponent<AIBrain>().dropHP = 5;
-                enemy.GetComponent<AIBrain>().dropXP = 30;
-                enemy.GetComponent<AIBrain>().dropMoney = 150;
-                if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 50;
-                break;
-            case 1:
-                spriteRenderer.sprite = EnemyDeagle;
-                enemy.GetComponent<AIBrain>().dropHP = 10;
-                enemy.GetComponent<AIBrain>().dropXP = 45;
-                enemy.GetComponent<AIBrain>().dropMoney = 300;
-                if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 75;
-                break;
-            case 2:
-                spriteRenderer.sprite = EnemyMP5;
-                enemy.GetComponent<AIBrain>().dropHP = 15;
-                enemy.GetComponent<AIBrain>().dropXP = 60;
-                enemy.GetComponent<AIBrain>().dropMoney = 450;
-                if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 100;
-                break;
-            case 3:
-                break;
-            case 4:
-                spriteRenderer.sprite = EnemyAK47;
-                enemy.GetComponent<AIBrain>().dropHP = 30;
-                enemy.GetComponent<AIBrain>().dropXP = 90;
-                enemy.GetComponent<AIBrain>().dropMoney = 600;
-                if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 150;
-                break;
+            switch (equippedWeaponID)
+            {
+                case 0:
+                    spriteRenderer.sprite = EnemyPistol;
+                    enemy.GetComponent<AIBrain>().dropHP = 5;
+                    enemy.GetComponent<AIBrain>().dropXP = 30;
+                    enemy.GetComponent<AIBrain>().dropMoney = 150;
+                    if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 50;
+                    break;
+                case 1:
+                    spriteRenderer.sprite = EnemyDeagle;
+                    enemy.GetComponent<AIBrain>().dropHP = 10;
+                    enemy.GetComponent<AIBrain>().dropXP = 45;
+                    enemy.GetComponent<AIBrain>().dropMoney = 300;
+                    if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 75;
+                    break;
+                case 2:
+                    spriteRenderer.sprite = EnemyMP5;
+                    enemy.GetComponent<AIBrain>().dropHP = 15;
+                    enemy.GetComponent<AIBrain>().dropXP = 60;
+                    enemy.GetComponent<AIBrain>().dropMoney = 450;
+                    if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 100;
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    spriteRenderer.sprite = EnemyAK47;
+                    enemy.GetComponent<AIBrain>().dropHP = 30;
+                    enemy.GetComponent<AIBrain>().dropXP = 90;
+                    enemy.GetComponent<AIBrain>().dropMoney = 600;
+                    if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 150;
+                    break;
+            }
         }
 
         if(customStats)
