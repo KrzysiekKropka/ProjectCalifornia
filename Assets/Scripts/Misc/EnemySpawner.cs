@@ -46,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
                     enemy.transform.GetChild(0).GetComponent<AIBrain>().PlayerInterrupts();
                 }
             }
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
         }
     }
 
