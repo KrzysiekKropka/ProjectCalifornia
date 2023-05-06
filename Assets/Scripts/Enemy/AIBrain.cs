@@ -149,23 +149,24 @@ public class AIBrain : MonoBehaviour
             shotBefore = true;
         }
         currentHealth -= damage;
+
         //KK:Blagam nie dotykaj tego kodu ponizej, jest on tak kurwa niestabilny ze lekka zmiana kompletnie rozpierdoli dzialanie licznika. To jest niesamowite ze to w ogole dziala.
-        if (Time.time - currentTime > 0.75f)
+
+        if (Time.time - currentTime > 1f)
         {
             summedDamage = 0;
-        }
-
-        summedDamage += damage;
-
-        if (Time.time - currentTime > 0.1f)
-        {
+            summedDamage += damage;
             damagePopup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
-            damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
         }
         else
         {
-            damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
+            summedDamage += damage;
+            damagePopup.transform.position = transform.position;
+            damagePopup.GetComponent<DamagePopup>().RestartAnim();
         }
+
+        damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
+
         if (currentHealth <= 0)
         {
             var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();

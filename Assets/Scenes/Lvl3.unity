@@ -23952,11 +23952,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1229810973308872601, guid: 06cc03af07ef0ac468c0bb52d1f2c743, type: 3}
       propertyPath: maxHealth
-      value: 1500
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 2186377959770579728, guid: 06cc03af07ef0ac468c0bb52d1f2c743, type: 3}
       propertyPath: m_Name
-      value: Enemy_28
+      value: Dreamy
       objectReference: {fileID: 0}
     - target: {fileID: 7170791799619694002, guid: 06cc03af07ef0ac468c0bb52d1f2c743, type: 3}
       propertyPath: m_RootOrder

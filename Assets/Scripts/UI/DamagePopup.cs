@@ -6,15 +6,21 @@ using TMPro;
 public class DamagePopup : MonoBehaviour
 {
     [SerializeField] TMP_Text damageText;
+    [SerializeField] Animator animator;
 
     void Start()
     {
-        Destroy(gameObject, 3f);
         transform.localPosition += new Vector3 (0f, 2f, 0f);
     }
 
     public void SetDamageText(int damage)
     {
         damageText.text = damage.ToString();
+    }
+
+    public void RestartAnim()
+    {
+        transform.localPosition += new Vector3(0f, 2f, 0f);
+        animator.Play("DamagePopup", -1, 0);
     }
 }

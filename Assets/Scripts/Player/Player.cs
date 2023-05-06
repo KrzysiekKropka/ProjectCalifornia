@@ -212,22 +212,10 @@ public class Player : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(manHurtClip, transform.position, 0.2f);
             currentHealth -= damage;
-            if (Time.time - currentTime > 0.75f)
-            {
-                summedDamage = 0;
-            }
 
-            summedDamage += damage;
+            //damagePopup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
+            //damagePopup.GetComponent<DamagePopup>().SetDamageText(damage);
 
-            if (Time.time - currentTime > 0.1f)
-            {
-                damagePopup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
-                damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
-            }
-            else
-            {
-                damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
-            }
 
             if (currentHealth <= 0)
             {

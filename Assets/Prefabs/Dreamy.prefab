@@ -372,7 +372,7 @@ MonoBehaviour:
   EnemyAK47: {fileID: 21300000, guid: 8a9e153a94c1fe8459d373c64ebe22d9, type: 3}
   enemy: {fileID: 414322158379531731}
   customStats: 1
-  customDamage: 20
+  customDamage: 16
   customAmmo: 50
   customDelay: 0.125
   customSpread: 0
