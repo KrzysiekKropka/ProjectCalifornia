@@ -207,6 +207,7 @@ public class Player : MonoBehaviour
                 dashingCooldownCoroutine = DashingCooldown();
                 StartCoroutine(dashingCooldownCoroutine);
             }
+
             if (remainingStamina <= 0) StartCoroutine(SprintCooldown());
             StartCoroutine(StopDashing());
             stopInvincibilityCoroutine = StopInvincibility();
