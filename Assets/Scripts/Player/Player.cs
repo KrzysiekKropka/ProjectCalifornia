@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public static bool inInventory = false;
     public int kills = 0;
     public int enemies = 0;
+    public int remainingEnemies = 0;
 
     bool inFocus;
     public bool isSprinting;
@@ -269,6 +270,7 @@ public class Player : MonoBehaviour
     public void AddKill()
     {
         kills++;
+        remainingEnemies--;
         if (kills >= enemies)
         {
             if (!GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isArena && !GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isTheEnd)
@@ -287,6 +289,7 @@ public class Player : MonoBehaviour
     public void AddEnemy()
     {
         enemies++;
+        remainingEnemies++;
     }
 
     public void SetXP(int XP)

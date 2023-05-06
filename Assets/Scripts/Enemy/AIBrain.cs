@@ -189,6 +189,10 @@ public class AIBrain : MonoBehaviour
                 GameObject droppedMedkit = Instantiate(medkitPrefab, transform.position + new Vector3(0f, 0.75f, 0f), Quaternion.identity);
                 droppedMedkit.GetComponent<Medkit>().hp = dropHP;
                 currentTimeBloodPool = Time.time;
+
+                Destroy(droppedMoney, 60);
+                Destroy(droppedAmmo, 60);
+                Destroy(droppedMedkit, 60);
             }
         }
         healthBar.SetHealth(currentHealth);
