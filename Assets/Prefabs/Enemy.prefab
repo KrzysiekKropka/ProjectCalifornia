@@ -209,12 +209,12 @@ MonoBehaviour:
     maximumInterval: 2
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
-  maxAcceleration: 15
+  maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 2.5
+  slowdownDistance: 6
   pickNextWaypointDist: 2
-  endReachedDistance: 3
-  alwaysDrawGizmos: 0
+  endReachedDistance: 4
+  alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 0
   whenCloseToDestination: 0
   constrainInsideGraph: 0
