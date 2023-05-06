@@ -210,7 +210,7 @@ public class Player : MonoBehaviour
     {
         if(!isInvincible)
         {
-            AudioSource.PlayClipAtPoint(manHurtClip, transform.position, 0.2f);
+            AudioSource.PlayClipAtPoint(manHurtClip, transform.position, 1f);
             currentHealth -= damage;
 
             //damagePopup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);

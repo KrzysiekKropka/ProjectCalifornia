@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 46122
+  controlID: 46722
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 46096
+  controlID: 46673
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 46097
+  controlID: 46578
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,9 +224,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 9a200000
       m_LastClickedID: 0
-      m_ExpandedIDs: bec3c3ff3ec4c3ffa2c6c3ffb0c6c3ff3accc3ff82e2c3ff72fac3ff2615c4ffc021c4ffee22c4ff1e10c5ff2025c5ff8051caff4052caffa454caffb254caff3e5acaff8670caff7688caff2aa3caffc4afcaffeab0caff82cdcaff36e8caffd8f4caff06f6caff045bd1ff32c6d6fffcc7d6ffb6c9d6ff26d0d6fff881d7fff6a4d7ff62b3d7ffcec1d7ff48d2d8ff502fd9ff4e75d9ff3e76d9ffe676d9ff9278d9ff3679d9ff9e7bd9ffb07bd9ff7881d9ffae99d9ffeeb3d9ff2ad1d9ffecded9ff16e0d9ff8edcdaff14a1e6ff3aa7e6ff3cbce6ff644ce7ff8e55e7ff906ae7ff3ae1e7ff1cfce7ff0098ecff5c74eeff4ea1eeffd2aafaff08cbfaff24fbffff1070000030ec000014260100ae510200365202001e8f02001690020052900200bcda0200ace3020020530300545703000ca30300b2a3030004a4030040a40300
+      m_ExpandedIDs: 3cadc1ffbcadc1ff20b0c1ff2eb0c1ffbab5c1ff02ccc1fff2e3c1ffa6fec1ff400bc2ff6e0cc2ffbec3c3ff3ec4c3ffa2c6c3ffb0c6c3ff3accc3ff82e2c3ff72fac3ff2615c4ffc021c4ffee22c4ff1e10c5ff2025c5ff8051caff4052caffa454caffb254caff3e5acaff8670caff7688caff2aa3caffc4afcaffeab0caff82cdcaff36e8caffd8f4caff06f6caff045bd1ff32c6d6fffcc7d6ffb6c9d6ff26d0d6fff881d7fff6a4d7ff62b3d7ffcec1d7ff48d2d8ff502fd9ff4e75d9ff3e76d9ffe676d9ff9278d9ff3679d9ff9e7bd9ffb07bd9ff7881d9ffae99d9ffeeb3d9ff2ad1d9ffecded9ff16e0d9ff8edcdaff14a1e6ff3aa7e6ff3cbce6ff644ce7ff8e55e7ff906ae7ff3ae1e7ff1cfce7ff0098ecff5c74eeff4ea1eeffd2aafaff08cbfaff24fbffff1070000030ec000014260100ae510200365202001e8f02001690020052900200bcda0200ace3020020530300545703000ca30300b2a3030004a4030040a40300
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -939,22 +939,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts/Player
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts/Player
   m_LastFoldersGridSize: -1
   m_LastProjectPath: B:\Inne\Documents\GitHub\ProjectCalifornia
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 74.99994}
-    m_SelectedIDs: e68e0000
-    m_LastClickedID: 36582
-    m_ExpandedIDs: 00000000c88e0000ca8e0000cc8e000000ca9a3b
+    scrollPos: {x: 0, y: 102.99994}
+    m_SelectedIDs: 4a970000
+    m_LastClickedID: 38730
+    m_ExpandedIDs: 00000000c88e0000ca8e0000cc8e0000e88e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1007,8 +1007,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 9a200000
+    m_LastClickedInstanceID: 8346
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000429100007c9d000094b20000cc7101001e7c000000000000
     m_RenameOverlay:
