@@ -175,6 +175,8 @@ public class Player : MonoBehaviour
             float previousDashingTimer = dashingTimer;
             dashingTimer = Time.time;
 
+            //KK: Ten kod jest rakiem.
+
             if (dashingTimer - previousDashingTimer > dashingCooldown)
             {
                 dashingSpree = 0;
