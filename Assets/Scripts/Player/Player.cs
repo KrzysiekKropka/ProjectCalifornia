@@ -146,7 +146,6 @@ public class Player : MonoBehaviour
             }
             healthBar.SetStamina(remainingStamina);
         }
-
     }
 
     void FixedUpdate()

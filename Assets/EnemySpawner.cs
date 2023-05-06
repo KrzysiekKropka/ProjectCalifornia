@@ -29,8 +29,10 @@ public class EnemySpawner : MonoBehaviour
             if(GameObject.FindWithTag("Player").GetComponent<Player>().remainingEnemies < maxEnemies)
             {
                 int randomMax = Random.Range(minLvl, maxLvl+1);
-                while (randomMax == 3) randomMax = Random.Range(minLvl, maxLvl);
-                GameObject enemy = Instantiate(EnemyPrefab, enemySpawners[Random.Range(0, enemySpawners.Length)].position, Quaternion.identity);
+                while (randomMax == 3) randomMax = Random.Range(minLvl, maxLvl+1);
+                int randomSpawner = Random.Range(0, enemySpawners.Length);
+                GameObject enemy = Instantiate(EnemyPrefab, enemySpawners[randomSpawner].position, Quaternion.identity);
+                enemy.transform.GetChild(0).rotation = enemySpawners[randomSpawner].rotation;
                 enemy.GetComponent<AIShooting>().equippedWeaponID = randomMax;
                 enemy.transform.GetChild(0).GetComponent<AIBrain>().PlayerInterrupts();
             }
