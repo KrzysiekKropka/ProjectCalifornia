@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
     public bool canBetterAim;
     private bool canMoreHP;
 
-    private IEnumerator stopInvincibilityCoroutine;
+    private IEnumerator stopInvincibilityCoroutine, dashingCooldownCoroutine;
 
     float currentTime;
 
@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
 
         if (remainingStamina < maxStamina)//remainingStamina < maxStamina
         {
-            if (!isSprinting && !isDashing)
+            if (!isSprinting && !isDashing && !inDashingCooldown)
             {
                 remainingStamina += 10f * Time.deltaTime;
             }
@@ -170,6 +170,7 @@ public class Player : MonoBehaviour
         if(canDash && !staminaCooldownBool && !inDashingCooldown && !isDashing && rb.velocity != Vector2.zero && !NextLevelScreen.isActive)
         {
             if(stopInvincibilityCoroutine != null) StopCoroutine(stopInvincibilityCoroutine);
+            if (dashingCooldownCoroutine != null) StopCoroutine(dashingCooldownCoroutine);
             dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
             float previousDashingTimer = dashingTimer;
             dashingTimer = Time.time;
@@ -191,11 +192,18 @@ public class Player : MonoBehaviour
                 trailRenderer.emitting = true;
                 remainingStamina -= 2f;
                 AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
+                if(dashingSpree >= 2)
+                {
+                    dashingSpree = 0;
+                    dashingCooldownCoroutine = DashingCooldown();
+                    StartCoroutine(dashingCooldownCoroutine);
+                }
             }
             else
             {
                 dashingSpree = 0;
-                StartCoroutine(DashingCooldown());
+                dashingCooldownCoroutine = DashingCooldown();
+                StartCoroutine(dashingCooldownCoroutine);
             }
             if (remainingStamina <= 0) StartCoroutine(SprintCooldown());
             StartCoroutine(StopDashing());
