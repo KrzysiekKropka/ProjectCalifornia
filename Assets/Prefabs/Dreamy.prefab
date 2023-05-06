@@ -374,7 +374,7 @@ MonoBehaviour:
   customStats: 1
   customDamage: 20
   customAmmo: 50
-  customDelay: 0.1
+  customDelay: 0.125
   customSpread: 0
   customSprite: {fileID: 21300000, guid: ae00216dea93f724591ebc07ce8360f5, type: 3}
   equippedWeaponID: 4

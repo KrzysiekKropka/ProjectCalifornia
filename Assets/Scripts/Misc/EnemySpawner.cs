@@ -17,31 +17,32 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(LevelupRoutine());
     }
 
-    void Update()
-    {
-        print(maxLvl);
-    }
-
     IEnumerator SpawnerRoutine()
     {
         while (true)
         {
             if (GameObject.FindWithTag("Player").GetComponent<Player>().remainingEnemies < maxEnemies)
             {
-                int randomMax = Random.Range(minLvl, maxLvl + 1);
-                while (randomMax == 3) randomMax = Random.Range(minLvl, maxLvl + 1);
+                int randomWeapon;
+
+                if (minLvl != maxLvl) randomWeapon = Random.Range(minLvl, maxLvl + 1);
+                else randomWeapon = minLvl;
+
+                while (randomWeapon == 3) randomWeapon = Random.Range(minLvl, maxLvl+1);
                 int randomSpawner = Random.Range(0, enemySpawners.Length);
-                if(Random.Range(0, 40) != 39 || maxLvl != 4)
+                int randomChance = Random.Range(0, 50);
+
+                if (randomChance == 49 && maxLvl >= 3)
                 {
-                    GameObject enemy = Instantiate(EnemyPrefab, enemySpawners[randomSpawner].position, Quaternion.identity);
+                    GameObject enemy = Instantiate(DreamyPrefab, enemySpawners[randomSpawner].position, Quaternion.identity);
                     enemy.transform.GetChild(0).rotation = enemySpawners[randomSpawner].rotation;
-                    enemy.GetComponent<AIShooting>().equippedWeaponID = randomMax;
                     enemy.transform.GetChild(0).GetComponent<AIBrain>().PlayerInterrupts();
                 }
                 else
                 {
-                    GameObject enemy = Instantiate(DreamyPrefab, enemySpawners[randomSpawner].position, Quaternion.identity);
+                    GameObject enemy = Instantiate(EnemyPrefab, enemySpawners[randomSpawner].position, Quaternion.identity);
                     enemy.transform.GetChild(0).rotation = enemySpawners[randomSpawner].rotation;
+                    enemy.GetComponent<AIShooting>().equippedWeaponID = randomWeapon;
                     enemy.transform.GetChild(0).GetComponent<AIBrain>().PlayerInterrupts();
                 }
             }
@@ -53,19 +54,19 @@ public class EnemySpawner : MonoBehaviour
     {
         while (canProgress)
         {
-            yield return new WaitForSeconds(30f);
-            /*if (minLvl < maxLvl)
-            {
-                minLvl++;
-                if (minLvl == avoidLvl) minLvl++;
-            }*/
+            yield return new WaitForSeconds(45f);
             if (maxLvl < maxLvlOverall)
             {
                 maxLvl++;
             }
-            //if (maxLvl == maxLvlOverall) canProgress = false;
+            if (maxLvl == maxLvlOverall) canProgress = false;
         }
 
         //yield return new WaitForSeconds(60f);
+        /*if (minLvl < maxLvl)
+        {
+            minLvl++;
+            if (minLvl == avoidLvl) minLvl++;
+        }*/
     }
 }
