@@ -152,7 +152,7 @@ public class AIBrain : MonoBehaviour
 
         //KK:Blagam nie dotykaj tego kodu ponizej, jest on tak kurwa niestabilny ze lekka zmiana kompletnie rozpierdoli dzialanie licznika. To jest niesamowite ze to w ogole dziala.
 
-        if (Time.time - currentTime > 1f)
+        if (damagePopup == null)
         {
             summedDamage = 0;
             damagePopup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
