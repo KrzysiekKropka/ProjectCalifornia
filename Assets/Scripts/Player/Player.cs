@@ -85,8 +85,8 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         healthBar.SetExperiencePoints(experiencePoints);
         healthBar.SetMoney(money);
-
-        healthBar.MessageBox("Kill them all!");
+        if(!GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isArena) healthBar.MessageBox("Kill them all!");
+        //else healthBar.MessageBox("Change the level by pressing minus or plus key!");
     }
 
     public void RefreshShop()
