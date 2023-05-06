@@ -17,13 +17,18 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(LevelupRoutine());
     }
 
+    void Update()
+    {
+        print(maxLvl);
+    }
+
     IEnumerator SpawnerRoutine()
     {
         while(true)
         {
             if(GameObject.FindWithTag("Player").GetComponent<Player>().remainingEnemies < maxEnemies)
             {
-                int randomMax = Random.Range(minLvl, maxLvl);
+                int randomMax = Random.Range(minLvl, maxLvl+1);
                 while (randomMax == 3) randomMax = Random.Range(minLvl, maxLvl);
                 GameObject enemy = Instantiate(EnemyPrefab, enemySpawners[Random.Range(0, enemySpawners.Length)].position, Quaternion.identity);
                 enemy.GetComponent<AIShooting>().equippedWeaponID = randomMax;
