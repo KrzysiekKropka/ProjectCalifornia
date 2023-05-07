@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     public bool isInvincible;
 
     bool staminaCooldownBool;
-    float staminaCooldown = 3f;
+    float staminaCooldown = 1f;
     float maxStamina = 60f;
     float remainingStamina;
 
