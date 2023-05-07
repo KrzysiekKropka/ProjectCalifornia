@@ -53,70 +53,70 @@ public class EnemySpawner : MonoBehaviour
                 minLvl = 0;
                 maxLvl = 0;
                 maxEnemies = 2;
-                spawnInterval = 4.5f;
+                spawnInterval = 4f;
                 dreamySpawn = false;
                 break;
             case 2:
                 minLvl = 0;
                 maxLvl = 1;
                 maxEnemies = 2;
-                spawnInterval = 4.5f;
+                spawnInterval = 4f;
                 dreamySpawn = false;
                 break;
             case 3:
                 minLvl = 0;
                 maxLvl = 1;
                 maxEnemies = 4;
-                spawnInterval = 4.5f;
+                spawnInterval = 4f;
                 dreamySpawn = false;
                 break;
             case 4:
                 minLvl = 0;
                 maxLvl = 2;
                 maxEnemies = 4;
-                spawnInterval = 4f;
+                spawnInterval = 3.5f;
                 dreamySpawn = false;
                 break;
             case 5:
                 minLvl = 0;
                 maxLvl = 2;
                 maxEnemies = 6;
-                spawnInterval = 4f;
+                spawnInterval = 3.5f;
                 dreamySpawn = false;
                 break;
             case 6:
                 minLvl = 0;
                 maxLvl = 4;
                 maxEnemies = 6;
-                spawnInterval = 3.5f;
+                spawnInterval = 3f;
                 dreamySpawn = false;
                 break;
             case 7:
                 minLvl = 0;
                 maxLvl = 4;
                 maxEnemies = 8;
-                spawnInterval = 3.5f;
+                spawnInterval = 3f;
                 dreamySpawn = false;
                 break;
             case 8:
                 minLvl = 1;
                 maxLvl = 4;
                 maxEnemies = 8;
-                spawnInterval = 3f;
+                spawnInterval = 2.5f;
                 dreamySpawn = true;
                 break;
             case 9:
                 minLvl = 1;
                 maxLvl = 4;
                 maxEnemies = 10;
-                spawnInterval = 3f;
+                spawnInterval = 2.5f;
                 dreamySpawn = true;
                 break;
             case 10:
                 minLvl = 1;
                 maxLvl = 4;
                 maxEnemies = 10;
-                spawnInterval = 2.5f;
+                spawnInterval = 2f;
                 dreamySpawn = true;
                 break;
         }
