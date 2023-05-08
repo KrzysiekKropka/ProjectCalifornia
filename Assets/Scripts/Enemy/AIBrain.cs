@@ -54,7 +54,7 @@ public class AIBrain : MonoBehaviour
     float currentTime, currentTimeBloodPool;
     float reactionTime = 0.15f;
     float rotationSpeed = 0.1f;
-    [SerializeField] float lockedRotationSpeed = 0.3f;
+    [SerializeField] float lockedRotationSpeed = 0.4f;
     float aimAngle;
 
     RaycastHit hit;

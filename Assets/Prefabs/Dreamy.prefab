@@ -126,7 +126,7 @@ MonoBehaviour:
   dropXP: 100
   dropMoney: 1000
   dropHP: 100
-  lockedRotationSpeed: 0.5
+  lockedRotationSpeed: 0.6
 --- !u!50 &3698562476869544285
 Rigidbody2D:
   serializedVersion: 4

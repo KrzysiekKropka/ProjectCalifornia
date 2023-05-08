@@ -167,12 +167,5 @@ public class EnemySpawner : MonoBehaviour
             }
             if (currentLevel == levels) canProgress = false;
         }
-
-        //yield return new WaitForSeconds(60f);
-        /*if (minLvl < maxLvl)
-        {
-            minLvl++;
-            if (minLvl == avoidLvl) minLvl++;
-        }*/
     }
 }
