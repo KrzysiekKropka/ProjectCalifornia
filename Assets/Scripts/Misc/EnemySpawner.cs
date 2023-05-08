@@ -135,9 +135,9 @@ public class EnemySpawner : MonoBehaviour
 
                 while (randomWeapon == 3) randomWeapon = Random.Range(minLvl, maxLvl+1);
                 int randomSpawner = Random.Range(0, enemySpawners.Length);
-                int randomChance = Random.Range(0, 50);
+                int randomChance = Random.Range(0, 40);
 
-                if (randomChance == 49 && dreamySpawn)
+                if (randomChance == 39 && dreamySpawn)
                 {
                     GameObject enemy = Instantiate(DreamyPrefab, enemySpawners[randomSpawner].position, Quaternion.identity);
                     enemy.transform.GetChild(0).rotation = enemySpawners[randomSpawner].rotation;
