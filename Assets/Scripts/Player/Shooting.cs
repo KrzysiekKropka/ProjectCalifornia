@@ -106,7 +106,20 @@ public class Shooting : MonoBehaviour
             canShoot[i] = true;
         }
 
-        AssignWeapon(PlayerPrefs.GetInt("equippedWeaponID"));
+        equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
+
+        healthBar.SetReloading(false);
+        healthBar.SetWeaponIcon(equippedWeaponID);
+        healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
+
+        if (equippedWeaponID < 2)
+        {
+            spriteRenderer.sprite = PlayerPistol;
+        }
+        else
+        {
+            spriteRenderer.sprite = PlayerRifle;
+        }
     }
 
     public void AssignWeapon(int weaponID)
