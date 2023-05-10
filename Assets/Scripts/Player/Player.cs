@@ -5,66 +5,73 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] HealthBar healthBar;
-    [SerializeField] NextLevelScreen nextLevelScreen;
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] GameObject damagePopupPrefab;
-    [SerializeField] GameObject triggerNextLevelMenu;
-    [SerializeField] GameObject ShopManager;
-    [SerializeField] AudioClip manHurtClip, healClip, dashClip;
+    //Objects
+    [SerializeField] private HealthBar healthBar;
+    [SerializeField] private NextLevelScreen nextLevelScreen;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject damagePopupPrefab;
+    [SerializeField] private GameObject triggerNextLevelMenu;
+    [SerializeField] private GameObject ShopManager;
+    [SerializeField] private AudioClip manHurtClip, healClip, dashClip;
     private SpriteRenderer spriteRenderer;
     private TrailRenderer trailRenderer;
     private GameObject damagePopup;
 
-    public static bool inInventory = false;
-    public int kills = 0;
-    public int enemies = 0;
-    public int remainingEnemies = 0;
-
-    bool inFocus;
+    //Global Bools
     public bool isSprinting;
     public bool isDashing;
     public bool isInvincible;
+    public static bool inInventory = false;
 
-    bool staminaCooldownBool;
-    float staminaCooldown = 1f;
-    float maxStamina = 60f;
-    float remainingStamina;
+    //Store Bools
+    public bool canBetterAim;
+    private bool canSprint;
+    private bool canDash;
+    private bool canMoreHP;
 
-    bool inDashingCooldown;
-    float dashingSpeed = 24f;
-    float dashingTime = 0.1f;
-    float dashingTimer;
-    float dashingCooldown = 0.25f;
-    float invincibiltyTimer = 0.375f;
-    int dashingSpree;
-
-    float speed = 10f;
-    float sprintingSpeed = 12.5f;
-
-    int maxHealth = 100;
-    int currentHealth;
-
-    int equippedWeaponID;
+    //Statistics
+    public int kills = 0;
+    public int enemies = 0;
+    public int remainingEnemies = 0;
     public int experiencePoints;
     public int money;
-    int summedDamage;
-    string equippedWeaponName;
 
-    float aimAngle;
+    //Stamina Related
+    private bool inStaminaCooldown;
+    private float staminaCooldown = 1f;
+    private float maxStamina = 60f;
+    private float remainingStamina;
+
+    //Dashing Related
+    private bool inDashingCooldown;
+    private float dashingSpeed = 24f;
+    private float dashingTime = 0.1f;
+    private float dashingTimer;
+    private float dashingCooldown = 0.25f;
+    private float invincibiltyTimer = 0.375f;
+    private int dashingSpree;
+
+    //Movement Related
+    private float speed = 10f;
+    private float sprintingSpeed = 12.5f;
+
+    //Health
+    private int maxHealth = 100;
+    private int currentHealth;
+
+    //Weapon Related
+    private int equippedWeaponID;
+    private int summedDamage;
+
+    //Movement Data
+    private float aimAngle;
     private Vector2 moveDirection;
     private Vector2 mousePosition;
     private Vector2 aimDirection;
     private Vector2 dashDirection;
 
-    private bool canSprint;
-    private bool canDash;
-    public bool canBetterAim;
-    private bool canMoreHP;
-
+    //IEnumerators for storing coroutines
     private IEnumerator stopInvincibilityCoroutine, dashingCooldownCoroutine;
-
-    float currentTime;
 
     void Start()
     {
@@ -75,12 +82,12 @@ public class Player : MonoBehaviour
         experiencePoints = PlayerPrefs.GetInt("experiencePoints");
         money = PlayerPrefs.GetInt("money");
         equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
-        equippedWeaponName = PlayerPrefs.GetString("equippedWeaponName");
         healthBar.SetKills(kills);
 
         RefreshShop();
 
         currentHealth = maxHealth;
+        remainingStamina = maxStamina;
 
         healthBar.SetHealth(currentHealth);
         healthBar.SetExperiencePoints(experiencePoints);
@@ -102,8 +109,6 @@ public class Player : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
 
-        if (canSprint || canDash) remainingStamina = maxStamina;
-
         if (canSprint || canDash) healthBar.SetMaxStamina(maxStamina);
         else healthBar.HideStamina();
 
@@ -114,11 +119,6 @@ public class Player : MonoBehaviour
     //KK: Prosto z poradnika Brackeys (RIP).
     void Update()
     {
-        moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        aimDirection = mousePosition - rb.position;
-        aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Dash();
@@ -129,16 +129,13 @@ public class Player : MonoBehaviour
             healthBar.gameObject.SetActive(!healthBar.gameObject.activeSelf);
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && canSprint && !staminaCooldownBool && rb.velocity != Vector2.zero)
+        if (Input.GetKey(KeyCode.LeftShift) && canSprint && !inStaminaCooldown && rb.velocity != Vector2.zero)
         {
             isSprinting = true;
         }
-        else
-        {
-            isSprinting = false;
-        }
+        else if (isSprinting) isSprinting = false;
 
-        if (remainingStamina < maxStamina)//remainingStamina < maxStamina
+        if (remainingStamina < maxStamina)
         {
             if (!isSprinting && !isDashing && !inDashingCooldown)
             {
@@ -150,6 +147,11 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        aimDirection = mousePosition - rb.position;
+        aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+
         if (isSprinting && remainingStamina > 0)
         {
             rb.velocity = new Vector2(moveDirection.x * sprintingSpeed, moveDirection.y * sprintingSpeed);
@@ -167,7 +169,7 @@ public class Player : MonoBehaviour
 
     void Dash()
     {
-        if(canDash && !staminaCooldownBool && !inDashingCooldown && !isDashing && rb.velocity != Vector2.zero && !NextLevelScreen.isActive)
+        if(canDash && !inStaminaCooldown && !inDashingCooldown && !isDashing && rb.velocity != Vector2.zero && !NextLevelScreen.isActive)
         {
             if(stopInvincibilityCoroutine != null) StopCoroutine(stopInvincibilityCoroutine);
             if (dashingCooldownCoroutine != null) StopCoroutine(dashingCooldownCoroutine);
@@ -224,18 +226,8 @@ public class Player : MonoBehaviour
             AudioSource.PlayClipAtPoint(manHurtClip, transform.position, 1f);
             currentHealth -= damage;
 
-            //damagePopup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
-            //damagePopup.GetComponent<DamagePopup>().SetDamageText(damage);
-
-
-            if (currentHealth <= 0)
-            {
-                SceneManager.LoadScene("GameOver");
-            }
-            else
-            {
-                healthBar.SetHealth(currentHealth);
-            }
+            if (currentHealth > 0) healthBar.SetHealth(currentHealth);
+            else SceneManager.LoadScene("GameOver");
         }
     }
 
@@ -292,16 +284,16 @@ public class Player : MonoBehaviour
 
     public void SetXP(int XP)
     {
-        experiencePoints += XP;
         if (experiencePoints < 0) experiencePoints = 0;
+        experiencePoints += XP;
         healthBar.SetExperiencePoints(experiencePoints);
         PlayerPrefs.SetInt("experiencePoints", experiencePoints);
     }
 
     public void SetMoney(int gotMoney)
     {
-        money += gotMoney;
         if (money < 0) money = 0;
+        money += gotMoney;
         healthBar.SetMoney(money);
         PlayerPrefs.SetInt("money", money);
     }
@@ -339,9 +331,9 @@ public class Player : MonoBehaviour
 
     IEnumerator SprintCooldown()
     {
-        staminaCooldownBool = true;
+        inStaminaCooldown = true;
         yield return new WaitForSeconds(staminaCooldown);
-        staminaCooldownBool = false;
+        inStaminaCooldown = false;
     }
 
     IEnumerator TriggerTheEnd()

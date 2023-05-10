@@ -1,18 +1,19 @@
 using UnityEngine;
 
-/// <summary>
-/// Krzysiek: podjebane z tego filmiku: https://www.youtube.com/watch?v=ZBj3LBA2vUY
-/// </summary>
-
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] Transform player;
-    float maxScreenPoint = 0.6f;
-    float smoothTime = 0.125f;
-    Vector3 offset = new Vector3(0f, 0f, -10f);
-    Vector3 velocity = Vector3.zero;
-    Vector3 targetPosition;
-    Vector3 mousePos;
+    //Transform
+    [SerializeField] private Transform player;
+
+    //Floats
+    private float maxScreenPoint = 0.6f; //Position between cursor and player
+    private float smoothTime = 0.125f;
+
+    //Vectors
+    private Vector3 offset = new Vector3(0f, 0f, -10f);
+    private Vector3 velocity = Vector3.zero;
+    private Vector3 targetPosition;
+    private Vector3 mousePos;
 
     void LateUpdate()
     {

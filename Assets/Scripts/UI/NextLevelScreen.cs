@@ -13,15 +13,15 @@ public class NextLevelScreen : MonoBehaviour
 
     public static bool isActive = false;
 
-    public void StartCountdown(bool isEnd = false)
+    public void StartCountdown()
     {
         isActive = true;
         gameObject.SetActive(true);
         GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().UnlockLevels();
-        StartCoroutine(Countdown(isEnd));
+        StartCoroutine(Countdown());
     }
 
-    IEnumerator Countdown(bool isEnd)
+    IEnumerator Countdown()
     {
         int currCountdownValue = 5;
         slider.maxValue = 5;

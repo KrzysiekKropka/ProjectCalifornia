@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2627319952400991828}
   - component: {fileID: 212735866510671175}
   - component: {fileID: 9079487869153884659}
+  - component: {fileID: 7823087593959511900}
   m_Layer: 0
   m_Name: BlockEffect
   m_TagString: Untagged
@@ -106,6 +107,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7823087593959511900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543246939477496949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87e5717eb137da4fa2a4b5f5c1659d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4390480619490760448
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 //KK: Aby to gowno dzialalo, trzeba zmienic ilosc arrayow w inspektorze.
 [System.Serializable]
 public class AudioClipArray
@@ -12,37 +11,42 @@ public class AudioClipArray
 
 public class Shooting : MonoBehaviour
 {
-    [SerializeField] Transform firePoint, firePointShotgun1, firePointShotgun2, firePointShotgun3, firePointShotgun4;
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] GameObject shootPrefab;
-    [SerializeField] ShopManager shopManager;
-    [SerializeField] HealthBar healthBar;
-    [SerializeField] Sprite PlayerPistol, PlayerRifle;
-    [SerializeField] AudioClip EmptyMagClip, EmptyEverythingClip, AmmoDropClip;
+    //Objects
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private Transform[] firePointShotgun;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject shootPrefab;
+    [SerializeField] private ShopManager shopManager;
+    [SerializeField] private HealthBar healthBar;
+    [SerializeField] private Sprite PlayerPistol, PlayerRifle;
+    [SerializeField] private AudioClip EmptyMagClip, EmptyEverythingClip, AmmoDropClip;
     private SpriteRenderer spriteRenderer;
-
     private ScreenShake screenShake;
 
-    bool canShootGlobal = true;
-    bool[] canShoot = new bool[5];
+    //Global Bools
+    private bool canShootGlobal = true;
+
+    //Weapon Stats
+    private float bulletForce = 20f;
+    private int equippedWeaponID;
+    private bool[] canShoot = new bool[5];
     public bool[] isReloading = new bool[5];
-    bool[] equippedBefore = new bool[5];
-    string[] weaponName = new string[5];
-    float bulletForce = 20f;
-    float currentTime;
-    float[] bulletSpread = new float[5];
-    float[] runningBulletSpread = new float[5];
-    float[] weaponDelay = new float[5];
-    float[] reloadTime = new float[5];
-    int equippedWeaponID;
+    private bool[] equippedBefore = new bool[5];
+    private string[] weaponName = new string[5];
+    private float[] bulletSpread = new float[5];
+    private float[] runningBulletSpread = new float[5];
+    private float[] weaponDelay = new float[5];
+    private float[] reloadTime = new float[5];
     public int[] currentAmmo = new int[5];
     public int[] reserveAmmo = new int[5];
-    int[] weaponDamage = new int[5];
-    int[] maxAmmo = new int[5];
+    private int[] weaponDamage = new int[5];
+    private int[] maxAmmo = new int[5];
 
+    //Array of weapon audio clips
     public AudioClipArray[] weaponAudioClips;
-    private IEnumerator weaponCooldownCoroutine;
-    private IEnumerator currentReloadCoroutine;
+
+    //IEnumerators for storing coroutines
+    private IEnumerator weaponCooldownCoroutine, currentReloadCoroutine;
 
     void Start()
     {
@@ -102,25 +106,7 @@ public class Shooting : MonoBehaviour
             canShoot[i] = true;
         }
 
-        equippedWeaponID = PlayerPrefs.GetInt("equippedWeaponID");
-
-        healthBar.SetWeaponIcon(equippedWeaponID);
-        healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
-        healthBar.SetReloading(false);
-
-        if (equippedWeaponID < 2)
-        {
-            spriteRenderer.sprite = PlayerPistol;
-        }
-        else
-        {
-            spriteRenderer.sprite = PlayerRifle;
-        }
-
-        if (isReloading[equippedWeaponID])
-        {
-            healthBar.SetReloading(true);
-        }
+        AssignWeapon(PlayerPrefs.GetInt("equippedWeaponID"));
     }
 
     public void AssignWeapon(int weaponID)
@@ -149,6 +135,8 @@ public class Shooting : MonoBehaviour
             {
                 spriteRenderer.sprite = PlayerRifle;
             }
+
+            PlayerPrefs.SetInt("equippedWeaponID", weaponID);
 
             equippedWeaponID = weaponID;
 
@@ -241,39 +229,21 @@ public class Shooting : MonoBehaviour
 
             GameObject shootEffect = Instantiate(shootPrefab, firePoint.position, firePoint.rotation);
 
-            if (equippedWeaponID == 3) //shotgun
+            if (equippedWeaponID == 3) // Shotgun
             {
-                GameObject bullet1 = Instantiate(bulletPrefab, firePointShotgun1.position, Quaternion.Euler(firePointShotgun1.rotation.eulerAngles + spread));
-                bullet1.GetComponent<Bullet>().weaponID = null;
-                bullet1.GetComponent<Bullet>().playerIsOwner = true;
-                bullet1.GetComponent<Bullet>().bulletDamage = damage;
-                Rigidbody2D rb1 = bullet1.GetComponent<Rigidbody2D>();
-                rb1.AddForce(bullet1.transform.up * bulletForce, ForceMode2D.Impulse);
-                Destroy(bullet1, 10);
+                GameObject[] bullets = new GameObject[firePointShotgun.Length];
+                Rigidbody2D[] rbs = new Rigidbody2D[firePointShotgun.Length];
 
-                GameObject bullet2 = Instantiate(bulletPrefab, firePointShotgun2.position, Quaternion.Euler(firePointShotgun2.rotation.eulerAngles + spread));
-                bullet2.GetComponent<Bullet>().weaponID = null;
-                bullet2.GetComponent<Bullet>().playerIsOwner = true;
-                bullet2.GetComponent<Bullet>().bulletDamage = damage;
-                Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
-                rb2.AddForce(bullet2.transform.up * bulletForce, ForceMode2D.Impulse);
-                Destroy(bullet2, 10);
-
-                GameObject bullet3 = Instantiate(bulletPrefab, firePointShotgun3.position, Quaternion.Euler(firePointShotgun3.rotation.eulerAngles + spread));
-                bullet3.GetComponent<Bullet>().weaponID = null;
-                bullet3.GetComponent<Bullet>().playerIsOwner = true;
-                bullet3.GetComponent<Bullet>().bulletDamage = damage;
-                Rigidbody2D rb3 = bullet3.GetComponent<Rigidbody2D>();
-                rb3.AddForce(bullet3.transform.up * bulletForce, ForceMode2D.Impulse);
-                Destroy(bullet3, 10);
-
-                GameObject bullet4 = Instantiate(bulletPrefab, firePointShotgun4.position, Quaternion.Euler(firePointShotgun4.rotation.eulerAngles + spread));
-                bullet4.GetComponent<Bullet>().weaponID = null;
-                bullet4.GetComponent<Bullet>().playerIsOwner = true;
-                bullet4.GetComponent<Bullet>().bulletDamage = damage;
-                Rigidbody2D rb4 = bullet4.GetComponent<Rigidbody2D>();
-                rb4.AddForce(bullet4.transform.up * bulletForce, ForceMode2D.Impulse);
-                Destroy(bullet4, 10);
+                for (int i=0; i< firePointShotgun.Length; i++)
+                {
+                    bullets[i] = Instantiate(bulletPrefab, firePointShotgun[i].position, Quaternion.Euler(firePointShotgun[i].rotation.eulerAngles + spread));
+                    bullets[i].GetComponent<Bullet>().weaponID = null;
+                    bullets[i].GetComponent<Bullet>().playerIsOwner = true;
+                    bullets[i].GetComponent<Bullet>().bulletDamage = damage;
+                    rbs[i] = bullets[i].GetComponent<Rigidbody2D>();
+                    rbs[i].AddForce(bullets[i].transform.up * bulletForce, ForceMode2D.Impulse);
+                    Destroy(bullets[i], 10);
+                }
             }
 
             if (currentAmmo[equippedWeaponID] == 0 && reserveAmmo[equippedWeaponID] == 0)
@@ -285,8 +255,8 @@ public class Shooting : MonoBehaviour
                 currentReloadCoroutine = Reload(equippedWeaponID);
                 StartCoroutine(currentReloadCoroutine);
             }
+
             Destroy(bullet, 10); //KK: Usuwa obiekt po 10 sekundach jesli nie zostanie usuniety przez cos innego
-            Destroy(shootEffect, 1);
 
             int weaponID = equippedWeaponID; 
             yield return new WaitForSeconds(weaponDelay[equippedWeaponID]);
@@ -303,7 +273,7 @@ public class Shooting : MonoBehaviour
 
     IEnumerator Reload(int weaponID)
     {
-        if (currentAmmo[weaponID] != maxAmmo[weaponID] && reserveAmmo[weaponID] > 0 && isReloading[weaponID] == false)
+        if (currentAmmo[weaponID] < maxAmmo[weaponID] && reserveAmmo[weaponID] > 0 && isReloading[weaponID] == false)
         {
             isReloading[weaponID] = true;
             AudioSource.PlayClipAtPoint(EmptyMagClip, transform.position, 1f);

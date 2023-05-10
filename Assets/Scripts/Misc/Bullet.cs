@@ -1,23 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class Bullet : MonoBehaviour
 {
+    //Objects
     [SerializeField] GameObject genericEffect;
     [SerializeField] GameObject bloodEffect;
     [SerializeField] GameObject blockEffect;
     private AudioClip bodyHitClip, ricochetClip, bulletHitClip;
     private GameObject effect;
 
+    //Bools
     bool enteredEnemy = false;
     bool initiatedStart = false;
-    public int? weaponID;
-    public int bulletDamage;
-    int modifiedBulletDamage;
     public bool playerIsOwner = false;
     public bool enemyIsOwner = false;
+
+    //Ints
+    public int? weaponID;
+    public int bulletDamage;
+
+    //Floats
     float startTime;
     float playerYPosition;
 
@@ -38,8 +41,6 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        modifiedBulletDamage = bulletDamage;
-
         if (!initiatedStart) 
         {
             PlaySound();
@@ -57,7 +58,7 @@ public class Bullet : MonoBehaviour
             bodyHitClip = (AudioClip)Resources.Load("Audio/HitBody" + randomInt);
             AudioSource.PlayClipAtPoint(bodyHitClip, transform.position, 1f);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
-            player.TakeDamage(modifiedBulletDamage);
+            player.TakeDamage(bulletDamage);
             Destroy(gameObject);
         }
         else if (enemyIsOwner && player && player.GetComponent<Player>().isInvincible)
@@ -73,11 +74,11 @@ public class Bullet : MonoBehaviour
             AudioSource.PlayClipAtPoint(ricochetClip, transform.position, 1f);
             if (playerIsOwner && playerYPosition > transform.position.y)
             {
-                effect.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 0;
+                effect.gameObject.transform.GetComponent<SpriteRenderer>().sortingOrder = 0;
             }
             else if (playerIsOwner && playerYPosition < transform.position.y)
             {
-                effect.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 1;
+                effect.gameObject.transform.GetComponent<SpriteRenderer>().sortingOrder = 1;
             }
             Destroy(gameObject);
         }
@@ -97,7 +98,7 @@ public class Bullet : MonoBehaviour
             enteredEnemy = true;
             Destroy(gameObject);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
-            enemy.TakeDamage(modifiedBulletDamage);
+            enemy.TakeDamage(bulletDamage);
             enemy.PlayerInterrupts();
         }
         else if (enemy && enteredEnemy == false)
@@ -108,14 +109,13 @@ public class Bullet : MonoBehaviour
             enteredEnemy = true;
             Destroy(gameObject);
             effect = Instantiate(bloodEffect, transform.position, Quaternion.identity);
-            enemy.TakeDamage(modifiedBulletDamage);
+            enemy.TakeDamage(bulletDamage);
         }
         else
         {
             effect = Instantiate(genericEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        Destroy(effect, 1f);
     }
 
     void PlaySound()

@@ -1,22 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using Pathfinding;
 
 public class AIBrain : MonoBehaviour
 {
-    [SerializeField] EnemyHealthBar healthBar;
-    [SerializeField] AIShooting shootingScript;
-    [SerializeField] GameObject bloodPoolEffect;
-    [SerializeField] GameObject deadBody;
-    [SerializeField] GameObject damagePopupPrefab;
-    [SerializeField] GameObject moneyDropPrefab;
-    [SerializeField] GameObject ammoDropPrefab;
-    [SerializeField] GameObject medkitPrefab;
-    [SerializeField] Rigidbody2D rb;
+    //Objects
+    [SerializeField] private EnemyHealthBar healthBar;
+    [SerializeField] private AIShooting shootingScript;
+    [SerializeField] private GameObject bloodPoolEffect;
+    [SerializeField] private GameObject deadBody;
+    [SerializeField] private GameObject damagePopupPrefab;
+    [SerializeField] private GameObject moneyDropPrefab;
+    [SerializeField] private GameObject ammoDropPrefab;
+    [SerializeField] private GameObject medkitPrefab;
+    [SerializeField] private Rigidbody2D rb;
+    private GameObject player;
+    private GameObject damagePopup;
+    private AIPath ai;
 
+    //Dialogues
     private string[] SeekPlayerDialogue = { "Where are they?", "I lost them!", "I lost sight!", "Where did they hide?", "Dammit!", "They're gone!", "You can run,\nbut you can't hide!",
                                             "Come on, man!", "I can't take this shit\nno more man!", "Oh my lord!", "This is not\neven funny bro!", "I'm trying to get a\npayment check here!",
                                             "Huh?!", "They must have\nslipped away!", "I want to be dominated\nright now."};
@@ -25,49 +28,56 @@ public class AIBrain : MonoBehaviour
                                              "Back by popular demand!", "What's the word,\nBruce?", "Yo yo yo!", "Dude stop!", "Yo, dude stop!", "Hump day!", 
                                              "Self pleasure does not\nmake you gay!", "I will knock you out!", "You can do\nthe thug shaker?", "Daddy, I'm coming!", "You ain't going anywhere,\nyou thick lump!" };
 
-    private GameObject player;
-    private GameObject damagePopup;
-    private AIPath ai;
+    //Boss stuff
+    public bool isDreamy = false;
+    [SerializeField] private AudioClip DreamySeek, DreamyFind, DreamyDeath;
+    public bool customHP = false;
 
-    [SerializeField] float speed = 6f; 
+    //Health
+    private int currentHealth;
     public int maxHealth = 100;
 
-    public bool isDreamy = false;
-    [SerializeField] AudioClip DreamySeek, DreamyFind, DreamyDeath;
-    public bool customHP = false;
+    //Movement related
+    [SerializeField] private float speed = 6f;
     public bool isStatic = false;
+
+    //Player detection related
     public bool playerDetected = false;
-    bool playerWasDetected = false;
-    bool shotBefore = false;
-    bool reacting = false;
+    private bool playerWasDetected = false;
+    private bool seekingActivated;
+    private bool shotBefore = false;
+    private bool reacting = false;
+    private float forgetPlayer = 1.5f;
+    private float forgetPlayerTimer;
+    private float notifyOthersCooldown = 1f;
+    private float reactionTime = 0.15f;
+    private float rotationSpeed = 0.1f;
+    [SerializeField] private float lockedRotationSpeed = 0.4f;
+    private RaycastHit hit;
+    private Vector3 playerLocation;
 
-    int currentHealth;
-
-    float forgetPlayer = 3f;
-    float forgetPlayerTimer;
-    float notifyOthersCooldown = 1.5f;
-
+    //Dropped loot
     public int dropXP;
     public int dropMoney;
     public int dropHP;
-    int summedDamage;
-    float currentTime, currentTimeBloodPool;
-    float reactionTime = 0.15f;
-    float rotationSpeed = 0.1f;
-    [SerializeField] float lockedRotationSpeed = 0.4f;
-    float aimAngle;
 
-    RaycastHit hit;
+    //Used for damage counter
+    private int summedDamage;
 
-    Vector3 aimDirection;
-    Vector3 playerLocation;
+    //Aiming related
+    private float aimAngle;
+    private Vector3 aimDirection;
 
+    //IENumerators to store coroutines
     private IEnumerator stopFollowCoroutine;
     private IEnumerator seekPlayerCoroutine;
     private IEnumerator reactionCoroutine;
-    bool seekingActivated;
 
-    Collider2D[] Colliders;
+    //Colliders for nearby enemy detection
+    private Collider2D[] Colliders;
+
+    //Timers
+    private float currentTime, currentTimeBloodPool;
 
     void Start()
     {
@@ -99,15 +109,16 @@ public class AIBrain : MonoBehaviour
             }
         }
 
-        if (playerDetected) playerLocation = player.transform.position;
-        if (playerLocation!=null) aimDirection = playerLocation - transform.position;
-        if (playerWasDetected) aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         if (!isStatic && playerDetected) ai.destination = player.transform.position;
     }
 
     void FixedUpdate()
     {
-        if(!seekingActivated)
+        if (playerDetected) playerLocation = player.transform.position;
+        if (playerLocation != null) aimDirection = playerLocation - transform.position;
+        if (playerWasDetected) aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+
+        if (!seekingActivated)
             rb.rotation = Mathf.LerpAngle(rb.rotation, aimAngle, rotationSpeed);
     }
     
@@ -223,8 +234,6 @@ public class AIBrain : MonoBehaviour
         StartCoroutine(seekPlayerCoroutine);
     }
 
-    //KK: Kod na dole dziala, jednak trzeba dobrze zaimplementowac to w StopFollowing();
-
     IEnumerator SeekingPlayer()
     {
         seekingActivated = false;
@@ -238,6 +247,8 @@ public class AIBrain : MonoBehaviour
         ai.destination = transform.position;
         float OriginalRotation = rb.rotation;
         float i = 0;
+
+        //KK: Ten kod po prostu obraca wroga kiedy "szuka" gracza
         while (true)
         {
             while (i < 1)

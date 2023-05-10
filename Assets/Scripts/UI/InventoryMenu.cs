@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InventoryMenu : MonoBehaviour
 {
     [SerializeField] GameObject inventoryMenu;
-    [SerializeField] GameObject hideable;
     [SerializeField] AudioClip buttonClickClip;
     [SerializeField] AudioSource audioSource;
 
@@ -32,7 +29,6 @@ public class InventoryMenu : MonoBehaviour
 
     public void ShowDuringGameplay()
     {
-        hideable.SetActive(false);
         inventoryMenu.SetActive(true);
         Time.timeScale = 0.33f;
         Player.inInventory = true;
@@ -40,7 +36,6 @@ public class InventoryMenu : MonoBehaviour
 
     public void HideDuringGameplay()
     {
-        hideable.SetActive(true);
         inventoryMenu.SetActive(false);
         Time.timeScale = 1f;
         Player.inInventory = false;

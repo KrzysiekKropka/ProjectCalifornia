@@ -4,36 +4,40 @@ using UnityEngine;
 
 public class AIShooting : MonoBehaviour
 {
-    [SerializeField] Transform firePoint;
-    [SerializeField] EnemyHealthBar healthBar;
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] GameObject shootPrefab;
-    [SerializeField] Sprite EnemyPistol, EnemyDeagle, EnemyMP5, EnemyAK47;
-    [SerializeField] GameObject enemy;
+    //Objects
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private EnemyHealthBar healthBar;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject shootPrefab;
+    [SerializeField] private Sprite EnemyPistol, EnemyDeagle, EnemyMP5, EnemyAK47;
+    [SerializeField] private GameObject enemy;
     private GameObject player;
     private SpriteRenderer spriteRenderer;
 
-    [SerializeField] bool customStats;
-    [SerializeField] int customDamage;
-    [SerializeField] int customAmmo;
-    [SerializeField] float customDelay;
-    [SerializeField] float customSpread;
-    [SerializeField] Sprite customSprite;
+    //Boss stuff
+    [SerializeField] private bool customStats;
+    [SerializeField] private int customDamage;
+    [SerializeField] private int customAmmo;
+    [SerializeField] private float customDelay;
+    [SerializeField] private float customSpread;
+    [SerializeField] private Sprite customSprite;
 
-    bool isReloading;
-    bool canShoot = true;
-    string[] weaponName = new string[5];
-    float currentTime;
-    float[] bulletSpread = new float[5];
-    float[] weaponDelay = new float[5];
-    float[] reloadTime = new float[5];
+    //Weapon related
+    private bool isReloading;
+    private bool canShoot = true;
     public int equippedWeaponID;
+    private float bulletForce = 20f;
+    private float reach;
+    private string[] weaponName = new string[5];
+    private float[] bulletSpread = new float[5];
+    private float[] weaponDelay = new float[5];
+    private float[] reloadTime = new float[5];
     public int[] currentAmmo = new int[5];
-    int[] weaponDamage = new int[5];
-    int[] maxAmmo = new int[5];
-    float bulletForce = 20f;
-    float reach;
-    float timer;
+    private int[] weaponDamage = new int[5];
+    private int[] maxAmmo = new int[5];
+
+    //Timer
+    private float timer;
 
     void Start()
     {

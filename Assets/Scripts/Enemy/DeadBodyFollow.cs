@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DeadBodyFollow : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
-    [SerializeField] Sprite[] sprites;
+    [SerializeField] private GameObject enemy;
+    [SerializeField] private Sprite[] sprites;
 
     private SpriteRenderer spriteRenderer;
 

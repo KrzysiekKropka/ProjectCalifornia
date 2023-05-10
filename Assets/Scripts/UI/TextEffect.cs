@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -16,7 +14,7 @@ public class TextEffect : MonoBehaviour
         textMesh = GetComponent<TMP_Text>();
     }
 
-    void LateUpdate()
+    void Update()
     {
         textMesh.ForceMeshUpdate();
         mesh = textMesh.mesh;

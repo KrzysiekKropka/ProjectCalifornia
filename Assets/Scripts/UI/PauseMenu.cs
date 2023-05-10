@@ -1,11 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-/// <summary>
-/// KK: TODO: Komentarze moga byc w przyszlosci potrzebne. 
-/// </summary>
 
 public class PauseMenu : MonoBehaviour
 {
