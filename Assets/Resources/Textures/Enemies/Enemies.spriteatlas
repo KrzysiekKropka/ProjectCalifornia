@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Enemies
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 2e45dbbec65b5604e8ecd6ab8665c220, type: 3}
+    - {fileID: 2800000, guid: d7b89054354dbdf4da2dd6cc029c547c, type: 3}
+    - {fileID: 2800000, guid: 1977d05022ca2d44783ec0e5d037f016, type: 3}
+    - {fileID: 2800000, guid: 11387cda408fe8845842752a7d28db4b, type: 3}
+    - {fileID: 2800000, guid: 051bcb10c8b39e14a8d24df2ca219670, type: 3}
+    - {fileID: 2800000, guid: bb040939bb573744c8fc16775a73ce18, type: 3}
+    - {fileID: 2800000, guid: ae00216dea93f724591ebc07ce8360f5, type: 3}
+    - {fileID: 2800000, guid: 62a1e3517097d1144aaadcaabae24f96, type: 3}
+    - {fileID: 2800000, guid: cce68eeffb3387444b6e4aa84d6e92dd, type: 3}
+    - {fileID: 2800000, guid: 0176c07c12f2a2b4d9dc3c812ded2204, type: 3}
+    - {fileID: 2800000, guid: 80ffea204bf752348b71c6b80bdeb1fc, type: 3}
+    - {fileID: 2800000, guid: 2f2c6e520bc6b334e81fabe6cd652a31, type: 3}
+    - {fileID: 2800000, guid: d4580bb520b014c4aa8f6bdb092b3fa5, type: 3}
+    - {fileID: 2800000, guid: 8a9e153a94c1fe8459d373c64ebe22d9, type: 3}
+    - {fileID: 2800000, guid: 4bb7ecf28d371ec4ca2ada50cf44256d, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 051bcb10c8b39e14a8d24df2ca219670, type: 3}
+  - {fileID: 21300000, guid: 80ffea204bf752348b71c6b80bdeb1fc, type: 3}
+  - {fileID: 21300000, guid: 1977d05022ca2d44783ec0e5d037f016, type: 3}
+  - {fileID: 21300000, guid: 62a1e3517097d1144aaadcaabae24f96, type: 3}
+  - {fileID: 21300000, guid: 2f2c6e520bc6b334e81fabe6cd652a31, type: 3}
+  - {fileID: 21300000, guid: 4bb7ecf28d371ec4ca2ada50cf44256d, type: 3}
+  - {fileID: 21300000, guid: d7b89054354dbdf4da2dd6cc029c547c, type: 3}
+  - {fileID: 21300000, guid: d4580bb520b014c4aa8f6bdb092b3fa5, type: 3}
+  - {fileID: 21300000, guid: bb040939bb573744c8fc16775a73ce18, type: 3}
+  - {fileID: 21300000, guid: 8a9e153a94c1fe8459d373c64ebe22d9, type: 3}
+  - {fileID: 21300000, guid: 11387cda408fe8845842752a7d28db4b, type: 3}
+  - {fileID: 21300000, guid: 0176c07c12f2a2b4d9dc3c812ded2204, type: 3}
+  - {fileID: 21300000, guid: ae00216dea93f724591ebc07ce8360f5, type: 3}
+  - {fileID: 21300000, guid: 2e45dbbec65b5604e8ecd6ab8665c220, type: 3}
+  - {fileID: 21300000, guid: cce68eeffb3387444b6e4aa84d6e92dd, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - DeadDreamy
+  - EnemyPistolYellow
+  - DeadBodyRed
+  - EnemyPistolDarkOrange
+  - EnemyRifleDarkOrange
+  - EnemyRifleYellow
+  - DeadBodyLightOrange
+  - EnemyRifleLightOrange
+  - DeadPig
+  - EnemyRifleRed
+  - DeadBodyYellow
+  - EnemyPistolRed
+  - Dreamy
+  - DeadBodyDarkOrange
+  - EnemyPistolLightOrange
+  m_RenderDataMap: {}
+  m_Tag: Enemies
+  m_IsVariant: 0

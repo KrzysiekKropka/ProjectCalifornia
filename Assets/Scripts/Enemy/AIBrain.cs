@@ -96,7 +96,7 @@ public class AIBrain : MonoBehaviour
     void Update()
     {
         if(forgetPlayerTimer>0)forgetPlayerTimer -= Time.deltaTime;
-        Colliders = Physics2D.OverlapCircleAll(transform.position, 7.5f);
+        Colliders = Physics2D.OverlapCircleAll(transform.position, 8f);
 
         if (Colliders.Length > 0 && playerDetected && forgetPlayerTimer>notifyOthersCooldown)
         {
