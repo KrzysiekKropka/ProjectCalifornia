@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject settings;
     [SerializeField] GameObject inventory;
     [SerializeField] GameObject inventoryMenu;
+    [SerializeField] InventoryMenu inventoryMenuScript;
     [SerializeField] GameObject shop;
     [SerializeField] AudioClip buttonClickClip;
     [SerializeField] AudioSource audioSource;
@@ -16,6 +17,7 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
+        inventoryMenuScript = inventory.GetComponent<InventoryMenu>();
         ResumeGame();
     }
 
@@ -38,7 +40,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         healthBar.SetActive(false);
-        inventory.GetComponent<InventoryMenu>().HideDuringGameplay();
+        inventoryMenuScript.HideDuringGameplay();
         Time.timeScale = 0f;
         isPaused = true;
     }

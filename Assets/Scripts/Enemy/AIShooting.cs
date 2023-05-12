@@ -12,6 +12,7 @@ public class AIShooting : MonoBehaviour
     [SerializeField] private Sprite EnemyPistol, EnemyDeagle, EnemyMP5, EnemyAK47;
     [SerializeField] private GameObject enemy;
     private GameObject player;
+    private AIBrain brain;
     private SpriteRenderer spriteRenderer;
 
     //Boss stuff
@@ -74,42 +75,43 @@ public class AIShooting : MonoBehaviour
         currentAmmo[equippedWeaponID] = maxAmmo[equippedWeaponID];
 
         player = GameObject.FindGameObjectWithTag("Player");
+        brain = enemy.GetComponent<AIBrain>();
         spriteRenderer = enemy.GetComponent<SpriteRenderer>();
 
         //KK: Fuj
-        if(!enemy.GetComponent<AIBrain>().isDreamy)
+        if(!brain.isDreamy)
         {
             switch (equippedWeaponID)
             {
                 case 0:
                     spriteRenderer.sprite = EnemyPistol;
-                    enemy.GetComponent<AIBrain>().dropHP = 5;
-                    enemy.GetComponent<AIBrain>().dropXP = 30;
-                    enemy.GetComponent<AIBrain>().dropMoney = 150;
-                    if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 50;
+                    brain.dropHP = 5;
+                    brain.dropXP = 30;
+                    brain.dropMoney = 150;
+                    if (!brain.customHP) brain.maxHealth = 50;
                     break;
                 case 1:
                     spriteRenderer.sprite = EnemyDeagle;
-                    enemy.GetComponent<AIBrain>().dropHP = 10;
-                    enemy.GetComponent<AIBrain>().dropXP = 45;
-                    enemy.GetComponent<AIBrain>().dropMoney = 300;
-                    if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 75;
+                    brain.dropHP = 10;
+                    brain.dropXP = 45;
+                    brain.dropMoney = 300;
+                    if (!brain.customHP) brain.maxHealth = 75;
                     break;
                 case 2:
                     spriteRenderer.sprite = EnemyMP5;
-                    enemy.GetComponent<AIBrain>().dropHP = 15;
-                    enemy.GetComponent<AIBrain>().dropXP = 60;
-                    enemy.GetComponent<AIBrain>().dropMoney = 450;
-                    if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 100;
+                    brain.dropHP = 15;
+                    brain.dropXP = 60;
+                    brain.dropMoney = 450;
+                    if (!brain.customHP) brain.maxHealth = 100;
                     break;
                 case 3:
                     break;
                 case 4:
                     spriteRenderer.sprite = EnemyAK47;
-                    enemy.GetComponent<AIBrain>().dropHP = 30;
-                    enemy.GetComponent<AIBrain>().dropXP = 90;
-                    enemy.GetComponent<AIBrain>().dropMoney = 600;
-                    if (!enemy.GetComponent<AIBrain>().customHP) enemy.GetComponent<AIBrain>().maxHealth = 150;
+                    brain.dropHP = 30;
+                    brain.dropXP = 90;
+                    brain.dropMoney = 600;
+                    if (!brain.customHP) brain.maxHealth = 150;
                     break;
             }
         }
@@ -135,13 +137,14 @@ public class AIShooting : MonoBehaviour
     void RayCasting()
     {
         RaycastHit2D detectRay = Physics2D.Raycast(enemy.transform.position, enemy.transform.up);
+       
 
         //KK: Bardziej debilnego kodu napisac nie moglem
         if (detectRay.collider != null)
         {
-            if (detectRay.collider.tag == "Player" && detectRay.distance < reach && enemy.GetComponent<AIBrain>().playerDetected)
+            if (detectRay.collider.tag == "Player" && detectRay.distance < reach && brain.playerDetected)
             {
-                enemy.GetComponent<AIBrain>().ChangeAimLock(true);
+                brain.ChangeAimLock(true);
                 StartCoroutine(Shoot());
             }
             else
@@ -160,20 +163,21 @@ public class AIShooting : MonoBehaviour
         if (canShoot && !isReloading)
         {
             float currentSpread = bulletSpread[equippedWeaponID];
-            if (enemy.GetComponent<AIBrain>().isStatic) currentSpread /= 2;
+            if (brain.isStatic) currentSpread /= 2;
             canShoot = false;
             float randomVal = Random.Range(90f - currentSpread, 90f + currentSpread); //KK: Randomowa liczba na spread broni
             Vector3 spread = new Vector3(0, 0, randomVal - 90);
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(firePoint.rotation.eulerAngles + spread)); //KK: Spawnuje nabój z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(bullet.transform.up * bulletForce, ForceMode2D.Impulse);
             currentAmmo[equippedWeaponID]--;
             healthBar.SetAmmo(currentAmmo[equippedWeaponID]);
 
-            bullet.GetComponent<Bullet>().bulletDamage = weaponDamage[equippedWeaponID];
-            bullet.GetComponent<Bullet>().enemyIsOwner = true;
-            bullet.GetComponent<Bullet>().weaponID = equippedWeaponID;
+            bulletScript.bulletDamage = weaponDamage[equippedWeaponID];
+            bulletScript.enemyIsOwner = true;
+            bulletScript.weaponID = equippedWeaponID;
 
             GameObject shootEffect = Instantiate(shootPrefab, firePoint.position, firePoint.rotation);
 

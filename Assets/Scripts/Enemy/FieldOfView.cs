@@ -11,11 +11,13 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] LayerMask obstructionLayer;
 
     GameObject player;
+    AIBrain brain;
     public bool CanSeePlayer { get; private set; }  
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        brain = gameObject.GetComponent<AIBrain>();
         StartCoroutine(FOVCheck());
     }
 
@@ -34,7 +36,7 @@ public class FieldOfView : MonoBehaviour
 
                 if(!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionLayer)) 
                 {
-                    gameObject.GetComponent<AIBrain>().PlayerInterrupts();
+                    brain.PlayerInterrupts();
                     CanSeePlayer = true;
                 }
                 else CanSeePlayer = false;

@@ -52,7 +52,7 @@ public class Bullet : MonoBehaviour
         var bullet = collision.collider.GetComponent<Bullet>();
 
 
-        if (enemyIsOwner && player && !player.GetComponent<Player>().isInvincible)
+        if (enemyIsOwner && player && !player.isInvincible)
         {
             int randomInt = Random.Range(1, 5);
             bodyHitClip = (AudioClip)Resources.Load("Audio/HitBody" + randomInt);
@@ -61,7 +61,7 @@ public class Bullet : MonoBehaviour
             player.TakeDamage(bulletDamage);
             Destroy(gameObject);
         }
-        else if (enemyIsOwner && player && player.GetComponent<Player>().isInvincible)
+        else if (enemyIsOwner && player && player.isInvincible)
         {
             effect = Instantiate(blockEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
@@ -120,7 +120,8 @@ public class Bullet : MonoBehaviour
 
     void PlaySound()
     {
+        Shooting shooting = GameObject.FindGameObjectWithTag("Player").GetComponent<Shooting>();
         // ja pierdole pozdrawiam ludzi ktorzy beda musieli to czytac w przyszlosci zawiodlem was
-        if(weaponID != null)AudioSource.PlayClipAtPoint(GameObject.FindGameObjectWithTag("Player").GetComponent<Shooting>().weaponAudioClips[weaponID.Value].clips[Random.Range(0, GameObject.FindGameObjectWithTag("Player").GetComponent<Shooting>().weaponAudioClips[weaponID.Value].clips.Length)], transform.position, 0.75f);
+        if(weaponID != null)AudioSource.PlayClipAtPoint(shooting.weaponAudioClips[weaponID.Value].clips[Random.Range(0, shooting.weaponAudioClips[weaponID.Value].clips.Length)], transform.position, 0.75f);
     }
 }

@@ -11,10 +11,11 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private GameObject damagePopupPrefab;
     [SerializeField] private GameObject triggerNextLevelMenu;
-    [SerializeField] private GameObject ShopManager;
+    [SerializeField] private ShopManager shopManager;
     [SerializeField] private AudioClip manHurtClip, healClip, dashClip;
     private SpriteRenderer spriteRenderer;
     private TrailRenderer trailRenderer;
+    private LevelUnlocker levelUnlocker;
     private GameObject damagePopup;
 
     //Global Bools
@@ -78,6 +79,7 @@ public class Player : MonoBehaviour
         NextLevelScreen.isActive = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
         trailRenderer = GetComponent<TrailRenderer>();
+        levelUnlocker = GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>();
 
         experiencePoints = PlayerPrefs.GetInt("experiencePoints");
         money = PlayerPrefs.GetInt("money");
@@ -92,16 +94,16 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         healthBar.SetExperiencePoints(experiencePoints);
         healthBar.SetMoney(money);
-        if(!GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isArena) healthBar.MessageBox("Kill them all!");
+        if(!levelUnlocker.isArena) healthBar.MessageBox("Kill them all!");
         //else healthBar.MessageBox("Change the level by pressing minus or plus key!");
     }
 
     public void RefreshShop()
     {
-        canSprint = ShopManager.GetComponent<ShopManager>().shopSkills[3, 1] == 1;
-        canDash = ShopManager.GetComponent<ShopManager>().shopSkills[3, 2] == 1;
-        canBetterAim = ShopManager.GetComponent<ShopManager>().shopSkills[3, 3] == 1;
-        canMoreHP = ShopManager.GetComponent<ShopManager>().shopSkills[3, 4] == 1;
+        canSprint = shopManager.shopSkills[3, 1] == 1;
+        canDash = shopManager.shopSkills[3, 2] == 1;
+        canBetterAim = shopManager.shopSkills[3, 3] == 1;
+        canMoreHP = shopManager.shopSkills[3, 4] == 1;
 
         if (canMoreHP) maxHealth = 150;
         else maxHealth = 100;
@@ -185,7 +187,7 @@ public class Player : MonoBehaviour
                 isDashing = true;
                 isInvincible = true;
                 trailRenderer.emitting = true;
-                remainingStamina -= 2f;
+                remainingStamina -= 4f;
                 AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
             }
             else if (dashingSpree < 2)
@@ -194,7 +196,7 @@ public class Player : MonoBehaviour
                 isDashing = true;
                 isInvincible = true;
                 trailRenderer.emitting = true;
-                remainingStamina -= 2f;
+                remainingStamina -= 4f;
                 AudioSource.PlayClipAtPoint(dashClip, transform.position, 1f);
                 if(dashingSpree >= 2)
                 {
@@ -263,12 +265,12 @@ public class Player : MonoBehaviour
         remainingEnemies--;
         if (kills >= enemies)
         {
-            if (!GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isArena && !GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isTheEnd && !GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isArena)
+            if (!levelUnlocker.isArena && !levelUnlocker.isTheEnd && !levelUnlocker.isArena)
             {
                 GameObject.FindWithTag("NextLevelTrigger").transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = true;
                 healthBar.MessageBox("You killed them all!\nGo on to the next level!");
             }
-            else if(GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isTheEnd)
+            else if(levelUnlocker.isTheEnd)
             {
                 StartCoroutine(TriggerTheEnd());
             }
@@ -300,7 +302,7 @@ public class Player : MonoBehaviour
 
     public void TriggerNextLevel()
     {
-        if(!GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().isTheEnd)
+        if(!levelUnlocker.isTheEnd)
         {
             triggerNextLevelMenu.SetActive(true);
             triggerNextLevelMenu.GetComponent<NextLevelScreen>().StartCountdown();

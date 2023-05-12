@@ -17,12 +17,6 @@ public class DialogueBox : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void LateUpdate()
-    {
-        Vector3 targetPosition = enemy.position + offset;
-        transform.position = targetPosition;
-    }
-
     public void Dialogue(string text)
     {
         gameObject.SetActive(true);

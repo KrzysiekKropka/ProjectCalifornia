@@ -405,7 +405,7 @@ MonoBehaviour:
   rb: {fileID: 928417037708580564}
   damagePopupPrefab: {fileID: 4262376480512933044, guid: 770715aeadb58bf4d85976cac77fec9b, type: 3}
   triggerNextLevelMenu: {fileID: 1237728739542715868}
-  ShopManager: {fileID: 3410051807388556082}
+  shopManager: {fileID: 3410051807388556080}
   manHurtClip: {fileID: 8300000, guid: 1ca823397e1eb2542aa72f99318dba34, type: 3}
   healClip: {fileID: 8300000, guid: d23b6ccc378bf2d418d24132aa4137bb, type: 3}
   dashClip: {fileID: 8300000, guid: 6b8a7734e78715d498a29801c7ec8ca3, type: 3}
@@ -1406,6 +1406,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5941050457226436469}
     - target: {fileID: 2103629072730652549, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
+      propertyPath: shooting
+      value: 
+      objectReference: {fileID: 8416239015532961747}
+    - target: {fileID: 2103629072730652549, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
       propertyPath: ShopManager
       value: 
       objectReference: {fileID: 3410051807388556082}
@@ -1522,6 +1526,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5941050457226436469}
     - target: {fileID: 2103629073025997646, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
+      propertyPath: shooting
+      value: 
+      objectReference: {fileID: 8416239015532961747}
+    - target: {fileID: 2103629073025997646, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
       propertyPath: ShopManager
       value: 
       objectReference: {fileID: 3410051807388556082}
@@ -1529,6 +1537,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 5941050457226436469}
+    - target: {fileID: 2103629073048431319, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
+      propertyPath: shooting
+      value: 
+      objectReference: {fileID: 8416239015532961747}
     - target: {fileID: 2103629073048431319, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
       propertyPath: ShopManager
       value: 
@@ -1537,6 +1549,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 5941050457226436469}
+    - target: {fileID: 2103629073706900630, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
+      propertyPath: shooting
+      value: 
+      objectReference: {fileID: 8416239015532961747}
     - target: {fileID: 2103629073706900630, guid: ae4a02c22c167e94a977bde6789b1fa5, type: 3}
       propertyPath: ShopManager
       value: 

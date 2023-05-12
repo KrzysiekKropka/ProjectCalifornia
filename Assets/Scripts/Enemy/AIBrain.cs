@@ -104,7 +104,8 @@ public class AIBrain : MonoBehaviour
             {
                 if (Enemy.gameObject.tag == "Enemy")
                 {
-                    if (!Enemy.gameObject.GetComponent<AIBrain>().playerDetected) Enemy.gameObject.GetComponent<AIBrain>().PlayerInterrupts();
+                    AIBrain brain = Enemy.gameObject.GetComponent<AIBrain>();
+                    if (!brain.playerDetected) brain.PlayerInterrupts();
                 }
             }
         }
@@ -173,9 +174,11 @@ public class AIBrain : MonoBehaviour
             damagePopup.transform.position = transform.position;
         }
 
+        DamagePopup damagePopupScript = damagePopup.GetComponent<DamagePopup>();
+
         summedDamage += damage;
-        damagePopup.GetComponent<DamagePopup>().RestartAnim();
-        damagePopup.GetComponent<DamagePopup>().SetDamageText(summedDamage);
+        damagePopupScript.RestartAnim();
+        damagePopupScript.SetDamageText(summedDamage);
 
         if (currentHealth <= 0)
         {

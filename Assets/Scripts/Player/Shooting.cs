@@ -23,6 +23,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] private AudioClip EmptyMagClip, EmptyEverythingClip, AmmoDropClip;
     private SpriteRenderer spriteRenderer;
     private ScreenShake screenShake;
+    private Player player;
 
     //Global Bools
     private bool canShootGlobal = true;
@@ -100,7 +101,9 @@ public class Shooting : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        for(int i = 0; i < 5; i++)
+        player = gameObject.GetComponent<Player>();
+
+        for (int i = 0; i < 5; i++)
         {
             reserveAmmo[i] = maxAmmo[i] * 2;
             currentAmmo[i] = maxAmmo[i];
@@ -221,9 +224,9 @@ public class Shooting : MonoBehaviour
         if (canShootGlobal && canShoot[equippedWeaponID] && currentAmmo[equippedWeaponID] > 0 && !isReloading[equippedWeaponID] && !PauseMenu.isPaused && !Player.inInventory && !NextLevelScreen.isActive)
         {
             float currentWeaponSpread;
-            if (gameObject.GetComponent<Player>().isSprinting || gameObject.GetComponent<Player>().isDashing) currentWeaponSpread = runningBulletSpread[equippedWeaponID];
+            if (player.isSprinting || player.isDashing) currentWeaponSpread = runningBulletSpread[equippedWeaponID];
             else currentWeaponSpread = bulletSpread[equippedWeaponID];
-            if (gameObject.GetComponent<Player>().canBetterAim) currentWeaponSpread *= 0.5f;
+            if (player.canBetterAim) currentWeaponSpread *= 0.5f;
 
             canShoot[equippedWeaponID] = false;
             int damage = Random.Range(weaponDamage[equippedWeaponID] - 5, weaponDamage[equippedWeaponID] + 3);
@@ -235,9 +238,10 @@ public class Shooting : MonoBehaviour
             healthBar.SetAmmo(currentAmmo[equippedWeaponID], reserveAmmo[equippedWeaponID]);
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(firePoint.rotation.eulerAngles + spread)); //KK: Spawnuje naboj z pozycja objektu firePoint znajdujacego sie na obiekcie gracza na koncu broni
-            bullet.GetComponent<Bullet>().bulletDamage = damage;
-            bullet.GetComponent<Bullet>().playerIsOwner = true; //KK: Aby kula gracza go nie uderzyla
-            bullet.GetComponent<Bullet>().weaponID = equippedWeaponID;
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            bulletScript.bulletDamage = damage;
+            bulletScript.playerIsOwner = true; //KK: Aby kula gracza go nie uderzyla
+            bulletScript.weaponID = equippedWeaponID;
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(bullet.transform.up * bulletForce, ForceMode2D.Impulse);
 
@@ -251,9 +255,10 @@ public class Shooting : MonoBehaviour
                 for (int i=0; i< firePointShotgun.Length; i++)
                 {
                     bullets[i] = Instantiate(bulletPrefab, firePointShotgun[i].position, Quaternion.Euler(firePointShotgun[i].rotation.eulerAngles + spread));
-                    bullets[i].GetComponent<Bullet>().weaponID = null;
-                    bullets[i].GetComponent<Bullet>().playerIsOwner = true;
-                    bullets[i].GetComponent<Bullet>().bulletDamage = damage;
+                    Bullet bulletsScript = bullets[i].GetComponent<Bullet>();
+                    bulletsScript.weaponID = null;
+                    bulletsScript.playerIsOwner = true;
+                    bulletsScript.bulletDamage = damage;
                     rbs[i] = bullets[i].GetComponent<Rigidbody2D>();
                     rbs[i].AddForce(bullets[i].transform.up * bulletForce, ForceMode2D.Impulse);
                     Destroy(bullets[i], 10);
@@ -324,7 +329,7 @@ public class Shooting : MonoBehaviour
 
             isReloading[weaponID] = false;
             healthBar.SetReloading(false);
-            if(inventoryButtonInfos[weaponID] != null) inventoryButtonInfos[weaponID].AssignOwnership();
+            if(inventoryButtonInfos[weaponID] != null && Player.inInventory) inventoryButtonInfos[weaponID].AssignOwnership();
             AudioSource.PlayClipAtPoint(AmmoDropClip, transform.position, 1f);
             healthBar.SetAmmo(currentAmmo[weaponID], reserveAmmo[weaponID]);
         }

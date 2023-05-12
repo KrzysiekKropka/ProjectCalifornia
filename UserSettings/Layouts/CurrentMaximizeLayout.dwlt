@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 3311
+  controlID: 10778
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 3287
+  controlID: 10779
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 3288
+  controlID: 10780
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,8 +224,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 00be0000
-      m_LastClickedID: 48640
+      m_SelectedIDs: 54210000
+      m_LastClickedID: 0
       m_ExpandedIDs: b0c4ffff66c6ffffa8bd0000d0bd0000debd000000be000002be00000abe0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -939,22 +939,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Scripts/Enemy
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Scripts/Enemy
   m_LastFoldersGridSize: -1
   m_LastProjectPath: B:\Inne\Documents\GitHub\ProjectCalifornia
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 76.599976}
-    m_SelectedIDs: a08f0000
-    m_LastClickedID: 36768
-    m_ExpandedIDs: 00000000608f0000628f0000648f000000ca9a3b
+    scrollPos: {x: 0, y: 120.599976}
+    m_SelectedIDs: ca8f0000
+    m_LastClickedID: 36810
+    m_ExpandedIDs: 00000000608f0000628f0000648f0000b08f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1007,8 +1007,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 00be0000
-    m_LastClickedInstanceID: 48640
+    m_SelectedInstanceIDs: 54210000
+    m_LastClickedInstanceID: 8532
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000429100007c9d000094b20000cc7101001e7c000000000000
     m_RenameOverlay:
@@ -1164,4 +1164,4 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 48640
+  m_LastSelectedObjectID: -15344
