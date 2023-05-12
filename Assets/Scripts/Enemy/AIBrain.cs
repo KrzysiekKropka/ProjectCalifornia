@@ -52,8 +52,8 @@ public class AIBrain : MonoBehaviour
     private float forgetPlayerTimer;
     private float notifyOthersCooldown = 1f;
     private float reactionTime = 0.15f;
-    private float rotationSpeed = 0.1f;
-    [SerializeField] private float lockedRotationSpeed = 0.4f;
+    public float rotationSpeed = 0.1f;
+    public float lockedRotationSpeed = 0.4f;
     private RaycastHit hit;
     private Vector3 playerLocation;
 
@@ -92,26 +92,12 @@ public class AIBrain : MonoBehaviour
         if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
         seekPlayerCoroutine = SeekingPlayer();
         StartCoroutine(seekPlayerCoroutine);
+        StartCoroutine(infoCheck());
     }
-
+    
     void Update()
     {
-        if(forgetPlayerTimer>0)forgetPlayerTimer -= Time.deltaTime;
-        Colliders = Physics2D.OverlapCircleAll(transform.position, 8f);
-
-        if (Colliders.Length > 0 && playerDetected && forgetPlayerTimer>notifyOthersCooldown)
-        {
-            foreach (Collider2D Enemy in Colliders)
-            {
-                if (Enemy.gameObject.tag == "Enemy")
-                {
-                    AIBrain brain = Enemy.gameObject.GetComponent<AIBrain>();
-                    if (!brain.playerDetected) brain.PlayerInterrupts(false);
-                }
-            }
-        }
-
-        if (!isStatic && playerDetected) ai.destination = player.transform.position;
+        if (forgetPlayerTimer > 0) forgetPlayerTimer -= Time.deltaTime;
     }
 
     void FixedUpdate()
@@ -132,6 +118,31 @@ public class AIBrain : MonoBehaviour
         }
     }
 
+    void checkInfo()
+    {
+        if (playerDetected)
+        {
+            if (!isStatic) ai.destination = player.transform.position;
+
+            if (forgetPlayerTimer > notifyOthersCooldown)
+            {
+                Colliders = Physics2D.OverlapCircleAll(transform.position, 8f);
+
+                if (Colliders.Length > 0)
+                {
+                    foreach (Collider2D Enemy in Colliders)
+                    {
+                        if (Enemy.gameObject.tag == "Enemy")
+                        {
+                            AIBrain brain = Enemy.gameObject.GetComponent<AIBrain>();
+                            if (!brain.playerDetected) brain.PlayerInterrupts(false);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public void PlayerInterrupts(bool onlySpeaker = true)
     {
         if (stopFollowCoroutine != null) StopCoroutine(stopFollowCoroutine);
@@ -142,7 +153,6 @@ public class AIBrain : MonoBehaviour
             reactionCoroutine = ReactionTime(onlySpeaker);
             StartCoroutine(reactionCoroutine);
         }
-        forgetPlayerTimer = forgetPlayer;
         stopFollowCoroutine = StopFollowing();
         StartCoroutine(stopFollowCoroutine);
     }
@@ -219,6 +229,7 @@ public class AIBrain : MonoBehaviour
         reacting = true;
         yield return new WaitForSeconds(reactionTime);
         reacting = false;
+        forgetPlayerTimer = forgetPlayer;
         if (!isDreamy && onlySpeaker) healthBar.Dialogue(FoundPlayerDialogue[Random.Range(0, FoundPlayerDialogue.Length)]);
         else if (isDreamy) AudioSource.PlayClipAtPoint(DreamyFind, transform.position);
         seekingActivated = false;
@@ -276,6 +287,15 @@ public class AIBrain : MonoBehaviour
             i = 0;
             yield return new WaitForSeconds(1f);
             
+        }
+    }
+
+    IEnumerator infoCheck()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.1f);
+            checkInfo();
         }
     }
 }

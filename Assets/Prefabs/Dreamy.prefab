@@ -32,7 +32,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414322158379531731}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -40,7 +40,7 @@ Transform:
   - {fileID: 2476184855881321991}
   m_Father: {fileID: 7170791799619694002}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &456672913780667206
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f79158cef05af46b1e8fd6454cb2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   healthBar: {fileID: 8318804876004390431}
   shootingScript: {fileID: 8090905656388113200}
   bloodPoolEffect: {fileID: 5524518565218896284, guid: b8c46913c893ec24794099e0a77ec6fb, type: 3}
@@ -114,19 +115,20 @@ MonoBehaviour:
   ammoDropPrefab: {fileID: 2989067539229740685, guid: 582bc39b399d6964f9ad355c71f5d921, type: 3}
   medkitPrefab: {fileID: 4214963647153061173, guid: 00d7f7373598b5c4eb274016ad7120fd, type: 3}
   rb: {fileID: 3698562476869544285}
-  speed: 5
-  maxHealth: 500
   isDreamy: 1
   DreamySeek: {fileID: 8300000, guid: 98cc4e493bb63024f98308bcacd9b82c, type: 3}
   DreamyFind: {fileID: 8300000, guid: 67322603c0a78544fbe74a92cd2f39cd, type: 3}
   DreamyDeath: {fileID: 8300000, guid: 5958a07866e649848baaf7f28917ad37, type: 3}
   customHP: 1
+  maxHealth: 500
+  speed: 5
   isStatic: 0
   playerDetected: 0
+  rotationSpeed: 0.1
+  lockedRotationSpeed: 0.6
   dropXP: 100
   dropMoney: 1000
   dropHP: 100
-  lockedRotationSpeed: 0.6
 --- !u!50 &3698562476869544285
 Rigidbody2D:
   serializedVersion: 4
@@ -245,7 +247,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.045, y: 0}
+  m_Offset: {x: -0.045, y: -0.045}
   serializedVersion: 2
   m_Radius: 0.075
 --- !u!58 &3386719844682086103

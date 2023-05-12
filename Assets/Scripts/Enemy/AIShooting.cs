@@ -136,25 +136,26 @@ public class AIShooting : MonoBehaviour
 
     void RayCasting()
     {
-        RaycastHit2D detectRay = Physics2D.Raycast(enemy.transform.position, enemy.transform.up);
-       
-
-        //KK: Bardziej debilnego kodu napisac nie moglem
-        if (detectRay.collider != null)
+        if (brain.playerDetected)
         {
-            if (detectRay.collider.tag == "Player" && detectRay.distance < reach && brain.playerDetected)
+            RaycastHit2D detectRay = Physics2D.Raycast(enemy.transform.position, enemy.transform.up);
+
+            //KK: Bardziej debilnego kodu napisac nie moglem
+            if (detectRay.collider != null)
             {
-                brain.ChangeAimLock(true);
-                StartCoroutine(Shoot());
-            }
-            else
-            {
-                if(timer>0)timer -= Time.deltaTime;
-                else timer = 0;
+                if (detectRay.collider.tag == "Player" && detectRay.distance < reach)
+                {
+                    if(brain.rotationSpeed != brain.lockedRotationSpeed)brain.ChangeAimLock(true);
+                    StartCoroutine(Shoot());
+                }
+                else
+                {
+                    if (timer > 0) timer -= Time.deltaTime;
+                    else timer = 0;
+                }
             }
         }
-
-        Debug.DrawRay(enemy.transform.position, enemy.transform.up * reach, Color.red);
+        //Debug.DrawRay(enemy.transform.position, enemy.transform.up * reach, Color.red);
     }
 
     IEnumerator Shoot()
