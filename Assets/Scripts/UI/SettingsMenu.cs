@@ -17,10 +17,12 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] GameObject postProcessing;
     [SerializeField] Player player;
+    private AudioSource musicSource;
 
     private Resolution[] resolutions;
     private List<Resolution> filteredResolutions;
 
+    private bool musicInScene;
     private float globalVolume;
     private float musicVolume;
     private float currentRefreshRate;
@@ -86,6 +88,12 @@ public class SettingsMenu : MonoBehaviour
         {
             postProcessingToggle.isOn = false;
             SetVisualSettings(false);
+        }
+
+        if (GameObject.FindWithTag("LevelUnlocker"))
+        {
+            musicInScene = true;
+            musicSource = GameObject.FindWithTag("LevelUnlocker").GetComponent<AudioSource>();
         }
     }
 
@@ -163,7 +171,7 @@ public class SettingsMenu : MonoBehaviour
     public void MusicSlider()
     {
         musicVolume = musicVolumeSlider.value;
-        if (GameObject.FindWithTag("LevelUnlocker")) GameObject.FindWithTag("LevelUnlocker").GetComponent<AudioSource>().volume = musicVolume;
+        if (musicInScene) musicSource.volume = musicVolume;
         PlayerPrefs.SetFloat("MusicVolumeValue", musicVolume);
     }
 

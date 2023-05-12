@@ -9,12 +9,16 @@ public class EnemySpawner : MonoBehaviour
     int minLvl = 0, maxLvl = 0, maxEnemies = 0, currentLevel = 1, levels = 10;
     float spawnInterval;
     [SerializeField] GameObject EnemyPrefab, DreamyPrefab;
+    private Player player;
+    private HealthBar healthBar;
 
     bool canProgress = true;
 
 
     void Start()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        healthBar = GameObject.FindWithTag("HealthBar").GetComponent<HealthBar>();
         StartCoroutine(SpawnerRoutine());
         StartCoroutine(LevelupRoutine());
         ChangeLevel();
@@ -45,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
 
     void ChangeLevel()
     {
-        GameObject.FindWithTag("HealthBar").GetComponent<HealthBar>().SetLevel(currentLevel);
+        healthBar.SetLevel(currentLevel);
 
         switch(currentLevel)
         {
@@ -126,7 +130,7 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            if (GameObject.FindWithTag("Player").GetComponent<Player>().remainingEnemies < maxEnemies)
+            if (player.remainingEnemies < maxEnemies)
             {
                 int randomWeapon;
 
