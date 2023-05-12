@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 4351985592562470451}
   - component: {fileID: 5549066903250612929}
   - component: {fileID: 5078256456797289788}
+  - component: {fileID: 3434084248598596340}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -358,6 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800265a60375a0c4ebb5b1daffc218f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 608948135361453303}
   firePoint: {fileID: 2038671574378623152}
   firePointShotgun:
   - {fileID: 3848239698175105487}
@@ -431,9 +433,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.045, y: 0}
+  m_Offset: {x: -0.045, y: -0.045}
   serializedVersion: 2
-  m_Radius: 0.075
+  m_Radius: 0.07
 --- !u!96 &5078256456797289788
 TrailRenderer:
   serializedVersion: 2
@@ -542,6 +544,32 @@ TrailRenderer:
   m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 0
+--- !u!61 &3434084248598596340
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5941050457226436469}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.005, y: 0.05}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.82, y: 0.545}
+    oldSize: {x: 0.14, y: 0.21}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.04, y: 0.05}
+  m_EdgeRadius: 0
 --- !u!1 &5946685706920472485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,6 +1923,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2096318895363815955, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096318895363815955, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -2008,6 +2040,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+--- !u!95 &608948135361453303 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7638261976312005486, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}
+  m_PrefabInstance: {fileID: 7094266545754890137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2219111928264607725 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8986998324899027060, guid: 50fff7e9ef7fe4b42aa317755627469f, type: 3}

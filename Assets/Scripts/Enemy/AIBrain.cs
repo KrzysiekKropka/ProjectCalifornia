@@ -6,6 +6,7 @@ using Pathfinding;
 public class AIBrain : MonoBehaviour
 {
     //Objects
+    [SerializeField] private Animator animator;
     [SerializeField] private EnemyHealthBar healthBar;
     [SerializeField] private AIShooting shootingScript;
     [SerializeField] private GameObject bloodPoolEffect;
@@ -105,7 +106,7 @@ public class AIBrain : MonoBehaviour
                 if (Enemy.gameObject.tag == "Enemy")
                 {
                     AIBrain brain = Enemy.gameObject.GetComponent<AIBrain>();
-                    if (!brain.playerDetected) brain.PlayerInterrupts();
+                    if (!brain.playerDetected) brain.PlayerInterrupts(false);
                 }
             }
         }
@@ -131,14 +132,14 @@ public class AIBrain : MonoBehaviour
         }
     }
 
-    public void PlayerInterrupts()
+    public void PlayerInterrupts(bool onlySpeaker = true)
     {
         if (stopFollowCoroutine != null) StopCoroutine(stopFollowCoroutine);
         if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
         if (reactionCoroutine != null && !reacting) StopCoroutine(reactionCoroutine);
         if (!playerDetected && !reacting)
         {
-            reactionCoroutine = ReactionTime();
+            reactionCoroutine = ReactionTime(onlySpeaker);
             StartCoroutine(reactionCoroutine);
         }
         forgetPlayerTimer = forgetPlayer;
@@ -213,13 +214,13 @@ public class AIBrain : MonoBehaviour
         currentTime = Time.time;
     }
 
-    IEnumerator ReactionTime()
+    IEnumerator ReactionTime(bool onlySpeaker = true)
     {
         reacting = true;
         yield return new WaitForSeconds(reactionTime);
         reacting = false;
-        if (!isDreamy) healthBar.Dialogue(FoundPlayerDialogue[Random.Range(0, FoundPlayerDialogue.Length)]);
-        else AudioSource.PlayClipAtPoint(DreamyFind, transform.position);
+        if (!isDreamy && onlySpeaker) healthBar.Dialogue(FoundPlayerDialogue[Random.Range(0, FoundPlayerDialogue.Length)]);
+        else if (isDreamy) AudioSource.PlayClipAtPoint(DreamyFind, transform.position);
         seekingActivated = false;
         playerDetected = true;
         playerWasDetected = true;
@@ -251,13 +252,17 @@ public class AIBrain : MonoBehaviour
         float OriginalRotation = rb.rotation;
         float i = 0;
 
+        //animator.Play("EnemySeeking", -1, 0);
+
         //KK: Ten kod po prostu obraca wroga kiedy "szuka" gracza
+        
         while (true)
         {
+            
             while (i < 1)
             {
                 rb.rotation = Mathf.LerpAngle(rb.rotation, OriginalRotation + 50, 0.03f);
-                i += Time.deltaTime;
+                i += 0.01f;
                 yield return new WaitForSeconds(0.01f);
             }
             i = 0;
@@ -265,11 +270,12 @@ public class AIBrain : MonoBehaviour
             while (i < 1)
             {
                 rb.rotation = Mathf.LerpAngle(rb.rotation, OriginalRotation - 50, 0.03f);
-                i += Time.deltaTime;
+                i += 0.01f;
                 yield return new WaitForSeconds(0.01f);
             }
             i = 0;
             yield return new WaitForSeconds(1f);
+            
         }
     }
 }

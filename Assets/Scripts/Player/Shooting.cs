@@ -12,6 +12,7 @@ public class AudioClipArray
 public class Shooting : MonoBehaviour
 {
     //Objects
+    [SerializeField] private Animator animator;
     [SerializeField] private Transform firePoint;
     [SerializeField] private Transform[] firePointShotgun;
     [SerializeField] private GameObject bulletPrefab;
@@ -283,6 +284,26 @@ public class Shooting : MonoBehaviour
         }
     }
 
+    /*void ReloadSlider(int weaponID)
+    {
+        float time = reloadTime[weaponID];
+        float timeSlice = time / 100;
+        healthBar.reloadSlider.maxValue = time;
+        while (time > 0)
+        {
+            if (equippedWeaponID == weaponID)
+            {
+                healthBar.SetReloading(true, time);
+                time -= 0;
+            }
+            else
+            {
+                healthBar.SetReloading(false);
+                isReloading[weaponID] = false;
+            }
+        }
+    }*/
+
     IEnumerator WeaponSwitchCooldown()
     {
         canShootGlobal = false;
@@ -296,22 +317,12 @@ public class Shooting : MonoBehaviour
         {
             isReloading[weaponID] = true;
             AudioSource.PlayClipAtPoint(EmptyMagClip, transform.position, 1f);
+            
             float time = reloadTime[weaponID];
-            healthBar.reloadSlider.maxValue = time;
-            while(time > 0)
-            {
-                if(equippedWeaponID == weaponID)
-                {
-                    healthBar.SetReloading(true, time);
-                    time -= Time.deltaTime;
-                }
-                else
-                {
-                    healthBar.SetReloading(false);
-                    isReloading[weaponID] = false;
-                    yield break;
-                }
-            }
+            healthBar.SetReloading(true);
+            animator.speed = 1 / reloadTime[weaponID];
+            animator.Play("Reload", -1, 0);
+            yield return new WaitForSeconds(reloadTime[weaponID]);
 
             //KK: Jestem pewny, ze da sie tego ifa zrobic o wiele lepiej. Nie chce mi sie :)
             if ((currentAmmo[weaponID] + reserveAmmo[weaponID]) > maxAmmo[weaponID])

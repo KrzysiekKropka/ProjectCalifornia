@@ -141,12 +141,11 @@ public class HealthBar : MonoBehaviour
         }
     }
 
-    public void SetReloading(bool isReloading, float time = 0f)
+    public void SetReloading(bool isReloading)
     {
         if (isReloading)
         {
             reloadSlider.gameObject.SetActive(true);
-            reloadSlider.value = time;
         }
         else
         {
