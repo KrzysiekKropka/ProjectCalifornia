@@ -288,6 +288,7 @@ public class Player : MonoBehaviour
     {
         if (experiencePoints < 0) experiencePoints = 0;
         experiencePoints += XP;
+        if (experiencePoints > 10000) experiencePoints = 10000;
         healthBar.SetExperiencePoints(experiencePoints);
         PlayerPrefs.SetInt("experiencePoints", experiencePoints);
     }
@@ -296,6 +297,7 @@ public class Player : MonoBehaviour
     {
         if (money < 0) money = 0;
         money += gotMoney;
+        if (money > 1000000) money = 1000000;
         healthBar.SetMoney(money);
         PlayerPrefs.SetInt("money", money);
     }
