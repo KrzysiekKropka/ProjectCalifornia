@@ -55,7 +55,7 @@ public class AIShooting : MonoBehaviour
         weaponDamage[1] = 12;
         weaponDelay[1] = 0.75f;
         reloadTime[1] = 2f;
-        maxAmmo[1] = 9;
+        maxAmmo[1] = 7;
         bulletSpread[1] = 1f;
 
         weaponName[2] = "MP5";
