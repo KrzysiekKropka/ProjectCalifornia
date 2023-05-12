@@ -18,6 +18,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] private GameObject shootPrefab;
     [SerializeField] private ShopManager shopManager;
     [SerializeField] private HealthBar healthBar;
+    [SerializeField] private InventoryButtonInfo[] inventoryButtonInfos;
     [SerializeField] private Sprite PlayerPistol, PlayerRifle;
     [SerializeField] private AudioClip EmptyMagClip, EmptyEverythingClip, AmmoDropClip;
     private SpriteRenderer spriteRenderer;
@@ -323,6 +324,7 @@ public class Shooting : MonoBehaviour
 
             isReloading[weaponID] = false;
             healthBar.SetReloading(false);
+            if(inventoryButtonInfos[weaponID] != null) inventoryButtonInfos[weaponID].AssignOwnership();
             AudioSource.PlayClipAtPoint(AmmoDropClip, transform.position, 1f);
             healthBar.SetAmmo(currentAmmo[weaponID], reserveAmmo[weaponID]);
         }

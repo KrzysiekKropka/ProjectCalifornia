@@ -9,7 +9,6 @@ public class InventoryButtonInfo : MonoBehaviour
     [SerializeField] TMP_Text infoText;
     [SerializeField] TMP_Text reloadText;
     Button button;
-    bool isOwned;
     public int itemID;
 
     void Awake()
@@ -26,18 +25,17 @@ public class InventoryButtonInfo : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("itemQuantity" + itemID) == 1)
         {
-            isOwned = true;
+            infoText.text = player.GetComponent<Shooting>().currentAmmo[itemID] + "/" + player.GetComponent<Shooting>().reserveAmmo[itemID];
             button.interactable = true;
         }
         else
         {
             infoText.text = "Not owned!";
-            isOwned = false;
             button.interactable = false;
         }
     }
 
-    void LateUpdate()
+    /*void LateUpdate()
     {
         if (isOwned)
         {
@@ -51,5 +49,5 @@ public class InventoryButtonInfo : MonoBehaviour
                 reloadText.text = "";
             }
         }
-    }
+    }*/
 }
