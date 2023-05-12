@@ -153,6 +153,7 @@ public class AIBrain : MonoBehaviour
             reactionCoroutine = ReactionTime(onlySpeaker);
             StartCoroutine(reactionCoroutine);
         }
+        forgetPlayerTimer = forgetPlayer;
         stopFollowCoroutine = StopFollowing();
         StartCoroutine(stopFollowCoroutine);
     }
@@ -229,7 +230,6 @@ public class AIBrain : MonoBehaviour
         reacting = true;
         yield return new WaitForSeconds(reactionTime);
         reacting = false;
-        forgetPlayerTimer = forgetPlayer;
         if (!isDreamy && onlySpeaker) healthBar.Dialogue(FoundPlayerDialogue[Random.Range(0, FoundPlayerDialogue.Length)]);
         else if (isDreamy) AudioSource.PlayClipAtPoint(DreamyFind, transform.position);
         seekingActivated = false;
