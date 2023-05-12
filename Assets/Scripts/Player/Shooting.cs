@@ -303,8 +303,7 @@ public class Shooting : MonoBehaviour
                 if(equippedWeaponID == weaponID)
                 {
                     healthBar.SetReloading(true, time);
-                    time -= 0.01f;
-                    yield return new WaitForSeconds(0.01f);
+                    time -= Time.deltaTime;
                 }
                 else
                 {
