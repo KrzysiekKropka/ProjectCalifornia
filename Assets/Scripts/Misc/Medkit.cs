@@ -22,10 +22,4 @@ public class Medkit : MonoBehaviour
             if(collision.GetComponent<Player>().AddHP(hp) == true) Destroy(gameObject);
         }
     }
-
-    void Update()
-    {
-        rotationZ += Time.deltaTime * rotationSpeed;
-        rb.rotation = rotationZ;
-    }
 }

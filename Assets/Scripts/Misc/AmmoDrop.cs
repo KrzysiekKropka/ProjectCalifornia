@@ -23,10 +23,4 @@ public class AmmoDrop : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    void Update()
-    {
-        rotationZ += Time.deltaTime * rotationSpeed;
-        rb.rotation = rotationZ;
-    }
 }

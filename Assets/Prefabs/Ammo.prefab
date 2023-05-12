@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5807380369648112597}
   - component: {fileID: 459834036936162111}
   - component: {fileID: 5946265339882316063}
+  - component: {fileID: 9150465721931587836}
   m_Layer: 0
   m_Name: Ammo
   m_TagString: Untagged
@@ -78,6 +79,26 @@ MonoBehaviour:
   AmmoDropClip: {fileID: 8300000, guid: 97a70c086e2475c46a0df11eb6e9636d, type: 3}
   infoText: {fileID: 5121407708994177827}
   rb: {fileID: 8301694961800617955}
+--- !u!95 &9150465721931587836
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2989067539229740685}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c12966d9194ecc346b25e71a05d92215, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &4380406230366984524
 GameObject:
   m_ObjectHideFlags: 0

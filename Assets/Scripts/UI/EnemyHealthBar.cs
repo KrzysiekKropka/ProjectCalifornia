@@ -65,7 +65,7 @@ public class EnemyHealthBar : MonoBehaviour
 
     private IEnumerator DialogueInterval()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         dialogueText.gameObject.SetActive(false);
     }
 }

@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 6050193325548479053}
   - component: {fileID: 4604943637465498256}
   - component: {fileID: 154475330750521736}
+  - component: {fileID: 7400096362389624504}
   m_Layer: 0
   m_Name: Medkit
   m_TagString: Untagged
@@ -315,6 +316,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
   m_EdgeRadius: 0
+--- !u!95 &7400096362389624504
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4214963647153061173}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 022c84e10b780874db2f8325341d94f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &8024573606018505827
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,10 +24,4 @@ public class MoneyDrop : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    void Update()
-    {
-        rotationZ += Time.deltaTime * rotationSpeed;
-        rb.rotation = rotationZ;
-    }
 }
