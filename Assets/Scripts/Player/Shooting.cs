@@ -90,7 +90,7 @@ public class Shooting : MonoBehaviour
         weaponDelay[4] = 0.125f;
         reloadTime[4] = 2.5f;
         maxAmmo[4] = 40;
-        bulletSpread[4] = 4.5f;
+        bulletSpread[4] = 3f;
         runningBulletSpread[4] = 45f;
 
         for (int i = 0; i < 5; i++)
