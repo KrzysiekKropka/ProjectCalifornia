@@ -23,7 +23,7 @@ SpriteAtlas:
     platformSettings:
     - serializedVersion: 3
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 2048
+      m_MaxTextureSize: 512
       m_ResizeAlgorithm: 0
       m_TextureFormat: 4
       m_TextureCompression: 1
@@ -38,35 +38,59 @@ SpriteAtlas:
       padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
-      enableRotation: 1
-      enableTightPacking: 1
+      enableRotation: 0
+      enableTightPacking: 0
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 77f1c728e0d75e3419b8d8cc8b4e4884, type: 3}
-    - {fileID: 2800000, guid: adf3b3e159c570246ac0ea4679d5c4fe, type: 3}
-    - {fileID: 2800000, guid: 9eae1527089c12c4298e621b3a6fb579, type: 3}
-    - {fileID: 2800000, guid: f60f39fff5513d94da6e621c587f0d04, type: 3}
-    - {fileID: 2800000, guid: 4adeb2333bce2f84195e721b81f701fa, type: 3}
-    - {fileID: 2800000, guid: 17ccc32b0833fd34792eccc2c8c3c861, type: 3}
+    - {fileID: 102900000, guid: 2e67ab0c0e6b087498db648456c1b3a1, type: 3}
+    - {fileID: 2800000, guid: 2339f558afbdaa74b9b5ecd0acc3586e, type: 3}
+    - {fileID: 2800000, guid: c3bdf69888f81414eaa968f1b0052a85, type: 3}
+    - {fileID: 2800000, guid: 3b122a4c0a5479942929fafa5ed05f5c, type: 3}
+    - {fileID: 2800000, guid: 875e77a47adb5bc4090de722aa3806ce, type: 3}
+    - {fileID: 2800000, guid: 20516a941f34b0647b6ef112483cd7d7, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 3cbfb3303f419d946897a195673be16c, type: 3}
+  - {fileID: 21300000, guid: 7809ce216002a4747a7a96f8c2c9ad1a, type: 3}
   - {fileID: 21300000, guid: adf3b3e159c570246ac0ea4679d5c4fe, type: 3}
+  - {fileID: 21300000, guid: 73d4a51222216eb418d2928ee4bd0d3c, type: 3}
+  - {fileID: 21300000, guid: a8db7a127fd44f442b36300ed57983e4, type: 3}
+  - {fileID: 21300000, guid: 59de0e62a7418bf41a28755d8bbfac7a, type: 3}
   - {fileID: 21300000, guid: 4adeb2333bce2f84195e721b81f701fa, type: 3}
+  - {fileID: 21300000, guid: 20516a941f34b0647b6ef112483cd7d7, type: 3}
+  - {fileID: 21300000, guid: 875e77a47adb5bc4090de722aa3806ce, type: 3}
   - {fileID: 21300000, guid: 9eae1527089c12c4298e621b3a6fb579, type: 3}
+  - {fileID: 21300000, guid: 989d0037497b9e94e905d596accb5f59, type: 3}
   - {fileID: 21300000, guid: 77f1c728e0d75e3419b8d8cc8b4e4884, type: 3}
+  - {fileID: 21300000, guid: 2339f558afbdaa74b9b5ecd0acc3586e, type: 3}
+  - {fileID: 21300000, guid: c3bdf69888f81414eaa968f1b0052a85, type: 3}
+  - {fileID: 21300000, guid: 7bdd8d6abec233344b49ae87c1bcf9a2, type: 3}
   - {fileID: 21300000, guid: 17ccc32b0833fd34792eccc2c8c3c861, type: 3}
+  - {fileID: 21300000, guid: 3b122a4c0a5479942929fafa5ed05f5c, type: 3}
   - {fileID: 21300000, guid: f60f39fff5513d94da6e621c587f0d04, type: 3}
   m_PackedSpriteNamesToIndex:
+  - 9mm
+  - Bar
   - ButtonArena
+  - CrosshairRed
+  - CrosshairYellow
+  - EnemyHealthBorder
   - exp
+  - ak47
+  - shotgun
   - ButtonSquare
+  - StaminaBar
   - Button
+  - deagle
+  - mp5
+  - Heart
   - dollar
+  - pistol
   - Checkmark
   m_RenderDataMap: {}
   m_Tag: UI
