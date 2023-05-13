@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    //Objects
+    [SerializeField] private Camera camera;
+
     //Transform
     [SerializeField] private Transform player;
 
@@ -18,7 +21,7 @@ public class CameraFollow : MonoBehaviour
     void LateUpdate()
     {
         mousePos = Input.mousePosition * maxScreenPoint + new Vector3(Screen.width, Screen.height, 0f) * ((1f - maxScreenPoint) * 0.5f);
-        targetPosition = (player.position + Camera.main.ScreenToWorldPoint(mousePos)) / 2f + offset;
+        targetPosition = (player.position + camera.ScreenToWorldPoint(mousePos)) / 2f + offset;
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 }

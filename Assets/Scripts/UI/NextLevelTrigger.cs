@@ -7,6 +7,7 @@ public class NextLevelTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<Player>().TriggerNextLevel();
+            Destroy(transform.root.gameObject);
         }
     }
 }

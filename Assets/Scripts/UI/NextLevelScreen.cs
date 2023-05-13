@@ -11,6 +11,8 @@ public class NextLevelScreen : MonoBehaviour
     [SerializeField] TMP_Text generalText;
     [SerializeField] Slider slider;
 
+    private IEnumerator countdownCoroutine;
+
     public static bool isActive = false;
 
     public void StartCountdown()
@@ -18,7 +20,9 @@ public class NextLevelScreen : MonoBehaviour
         isActive = true;
         gameObject.SetActive(true);
         GameObject.FindWithTag("LevelUnlocker").GetComponent<LevelUnlocker>().UnlockLevels();
-        StartCoroutine(Countdown());
+        if (countdownCoroutine != null) StopCoroutine(countdownCoroutine);
+        countdownCoroutine = Countdown();
+        StartCoroutine(countdownCoroutine);
     }
 
     IEnumerator Countdown()
@@ -34,13 +38,23 @@ public class NextLevelScreen : MonoBehaviour
         }
         nextLevelCountdownText.text = "Starting the next level in " + currCountdownValue + " seconds!";
         slider.value = currCountdownValue;
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         yield return new WaitForSeconds(1);
         isActive = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    IEnumerator LoadYourAsyncScene()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }
