@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: ae00216dea93f724591ebc07ce8360f5, type: 3}
     - target: {fileID: 5891919148703806736, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: speed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5891919148703806736, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: dropHP
