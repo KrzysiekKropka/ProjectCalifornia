@@ -45,9 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawners: []
-  minLvl: 0
-  maxLvl: 0
-  maxLvlOverall: 4
-  maxEnemies: 10
   EnemyPrefab: {fileID: 6810274436053365145, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
-  DreamyPrefab: {fileID: 2186377959770579728, guid: 06cc03af07ef0ac468c0bb52d1f2c743, type: 3}
+  DreamyPrefab: {fileID: 2132228781268512963, guid: e2851d9816382f946a8b59452f6dacaa, type: 3}

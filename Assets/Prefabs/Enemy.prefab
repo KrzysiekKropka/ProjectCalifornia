@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
-  radius: 1
+  radius: 1.35
   height: 2
   canMove: 1
   maxSpeed: 5
@@ -216,7 +216,7 @@ MonoBehaviour:
   slowdownDistance: 6
   pickNextWaypointDist: 2
   endReachedDistance: 4
-  alwaysDrawGizmos: 1
+  alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 0
   whenCloseToDestination: 0
   constrainInsideGraph: 0
