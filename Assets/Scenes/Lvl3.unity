@@ -292,6 +292,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1356018328974537802, guid: e2851d9816382f946a8b59452f6dacaa, type: 3}
+      propertyPath: maxHealth
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 2132228781268512963, guid: e2851d9816382f946a8b59452f6dacaa, type: 3}
       propertyPath: m_Name
       value: Dreamy
@@ -318,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6936498670315273825, guid: e2851d9816382f946a8b59452f6dacaa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -86.25
+      value: -86
       objectReference: {fileID: 0}
     - target: {fileID: 6936498670315273825, guid: e2851d9816382f946a8b59452f6dacaa, type: 3}
       propertyPath: m_LocalPosition.y
