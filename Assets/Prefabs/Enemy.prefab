@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 4914727876095307337}
   - component: {fileID: 8058466330421404766}
   - component: {fileID: 2495327491922491930}
-  - component: {fileID: 7482526537605593929}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -125,6 +124,7 @@ MonoBehaviour:
   speed: 8
   isStatic: 0
   playerDetected: 0
+  rotationSpeed: 0.1
   lockedRotationSpeed: 0.4
   dropXP: 15
   dropMoney: 100
@@ -286,26 +286,6 @@ MonoBehaviour:
   obstructionLayer:
     serializedVersion: 2
     m_Bits: 8
---- !u!95 &7482526537605593929
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5001969082769403738}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 94182a59bc905f0458342c1359d9d818, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &6616441681885582288
 GameObject:
   m_ObjectHideFlags: 0
