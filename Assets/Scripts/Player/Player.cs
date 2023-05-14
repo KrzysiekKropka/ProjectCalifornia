@@ -39,14 +39,14 @@ public class Player : MonoBehaviour
 
     //Stamina Related
     private bool inStaminaCooldown;
-    private float staminaCooldown = 1f;
+    private float staminaCooldown = 1.5f;
     private float maxStamina = 60f;
     private float remainingStamina;
 
     //Dashing Related
     private bool inDashingCooldown;
-    private float dashingSpeed = 24f;
-    private float dashingTime = 0.1f;
+    private float dashingSpeed = 40f;
+    private float dashingTime = 0.075f;
     private float dashingTimer;
     private float dashingCooldown = 0.25f;
     private float invincibiltyTimer = 0.375f;
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
 
     //Movement Related
     private float speed = 10f;
-    private float sprintingSpeed = 12.5f;
+    private float sprintingSpeed = 15f;
 
     //Health
     private int maxHealth = 100;

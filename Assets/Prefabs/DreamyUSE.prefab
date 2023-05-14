@@ -68,18 +68,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3503180920176394681, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 414322158379531731, guid: 06cc03af07ef0ac468c0bb52d1f2c743, type: 3}
-    - target: {fileID: 3503180920176394681, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 2476184855881321991, guid: 06cc03af07ef0ac468c0bb52d1f2c743, type: 3}
-    - target: {fileID: 3503180920176394681, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 8318804876004390431, guid: 06cc03af07ef0ac468c0bb52d1f2c743, type: 3}
-    - target: {fileID: 3503180920176394681, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: customAmmo
       value: 50
       objectReference: {fileID: 0}
@@ -141,7 +129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6810274436053365145, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
       propertyPath: m_Name
-      value: Dreamy 1
+      value: DreamyUSE
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f73d46feb27e5464594babe4b7eb4d24, type: 3}
