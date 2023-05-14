@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3487306417045943312}
   - component: {fileID: 7438714657207902337}
   - component: {fileID: 5010053996098512391}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,6 +157,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &5010053996098512391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7707462958907114220}
   - component: {fileID: 3026821934680322347}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DamagePopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +234,7 @@ GameObject:
   - component: {fileID: 4123111681004400936}
   - component: {fileID: 6358138015169334312}
   - component: {fileID: 8913302732581423475}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2981529482050825005}
   - component: {fileID: 1125445554279724890}
   - component: {fileID: 6991065636385450281}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,6 +346,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4380406230366984524
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +465,7 @@ GameObject:
   - component: {fileID: 5614611122950463520}
   - component: {fileID: 5055685760239851179}
   - component: {fileID: 4485131450442612429}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MoneyCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
