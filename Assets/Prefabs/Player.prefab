@@ -1926,10 +1926,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crosshair
       objectReference: {fileID: 0}
-    - target: {fileID: 3298942346218742385, guid: 97add93c537d47843bd648354a8ea967, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3379842364413662866, guid: 97add93c537d47843bd648354a8ea967, type: 3}
       propertyPath: m_Layer
       value: 5
