@@ -121,8 +121,9 @@ MonoBehaviour:
   DreamyDeath: {fileID: 8300000, guid: 5958a07866e649848baaf7f28917ad37, type: 3}
   customHP: 0
   maxHealth: 100
-  speed: 9
+  speed: 10
   isStatic: 0
+  neverForget: 0
   playerDetected: 0
   rotationSpeed: 0.1
   lockedRotationSpeed: 0.4

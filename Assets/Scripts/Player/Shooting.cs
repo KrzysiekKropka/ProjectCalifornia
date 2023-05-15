@@ -255,11 +255,12 @@ public class Shooting : MonoBehaviour
 
                 for (int i=0; i< firePointShotgun.Length; i++)
                 {
+                    int damageShotgun = Random.Range(weaponDamage[equippedWeaponID] - 5, weaponDamage[equippedWeaponID] + 3);
                     bullets[i] = Instantiate(bulletPrefab, firePointShotgun[i].position, Quaternion.Euler(firePointShotgun[i].rotation.eulerAngles + spread));
                     Bullet bulletsScript = bullets[i].GetComponent<Bullet>();
                     bulletsScript.weaponID = null;
                     bulletsScript.playerIsOwner = true;
-                    bulletsScript.bulletDamage = damage;
+                    bulletsScript.bulletDamage = damageShotgun;
                     rbs[i] = bullets[i].GetComponent<Rigidbody2D>();
                     rbs[i].AddForce(bullets[i].transform.up * bulletForce, ForceMode2D.Impulse);
                     Destroy(bullets[i], 10);

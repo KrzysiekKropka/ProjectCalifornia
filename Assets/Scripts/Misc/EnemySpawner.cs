@@ -141,19 +141,19 @@ public class EnemySpawner : MonoBehaviour
                 int randomSpawner = Random.Range(0, enemySpawners.Length);
                 int randomChance = Random.Range(0, 40);
 
+                GameObject enemy;
+
                 if (randomChance == 39 && dreamySpawn)
                 {
-                    GameObject enemy = Instantiate(DreamyPrefab, enemySpawners[randomSpawner].position, Quaternion.identity);
-                    enemy.transform.GetChild(0).rotation = enemySpawners[randomSpawner].rotation;
-                    enemy.transform.GetChild(0).GetComponent<AIBrain>().PlayerInterrupts();
+                    enemy = Instantiate(DreamyPrefab, enemySpawners[randomSpawner].position, Quaternion.identity);
                 }
                 else
                 {
-                    GameObject enemy = Instantiate(EnemyPrefab, enemySpawners[randomSpawner].position, Quaternion.identity);
-                    enemy.transform.GetChild(0).rotation = enemySpawners[randomSpawner].rotation;
+                    enemy = Instantiate(EnemyPrefab, enemySpawners[randomSpawner].position, Quaternion.identity);
                     enemy.GetComponent<AIShooting>().equippedWeaponID = randomWeapon;
-                    enemy.transform.GetChild(0).GetComponent<AIBrain>().PlayerInterrupts();
                 }
+                enemy.transform.GetChild(0).GetComponent<AIBrain>().neverForget = true;
+                enemy.transform.GetChild(0).GetComponent<AIBrain>().PlayerInterrupts();
             }
             yield return new WaitForSeconds(spawnInterval);
         }

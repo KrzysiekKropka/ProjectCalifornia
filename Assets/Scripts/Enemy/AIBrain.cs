@@ -43,6 +43,7 @@ public class AIBrain : MonoBehaviour
     public bool isStatic = false;
 
     //Player detection related
+    public bool neverForget = false;
     public bool playerDetected = false;
     private bool playerWasDetected = false;
     private bool seekingActivated;
@@ -153,9 +154,12 @@ public class AIBrain : MonoBehaviour
             reactionCoroutine = ReactionTime(onlySpeaker);
             StartCoroutine(reactionCoroutine);
         }
-        forgetPlayerTimer = forgetPlayer;
-        stopFollowCoroutine = StopFollowing();
-        StartCoroutine(stopFollowCoroutine);
+        if(!neverForget)
+        {
+            forgetPlayerTimer = forgetPlayer;
+            stopFollowCoroutine = StopFollowing();
+            StartCoroutine(stopFollowCoroutine);
+        }
     }
 
     public void ChangeAimLock(bool aimedAtPlayer = false)
@@ -206,7 +210,7 @@ public class AIBrain : MonoBehaviour
                 {
                     player.SetXP(dropXP);
                     player.AddKill();
-                    if (isDreamy) AudioSource.PlayClipAtPoint(DreamyDeath, transform.position);
+                    if (isDreamy) AudioSource.PlayClipAtPoint(DreamyDeath, transform.position, 2f);
                 }
                 Instantiate(bloodPoolEffect, transform.position, Quaternion.identity);
                 GameObject droppedMoney = Instantiate(moneyDropPrefab, transform.position + new Vector3(-0.75f, -0.75f, 0f), Quaternion.identity);
@@ -231,7 +235,7 @@ public class AIBrain : MonoBehaviour
         yield return new WaitForSeconds(reactionTime);
         reacting = false;
         if (!isDreamy && onlySpeaker) healthBar.Dialogue(FoundPlayerDialogue[Random.Range(0, FoundPlayerDialogue.Length)]);
-        else if (isDreamy) AudioSource.PlayClipAtPoint(DreamyFind, transform.position);
+        else if (isDreamy) AudioSource.PlayClipAtPoint(DreamyFind, transform.position, 2f);
         seekingActivated = false;
         playerDetected = true;
         playerWasDetected = true;
@@ -243,7 +247,7 @@ public class AIBrain : MonoBehaviour
         playerDetected = false;
         ChangeAimLock(false);
         if (!isDreamy) healthBar.Dialogue(SeekPlayerDialogue[Random.Range(0, SeekPlayerDialogue.Length)]);
-        else AudioSource.PlayClipAtPoint(DreamySeek, transform.position);
+        else AudioSource.PlayClipAtPoint(DreamySeek, transform.position, 2f);
         if (seekPlayerCoroutine != null) StopCoroutine(seekPlayerCoroutine);
         seekPlayerCoroutine = SeekingPlayer();
         StartCoroutine(seekPlayerCoroutine);
