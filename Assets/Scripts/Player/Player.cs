@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
         if (isSprinting && remainingStamina > 0)
         {
             rb.velocity = new Vector2(moveDirection.x * sprintingSpeed, moveDirection.y * sprintingSpeed);
-            if (!isDashing) remainingStamina -= 1f * Time.deltaTime;
+            if (!isDashing) remainingStamina -= 1f * Time.fixedDeltaTime;
             if (remainingStamina <= 0) StartCoroutine(SprintCooldown());
         }
         else

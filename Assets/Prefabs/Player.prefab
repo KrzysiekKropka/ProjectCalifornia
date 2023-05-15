@@ -1884,6 +1884,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 3537232578249497132, guid: ff13a437240001d4b8a9097097794745, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4091086257090872413, guid: ff13a437240001d4b8a9097097794745, type: 3}
       propertyPath: player
       value: 
