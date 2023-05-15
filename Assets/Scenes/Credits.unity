@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 273432755}
   - component: {fileID: 273432754}
   - component: {fileID: 273432753}
-  - component: {fileID: 273432752}
   - component: {fileID: 273432758}
   - component: {fileID: 273432757}
   m_Layer: 5
@@ -145,18 +144,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &273432752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273432751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6663e684b57cc404797bebcc52a95f1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &273432753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1070,6 +1057,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1529248765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1157,6 +1145,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!81 &1725999487
 AudioListener:
   m_ObjectHideFlags: 0
