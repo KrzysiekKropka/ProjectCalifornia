@@ -10,6 +10,7 @@ public class MainMenuScript : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         Application.targetFrameRate = Screen.currentResolution.refreshRate;
 
         if (PlayerPrefs.HasKey("VolumeValue")) AudioListener.volume = PlayerPrefs.GetFloat("VolumeValue");

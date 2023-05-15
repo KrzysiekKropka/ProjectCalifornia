@@ -6,6 +6,11 @@ public class Credits : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip brandonPhoneCall;
 
+    void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
     public void EndCredits()
     {
         SceneManager.LoadScene("Menu");
