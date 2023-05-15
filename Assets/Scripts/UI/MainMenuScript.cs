@@ -10,6 +10,7 @@ public class MainMenuScript : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = true;
         Time.timeScale = 1f;
         Application.targetFrameRate = Screen.currentResolution.refreshRate;
 

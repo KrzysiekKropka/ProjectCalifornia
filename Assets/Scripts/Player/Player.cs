@@ -76,6 +76,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
+
         NextLevelScreen.isActive = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
         trailRenderer = GetComponent<TrailRenderer>();

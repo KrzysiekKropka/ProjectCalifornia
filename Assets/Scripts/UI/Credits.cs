@@ -8,6 +8,7 @@ public class Credits : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = true;
         Time.timeScale = 1f;
     }
 

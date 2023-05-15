@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 23353
+  controlID: 23845
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 23354
+  controlID: 23846
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 23355
+  controlID: 23847
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,8 +226,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6cae0100
-      m_LastClickedID: 110188
+      m_SelectedIDs: 800b0000
+      m_LastClickedID: 0
       m_ExpandedIDs: dab7fbffc4b9fbff62bafbff86bcfbff96bcfbff4ec2fbff26dbfbff72f5fbffc012fcff8220fcffba21fcff8c4ffcff5651fcfff451fcff1654fcff2454fcffa059fcff8a70fcff8688fcff4ca3fcff1eb0fcff34b1fcffe0c3fdffacc4fdffbac4fdffc4c4fdff3ecafdff28e1fdff24f9fdffea13feff8420feff9a21feff9c32ffff5633ffff7635ffff8435ffff003bffffea51ffffe669ffffac84ffff7e91ffff9492ffff5ceeffff2cfbffffec690000fc560100865801002e5a01006ea0010050ae01006cae0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -978,21 +978,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/UI
+    - Assets/Scripts/Player
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/UI
+  - Assets/Scripts/Player
   m_LastFoldersGridSize: -1
   m_LastProjectPath: B:\Inne\Documents\GitHub\ProjectCalifornia
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 3.7999268}
-    m_SelectedIDs: 947f0000
-    m_LastClickedID: 32660
+    m_SelectedIDs: 927f0000
+    m_LastClickedID: 32658
     m_ExpandedIDs: 000000004a7f0000587f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1046,8 +1046,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 6cae0100
-    m_LastClickedInstanceID: 110188
+    m_SelectedInstanceIDs: 800b0000
+    m_LastClickedInstanceID: 2944
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000429100007c9d000094b20000cc7101001e7c000000000000dc760000
     m_RenameOverlay:
