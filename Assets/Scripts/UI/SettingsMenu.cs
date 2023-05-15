@@ -174,9 +174,4 @@ public class SettingsMenu : MonoBehaviour
         if (musicInScene) musicSource.volume = musicVolume;
         PlayerPrefs.SetFloat("MusicVolumeValue", musicVolume);
     }
-
-    public void LoadCredits()
-    {
-        SceneManager.LoadScene("Credits");
-    }
 }

@@ -41,4 +41,9 @@ public class MainMenuScript : MonoBehaviour
     {
         audioSource.PlayOneShot(buttonClickClip);
     }
+
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
 }
