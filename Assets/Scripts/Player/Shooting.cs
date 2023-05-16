@@ -62,10 +62,10 @@ public class Shooting : MonoBehaviour
         runningBulletSpread[0] = 4f;
 
         weaponName[1] = "Deagle";
-        weaponDamage[1] = 30;
+        weaponDamage[1] = 45;
         weaponDelay[1] = 0.375f;
         reloadTime[1] = 1f;
-        maxAmmo[1] = 7;
+        maxAmmo[1] = 8;
         bulletSpread[1] = 0f;
         runningBulletSpread[1] = 0f;
 

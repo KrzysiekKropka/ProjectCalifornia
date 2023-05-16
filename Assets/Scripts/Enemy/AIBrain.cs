@@ -27,7 +27,7 @@ public class AIBrain : MonoBehaviour
 
     private string[] FoundPlayerDialogue = { "Here they are!", "Found them!", "You're going down!", "You're dead!", "You're screwed!", "Enemy spotted!",
                                              "Back by popular demand!", "What's the word,\nBruce?", "Yo yo yo!", "Dude stop!", "Yo, dude stop!", "Hump day!", 
-                                             "Self pleasure does not\nmake you gay!", "I will knock you out!", "You can do\nthe thug shaker?", "Daddy, I'm coming!", "You ain't going anywhere,\nyou thick lump!" };
+                                             "I will knock you out!", "You can do\nthe thug shaker?", "Daddy, I'm coming!", "You ain't going anywhere,\nyou thick lump!" };
 
     //Boss stuff
     public bool isDreamy = false;
